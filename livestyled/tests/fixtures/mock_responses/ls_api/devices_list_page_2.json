@@ -1,0 +1,105 @@
+{
+    "@context": "/v4/contexts/Device",
+    "@id": "/v4/devices",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/v4/devices/2659",
+            "@type": "Device",
+            "id": 2659,
+            "token": "EE76F4D8-BC5A-438D-9F06-9F6873F60960",
+            "consent": {
+                "id": 3248,
+                "locationCapture": false,
+                "locationGranular": null,
+                "camera": false,
+                "calendar": false,
+                "photoSharing": false,
+                "pushNotification": true,
+                "createdAt": "2019-10-07T15:43:18+00:00",
+                "updatedAt": "2019-10-07T15:43:18+00:00"
+            },
+            "pushConsents": [
+                {
+                    "id": 13021,
+                    "consent": true,
+                    "pushConsent": "/v4/push_consents/1"
+                },
+                {
+                    "id": 13022,
+                    "consent": true,
+                    "pushConsent": "/v4/push_consents/3"
+                },
+                {
+                    "id": 13023,
+                    "consent": true,
+                    "pushConsent": "/v4/push_consents/5"
+                },
+                {
+                    "id": 13024,
+                    "consent": true,
+                    "pushConsent": "/v4/push_consents/8"
+                },
+                {
+                    "id": 13025,
+                    "consent": true,
+                    "pushConsent": "/v4/push_consents/9"
+                }
+            ],
+            "type": "IOS",
+            "status": "ACTIVE",
+            "appVersion": "8.1",
+            "osVersion": null,
+            "model": "iPhone 5 (GSM+CDMA)",
+            "manufacturer": "Apple",
+            "bluetoothOn": null,
+            "wifiConnected": null,
+            "createdAt": null,
+            "updatedAt": null
+        }
+    ],
+    "hydra:totalItems": 3,
+    "hydra:view": {
+        "@id": "/v4/devices?page=2",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/devices?page=1",
+        "hydra:last": "/v4/devices?page=2"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/v4/devices{?order[id],token,token[],status,status[]}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[id]",
+                "property": "id",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "token",
+                "property": "token",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "token[]",
+                "property": "token",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "status",
+                "property": "status",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "status[]",
+                "property": "status",
+                "required": false
+            }
+        ]
+    }
+}

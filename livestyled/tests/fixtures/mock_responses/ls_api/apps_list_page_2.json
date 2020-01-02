@@ -1,0 +1,95 @@
+{
+    "@context": "/v4/contexts/App",
+    "@id": "/v4/apps",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/v4/apps/44",
+            "@type": "App",
+            "email": null,
+            "roles": [
+                "ROLE_APP"
+            ],
+            "password": "password",
+            "salt": null,
+            "username": "FCT1",
+            "code": "FCT1",
+            "token": "token",
+            "id": 44,
+            "name": "FCT1",
+            "apiKeys": [
+                "api-key"
+            ],
+            "timezone": "Europe/London",
+            "googleApiKey": "google-api-key",
+            "paymentGateway": "PAYMENTGW1",
+            "venues": [],
+            "senderEmail": "support@livestyed.net",
+            "deeplinkNamespace": "deeplink://",
+            "merchantAccounts": [],
+            "title": "F.C Test 1",
+            "status": "ENABLED",
+            "currency": {
+                "id": 1,
+                "title": "Pound",
+                "isoCode": "GBP",
+                "sign": "£",
+                "updatedAt": "2016-08-09T10:49:34+00:00",
+                "createdAt": "2016-08-09T10:49:34+00:00",
+                "__initializer__": null,
+                "__cloner__": null,
+                "__isInitialized__": true
+            },
+            "cohorts": []
+        },
+        {
+            "@id": "/v4/apps/47",
+            "@type": "App",
+            "email": null,
+            "roles": [
+                "ROLE_APP"
+            ],
+            "password": "password",
+            "salt": null,
+            "username": "TARENA3",
+            "code": "TARENA3",
+            "token": "token",
+            "id": 47,
+            "name": "Test Arena 3",
+            "apiKeys": [
+                "api-key"
+            ],
+            "timezone": "Europe/London",
+            "googleApiKey": "google-api-key",
+            "paymentGateway": "PAYMENTGW1",
+            "venues": [],
+            "senderEmail": "noreply@test.com",
+            "deeplinkNamespace": "deeplink://",
+            "merchantAccounts": [
+                "/v4/merchant_accounts/2"
+            ],
+            "title": "SIVLive",
+            "status": "ENABLED",
+            "currency": {
+                "id": 1,
+                "title": "Pound",
+                "isoCode": "GBP",
+                "sign": "£",
+                "updatedAt": "2016-08-09T10:49:34+00:00",
+                "createdAt": "2016-08-09T10:49:34+00:00",
+                "__initializer__": null,
+                "__cloner__": null,
+                "__isInitialized__": true
+            },
+            "cohorts": []
+        }
+    ],
+    "hydra:totalItems": 4,
+    "hydra:view": {
+        "@id": "/v4/apps?page=2",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/apps?page=1",
+        "hydra:last": "/v4/apps?page=2",
+        "hydra:previous": "/v4/apps?page=1"
+    }
+}
