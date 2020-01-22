@@ -1,5 +1,5 @@
 import json
-from typing import Dict, Generator, List
+from typing import Dict, Generator, List, Type
 
 from marshmallow import Schema
 import requests
@@ -76,7 +76,7 @@ class LiveStyledAPIClient:
             endpoint: str,
             data: dict
     ) -> Dict:
-        response = requests.get(
+        response = requests.patch(
             'https://{}/{}'.format(
                 self._api_domain,
                 endpoint,
@@ -92,7 +92,7 @@ class LiveStyledAPIClient:
     def _get_resource(
             self,
             resource_id: int or str,
-            schema: Schema
+            schema: Type[Schema]
     ):
         resource_data = self._api_get(
             '{}/{}'.format(
@@ -105,7 +105,7 @@ class LiveStyledAPIClient:
 
     def _get_resources(
             self,
-            schema: Schema,
+            schema: Type[Schema],
             params: Dict or None = None,
     ) -> Generator[Dict, None, None]:
         data_generator = self._api_get_paginated(
@@ -171,27 +171,29 @@ class LiveStyledAPIClient:
             device_id: str,
             attributes: Dict,
     ) -> Dict:
+        attributes_to_update = list(attributes.keys())
+        update_payload = DeviceSchema(only=attributes_to_update).dump(attributes)
         updated_device = self._api_patch(
             '{}/{}'.format(DeviceSchema.Meta.url, device_id),
-            attributes
+            update_payload
         )
         return DeviceSchema().load(updated_device)
 
-    def get_device_consent(
-            self,
-            consent_id: int or str,
-    ) -> Dict:
-        return self._get_resource(
-            consent_id,
-            DeviceConsentSchema,
-        )
-
-    def get_device_consents(
-            self,
-    ) -> Generator[Dict, None, None]:
-        return self._get_resources(
-            DeviceConsentSchema,
-        )
+    # def get_device_consent(
+    #         self,
+    #         consent_id: int or str,
+    # ) -> Dict:
+    #     return self._get_resource(
+    #         consent_id,
+    #         DeviceConsentSchema,
+    #     )
+    #
+    # def get_device_consents(
+    #         self,
+    # ) -> Generator[Dict, None, None]:
+    #     return self._get_resources(
+    #         DeviceConsentSchema,
+    #     )
 
     def get_device_token(
             self,

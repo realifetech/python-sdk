@@ -6,6 +6,8 @@ from livestyled.schemas.utils import get_id_from_url
 class DeviceTokenSchema(Schema):
     class Meta:
         unknown = EXCLUDE
+        api_type = 'device_tokens'
+        url = 'v4/device_tokens'
 
     id = fields.Int()
     provider = fields.String()

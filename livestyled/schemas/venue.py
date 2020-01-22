@@ -6,6 +6,8 @@ from livestyled.schemas.utils import get_id_from_url
 class VenueSchema(Schema):
     class Meta:
         unknown = EXCLUDE
+        api_type = 'venues'
+        url = 'v4/venues'
 
     id = fields.Int()
     label = fields.String()

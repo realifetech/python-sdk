@@ -6,6 +6,8 @@ from livestyled.schemas.utils import get_id_from_url
 class UserSchema(Schema):
     class Meta:
         unknown = EXCLUDE
+        api_type = 'users'
+        url = 'v4/users'
 
     id = fields.Int()
     customer = fields.Dict()  # TODO

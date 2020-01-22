@@ -6,6 +6,8 @@ from livestyled.schemas.utils import get_id_from_url
 class PushConsentSchema(Schema):
     class Meta:
         unknown = EXCLUDE
+        api_type = 'push_consents'
+        url = 'v4/push_consents'
 
     id = fields.Int()
     type = fields.String()

@@ -98,3 +98,24 @@ def test_client_can_get_list_of_devices(requests_mock, test_client):
 
     devices = test_client.get_devices()
     assert sum(1 for _ in devices) == 3
+
+
+def test_client_can_update_device(requests_mock, test_client):
+    mock_responses = (
+        ('PATCH', 'https://' + TEST_API_DOMAIN + '/v4/devices/12345', 'mock_responses/ls_api/update_device_12345.json', 200),
+    )
+    configure_mock_responses(requests_mock, mock_responses, FIXTURES_DIR, CONTENT_TYPE)
+
+    test_client.update_device(
+        12345,
+        {
+            'app_version': 'new-version',
+            'bluetooth_on': True
+        }
+    )
+
+    for request in requests_mock.request_history:
+        if request.method.upper() == 'PATCH' and request.url == 'https://' + TEST_API_DOMAIN + '/v4/devices/12345':
+            actual_payload = request.json()
+
+            assert actual_payload == {'appVersion': 'new-version', 'bluetoothOn': True}

@@ -6,6 +6,8 @@ from livestyled.schemas.utils import get_id_from_url
 class EventIntegrationSchema(Schema):
     class Meta:
         unknown = EXCLUDE
+        api_type = 'event_integration'
+        url = 'v4/event_integration'
 
     id = fields.Int()
     status = fields.String()
