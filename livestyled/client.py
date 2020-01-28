@@ -6,14 +6,15 @@ import requests
 
 from livestyled.schemas import (
     AppSchema,
-    DeviceConsentSchema,
     DeviceSchema,
     DeviceTokenSchema,
     EventCategorySchema,
     EventIntegrationSchema,
     EventSchema,
     EventStageSchema,
+    NewsSchema,
     PushConsentSchema,
+    TeamSchema,
     UserSchema,
     VenueSchema,
 )
@@ -77,6 +78,24 @@ class LiveStyledAPIClient:
             data: dict
     ) -> Dict:
         response = requests.patch(
+            'https://{}/{}'.format(
+                self._api_domain,
+                endpoint,
+            ),
+            headers={
+                'Content-Type': CONTENT_TYPE,
+                'x-api-key': self._api_key
+            },
+            data=json.dumps(data)
+        )
+        return response.json()
+
+    def _api_post(
+            self,
+            endpoint: str,
+            data: dict
+    ) -> Dict:
+        response = requests.post(
             'https://{}/{}'.format(
                 self._api_domain,
                 endpoint,
@@ -328,3 +347,64 @@ class LiveStyledAPIClient:
             self,
     ) -> Generator[Dict, None, None]:
         return self._get_resources(VenueSchema)
+
+    def get_teams(
+            self,
+            external_id: str or None = None,
+    ) -> Generator[Dict, None, None]:
+        filter_params = {}
+        if external_id:
+            filter_params['external_id'] = external_id
+
+        return self._get_resources(
+            TeamSchema,
+            params=filter_params
+        )
+
+    def update_team(
+            self,
+            team_id: str,
+            attributes: Dict,
+    ) -> Dict:
+        attributes_to_update = list(attributes.keys())
+        update_payload = TeamSchema(only=attributes_to_update).dump(attributes)
+        updated_team = self._api_patch(
+            '{}/{}'.format(TeamSchema.Meta.url, team_id),
+            update_payload
+        )
+        return TeamSchema().load(updated_team)
+
+    def create_team(
+            self,
+            attributes: Dict,
+    ) -> Dict:
+        payload = TeamSchema().dump(attributes)
+        new_team = self._api_post(
+            '{}'.format(TeamSchema.Meta.url),
+            payload
+        )
+        return TeamSchema().load(new_team)
+
+    def get_news(
+            self,
+            external_id: str or None = None,
+    ) -> Generator[Dict, None, None]:
+        filter_params = {}
+        if external_id:
+            filter_params['external_id'] = external_id
+
+        return self._get_resources(
+            NewsSchema,
+            params=filter_params
+        )
+
+    def create_news(
+            self,
+            attributes: Dict,
+    ) -> Dict:
+        payload = NewsSchema().dump(attributes)
+        new_team = self._api_post(
+            '{}'.format(NewsSchema.Meta.url),
+            payload
+        )
+        return NewsSchema().load(new_team)

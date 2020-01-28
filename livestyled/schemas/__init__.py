@@ -6,7 +6,9 @@ from livestyled.schemas.event import EventSchema
 from livestyled.schemas.event_category import EventCategorySchema
 from livestyled.schemas.event_integration import EventIntegrationSchema
 from livestyled.schemas.event_stage import EventStageSchema
+from livestyled.schemas.news import NewsSchema
 from livestyled.schemas.push_consent import PushConsentSchema
+from livestyled.schemas.team import TeamSchema
 from livestyled.schemas.user import UserSchema
 from livestyled.schemas.venue import VenueSchema
 
@@ -19,7 +21,9 @@ __all__ = [
     EventCategorySchema,
     EventIntegrationSchema,
     EventStageSchema,
+    NewsSchema,
     PushConsentSchema,
+    TeamSchema,
     UserSchema,
     VenueSchema,
 ]
