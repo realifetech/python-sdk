@@ -39,5 +39,27 @@ class Device:
     def id(self):
         return self._id
 
+    @classmethod
+    def placeholder(
+            cls,
+            id
+    ):
+        return cls(
+            id=id,
+            token=None,
+            consent=None,
+            push_consents=None,
+            type=None,
+            status=None,
+            app_version=None,
+            os_version=None,
+            model=None,
+            manufacturer=None,
+            bluetooth_on=None,
+            wifi_connected=None,
+            updated_at=None,
+            created_at=None,
+        )
+
     def __repr__(self):
         return '<Device(id={self.id!r})>'.format(self=self)

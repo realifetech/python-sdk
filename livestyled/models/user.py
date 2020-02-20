@@ -1,19 +1,26 @@
+from livestyled.models.device import Device
+
+
 class User:
     def __init__(
             self,
             id: int or None,
             email: str or None,
             auth_type: str or None,
-            first_name: str or None,
-            last_name: str or None,
-            device_id: str or None
+            user_info: dict or None,
+            device_id: str or None = None,
+            password: str or None = None,
     ):
         self.id = id
         self.email = email
         self.auth_type = auth_type
-        self.device_id = device_id
-        self.first_name = first_name
-        self.last_name = last_name
+        self._device = Device.placeholder(id=device_id)
+        if not user_info:
+            user_info = {}
+        self.user_info = user_info
+        self.first_name = user_info.get('first_name')
+        self.last_name = user_info.get('last_name')
+        self.password = password
 
     @classmethod
     def create_new(
@@ -22,16 +29,22 @@ class User:
             auth_type: str,
             first_name: str,
             last_name: str,
-            device_id: str
+            device: str,
+            password: str or None
     ):
-        return User(
+        user = User(
             id=None,
             email=email,
             auth_type=auth_type,
-            first_name=first_name,
-            last_name=last_name,
-            device_id=device_id
+            user_info={
+                'first_name': first_name,
+                'last_name': last_name,
+            },
+            device_id=None,
+            password=password
         )
+        user._device = device
+        return user
 
     @classmethod
     def placeholder(
@@ -42,20 +55,28 @@ class User:
             id=id,
             email=None,
             auth_type=None,
-            first_name=None,
-            last_name=None,
-            device_id=None
+            user_info={},
+            device_id=None,
+            password=None,
         )
 
     def diff(self, other):
         differences = {}
         fields = (
-            'email', 'auth_type', 'first_name', 'last_name'
+            'email', 'auth_type', 'user_info'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
                 differences[field] = getattr(self, field)
         return differences
+
+    @property
+    def device_id(self):
+        return self._device.id
+
+    @property
+    def device(self):
+        return self._device
 
 
 class UserSSO:
@@ -69,7 +90,6 @@ class UserSSO:
             sub
     ):
         self.id = id
-        self.user_id = user_id
         self.access_token = access_token
         self.refresh_token = refresh_token
         self.expires = expires
@@ -94,6 +114,7 @@ class UserSSO:
             sub=sub
         )
         user_sso._user = user
+        return user_sso
 
     def diff(self, other):
         differences = {}
@@ -104,3 +125,7 @@ class UserSSO:
             if getattr(self, field) != getattr(other, field):
                 differences[field] = getattr(self, field)
         return differences
+
+    @property
+    def user_id(self):
+        return self._user.id
