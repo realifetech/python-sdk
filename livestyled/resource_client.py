@@ -116,7 +116,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             attributes: Dict
     ) -> Team:
         return self._update_resource(TeamSchema, team.id, attributes)
-    
+
     # ---- FIXTURES
 
     def get_fixtures(
