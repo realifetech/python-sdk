@@ -16,10 +16,10 @@ from livestyled.schemas import (
     PushConsentSchema,
     TeamSchema,
     UserSchema,
-    VenueSchema,
 )
 
 CONTENT_TYPE = 'application/ld+json'
+PATCH_CONTENT_TYPE = 'application/merge-patch+json'
 
 
 class LiveStyledAPIClient:
@@ -49,6 +49,7 @@ class LiveStyledAPIClient:
                 'x-api-key': self._api_key
             }
         )
+        response.raise_for_status()
         return response.json()
 
     def _api_get_paginated(
@@ -61,9 +62,12 @@ class LiveStyledAPIClient:
         else:
             response = self._api_get(endpoint)
         resources = response['hydra:member']
-        next_page_url = response['hydra:view'].get('hydra:next', False)
         for resource in resources:
             yield resource
+        next_page_links = response.get('hydra:view', None)
+        if not next_page_links:
+            return
+        next_page_url = next_page_links.get('hydra:next', False)
         while next_page_url:
             next_page_url = next_page_url.replace('//', '/').lstrip('/')
             response = self._api_get(next_page_url)
@@ -83,11 +87,12 @@ class LiveStyledAPIClient:
                 endpoint,
             ),
             headers={
-                'Content-Type': CONTENT_TYPE,
+                'Content-Type': PATCH_CONTENT_TYPE,
                 'x-api-key': self._api_key
             },
             data=json.dumps(data)
         )
+        response.raise_for_status()
         return response.json()
 
     def _api_post(
@@ -106,6 +111,7 @@ class LiveStyledAPIClient:
             },
             data=json.dumps(data)
         )
+        response.raise_for_status()
         return response.json()
 
     def _get_resource(
@@ -334,27 +340,13 @@ class LiveStyledAPIClient:
     ) -> Generator[Dict, None, None]:
         return self._get_resources(UserSchema)
 
-    def get_venue(
-            self,
-            venue_id: int or str,
-    ) -> Dict:
-        return self._get_resource(
-            venue_id,
-            VenueSchema,
-        )
-
-    def get_venues(
-            self,
-    ) -> Generator[Dict, None, None]:
-        return self._get_resources(VenueSchema)
-
     def get_teams(
             self,
             external_id: str or None = None,
     ) -> Generator[Dict, None, None]:
         filter_params = {}
         if external_id:
-            filter_params['external_id'] = external_id
+            filter_params['externalId'] = external_id
 
         return self._get_resources(
             TeamSchema,
@@ -391,7 +383,7 @@ class LiveStyledAPIClient:
     ) -> Generator[Dict, None, None]:
         filter_params = {}
         if external_id:
-            filter_params['external_id'] = external_id
+            filter_params['externalId'] = external_id
 
         return self._get_resources(
             NewsSchema,

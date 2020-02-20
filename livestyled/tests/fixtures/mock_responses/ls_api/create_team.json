@@ -1,0 +1,12 @@
+{
+    "@context": "/v4/contexts/Team",
+    "@id": "/v4/teams/999",
+    "@type": "Team",
+    "id": 999,
+    "name": "Test Team",
+    "shortName": "TT",
+    "lightCrestUrl": "http://www.images.com/image1.jpg",
+    "darkCrestUrl": "http://www.images.com/image2.jpg",
+    "createdAt": "2018-08-15T13:01:32+00:00",
+    "updatedAt": "2019-03-26T16:49:49+00:00"
+}

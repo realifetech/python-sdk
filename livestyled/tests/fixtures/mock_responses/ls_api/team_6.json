@@ -1,0 +1,12 @@
+{
+    "@context": "/v4/contexts/Team",
+    "@id": "/v4/teams/6",
+    "@type": "Team",
+    "id": 6,
+    "name": "LiveStyled",
+    "shortName": "LS",
+    "lightCrestUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/team/Logo_White_nontext.png",
+    "darkCrestUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/team/Logo_Purple_notext.png",
+    "createdAt": "2018-08-15T13:01:32+00:00",
+    "updatedAt": "2019-03-26T16:49:49+00:00"
+}

@@ -17,7 +17,6 @@ def test_deserialize_device():
     serialized_data = json.loads(open(os.path.join(FIXTURES_DIR, 'device_6.json'), 'r').read())
     deserialized_data = schemas.DeviceSchema().load(serialized_data)
     assert deserialized_data
-    print(deserialized_data)
     assert deserialized_data['id'] == 6
     assert deserialized_data['token'] == '002332C86002'
     assert deserialized_data['consent'] == {

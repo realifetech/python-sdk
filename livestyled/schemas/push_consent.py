@@ -1,6 +1,6 @@
 from marshmallow import EXCLUDE, fields, Schema
 
-from livestyled.schemas.utils import get_id_from_url
+from livestyled.models.push_consent import PushConsent
 
 
 class PushConsentSchema(Schema):
@@ -8,6 +8,7 @@ class PushConsentSchema(Schema):
         unknown = EXCLUDE
         api_type = 'push_consents'
         url = 'v4/push_consents'
+        model = PushConsent
 
     id = fields.Int()
     type = fields.String()
@@ -16,5 +17,4 @@ class PushConsentSchema(Schema):
     sort_id = fields.Int(data_key='sortId')
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True)
-    app = fields.Function(get_id_from_url)
-    translations = fields.Dict()  # TODO
+    translations = fields.Raw()

@@ -1,0 +1,36 @@
+{
+    "@context": "/v4/contexts/Fixture",
+    "@id": "/v4/fixtures/198",
+    "@type": "Fixture",
+    "id": 198,
+    "allowOverwrite": false,
+    "status": "active",
+    "startAt": "2020-08-28T09:46:02+00:00",
+    "isFullTime": false,
+    "isTerminated": false,
+    "url": {
+        "title": "Tickets available via the app will displayed at least 48hours prior to the match. Check my account for order history",
+        "url": "http://www.google.com",
+        "is_enabled": true
+    },
+    "ticketUrl": {
+        "title": null,
+        "url": null,
+        "is_enabled": false
+    },
+    "createdAt": "2018-10-01T09:46:27+00:00",
+    "updatedAt": "2019-11-13T15:31:10+00:00",
+    "home": "/v4/teams/6",
+    "away": "/v4/teams/61",
+    "homeScore": {
+        "goals": 1,
+        "penalties": null
+    },
+    "awayScore": {
+        "goals": 1,
+        "penalties": null
+    },
+    "season": "/v4/seasons/2",
+    "competition": "/v4/competitions/6",
+    "sportVenue": "/v4/sport_venues/5"
+}
