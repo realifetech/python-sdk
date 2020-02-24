@@ -90,6 +90,13 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         )
         return schema.Meta.model(**schema().load(updated_resource))
 
+    def _delete_resource(
+            self,
+            schema: Type[Schema],
+            resource,
+    ):
+        return self._api_delete(schema.Meta.url, resource.id)
+
     def get_teams(
             self,
             external_id: str or None = None,
@@ -304,6 +311,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             attributes: Dict
     ) -> NewsSchema:
         return self._update_resource(NewsSchema, news.id, attributes)
+
+    def delete_news(
+            self,
+            news: News,
+    ) -> NewsSchema:
+        return self._delete_resource(NewsSchema, news)
 
     # ---- USER
 

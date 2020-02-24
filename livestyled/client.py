@@ -114,6 +114,24 @@ class LiveStyledAPIClient:
         response.raise_for_status()
         return response.json()
 
+    def _api_delete(
+            self,
+            endpoint: str,
+            id: str
+    ) -> None:
+        requests.delete(
+            'https://{}/{}/{}'.format(
+                self._api_domain,
+                endpoint,
+                id
+            ),
+            headers={
+                'Content-Type': CONTENT_TYPE,
+                'x-api-key': self._api_key
+            },
+        )
+        return
+
     def _get_resource(
             self,
             resource_id: int or str,
