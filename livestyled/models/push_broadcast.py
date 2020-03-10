@@ -72,6 +72,14 @@ class PushBroadcast:
             push_consent_id=None
         )
 
+    @property
+    def push_consent_id(self):
+        return self._push_consent.id
+
+    @property
+    def push_consent(self):
+        return self._push_consent
+
     def diff(self, other):
         differences = {}
         fields = (

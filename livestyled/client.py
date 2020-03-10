@@ -100,6 +100,7 @@ class LiveStyledAPIClient:
             endpoint: str,
             data: dict
     ) -> Dict:
+        print(json.dumps(data))
         response = requests.post(
             'https://{}/{}'.format(
                 self._api_domain,
@@ -111,6 +112,7 @@ class LiveStyledAPIClient:
             },
             data=json.dumps(data)
         )
+        print(response.content)
         response.raise_for_status()
         return response.json()
 

@@ -129,3 +129,7 @@ class UserSSO:
     @property
     def user_id(self):
         return self._user.id
+
+    @property
+    def user(self):
+        return self._user

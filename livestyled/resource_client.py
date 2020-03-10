@@ -1,6 +1,7 @@
 from typing import Dict, Generator, Type
 
 from marshmallow import Schema
+from requests.exceptions import HTTPError
 
 from livestyled.client import LiveStyledAPIClient
 from livestyled.models.competition import Competition
@@ -12,6 +13,7 @@ from livestyled.models.push_consent import PushConsent
 from livestyled.models.season import Season
 from livestyled.models.sport_venue import SportVenue
 from livestyled.models.team import Team
+from livestyled.models.ticket import Ticket
 from livestyled.models.user import User, UserSSO
 from livestyled.schemas.competition import CompetitionSchema
 from livestyled.schemas.fixture import FixtureSchema
@@ -22,6 +24,7 @@ from livestyled.schemas.push_consent import PushConsentSchema
 from livestyled.schemas.season import SeasonSchema
 from livestyled.schemas.sport_venue import SportVenueSchema
 from livestyled.schemas.team import TeamSchema
+from livestyled.schemas.ticket import TicketSchema
 from livestyled.schemas.user import UserCreateSchema, UserSchema, UserSSOSchema
 
 
@@ -407,6 +410,20 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     ) -> UserSSO:
         return self._update_resource(UserSSOSchema, user_sso.id, attributes)
 
+    def get_sso_for_user(
+            self,
+            user_id,
+    ) -> UserSSO or None:
+        try:
+            user_sso_data = self._api_get('v4/users/{}/user_s_s_o'.format(user_id))
+        except HTTPError as http_error:
+            if http_error.response.status_code == 404:
+                return None
+            else:
+                raise
+        user_sso = UserSSO(**UserSSOSchema().load(user_sso_data))
+        return user_sso
+
     # ---- PUSH BROADCASTS
 
     def get_push_broadcasts(
@@ -431,7 +448,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             if value is None:
                 payload.pop(key)
         new_push_broadcast = self._api_post(
-            '{}'.format(PushBroadcastSchema.Meta.publish_url),
+            PushBroadcastSchema.Meta.publish_url,
             payload
         )
         return PushBroadcast(**PushBroadcastSchema().load(new_push_broadcast))
@@ -455,3 +472,33 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             id: int
     ) -> PushConsent:
         return self._get_resource_by_id(PushConsentSchema, id)
+
+    # ---- TICKETS
+
+    def get_tickets(
+            self,
+            external_ticket_id: str or None = None,
+    ) -> Generator[Ticket, None, None]:
+        if external_ticket_id:
+            return self._get_resource_list(TicketSchema, filters={'externalTicketId': external_ticket_id})
+        else:
+            return self._get_resource_list(TicketSchema)
+
+    def get_ticket(
+            self,
+            id: int
+    ) -> Ticket:
+        return self._get_resource_by_id(TicketSchema, id)
+
+    def create_ticket(
+            self,
+            ticket: Ticket
+    ) -> Ticket:
+        return self._create_resource(TicketSchema, ticket)
+
+    def update_ticket(
+            self,
+            ticket: Ticket,
+            attributes: Dict
+    ) -> Ticket:
+        return self._update_resource(TicketSchema, ticket.id, attributes)

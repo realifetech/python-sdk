@@ -51,8 +51,8 @@ class UserSSOSchema(Schema):
         model = UserSSO
 
     id = fields.Int()
-    access_token = fields.String(data_key='accessToken')
-    refresh_token = fields.String(data_key='refreshToken')
+    access_token = fields.String(data_key='accessToken', missing=None, allow_none=True)
+    refresh_token = fields.String(data_key='refreshToken', missing=None, allow_none=True)
     sub = fields.String()
-    expires = fields.DateTime()
+    expires = fields.AwareDateTime(missing=None, allow_none=True)
     user_id = RelatedResourceField(schema=UserSchema, data_key='user')

@@ -1,9 +1,14 @@
+from collections import namedtuple
 from datetime import datetime
 
 from livestyled.models.competition import Competition
 from livestyled.models.season import Season
 from livestyled.models.sport_venue import SportVenue
 from livestyled.models.team import Team
+
+
+Score = namedtuple('Score', 'goals, penalties')
+Url = namedtuple('Url', 'title, url, is_enabled')
 
 
 class Fixture:
@@ -22,6 +27,7 @@ class Fixture:
             competition_id,
             venue_id,
             status,
+            url,
     ):
         self._id = id
         self._external_id = external_id
@@ -38,6 +44,7 @@ class Fixture:
         self._competition = Competition.placeholder(id=competition_id)
         self._venue = SportVenue.placeholder(id=venue_id)
         self._status = status
+        self.url = url
 
     @classmethod
     def create_new(
@@ -55,7 +62,8 @@ class Fixture:
             season: Season,
             competition: Competition,
             venue: SportVenue,
-            status: str
+            status: str,
+            url: Url,
     ):
         fixture = Fixture(
             id=None,
@@ -71,6 +79,7 @@ class Fixture:
             competition_id=None,
             venue_id=None,
             status=status,
+            url=url
         )
         fixture._home = home
         fixture._away = away
@@ -96,6 +105,14 @@ class Fixture:
         return self._away.id
 
     @property
+    def home(self):
+        return self._home
+
+    @property
+    def away(self):
+        return self._away
+
+    @property
     def season_id(self):
         return self._season.id
 
@@ -105,25 +122,33 @@ class Fixture:
 
     @property
     def home_score(self):
-        return {
-            'goals': self._home_goals,
-            'penalties': self._home_penalties
-        }
+        return Score(
+            goals=self._home_goals,
+            penalties=self._home_penalties
+        )
 
     @property
     def home_goals(self):
         return self._home_goals
 
+    @home_goals.setter
+    def home_goals(self, goals):
+        self._home_goals = goals
+
     @property
     def away_score(self):
-        return {
-            'goals': self._away_goals,
-            'penalties': self._away_penalties
-        }
+        return Score(
+            goals=self._away_goals,
+            penalties=self._away_penalties
+        )
 
     @property
     def away_goals(self):
-        return self.away_goals
+        return self._away_goals
+
+    @away_goals.setter
+    def away_goals(self, goals):
+        self._away_goals = goals
 
     @property
     def status(self):
@@ -148,7 +173,7 @@ class Fixture:
         differences = {}
         fields = (
             'competition_id', 'home_id', 'away_id', 'season_id', 'venue_id',
-            'home_score', 'away_score', 'status', 'is_fulltime', 'start_at', 'external_id'
+            'home_score', 'away_score', 'status', 'is_fulltime', 'start_at', 'external_id', 'url'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

@@ -19,6 +19,14 @@ class FixtureSchema(Schema):
         goals = fields.Int(allow_none=True)
         penalties = fields.Int(allow_none=True)
 
+    class FixtureUrlSchema(Schema):
+        class Meta:
+            unknown = EXCLUDE
+
+        title = fields.String(allow_none=True)
+        url = fields.String(allow_none=True)
+        is_enabled = fields.Boolean()
+
     id = fields.Int(load_only=True)
     start_at = fields.DateTime(data_key='startAt')
     is_fulltime = fields.Boolean(data_key='isFullTime')
@@ -32,3 +40,4 @@ class FixtureSchema(Schema):
     venue_id = RelatedResourceField(schema=SportVenueSchema, data_key='sportVenue')
     external_id = fields.String(missing=None, data_key='externalId')
     status = fields.String()
+    url = fields.Nested(FixtureUrlSchema, allow_none=True, missing=None)

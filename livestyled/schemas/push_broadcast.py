@@ -16,7 +16,7 @@ class PushBroadcastSchema(Schema):
     id = fields.Int(required=False, allow_none=False)
     title = fields.String(data_key='title')
     message = fields.String(data_key='message')
-    deep_link = fields.URL(data_key='deepLink')
+    deep_link = fields.String(data_key='deepLink')
     ttl = fields.Int()
     message_id = fields.String(data_key='messageId')
     delivered = fields.Int()
