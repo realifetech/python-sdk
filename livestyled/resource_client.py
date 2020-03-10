@@ -1,12 +1,13 @@
-from typing import Dict, Generator, Type
+from typing import Dict, Generator, List, Type
 
 from marshmallow import Schema
 from requests.exceptions import HTTPError
 
 from livestyled.client import LiveStyledAPIClient
+from livestyled.models.cohort import Cohort
 from livestyled.models.competition import Competition
 from livestyled.models.fixture import Fixture
-from livestyled.models.league_table import LeagueTableGroup, LeagueTable
+from livestyled.models.league_table import LeagueTable, LeagueTableGroup
 from livestyled.models.news import News
 from livestyled.models.push_broadcast import PushBroadcast
 from livestyled.models.push_consent import PushConsent
@@ -15,6 +16,7 @@ from livestyled.models.sport_venue import SportVenue
 from livestyled.models.team import Team
 from livestyled.models.ticket import Ticket
 from livestyled.models.user import User, UserSSO
+from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.competition import CompetitionSchema
 from livestyled.schemas.fixture import FixtureSchema
 from livestyled.schemas.league_table import LeagueTableGroupSchema, LeagueTableSchema
@@ -66,13 +68,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             schema: Type[Schema],
             model_instance
     ):
-        if model_instance.id is not None:
+        if getattr(model_instance, 'id', False) and model_instance.id is not None:
             raise ValueError('Cannot create a {} with an ID'.format(schema.Meta.model.__name__))
         payload = schema().dump(model_instance)
         for key, value in list(payload.items()):
             if value is None:
                 payload.pop(key)
-        print(schema, payload)
         new_instance = self._api_post(
             '{}'.format(schema.Meta.url),
             payload
@@ -349,7 +350,6 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             if value is None:
                 payload.pop(key)
 
-        print("user create payload: {}".format(payload))
         user_create_response = self._api_post(
             UserCreateSchema.Meta.create_url,
             payload
@@ -502,3 +502,52 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             attributes: Dict
     ) -> Ticket:
         return self._update_resource(TicketSchema, ticket.id, attributes)
+
+    # ---- COHORTS
+
+    def get_cohorts(
+            self,
+            external_id: str or None = None,
+    ) -> Generator[Cohort, None, None]:
+        if external_id:
+            return self._get_resource_list(CohortSchema, filters={'externalId': external_id})
+        else:
+            return self._get_resource_list(CohortSchema)
+
+    def create_cohort(
+            self,
+            cohort: Cohort
+    ) -> Cohort:
+        return self._create_resource(CohortSchema, cohort)
+
+    def add_user_to_cohorts(
+            self,
+            user_id: str,
+            cohorts: List[Cohort]
+    ) -> bool:
+        if not cohorts:
+            return True
+        payload = {
+            'cohortExternalIds': [cohort.external_id for cohort in cohorts]
+        }
+        self._api_post(
+            CohortSchema.Meta.bulk_user_attach_url.format(user_id),
+            payload
+        )
+        return True
+
+    def remove_user_from_cohorts(
+            self,
+            user_id: str,
+            cohorts: List[Cohort]
+    ) -> bool:
+        if not cohorts:
+            return True
+        payload = {
+            'cohortExternalIds': [cohort.external_id for cohort in cohorts]
+        }
+        self._api_post(
+            CohortSchema.Meta.bulk_user_detach_url.format(user_id),
+            payload
+        )
+        return True
