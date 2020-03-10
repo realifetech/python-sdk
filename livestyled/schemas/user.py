@@ -1,5 +1,6 @@
 from marshmallow import EXCLUDE, fields, Schema
 
+from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.device import DeviceSchema
 from livestyled.schemas.fields import RelatedResourceField
 from livestyled.models.user import User, UserSSO
@@ -41,6 +42,7 @@ class UserSchema(Schema):
     password = fields.String()
     device_id = RelatedResourceField(schema=DeviceSchema, data_key='device')
     user_info = fields.Nested(UserInfo, data_key='userInfo')
+    cohorts = RelatedResourceField(schema=CohortSchema, many=True)
 
 
 class UserSSOSchema(Schema):

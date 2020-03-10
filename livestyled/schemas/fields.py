@@ -7,4 +7,7 @@ class RelatedResourceField(fields.Field):
         return '/{}/{}'.format(self.metadata['schema'].Meta.url, value)
 
     def _deserialize(self, value, attr, data, **kwargs):
+        if 'many' in self.metadata:
+            if self.metadata['many']:
+                return [int(v.split('/')[-1]) for v in value]
         return int(value.split('/')[-1])

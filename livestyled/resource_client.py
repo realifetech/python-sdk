@@ -505,6 +505,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     # ---- COHORTS
 
+    def get_cohort(
+            self,
+            id: int
+    ) -> Cohort:
+        return self._get_resource_by_id(CohortSchema, id)
+
     def get_cohorts(
             self,
             external_id: str or None = None,
@@ -522,7 +528,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def add_user_to_cohorts(
             self,
-            user_id: str,
+            user_id: int,
             cohorts: List[Cohort]
     ) -> bool:
         if not cohorts:
@@ -532,13 +538,14 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         }
         self._api_post(
             CohortSchema.Meta.bulk_user_attach_url.format(user_id),
-            payload
+            payload,
+            content_type_override='application/json'
         )
         return True
 
     def remove_user_from_cohorts(
             self,
-            user_id: str,
+            user_id: int,
             cohorts: List[Cohort]
     ) -> bool:
         if not cohorts:
@@ -548,6 +555,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         }
         self._api_post(
             CohortSchema.Meta.bulk_user_detach_url.format(user_id),
-            payload
+            payload,
+            content_type_override='application/json'
         )
         return True

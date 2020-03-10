@@ -98,9 +98,12 @@ class LiveStyledAPIClient:
     def _api_post(
             self,
             endpoint: str,
-            data: dict
+            data: dict,
+            content_type_override = None
     ) -> Dict:
-        print(json.dumps(data))
+        print('PAYLOAD:', json.dumps(data))
+        if content_type_override:
+            CONTENT_TYPE = content_type_override
         response = requests.post(
             'https://{}/{}'.format(
                 self._api_domain,

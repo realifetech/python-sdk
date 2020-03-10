@@ -1,3 +1,6 @@
+from typing import List
+
+from livestyled.models.cohort import Cohort
 from livestyled.models.device import Device
 
 
@@ -10,6 +13,7 @@ class User:
             user_info: dict or None,
             device_id: str or None = None,
             password: str or None = None,
+            cohorts: List[int] or None = None
     ):
         self.id = id
         self.email = email
@@ -21,6 +25,9 @@ class User:
         self.first_name = user_info.get('first_name')
         self.last_name = user_info.get('last_name')
         self.password = password
+        self.cohorts = []
+        if cohorts:
+            self.cohorts = [Cohort.placeholder(c_id) for c_id in cohorts]
 
     @classmethod
     def create_new(
