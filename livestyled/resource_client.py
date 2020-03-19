@@ -4,32 +4,41 @@ from marshmallow import Schema
 from requests.exceptions import HTTPError
 
 from livestyled.client import LiveStyledAPIClient
-from livestyled.models.cohort import Cohort
-from livestyled.models.competition import Competition
-from livestyled.models.fixture import Fixture
-from livestyled.models.league_table import LeagueTable, LeagueTableGroup
-from livestyled.models.magic_field import MagicField
-from livestyled.models.news import News
-from livestyled.models.push_broadcast import PushBroadcast
-from livestyled.models.push_consent import PushConsent
-from livestyled.models.season import Season
-from livestyled.models.sport_venue import SportVenue
-from livestyled.models.team import Team
-from livestyled.models.ticket import Ticket
-from livestyled.models.user import User, UserSSO
-from livestyled.schemas.cohort import CohortSchema
-from livestyled.schemas.competition import CompetitionSchema
-from livestyled.schemas.fixture import FixtureSchema
-from livestyled.schemas.league_table import LeagueTableGroupSchema, LeagueTableSchema
-from livestyled.schemas.magic_field import MagicFieldSchema
-from livestyled.schemas.news import NewsSchema
-from livestyled.schemas.push_broadcast import PushBroadcastSchema
-from livestyled.schemas.push_consent import PushConsentSchema
-from livestyled.schemas.season import SeasonSchema
-from livestyled.schemas.sport_venue import SportVenueSchema
-from livestyled.schemas.team import TeamSchema
-from livestyled.schemas.ticket import TicketSchema
-from livestyled.schemas.user import UserCreateSchema, UserSchema, UserSSOSchema
+from livestyled.models import (
+    Cohort,
+    Competition,
+    Fixture,
+    LeagueTable,
+    LeagueTableGroup,
+    MagicField,
+    News,
+    PushBroadcast,
+    PushConsent,
+    Season,
+    SportVenue,
+    Team,
+    Ticket,
+    User,
+    UserSSO,
+)
+from livestyled.schemas import (
+    CohortSchema,
+    CompetitionSchema,
+    FixtureSchema,
+    LeagueTableGroupSchema,
+    LeagueTableSchema,
+    MagicFieldSchema,
+    NewsSchema,
+    PushBroadcastSchema,
+    PushConsentSchema,
+    SeasonSchema,
+    SportVenueSchema,
+    TeamSchema,
+    TicketSchema,
+    UserCreateSchema,
+    UserSchema,
+    UserSSOSchema,
+)
 
 
 class LiveStyledResourceClient(LiveStyledAPIClient):

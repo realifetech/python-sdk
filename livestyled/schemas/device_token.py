@@ -12,5 +12,5 @@ class DeviceTokenSchema(Schema):
     id = fields.Int()
     provider = fields.String()
     provider_token = fields.String(data_key='providerToken')
-    payload = fields.Dict(keys=fields.String(), allow_none=True)
+    payload = fields.Raw(allow_none=True)
     device = fields.Function(deserialize=get_id_from_url)

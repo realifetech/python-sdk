@@ -7,7 +7,7 @@ class DeviceConsentSchema(Schema):
 
     id = fields.Int()
     location_capture = fields.Boolean(data_key='locationCapture', allow_none=True)
-    location_granular = fields.Boolean(data_key='locationGranular', allow_none=True)
+    location_granular = fields.String(data_key='locationGranular', allow_none=True)
     camera = fields.Boolean(data_key='camera', allow_none=True)
     calendar = fields.Boolean(allow_none=True)
     photo_sharing = fields.Boolean(data_key='photoSharing', allow_none=True)
