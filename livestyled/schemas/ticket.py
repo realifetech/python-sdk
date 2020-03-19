@@ -1,7 +1,7 @@
 from marshmallow import EXCLUDE, fields, Schema
 
-from livestyled.schemas.fields import RelatedResourceLinkField
 from livestyled.models.ticket import Ticket
+from livestyled.schemas.fields import RelatedResourceLinkField
 from livestyled.schemas.user import UserSchema
 
 
