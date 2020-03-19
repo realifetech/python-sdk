@@ -1,0 +1,14 @@
+{
+    "@context": "/v4/contexts/PushBroadcast",
+    "@id": "/v4/push_broadcasts/52",
+    "@type": "PushBroadcast",
+    "id": 52,
+    "title": "Push Notification",
+    "message": "This is not a test",
+    "deepLink": "myapp://main/home",
+    "ttl": 0,
+    "messageId": "f87efee3-3f01-5ca5-b05a-1234567",
+    "delivered": 0,
+    "createdAt": "2020-02-26T23:00:20+00:00",
+    "updatedAt": "2020-02-26T23:00:20+00:00"
+}

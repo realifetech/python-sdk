@@ -1,0 +1,14 @@
+{
+    "@context": "/v4/contexts/PushConsent",
+    "@id": "/v4/push_consents/60",
+    "@type": "PushConsent",
+    "id": 60,
+    "type": "eventReminders",
+    "label": "Matchday Alerts",
+    "title": "Matchday Alerts",
+    "sortId": 1,
+    "createdAt": "2020-02-14T10:20:05+00:00",
+    "updatedAt": "2020-02-14T10:20:05+00:00",
+    "app": "/v4/apps/58",
+    "translations": []
+}
