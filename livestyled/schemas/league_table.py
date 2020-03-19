@@ -4,7 +4,7 @@ from livestyled.models.league_table import LeagueTable, LeagueTableGroup
 from livestyled.schemas.competition import CompetitionSchema
 from livestyled.schemas.season import SeasonSchema
 from livestyled.schemas.team import TeamSchema
-from livestyled.schemas.fields import RelatedResourceField
+from livestyled.schemas.fields import RelatedResourceLinkField
 
 
 class LeagueTableGroupSchema(Schema):
@@ -27,7 +27,7 @@ class LeagueTableSchema(Schema):
         model = LeagueTable
 
     id = fields.Int(required=False, allow_none=False)
-    team_id = RelatedResourceField(schema=TeamSchema, data_key='team')
+    team_id = RelatedResourceLinkField(schema=TeamSchema, data_key='team')
     external_id = fields.String(required=True, allow_none=True, data_key='externalId')
     featured_team = fields.Boolean(required=True, allow_none=False, data_key='featuredTeam')
     position = fields.Int(missing=0)
@@ -40,6 +40,6 @@ class LeagueTableSchema(Schema):
     drawn = fields.Int(missing=0)
     goal_difference = fields.Int(data_key='goalDifference', missing=0)
     points = fields.Int(missing=0)
-    competition_id = RelatedResourceField(schema=CompetitionSchema, data_key='competition')
-    season_id = RelatedResourceField(schema=SeasonSchema, data_key='season')
-    group_id = RelatedResourceField(schema=LeagueTableGroupSchema, data_key='group')
+    competition_id = RelatedResourceLinkField(schema=CompetitionSchema, data_key='competition')
+    season_id = RelatedResourceLinkField(schema=SeasonSchema, data_key='season')
+    group_id = RelatedResourceLinkField(schema=LeagueTableGroupSchema, data_key='group')

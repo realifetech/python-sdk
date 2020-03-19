@@ -1,7 +1,7 @@
 from marshmallow import EXCLUDE, fields, post_load, Schema
 
 from livestyled.models.push_broadcast import PushBroadcast
-from livestyled.schemas.fields import RelatedResourceField
+from livestyled.schemas.fields import RelatedResourceLinkField
 from livestyled.schemas.push_consent import PushConsentSchema
 
 
@@ -22,4 +22,4 @@ class PushBroadcastSchema(Schema):
     delivered = fields.Int()
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True)
-    push_consent_id = RelatedResourceField(schema=PushConsentSchema, data_key='pushConsent')
+    push_consent_id = RelatedResourceLinkField(schema=PushConsentSchema, data_key='pushConsent')

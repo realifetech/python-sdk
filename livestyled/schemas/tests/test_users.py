@@ -1,3 +1,4 @@
+import datetime
 import os
 
 from livestyled.schemas.user import UserSchema
@@ -18,6 +19,16 @@ def test_deserialize_user():
             'id': 278405,
             'user_info': {
                 'first_name': 'Reuben',
-                'last_name': 'Gow'
-            }
+                'last_name': 'Gow',
+                'dob': datetime.datetime(1980, 1, 1, 0, 0, tzinfo=datetime.timezone(datetime.timedelta(0), '+0000')),
+                'phone': '+4712345678'
+            },
+            'cohorts': [],
+            'user_emails': [
+                {
+                    'valid': False,
+                    'email': 'reuben.gow+axs2@livestyled.com'
+                }
+            ],
+            'magic_fields': []
         }

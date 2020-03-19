@@ -101,21 +101,20 @@ class LiveStyledAPIClient:
             data: dict,
             content_type_override = None
     ) -> Dict:
-        print('PAYLOAD:', json.dumps(data))
+        content_type = CONTENT_TYPE
         if content_type_override:
-            CONTENT_TYPE = content_type_override
+            content_type = content_type_override
         response = requests.post(
             'https://{}/{}'.format(
                 self._api_domain,
                 endpoint,
             ),
             headers={
-                'Content-Type': CONTENT_TYPE,
+                'Content-Type': content_type,
                 'x-api-key': self._api_key
             },
             data=json.dumps(data)
         )
-        print(response.content)
         response.raise_for_status()
         return response.json()
 

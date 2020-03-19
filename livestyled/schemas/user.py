@@ -2,7 +2,8 @@ from marshmallow import EXCLUDE, fields, Schema
 
 from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.device import DeviceSchema
-from livestyled.schemas.fields import RelatedResourceField
+from livestyled.schemas.magic_field import MagicFieldSchema
+from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
 from livestyled.models.user import User, UserSSO
 
 
@@ -18,7 +19,7 @@ class UserCreateSchema(Schema):
     last_name = fields.String(data_key='lastName')
     email = fields.Email()
     password = fields.String()
-    device_id = RelatedResourceField(schema=DeviceSchema, data_key='device')
+    device_id = RelatedResourceLinkField(schema=DeviceSchema, data_key='device')
 
 
 class UserSchema(Schema):
@@ -28,6 +29,7 @@ class UserSchema(Schema):
         url = 'v4/users'
         create_url = 'v4/users/register'
         authorise_url = 'v4/users/{}/authorise'
+        magic_fields_url = 'v4/users/{}/magic_fields'
         model = User
 
     class UserInfo(Schema):
@@ -35,14 +37,25 @@ class UserSchema(Schema):
             unknown = EXCLUDE
         first_name = fields.String(data_key='firstName')
         last_name = fields.String(data_key='lastName')
+        phone = fields.String(data_key='phone')
+        dob = fields.AwareDateTime()
+        gender = fields.String()
+
+    class UserEmail(Schema):
+        class Meta:
+            unknown = EXCLUDE
+        valid = fields.Boolean()
+        email = fields.String()
 
     id = fields.Int()
     auth_type = fields.String(data_key='authType')
     email = fields.Email()
     password = fields.String()
-    device_id = RelatedResourceField(schema=DeviceSchema, data_key='device')
+    device_id = RelatedResourceLinkField(schema=DeviceSchema, data_key='device')
     user_info = fields.Nested(UserInfo, data_key='userInfo')
-    cohorts = RelatedResourceField(schema=CohortSchema, many=True)
+    cohorts = RelatedResourceLinkField(schema=CohortSchema, many=True)
+    magic_fields = RelatedResourceField(schema=MagicFieldSchema, many=True, data_key='magicFields')
+    user_emails = fields.Nested(UserEmail, data_key='userEmails', many=True)
 
 
 class UserSSOSchema(Schema):
@@ -57,4 +70,4 @@ class UserSSOSchema(Schema):
     refresh_token = fields.String(data_key='refreshToken', missing=None, allow_none=True)
     sub = fields.String()
     expires = fields.AwareDateTime(missing=None, allow_none=True)
-    user_id = RelatedResourceField(schema=UserSchema, data_key='user')
+    user_id = RelatedResourceLinkField(schema=UserSchema, data_key='user')

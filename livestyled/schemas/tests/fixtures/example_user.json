@@ -24,6 +24,8 @@
         "firstName": "Reuben",
         "lastName": "Gow",
         "createdAt": "2020-02-19T18:28:27+00:00",
+        "dob": "1980-01-01T00:00:00+00:00",
+        "phone": "+4712345678",
         "updatedAt": "2020-02-19T18:28:27+00:00"
     },
     "userConsent": {

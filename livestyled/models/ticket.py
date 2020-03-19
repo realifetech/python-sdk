@@ -8,7 +8,6 @@ class Ticket:
             external_ticket_id,
             seat,
             qr_code_url,
-            session_date,
             title,
             external_event_id,
             barcode,
@@ -29,6 +28,7 @@ class Ticket:
             updated_at,
             user_id,
             status,
+            session_date=None,
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
@@ -128,7 +128,7 @@ class Ticket:
         fields = (
             'external_ticket_id', 'seat', 'qr_code_url', 'session_date', 'title', 'external_event_id',
             'barcode', 'sector_name', 'venue_name', 'venue_room', 'client_name', 'premium', 'client_email',
-            'price'
+            'price', 'status'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

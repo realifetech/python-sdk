@@ -1,0 +1,52 @@
+{
+    "@context": "/v4/contexts/User",
+    "@id": "/v4/users/1234",
+    "@type": "User",
+    "id": 1234,
+    "userEmails": [
+        {
+            "id": 28,
+            "valid": false,
+            "email": "bob.bobberson@gmail.com",
+            "createdAt": "2019-02-14T12:51:43+00:00",
+            "updatedAt": "2019-02-14T12:51:43+00:00"
+        }
+    ],
+    "magicFields": [
+        {
+            "@id": "/v4/magic_fields/52",
+            "@type": "MagicField",
+            "id": 52,
+            "key": "rtest",
+            "value": "foobar",
+            "createdAt": "2020-03-17T15:21:27+00:00",
+            "updatedAt": "2020-03-17T15:21:27+00:00"
+        }
+    ],
+    "email": "bob.bobberson@test.com",
+    "token": "0c658ef1-1111-43c8-a6ac-966fcf3cf192",
+    "authType": "LOCAL",
+    "status": "ACTIVE",
+    "lastLogin": "2015-10-05T10:52:42+00:00",
+    "createdAt": "2014-07-10T12:49:04+00:00",
+    "updatedAt": "2020-03-10T16:32:53+00:00",
+    "userInfo": {
+        "id": 37,
+        "firstName": "Bob",
+        "lastName": "Bobberson",
+        "gender": "MALE",
+        "dob": "1992-12-06T00:00:00+00:00",
+        "createdAt": "2014-07-10T12:49:04+00:00"
+    },
+    "userConsent": {
+        "id": 32761234,
+        "marketingConsent": false,
+        "analysisConsent": true
+    },
+    "devices": [],
+    "cohorts": [
+        "/v4/cohorts/1",
+        "/v4/cohorts/2",
+        "/v4/cohorts/8"
+    ]
+}

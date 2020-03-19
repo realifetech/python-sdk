@@ -8,6 +8,7 @@ from livestyled.models.cohort import Cohort
 from livestyled.models.competition import Competition
 from livestyled.models.fixture import Fixture
 from livestyled.models.league_table import LeagueTable, LeagueTableGroup
+from livestyled.models.magic_field import MagicField
 from livestyled.models.news import News
 from livestyled.models.push_broadcast import PushBroadcast
 from livestyled.models.push_consent import PushConsent
@@ -20,6 +21,7 @@ from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.competition import CompetitionSchema
 from livestyled.schemas.fixture import FixtureSchema
 from livestyled.schemas.league_table import LeagueTableGroupSchema, LeagueTableSchema
+from livestyled.schemas.magic_field import MagicFieldSchema
 from livestyled.schemas.news import NewsSchema
 from livestyled.schemas.push_broadcast import PushBroadcastSchema
 from livestyled.schemas.push_consent import PushConsentSchema
@@ -42,7 +44,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
             resource_schema: Type[Schema],
             external_id: str or None = None,
-            filters=None
+            filters: Dict or None = None
     ):
         filter_params = {}
         if filters:
@@ -83,7 +85,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     def _update_resource(
             self,
             schema: Type[Schema],
-            resource_id,
+            resource_id: int,
             attributes: Dict,
     ):
         attributes_to_update = list(attributes.keys())
@@ -559,3 +561,11 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             content_type_override='application/json'
         )
         return True
+
+    # ---- MAGIC FIELDS
+
+    def create_magic_field(
+            self,
+            magic_field: MagicField
+    ) -> MagicField:
+        return self._create_resource(MagicFieldSchema, magic_field)

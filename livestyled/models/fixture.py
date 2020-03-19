@@ -28,6 +28,7 @@ class Fixture:
             venue_id,
             status,
             url,
+            allow_overwrite=False
     ):
         self._id = id
         self._external_id = external_id
@@ -45,6 +46,7 @@ class Fixture:
         self._venue = SportVenue.placeholder(id=venue_id)
         self._status = status
         self.url = url
+        self.allow_overwrite = allow_overwrite
 
     @classmethod
     def create_new(
@@ -64,6 +66,7 @@ class Fixture:
             venue: SportVenue,
             status: str,
             url: Url,
+            allow_overwrite: bool = False,
     ):
         fixture = Fixture(
             id=None,
@@ -79,7 +82,8 @@ class Fixture:
             competition_id=None,
             venue_id=None,
             status=status,
-            url=url
+            url=url,
+            allow_overwrite=allow_overwrite
         )
         fixture._home = home
         fixture._away = away
@@ -173,7 +177,8 @@ class Fixture:
         differences = {}
         fields = (
             'competition_id', 'home_id', 'away_id', 'season_id', 'venue_id',
-            'home_score', 'away_score', 'status', 'is_fulltime', 'start_at', 'external_id', 'url'
+            'home_score', 'away_score', 'status', 'is_fulltime', 'start_at', 'external_id', 'url',
+            'allow_overwrite'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

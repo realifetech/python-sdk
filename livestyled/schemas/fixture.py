@@ -5,7 +5,7 @@ from livestyled.schemas.season import SeasonSchema
 from livestyled.schemas.competition import CompetitionSchema
 from livestyled.schemas.sport_venue import SportVenueSchema
 from livestyled.schemas.team import TeamSchema
-from livestyled.schemas.fields import RelatedResourceField
+from livestyled.schemas.fields import RelatedResourceLinkField
 
 
 class FixtureSchema(Schema):
@@ -31,13 +31,14 @@ class FixtureSchema(Schema):
     start_at = fields.DateTime(data_key='startAt')
     is_fulltime = fields.Boolean(data_key='isFullTime')
     is_terminated = fields.Boolean(data_key='isTerminated')
-    home_id = RelatedResourceField(schema=TeamSchema, data_key='home')
-    away_id = RelatedResourceField(schema=TeamSchema, data_key='away')
+    home_id = RelatedResourceLinkField(schema=TeamSchema, data_key='home')
+    away_id = RelatedResourceLinkField(schema=TeamSchema, data_key='away')
     home_score = fields.Nested(ScoreSchema, data_key='homeScore')
     away_score = fields.Nested(ScoreSchema, data_key='awayScore')
-    season_id = RelatedResourceField(schema=SeasonSchema, data_key='season')
-    competition_id = RelatedResourceField(schema=CompetitionSchema, data_key='competition')
-    venue_id = RelatedResourceField(schema=SportVenueSchema, data_key='sportVenue')
+    season_id = RelatedResourceLinkField(schema=SeasonSchema, data_key='season')
+    competition_id = RelatedResourceLinkField(schema=CompetitionSchema, data_key='competition')
+    venue_id = RelatedResourceLinkField(schema=SportVenueSchema, data_key='sportVenue')
     external_id = fields.String(missing=None, data_key='externalId')
     status = fields.String()
     url = fields.Nested(FixtureUrlSchema, allow_none=True, missing=None)
+    allow_overwrite = fields.Boolean(data_key='allowOverwrite')

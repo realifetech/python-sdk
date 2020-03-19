@@ -1,7 +1,51 @@
-from typing import List
+from datetime import datetime
+from typing import Dict, List
 
 from livestyled.models.cohort import Cohort
 from livestyled.models.device import Device
+from livestyled.models.magic_field import MagicField
+
+
+class UserInfo:
+    def __init__(
+            self,
+            first_name: str or None = None,
+            last_name: str or None = None,
+            dob: datetime or None = None,
+            gender: str or None = None,
+            phone: str or None = None,
+    ):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.dob = dob
+        self.gender = gender
+        self.phone = phone
+
+    def __hash__(self):
+        return hash((self.first_name, self.last_name, self.dob, self.gender, self.phone))
+
+    def __eq__(self, other):
+        if not isinstance(other, type(self)):
+            return NotImplemented
+        return all(
+            [
+                self.first_name == other.first_name,
+                self.last_name == other.last_name,
+                self.dob == other.dob,
+                self.gender == other.gender,
+                self.phone == other.phone
+            ]
+        )
+
+
+class UserEmail:
+    def __init__(
+            self,
+            valid: bool,
+            email: str
+    ):
+        self.valid = bool
+        self.email = email
 
 
 class User:
@@ -13,21 +57,36 @@ class User:
             user_info: dict or None,
             device_id: str or None = None,
             password: str or None = None,
-            cohorts: List[int] or None = None
+            cohorts: List[int] or None = None,
+            magic_fields: List[Dict] or None = None,
+            user_emails: List[Dict] or None = None
     ):
         self.id = id
         self.email = email
         self.auth_type = auth_type
         self._device = Device.placeholder(id=device_id)
-        if not user_info:
-            user_info = {}
+        if user_info:
+            if isinstance(user_info, dict):
+                user_info = UserInfo(**user_info)
+            elif isinstance(user_info, UserInfo):
+                user_info = user_info
+        else:
+            user_info = UserInfo(None, None, None, None)
         self.user_info = user_info
-        self.first_name = user_info.get('first_name')
-        self.last_name = user_info.get('last_name')
+        self.first_name = user_info.first_name
+        self.last_name = user_info.last_name
         self.password = password
         self.cohorts = []
         if cohorts:
-            self.cohorts = [Cohort.placeholder(c_id) for c_id in cohorts]
+            self.cohorts = [Cohort.placeholder(int(c_id)) for c_id in cohorts]
+        if magic_fields:
+            self.magic_fields = [MagicField(**m) for m in magic_fields]
+        else:
+            self.magic_fields = []
+        if user_emails:
+            self.user_emails = [UserEmail(**u) for u in user_emails]
+        else:
+            self.user_emails = []
 
     @classmethod
     def create_new(
@@ -37,16 +96,15 @@ class User:
             first_name: str,
             last_name: str,
             device: str,
-            password: str or None
+            password: str or None,
+            dob: datetime or None = None,
+            gender: str or None = None,
     ):
         user = User(
             id=None,
             email=email,
             auth_type=auth_type,
-            user_info={
-                'first_name': first_name,
-                'last_name': last_name,
-            },
+            user_info=UserInfo(first_name, last_name, dob, gender),
             device_id=None,
             password=password
         )
@@ -62,7 +120,7 @@ class User:
             id=id,
             email=None,
             auth_type=None,
-            user_info={},
+            user_info=UserInfo(),
             device_id=None,
             password=None,
         )
@@ -126,7 +184,7 @@ class UserSSO:
     def diff(self, other):
         differences = {}
         fields = (
-            'access_token', 'refresh_token', 'expires', 'sub', 'user_id'
+            'access_token', 'refresh_token', 'expires', 'sub', 'user_id',
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

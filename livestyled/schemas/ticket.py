@@ -1,6 +1,6 @@
 from marshmallow import EXCLUDE, fields, Schema
 
-from livestyled.schemas.fields import RelatedResourceField
+from livestyled.schemas.fields import RelatedResourceLinkField
 from livestyled.models.ticket import Ticket
 from livestyled.schemas.user import UserSchema
 
@@ -18,7 +18,7 @@ class TicketSchema(Schema):
     qr_code_url = fields.String(data_key='qrCodeUrl', required=False, missing=None)
     session_date = fields.AwareDateTime(data_key='sessionDate', allow_none=False)
     title = fields.String(required=None, missing=False)
-    external_event_id = fields.String(data_key='externalEventId', required=False, missing=None)
+    external_event_id = fields.String(data_key='eventUid', required=False, missing=None)
     barcode = fields.String(data_key='barCode', required=False, missing=None)
     sector_name = fields.String(data_key='sectorName', required=False, missing=None)
     venue_name = fields.String(data_key='venueName', required=False, missing=None)
@@ -36,4 +36,4 @@ class TicketSchema(Schema):
     price_code = fields.String(data_key='priceCode', required=False, missing=None)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=False)
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=False)
-    user_id = RelatedResourceField(schema=UserSchema, required=False, missing=None, data_key='user')
+    user_id = RelatedResourceLinkField(schema=UserSchema, required=False, missing=None, data_key='user')

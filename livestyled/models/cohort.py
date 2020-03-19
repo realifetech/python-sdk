@@ -22,3 +22,10 @@ class Cohort:
 
     def __repr__(self):
         return '<Cohort(id={self.id!r}, title={self.title!r}, external_id={self.external_id!r})>'.format(self=self)
+
+    def __hash__(self):
+        return hash((self.id, self.title, self.external_id))
+
+    def __eq__(self, other):
+        if not isinstance(other, type(self)): return NotImplemented
+        return self.id == other.id and self.title == other.title and self.external_id == other.external_id
