@@ -1,11 +1,11 @@
 from marshmallow import EXCLUDE, fields, Schema
 
 from livestyled.models.fixture import Fixture
-from livestyled.schemas.season import SeasonSchema
 from livestyled.schemas.competition import CompetitionSchema
+from livestyled.schemas.fields import RelatedResourceLinkField
+from livestyled.schemas.season import SeasonSchema
 from livestyled.schemas.sport_venue import SportVenueSchema
 from livestyled.schemas.team import TeamSchema
-from livestyled.schemas.fields import RelatedResourceLinkField
 
 
 class FixtureSchema(Schema):

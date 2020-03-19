@@ -1,4 +1,4 @@
-from marshmallow import EXCLUDE, fields, post_load, Schema
+from marshmallow import EXCLUDE, fields, Schema
 
 from livestyled.models.team import Team
 

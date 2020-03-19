@@ -1,11 +1,11 @@
 import datetime
 import os
 
+from livestyled.models.cohort import Cohort
+from livestyled.models.user import User
 from livestyled.resource_client import LiveStyledResourceClient
 from livestyled.schemas.user import UserSchema
 from livestyled.tests.utils import configure_mock_responses
-from livestyled.models.cohort import Cohort
-from livestyled.models.user import User
 
 FIXTURES_DIR = os.path.join(os.path.dirname(__file__), 'fixtures')
 TEST_API_DOMAIN = 'test.livestyled.com'

@@ -99,7 +99,7 @@ class LiveStyledAPIClient:
             self,
             endpoint: str,
             data: dict,
-            content_type_override = None
+            content_type_override: str or None = None
     ) -> Dict:
         content_type = CONTENT_TYPE
         if content_type_override:

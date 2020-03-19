@@ -1,10 +1,10 @@
-from marshmallow import EXCLUDE, fields, post_load, Schema
+from marshmallow import EXCLUDE, fields, Schema
 
 from livestyled.models.league_table import LeagueTable, LeagueTableGroup
 from livestyled.schemas.competition import CompetitionSchema
+from livestyled.schemas.fields import RelatedResourceLinkField
 from livestyled.schemas.season import SeasonSchema
 from livestyled.schemas.team import TeamSchema
-from livestyled.schemas.fields import RelatedResourceLinkField
 
 
 class LeagueTableGroupSchema(Schema):

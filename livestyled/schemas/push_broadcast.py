@@ -1,4 +1,4 @@
-from marshmallow import EXCLUDE, fields, post_load, Schema
+from marshmallow import EXCLUDE, fields, Schema
 
 from livestyled.models.push_broadcast import PushBroadcast
 from livestyled.schemas.fields import RelatedResourceLinkField

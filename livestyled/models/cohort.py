@@ -27,5 +27,6 @@ class Cohort:
         return hash((self.id, self.title, self.external_id))
 
     def __eq__(self, other):
-        if not isinstance(other, type(self)): return NotImplemented
+        if not isinstance(other, type(self)):
+            return NotImplemented
         return self.id == other.id and self.title == other.title and self.external_id == other.external_id

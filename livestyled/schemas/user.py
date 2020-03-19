@@ -1,10 +1,10 @@
 from marshmallow import EXCLUDE, fields, Schema
 
+from livestyled.models.user import User, UserSSO
 from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.device import DeviceSchema
-from livestyled.schemas.magic_field import MagicFieldSchema
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
-from livestyled.models.user import User, UserSSO
+from livestyled.schemas.magic_field import MagicFieldSchema
 
 
 class UserCreateSchema(Schema):
@@ -61,7 +61,7 @@ class UserSchema(Schema):
 class UserSSOSchema(Schema):
     class Meta:
         unknown = EXCLUDE
-        api_type = 'user_sso',
+        api_type = 'user_sso'
         url = 'v4/user_ssos'
         model = UserSSO
 

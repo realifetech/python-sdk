@@ -1,7 +1,7 @@
 from marshmallow import EXCLUDE, fields, Schema
 
-from livestyled.schemas.fields import RelatedResourceLinkField
 from livestyled.models.magic_field import MagicField
+from livestyled.schemas.fields import RelatedResourceLinkField
 
 
 class MagicFieldSchema(Schema):

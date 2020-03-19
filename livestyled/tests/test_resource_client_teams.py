@@ -2,9 +2,9 @@ import os
 
 import pytest
 
+from livestyled.models.team import Team
 from livestyled.resource_client import LiveStyledResourceClient
 from livestyled.tests.utils import configure_mock_responses
-from livestyled.models.team import Team
 
 FIXTURES_DIR = os.path.join(os.path.dirname(__file__), 'fixtures')
 TEST_API_DOMAIN = 'test.livestyled.com'
