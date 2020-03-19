@@ -17,7 +17,9 @@ def test_create_fixture_from_deserialized():
         'season_id': 2,
         'start_at': datetime(2020, 8, 28, 9, 46, 2, tzinfo=timezone(timedelta(0), '+0000')),
         'venue_id': 5,
-        'external_id': None
+        'external_id': None,
+        'status': 'Active',
+        'url': 'https://test.com'
     }
     fixture = Fixture(**deserialized_fixture)
     assert fixture
@@ -36,7 +38,9 @@ def test_serialize_fixture():
         'season_id': 2,
         'start_at': datetime(2020, 8, 28, 9, 46, 2, tzinfo=timezone(timedelta(0), '+0000')),
         'venue_id': 5,
-        'external_id': None
+        'external_id': None,
+        'status': 'Active',
+        'url': 'https://test.com'
     }
     fixture = Fixture(**deserialized_fixture)
     serialized_fixture = FixtureSchema().dump(fixture)

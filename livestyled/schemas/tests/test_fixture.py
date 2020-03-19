@@ -24,7 +24,15 @@ def test_deserialize_fixture():
             'is_terminated': False,
             'season_id': 2,
             'start_at': datetime(2020, 8, 28, 9, 46, 2, tzinfo=timezone(timedelta(0), '+0000')),
-            'venue_id': 5
+            'venue_id': 5,
+            'allow_overwrite': False,
+            'external_id': None,
+            'status': 'active',
+            'url': {
+                'is_enabled': True,
+                'title': 'Tickets available via the app will displayed at least 48hours prior to the match. Check my account for order history',
+                'url': 'http://www.google.com'
+            }
         }
 
 
@@ -53,6 +61,6 @@ def test_serialize_fixture():
         'isFullTime': False,
         'isTerminated': False,
         'season': '/v4/seasons/2',
-        'sportVenue': '/v4/venues/5',
+        'sportVenue': '/v4/sport_venues/5',
         'startAt': '2020-08-28T09:46:02+00:00'
     }
