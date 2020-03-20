@@ -45,7 +45,13 @@ class Fixture:
         self._competition = Competition.placeholder(id=competition_id)
         self._venue = SportVenue.placeholder(id=venue_id)
         self._status = status
-        self.url = url
+        if url:
+            if isinstance(url, Url):
+                self.url = url
+            elif isinstance(url, dict):
+                self.url = Url(**url)
+        else:
+            self.url = None
         self.allow_overwrite = allow_overwrite
 
     @classmethod

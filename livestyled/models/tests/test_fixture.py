@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta, timezone
 
-from livestyled.models.fixture import Fixture
+from livestyled.models.fixture import Fixture, Url
 from livestyled.schemas.fixture import FixtureSchema
 
 
@@ -19,7 +19,11 @@ def test_create_fixture_from_deserialized():
         'venue_id': 5,
         'external_id': None,
         'status': 'Active',
-        'url': 'https://test.com'
+        'url': {
+            'url': 'https://test.com',
+            'is_enabled': True,
+            'title': 'TEST'
+        }
     }
     fixture = Fixture(**deserialized_fixture)
     assert fixture
@@ -40,9 +44,18 @@ def test_serialize_fixture():
         'venue_id': 5,
         'external_id': None,
         'status': 'Active',
-        'url': 'https://test.com'
+        'url': {
+            'url': 'https://test.com',
+            'is_enabled': True,
+            'title': 'TEST'
+        }
     }
     fixture = Fixture(**deserialized_fixture)
     serialized_fixture = FixtureSchema().dump(fixture)
     assert serialized_fixture
     assert serialized_fixture['competition'] == '/v4/competitions/6'
+    assert serialized_fixture['url'] == {
+            'url': 'https://test.com',
+            'is_enabled': True,
+            'title': 'TEST'
+        }
