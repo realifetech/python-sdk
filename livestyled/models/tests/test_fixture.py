@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta, timezone
 
-from livestyled.models.fixture import Fixture, Url
+from livestyled.models.fixture import Fixture
 from livestyled.schemas.fixture import FixtureSchema
 
 
@@ -55,7 +55,7 @@ def test_serialize_fixture():
     assert serialized_fixture
     assert serialized_fixture['competition'] == '/v4/competitions/6'
     assert serialized_fixture['url'] == {
-            'url': 'https://test.com',
-            'is_enabled': True,
-            'title': 'TEST'
-        }
+        'url': 'https://test.com',
+        'is_enabled': True,
+        'title': 'TEST'
+    }
