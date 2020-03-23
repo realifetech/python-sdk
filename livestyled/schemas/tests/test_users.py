@@ -18,6 +18,7 @@ def test_deserialize_user():
             'email': 'reuben.gow+axs2@livestyled.com',
             'id': 278405,
             'user_info': {
+                'id': 277763,
                 'first_name': 'Reuben',
                 'last_name': 'Gow',
                 'dob': datetime.datetime(1980, 1, 1, 0, 0, tzinfo=datetime.timezone(datetime.timedelta(0), '+0000')),

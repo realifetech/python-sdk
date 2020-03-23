@@ -63,6 +63,7 @@ def test_user_diff(requests_mock):
     assert serialised_differences
     assert serialised_differences == {
         'userInfo': {
+            'id': 37,
             'dob': '1992-12-06T00:00:00+00:00',
             'firstName': 'Bobby',
             'gender': 'MALE',

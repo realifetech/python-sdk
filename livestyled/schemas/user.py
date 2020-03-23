@@ -1,6 +1,6 @@
 from marshmallow import EXCLUDE, fields, Schema
 
-from livestyled.models.user import User, UserSSO
+from livestyled.models.user import User, UserInfo, UserSSO
 from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.device import DeviceSchema
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
@@ -22,6 +22,21 @@ class UserCreateSchema(Schema):
     device_id = RelatedResourceLinkField(schema=DeviceSchema, data_key='device')
 
 
+class UserInfoSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+        api_type = 'user_info'
+        url = 'v4/user_infos'
+        model = UserInfo
+
+    id = fields.Int()
+    first_name = fields.String(data_key='firstName')
+    last_name = fields.String(data_key='lastName')
+    phone = fields.String(data_key='phone')
+    dob = fields.AwareDateTime()
+    gender = fields.String()
+
+
 class UserSchema(Schema):
     class Meta:
         unknown = EXCLUDE
@@ -31,15 +46,6 @@ class UserSchema(Schema):
         authorise_url = 'v4/users/{}/authorise'
         magic_fields_url = 'v4/users/{}/magic_fields'
         model = User
-
-    class UserInfo(Schema):
-        class Meta:
-            unknown = EXCLUDE
-        first_name = fields.String(data_key='firstName')
-        last_name = fields.String(data_key='lastName')
-        phone = fields.String(data_key='phone')
-        dob = fields.AwareDateTime()
-        gender = fields.String()
 
     class UserEmail(Schema):
         class Meta:
@@ -52,7 +58,7 @@ class UserSchema(Schema):
     email = fields.Email()
     password = fields.String()
     device_id = RelatedResourceLinkField(schema=DeviceSchema, data_key='device')
-    user_info = fields.Nested(UserInfo, data_key='userInfo')
+    user_info = fields.Nested(UserInfoSchema, data_key='userInfo')
     cohorts = RelatedResourceLinkField(schema=CohortSchema, many=True)
     magic_fields = RelatedResourceField(schema=MagicFieldSchema, many=True, data_key='magicFields')
     user_emails = fields.Nested(UserEmail, data_key='userEmails', many=True)

@@ -19,6 +19,7 @@ from livestyled.models import (
     Team,
     Ticket,
     User,
+    UserInfo,
     UserSSO,
 )
 from livestyled.schemas import (
@@ -36,6 +37,7 @@ from livestyled.schemas import (
     TeamSchema,
     TicketSchema,
     UserCreateSchema,
+    UserInfoSchema,
     UserSchema,
     UserSSOSchema,
 )
@@ -373,6 +375,13 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             attributes: Dict
     ) -> User:
         return self._update_resource(UserSchema, user.id, attributes)
+
+    def update_user_info(
+            self,
+            user_info: UserInfo,
+            attributes: Dict
+    ) -> UserInfo:
+        return self._update_resource(UserInfoSchema, user_info.id, attributes)
 
     def authorise_user(
             self,

@@ -9,12 +9,14 @@ from livestyled.models.magic_field import MagicField
 class UserInfo:
     def __init__(
             self,
+            id: int or None = None,
             first_name: str or None = None,
             last_name: str or None = None,
             dob: datetime or None = None,
             gender: str or None = None,
             phone: str or None = None,
     ):
+        self.id = id
         self.first_name = first_name
         self.last_name = last_name
         self.dob = dob
