@@ -106,7 +106,7 @@ class User:
             id=None,
             email=email,
             auth_type=auth_type,
-            user_info=UserInfo(first_name, last_name, dob, gender),
+            user_info=UserInfo(first_name=first_name, last_name=last_name, dob=dob, gender=gender),
             device_id=None,
             password=password
         )
