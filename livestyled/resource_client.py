@@ -587,3 +587,10 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             magic_field: MagicField
     ) -> MagicField:
         return self._create_resource(MagicFieldSchema, magic_field)
+
+    def update_magic_field(
+            self,
+            magic_field: MagicField,
+            attributes: Dict
+    ) -> MagicField:
+        return self._update_resource(MagicFieldSchema, magic_field.id, attributes)
