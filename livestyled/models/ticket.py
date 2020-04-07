@@ -29,6 +29,7 @@ class Ticket:
             user_id,
             status,
             session_date=None,
+            can_share=False,
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
@@ -55,6 +56,7 @@ class Ticket:
         self.price_code = price_code
         self._user = User.placeholder(id=user_id)
         self.status = status
+        self.can_share = can_share
 
     @classmethod
     def create_new(
@@ -80,7 +82,8 @@ class Ticket:
             external_customer_ref=None,
             price_code=None,
             entrance=None,
-            status=None
+            status=None,
+            can_share=False,
     ):
         ticket = Ticket(
             id=None,
@@ -107,7 +110,8 @@ class Ticket:
             row=row,
             price_code=price_code,
             user_id=None,
-            status=status
+            status=status,
+            can_share=can_share
         )
         ticket._user = user
         return ticket
@@ -128,7 +132,7 @@ class Ticket:
         fields = (
             'external_ticket_id', 'seat', 'qr_code_url', 'session_date', 'title', 'external_event_id',
             'barcode', 'sector_name', 'venue_name', 'venue_room', 'client_name', 'premium', 'client_email',
-            'price', 'status'
+            'price', 'status', 'can_share'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

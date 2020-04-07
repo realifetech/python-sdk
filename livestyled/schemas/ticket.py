@@ -37,3 +37,4 @@ class TicketSchema(Schema):
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=False)
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=False)
     user_id = RelatedResourceLinkField(schema=UserSchema, required=False, missing=None, data_key='user')
+    can_share = fields.Boolean(data_key='canShare', allow_none=False, required=False, missing=False)
