@@ -21,6 +21,7 @@ from livestyled.models import (
     User,
     UserInfo,
     UserSSO,
+    Event,
 )
 from livestyled.schemas import (
     CohortSchema,
@@ -40,6 +41,7 @@ from livestyled.schemas import (
     UserInfoSchema,
     UserSchema,
     UserSSOSchema,
+    EventSchema,
 )
 
 
@@ -594,3 +596,14 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             attributes: Dict
     ) -> MagicField:
         return self._update_resource(MagicFieldSchema, magic_field.id, attributes)
+
+    # ---- EVENTS
+
+    def get_events(
+            self,
+            title: str or None = None,
+    ) -> Generator[Event, None, None]:
+        if title:
+            return self._get_resource_list(EventSchema, filters={'title': title})
+        else:
+            return self._get_resource_list(EventSchema)

@@ -12,6 +12,7 @@ from livestyled.models.sport_venue import SportVenue
 from livestyled.models.team import Team
 from livestyled.models.ticket import Ticket
 from livestyled.models.user import User, UserInfo, UserSSO
+from livestyled.models.event import Event
 
 __all__ = [
     Cohort,
@@ -30,5 +31,6 @@ __all__ = [
     Ticket,
     UserInfo,
     User,
-    UserSSO
+    UserSSO,
+    Event,
 ]
