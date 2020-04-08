@@ -7,6 +7,7 @@ from livestyled.client import LiveStyledAPIClient
 from livestyled.models import (
     Cohort,
     Competition,
+    Event,
     Fixture,
     LeagueTable,
     LeagueTableGroup,
@@ -20,11 +21,12 @@ from livestyled.models import (
     Ticket,
     User,
     UserInfo,
-    UserSSO,
+    UserSSO
 )
 from livestyled.schemas import (
     CohortSchema,
     CompetitionSchema,
+    EventSchema,
     FixtureSchema,
     LeagueTableGroupSchema,
     LeagueTableSchema,
@@ -39,7 +41,7 @@ from livestyled.schemas import (
     UserCreateSchema,
     UserInfoSchema,
     UserSchema,
-    UserSSOSchema,
+    UserSSOSchema
 )
 
 
@@ -594,3 +596,14 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             attributes: Dict
     ) -> MagicField:
         return self._update_resource(MagicFieldSchema, magic_field.id, attributes)
+
+    # ---- EVENTS
+
+    def get_events(
+            self,
+            title: str or None = None,
+    ) -> Generator[Event, None, None]:
+        if title:
+            return self._get_resource_list(EventSchema, filters={'title': title})
+        else:
+            return self._get_resource_list(EventSchema)

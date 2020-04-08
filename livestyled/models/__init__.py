@@ -1,6 +1,7 @@
 from livestyled.models.cohort import Cohort
 from livestyled.models.competition import Competition
 from livestyled.models.device import Device
+from livestyled.models.event import Event
 from livestyled.models.fixture import Fixture
 from livestyled.models.league_table import LeagueTable, LeagueTableGroup
 from livestyled.models.magic_field import MagicField
@@ -17,6 +18,7 @@ __all__ = [
     Cohort,
     Competition,
     Device,
+    Event,
     Fixture,
     LeagueTable,
     LeagueTableGroup,
