@@ -1,5 +1,6 @@
 from livestyled.models.cohort import Cohort
 from livestyled.models.competition import Competition
+from livestyled.models.event import Event
 from livestyled.models.device import Device
 from livestyled.models.fixture import Fixture
 from livestyled.models.league_table import LeagueTable, LeagueTableGroup
@@ -12,7 +13,6 @@ from livestyled.models.sport_venue import SportVenue
 from livestyled.models.team import Team
 from livestyled.models.ticket import Ticket
 from livestyled.models.user import User, UserInfo, UserSSO
-from livestyled.models.event import Event
 
 __all__ = [
     Cohort,
