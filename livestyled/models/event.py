@@ -27,11 +27,9 @@ class Event:
             self._event_dates = [EventDate(**ed) for ed in event_dates]
         self._translations = translations
 
-
     @property
     def id(self):
         return self._id
-
 
     def __repr__(self):
         return '<Event(id={self.id!r})>'.format(self=self)

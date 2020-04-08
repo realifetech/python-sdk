@@ -11,11 +11,9 @@ class EventDate:
         self._end_at = end_at
         self._general_ticket_url = general_ticket_url
 
-
     @property
     def id(self):
         return self._id
-
 
     def __repr__(self):
         return '<EventDate(id={self.id!r})>'.format(self=self)

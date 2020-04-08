@@ -18,6 +18,7 @@ __all__ = [
     Cohort,
     Competition,
     Device,
+    Event,
     Fixture,
     LeagueTable,
     LeagueTableGroup,
@@ -31,6 +32,5 @@ __all__ = [
     Ticket,
     UserInfo,
     User,
-    UserSSO,
-    Event,
+    UserSSO
 ]

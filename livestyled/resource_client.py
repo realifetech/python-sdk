@@ -7,6 +7,7 @@ from livestyled.client import LiveStyledAPIClient
 from livestyled.models import (
     Cohort,
     Competition,
+    Event,
     Fixture,
     LeagueTable,
     LeagueTableGroup,
@@ -20,12 +21,12 @@ from livestyled.models import (
     Ticket,
     User,
     UserInfo,
-    UserSSO,
-    Event,
+    UserSSO
 )
 from livestyled.schemas import (
     CohortSchema,
     CompetitionSchema,
+    EventSchema,
     FixtureSchema,
     LeagueTableGroupSchema,
     LeagueTableSchema,
@@ -40,8 +41,7 @@ from livestyled.schemas import (
     UserCreateSchema,
     UserInfoSchema,
     UserSchema,
-    UserSSOSchema,
-    EventSchema,
+    UserSSOSchema
 )
 
 
