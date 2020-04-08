@@ -16,16 +16,16 @@ class Event:
             translations,
     ):
         self._id = id
-        self._status = status
-        self._title = title
-        self._description = description
-        self._image_url = image_url
-        self._promoted = promoted
-        self._created_at = created_at
-        self._updated_at = updated_at
+        self.status = status
+        self.title = title
+        self.description = description
+        self.image_url = image_url
+        self.promoted = promoted
+        self.created_at = created_at
+        self.updated_at = updated_at
         if event_dates:
-            self._event_dates = [EventDate(**ed) for ed in event_dates]
-        self._translations = translations
+            self.event_dates = [EventDate(**ed) for ed in event_dates]
+        self.translations = translations
 
     @property
     def id(self):

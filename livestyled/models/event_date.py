@@ -7,9 +7,9 @@ class EventDate:
             general_ticket_url
     ):
         self._id = id
-        self._start_at = start_at
-        self._end_at = end_at
-        self._general_ticket_url = general_ticket_url
+        self.start_at = start_at
+        self.end_at = end_at
+        self.general_ticket_url = general_ticket_url
 
     @property
     def id(self):
