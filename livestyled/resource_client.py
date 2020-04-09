@@ -637,7 +637,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
             device: str or None = None,
             event: str or None = None,
-    ) -> Generator[Booking, None, None]:
+    ) -> Generator[DevicePreference, None, None]:
         if device and event:
             return self._get_resource_list(DevicePreferenceSchema,
                                            filters={'device': device, 'event': event})
@@ -646,6 +646,6 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def create_device_preference(
             self,
-            booking: DevicePreferenceSchema
+            device_preference: DevicePreferenceSchema
     ) -> Booking:
-        return self._create_resource(DevicePreferenceSchema, booking)
+        return self._create_resource(DevicePreferenceSchema, device_preference)

@@ -25,7 +25,7 @@ class Booking:
             type: str,
             device: str,
             user: str or None,
-            event:str,
+            event: str,
             created_at: str,
             updated_at: str,
             action: str,
