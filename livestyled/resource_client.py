@@ -5,8 +5,10 @@ from requests.exceptions import HTTPError
 
 from livestyled.client import LiveStyledAPIClient
 from livestyled.models import (
+    Booking,
     Cohort,
     Competition,
+    DevicePreference,
     Event,
     Fixture,
     LeagueTable,
@@ -24,8 +26,10 @@ from livestyled.models import (
     UserSSO
 )
 from livestyled.schemas import (
+    BookingSchema,
     CohortSchema,
     CompetitionSchema,
+    DevicePreferenceSchema,
     EventSchema,
     FixtureSchema,
     LeagueTableGroupSchema,
@@ -607,3 +611,41 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             return self._get_resource_list(EventSchema, filters={'title': title})
         else:
             return self._get_resource_list(EventSchema)
+
+    # ---- BOOKINGS
+
+    def get_bookings(
+            self,
+            device: str or None = None,
+            event: str or None = None,
+            action: str or None = None,
+    ) -> Generator[Booking, None, None]:
+        if device and event and action:
+            return self._get_resource_list(BookingSchema, filters={'device': device, 'event': event, 'action': action})
+        else:
+            return self._get_resource_list(BookingSchema)
+
+    def create_booking(
+            self,
+            booking: BookingSchema
+    ) -> Booking:
+        return self._create_resource(BookingSchema, booking)
+
+    # ---- DEVICE PREFERENCES
+
+    def get_device_preferences(
+            self,
+            device: str or None = None,
+            event: str or None = None,
+    ) -> Generator[Booking, None, None]:
+        if device and event:
+            return self._get_resource_list(DevicePreferenceSchema,
+                                           filters={'device': device, 'event': event})
+        else:
+            return self._get_resource_list(DevicePreferenceSchema)
+
+    def create_device_preference(
+            self,
+            booking: DevicePreferenceSchema
+    ) -> Booking:
+        return self._create_resource(DevicePreferenceSchema, booking)

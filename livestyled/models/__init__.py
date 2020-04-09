@@ -1,6 +1,8 @@
+from livestyled.models.booking import Booking
 from livestyled.models.cohort import Cohort
 from livestyled.models.competition import Competition
 from livestyled.models.device import Device
+from livestyled.models.device_preference import DevicePreference
 from livestyled.models.event import Event
 from livestyled.models.fixture import Fixture
 from livestyled.models.league_table import LeagueTable, LeagueTableGroup
@@ -15,9 +17,11 @@ from livestyled.models.ticket import Ticket
 from livestyled.models.user import User, UserInfo, UserSSO
 
 __all__ = [
+    Booking,
     Cohort,
     Competition,
     Device,
+    DevicePreference,
     Event,
     Fixture,
     LeagueTable,

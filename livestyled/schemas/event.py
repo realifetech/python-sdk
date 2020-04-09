@@ -1,5 +1,6 @@
 from marshmallow import EXCLUDE, fields, Schema
 
+from livestyled.models import Event
 from livestyled.schemas.utils import get_id_from_url
 
 
@@ -8,6 +9,7 @@ class EventSchema(Schema):
         unknown = EXCLUDE
         api_type = 'events'
         url = 'v4/events'
+        model = Event
 
     id = fields.Int()
     status = fields.String()

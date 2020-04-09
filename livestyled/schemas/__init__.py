@@ -1,7 +1,9 @@
 from livestyled.schemas.app import AppSchema
+from livestyled.schemas.booking import BookingSchema
 from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.competition import CompetitionSchema
 from livestyled.schemas.device import DeviceSchema
+from livestyled.schemas.device_preference import DevicePreferenceSchema
 from livestyled.schemas.device_consent import DeviceConsentSchema
 from livestyled.schemas.device_token import DeviceTokenSchema
 from livestyled.schemas.event import EventSchema
@@ -22,9 +24,11 @@ from livestyled.schemas.user import UserCreateSchema, UserInfoSchema, UserSchema
 
 __all__ = [
     AppSchema,
+    BookingSchema,
     CohortSchema,
     CompetitionSchema,
     DeviceSchema,
+    DevicePreferenceSchema,
     DeviceConsentSchema,
     DeviceTokenSchema,
     EventSchema,
