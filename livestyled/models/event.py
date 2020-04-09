@@ -27,6 +27,24 @@ class Event:
             self.event_dates = [EventDate(**ed) for ed in event_dates]
         self.translations = translations
 
+    @classmethod
+    def placeholder(
+            cls,
+            id
+    ):
+        return cls(
+            id=id,
+            status=None,
+            title=None,
+            description=None,
+            image_url=None,
+            promoted=None,
+            created_at=None,
+            updated_at=None,
+            event_dates=None,
+            translations=None,
+        )
+
     @property
     def id(self):
         return self._id
