@@ -11,7 +11,7 @@ class DevicePreferenceSchema(Schema):
         url = 'v4/device_preferences'
 
     id = fields.Int()
-    created_at = fields.String()
+    created_at = fields.String(data_key='createdAt')
     device = fields.String()
     venue = fields.String()
     event = fields.String()

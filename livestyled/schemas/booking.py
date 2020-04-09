@@ -15,6 +15,6 @@ class BookingSchema(Schema):
     device = fields.String()
     user = fields.String()
     event = fields.String()
-    created_at = fields.String()
-    updated_at = fields.String()
+    created_at = fields.String(data_key='createdAt')
+    updated_at = fields.String(data_key='updatedAt')
     action = fields.String()

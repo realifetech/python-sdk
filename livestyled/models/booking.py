@@ -16,7 +16,7 @@ class Booking:
         self.user = user
         self.event = event
         self.created_at = created_at
-        self.created_at = updated_at
+        self.updated_at = updated_at
         self.action = action
 
     @classmethod

@@ -647,5 +647,5 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     def create_device_preference(
             self,
             device_preference: DevicePreferenceSchema
-    ) -> Booking:
+    ) -> DevicePreference:
         return self._create_resource(DevicePreferenceSchema, device_preference)
