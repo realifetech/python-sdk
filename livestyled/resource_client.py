@@ -68,6 +68,17 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             filter_params = filters
         if external_id:
             filter_params['externalId'] = external_id
+
+        try:
+            default_ordering = resource_schema.Meta.default_ordering
+        except AttributeError:
+            pass
+        else:
+            if default_ordering.startswith('-'):
+                filter_params['order[{}]'.format(default_ordering.lstrip('-'))] = 'desc'
+            else:
+                filter_params['order[{}]'.format(default_ordering)] = 'asc'
+
         resources = self._get_resources(
             resource_schema,
             params=filter_params
