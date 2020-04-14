@@ -23,7 +23,7 @@ class NewsSchema(Schema):
     image_url = fields.String(data_key='imageUrl', missing=None)
     title = fields.String(data_key='title')
     media = fields.Nested(NewsMediaSchema, missing=None)
-    url = fields.URL()
+    url = fields.String(allow_none=True)
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=False)
     published_at = fields.AwareDateTime(data_key='publishedAt', allow_none=False)
     author = fields.String(required=False, missing=None)
