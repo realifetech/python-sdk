@@ -13,6 +13,7 @@ class DevicePreferenceSchema(Schema):
         model = DevicePreference
         api_type = 'device_preferences'
         url = 'v4/device_preferences'
+        default_ordering = '-updatedAt'
 
     id = fields.Int()
     created_at = fields.String(data_key='createdAt')
