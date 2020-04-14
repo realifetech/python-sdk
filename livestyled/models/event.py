@@ -8,12 +8,12 @@ class Event:
             status,
             title,
             description,
-            image_url,
             promoted,
-            created_at,
             updated_at,
             event_dates,
-            translations,
+            created_at=None,
+            translations=None,
+            image_url=None,
     ):
         self._id = id
         self.status = status
