@@ -619,9 +619,19 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             device: str or None = None,
             event: str or None = None,
             action: str or None = None,
+            type: str or None = None,
     ) -> Generator[Booking, None, None]:
-        if device and event and action:
-            return self._get_resource_list(BookingSchema, filters={'device': device, 'event': event, 'action': action})
+        filters = {}
+        if device:
+            filters['device'] = device
+        if event:
+            filters['event'] = event
+        if action:
+            filters['action'] = action
+        if type:
+            filters['type'] = type
+        if filters:
+            return self._get_resource_list(BookingSchema, filters=filters)
         else:
             return self._get_resource_list(BookingSchema)
 
