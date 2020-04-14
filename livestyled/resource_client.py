@@ -648,7 +648,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def create_booking(
             self,
-            booking: BookingSchema
+            booking: Booking
     ) -> Booking:
         return self._create_resource(BookingSchema, booking)
 
@@ -667,6 +667,6 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def create_device_preference(
             self,
-            device_preference: DevicePreferenceSchema
+            device_preference: DevicePreference
     ) -> DevicePreference:
         return self._create_resource(DevicePreferenceSchema, device_preference)
