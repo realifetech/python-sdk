@@ -31,11 +31,9 @@ class Booking:
     def create_new(
             cls,
             type: str,
-            device: Device,
-            user: User or None,
-            event: Event,
-            created_at: str,
-            updated_at: str,
+            device: Device or str or int,
+            user: User or str or int or None,
+            event: Event or str or int,
             action: str,
     ):
         booking = Booking(
@@ -44,12 +42,18 @@ class Booking:
             device_id=None,
             user_id=None,
             event_id=None,
-            created_at=created_at,
-            updated_at=updated_at,
+            created_at=None,
+            updated_at=None,
             action=action,
         )
+        if isinstance(user, (str, int)):
+            user = User.placeholder(id=user)
         booking._user = user
+        if isinstance(device, (str, int)):
+            device = Device.placeholder(id=device)
         booking._device = device
+        if isinstance(event, (str, int)):
+            event = Event.placeholder(id=event)
         booking._event = event
         return booking
 

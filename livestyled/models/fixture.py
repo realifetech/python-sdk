@@ -61,15 +61,15 @@ class Fixture:
             start_at: datetime,
             is_fulltime: bool,
             is_terminated: bool,
-            home: Team,
-            away: Team,
+            home: Team or str or int,
+            away: Team or str or int,
             home_goals: int,
             home_penalties: int or None,
             away_goals: int,
             away_penalties: int or None,
-            season: Season,
-            competition: Competition,
-            venue: SportVenue,
+            season: Season or str or int,
+            competition: Competition or str or int,
+            venue: SportVenue or str or int,
             status: str,
             url: Url,
             allow_overwrite: bool = False,
@@ -91,10 +91,20 @@ class Fixture:
             url=url,
             allow_overwrite=allow_overwrite
         )
+        if isinstance(home, (str, int)):
+            home = Team.placeholder(id=home)
         fixture._home = home
+        if isinstance(away, (str, int)):
+            away = Team.placeholder(id=away)
         fixture._away = away
+        if isinstance(season, (str, int)):
+            season = Season.placeholder(id=season)
         fixture._season = season
+        if isinstance(competition, (str, int)):
+            competition = Competition.placeholder(id=competition)
         fixture._competition = competition
+        if isinstance(venue, (str, int)):
+            venue = SportVenue.placeholder(id=venue)
         fixture._venue = venue
         return fixture
 

@@ -1,0 +1,12 @@
+{
+    "@id": "/v4/bookings/16",
+    "@type": "Booking",
+    "id": 16,
+    "type": "manual",
+    "device": "/v4/devices/1234",
+    "user": "/v4/users/5555",
+    "event": "/v4/events/8888",
+    "createdAt": "2019-08-16T09:58:35+00:00",
+    "updatedAt": "2019-08-16T09:58:35+00:00",
+    "action": "going"
+}

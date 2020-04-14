@@ -1,5 +1,4 @@
 
-
 class MagicField:
     def __init__(
             self,
@@ -27,6 +26,9 @@ class MagicField:
             value=value,
             user_id=None,
         )
+        from livestyled.models.user import User
+        if isinstance(user, (str, int)):
+            user = User.placeholder(id=user)
         magic_field._user = user
         return magic_field
 

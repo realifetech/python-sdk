@@ -27,20 +27,25 @@ class DevicePreference:
     @classmethod
     def create_new(
             cls,
-            created_at: str,
-            device: Device,
-            venue: Venue or None,
-            event: Event,
+            device: Device or str or int,
+            venue: Venue or str or int or None,
+            event: Event or str or int,
     ):
         device_pref = DevicePreference(
             id=None,
             device_id=None,
             venue_id=None,
             event_id=None,
-            created_at=created_at,
+            created_at=None,
         )
+        if isinstance(event, (str, int)):
+            event = Event.placeholder(event)
         device_pref._event = event
+        if isinstance(device, (str, int)):
+            device = Device.placeholder(id=device)
         device_pref._device = device
+        if isinstance(venue, (str, int)):
+            venue = Venue.placeholder(id=venue)
         device_pref._venue = venue
         return device_pref
 

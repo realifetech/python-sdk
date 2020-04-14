@@ -61,7 +61,7 @@ class Ticket:
     @classmethod
     def create_new(
             cls,
-            user: User,
+            user: User or str or int,
             external_ticket_id=None,
             seat=None,
             qr_code_url=None,
@@ -113,6 +113,8 @@ class Ticket:
             status=status,
             can_share=can_share
         )
+        if isinstance(user, (str, int)):
+            user = User.placeholder(id=user)
         ticket._user = user
         return ticket
 

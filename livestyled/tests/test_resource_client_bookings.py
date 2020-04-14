@@ -1,5 +1,8 @@
 from datetime import datetime, timedelta, timezone
+import json
 import os
+
+import pytest
 
 from livestyled.models.booking import Booking
 from livestyled.models.device import Device
@@ -55,3 +58,37 @@ def test_get_bookings(requests_mock):
     assert booking.created_at == datetime(2019, 8, 21, 13, 31, 47, tzinfo=timezone(timedelta(0), '+0000'))
     assert booking.updated_at == datetime(2019, 8, 21, 13, 31, 47, tzinfo=timezone(timedelta(0), '+0000'))
     assert booking.action == 'interested'
+
+
+@pytest.mark.parametrize(('device', 'user', 'event'), [
+    ('1234', '5555', '8888'),
+    (Device.placeholder(1234), User.placeholder(5555), Event.placeholder(8888))
+])
+def test_create_booking(requests_mock, device, user, event):
+
+    mock_responses = (
+        ('POST', 'https://' + TEST_API_DOMAIN + '/v4/bookings', 'mock_responses/ls_api/create_booking.json', 200),
+    )
+    configure_mock_responses(requests_mock, mock_responses, FIXTURES_DIR, CONTENT_TYPE)
+
+    resource_client = LiveStyledResourceClient(TEST_API_DOMAIN, 'bar')
+    resource_client.create_booking(
+        Booking.create_new(
+            type='manual',
+            device=device,
+            user=user,
+            event=event,
+            action='going'
+        )
+    )
+
+    assert len(requests_mock.request_history) == 1
+    assert requests_mock.request_history[0].method == 'POST'
+    assert requests_mock.request_history[0].url == 'https://' + TEST_API_DOMAIN + '/v4/bookings'
+    assert json.loads(requests_mock.request_history[0].body) == {
+        'action': 'going',
+        'event': '/v4/events/8888',
+        'device': '/v4/devices/1234',
+        'type': 'manual',
+        'user': '/v4/users/5555'
+    }
