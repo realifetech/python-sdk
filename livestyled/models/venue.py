@@ -24,7 +24,7 @@ class Venue:
             updated_at: datetime or None = None,
             venue_icon_url: str or None = None,
     ):
-        self.id = id
+        self._id = id
         self.name = name
         self.label = label
         self.status = status
@@ -43,6 +43,10 @@ class Venue:
         self.created_at = created_at
         self.updated_at = updated_at
         self.venue_icon_url = venue_icon_url
+
+    @property
+    def id(self):
+        return self._id
 
     @classmethod
     def create_new(
@@ -66,7 +70,7 @@ class Venue:
             updated_at: datetime or None = None,
             venue_icon_url: str or None = None,
     ):
-        cls.id = None
+        cls._id = None
         cls.name = name
         cls.label = label
         cls.status = status

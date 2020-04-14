@@ -13,10 +13,10 @@ class DevicePreferenceSchema(Schema):
         model = DevicePreference
         api_type = 'device_preferences'
         url = 'v4/device_preferences'
-        default_ordering = '-updatedAt'
+        default_ordering = '-createdAt'
 
     id = fields.Int()
-    created_at = fields.String(data_key='createdAt')
-    venue_id = RelatedResourceLinkField(schema=VenueSchema, data_key='venue')
+    created_at = fields.AwareDateTime(data_key='createdAt')
+    venue_id = RelatedResourceLinkField(schema=VenueSchema, data_key='venue', allow_none=True)
     device_id = RelatedResourceLinkField(schema=DeviceSchema, data_key='device')
-    event_id = RelatedResourceLinkField(schema=EventSchema, data_key='event')
+    event_id = RelatedResourceLinkField(schema=EventSchema, data_key='event', allow_none=True)

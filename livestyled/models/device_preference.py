@@ -15,8 +15,14 @@ class DevicePreference:
         self._id = id
         self.created_at = created_at
         self._device = Device.placeholder(id=device_id)
-        self._venue = Venue.placeholder(id=venue_id)
-        self._event = Event.placeholder(id=event_id)
+        if venue_id:
+            self._venue = Venue.placeholder(id=venue_id)
+        else:
+            self._venue = None
+        if event_id:
+            self._event = Event.placeholder(id=event_id)
+        else:
+            self._event = None
 
     @classmethod
     def create_new(
@@ -37,6 +43,10 @@ class DevicePreference:
         device_pref._device = device
         device_pref._venue = venue
         return device_pref
+
+    @property
+    def id(self):
+        return self._id
 
     @property
     def device_id(self):
@@ -63,7 +73,7 @@ class DevicePreference:
 
     @property
     def venue(self):
-        return self.venue
+        return self._venue
 
     def __repr__(self):
         return '<DevicePreference(id={self.id!r}, device={self.device!r}, venue={self.venue!r}, event={self.event!r})>'.format(self=self)
