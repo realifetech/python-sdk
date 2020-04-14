@@ -1,0 +1,437 @@
+{
+    "@context": "/v4/contexts/Booking",
+    "@id": "/v4/bookings",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/v4/bookings/363",
+            "@type": "Booking",
+            "id": 363,
+            "type": "manual",
+            "device": "/v4/devices/1752118",
+            "user": "/v4/users/276689",
+            "event": "/v4/events/100015943",
+            "createdAt": "2019-08-30T14:18:30+00:00",
+            "updatedAt": "2019-08-30T14:18:30+00:00",
+            "action": "interested"
+        },
+        {
+            "@id": "/v4/bookings/364",
+            "@type": "Booking",
+            "id": 364,
+            "type": "manual",
+            "device": "/v4/devices/1752118",
+            "user": "/v4/users/276689",
+            "event": "/v4/events/100015942",
+            "createdAt": "2019-08-30T14:19:00+00:00",
+            "updatedAt": "2019-08-30T14:19:00+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/365",
+            "@type": "Booking",
+            "id": 365,
+            "type": "eticket",
+            "device": "/v4/devices/1752118",
+            "user": "/v4/users/276689",
+            "event": "/v4/events/100015883",
+            "createdAt": "2019-08-30T14:19:15+00:00",
+            "updatedAt": "2019-08-30T14:19:15+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/372",
+            "@type": "Booking",
+            "id": 372,
+            "type": "eticket",
+            "device": "/v4/devices/1752148",
+            "user": "/v4/users/277274",
+            "event": "/v4/events/100015938",
+            "createdAt": "2019-09-02T16:33:41+00:00",
+            "updatedAt": "2019-09-02T16:33:41+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/373",
+            "@type": "Booking",
+            "id": 373,
+            "type": "manual",
+            "device": "/v4/devices/1752148",
+            "user": "/v4/users/277274",
+            "event": "/v4/events/100015860",
+            "createdAt": "2019-09-02T16:48:16+00:00",
+            "updatedAt": "2019-09-02T16:48:16+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/374",
+            "@type": "Booking",
+            "id": 374,
+            "type": "eticket",
+            "device": "/v4/devices/1749571",
+            "user": "/v4/users/276269",
+            "event": "/v4/events/100015938",
+            "createdAt": "2019-09-03T11:12:18+00:00",
+            "updatedAt": "2019-09-03T11:12:18+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/375",
+            "@type": "Booking",
+            "id": 375,
+            "type": "manual",
+            "device": "/v4/devices/1749571",
+            "event": "/v4/events/100015938",
+            "createdAt": "2019-09-03T11:12:27+00:00",
+            "updatedAt": "2019-09-09T15:43:35+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/376",
+            "@type": "Booking",
+            "id": 376,
+            "type": "manual",
+            "device": "/v4/devices/1749571",
+            "event": "/v4/events/100015860",
+            "createdAt": "2019-09-03T11:12:48+00:00",
+            "updatedAt": "2019-09-03T11:12:48+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/381",
+            "@type": "Booking",
+            "id": 381,
+            "type": "manual",
+            "device": "/v4/devices/1752153",
+            "user": "/v4/users/276689",
+            "event": "/v4/events/100012070",
+            "createdAt": "2019-09-03T15:18:23+00:00",
+            "updatedAt": "2019-09-03T15:18:23+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/382",
+            "@type": "Booking",
+            "id": 382,
+            "type": "eticket",
+            "device": "/v4/devices/1752157",
+            "user": "/v4/users/276689",
+            "event": "/v4/events/100012070",
+            "createdAt": "2019-09-03T15:35:33+00:00",
+            "updatedAt": "2019-09-03T15:35:33+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/383",
+            "@type": "Booking",
+            "id": 383,
+            "type": "eticket",
+            "device": "/v4/devices/1752157",
+            "user": "/v4/users/276689",
+            "event": "/v4/events/100012066",
+            "createdAt": "2019-09-03T15:35:48+00:00",
+            "updatedAt": "2019-09-03T15:35:48+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/384",
+            "@type": "Booking",
+            "id": 384,
+            "type": "eticket",
+            "device": "/v4/devices/1752157",
+            "user": "/v4/users/276689",
+            "event": "/v4/events/100014128",
+            "createdAt": "2019-09-03T15:36:03+00:00",
+            "updatedAt": "2019-09-03T15:36:03+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/385",
+            "@type": "Booking",
+            "id": 385,
+            "type": "manual",
+            "device": "/v4/devices/1752130",
+            "event": "/v4/events/100015938",
+            "createdAt": "2019-09-03T15:45:57+00:00",
+            "updatedAt": "2019-09-03T15:45:57+00:00",
+            "action": "interested"
+        },
+        {
+            "@id": "/v4/bookings/387",
+            "@type": "Booking",
+            "id": 387,
+            "type": "eticket",
+            "device": "/v4/devices/1752157",
+            "user": "/v4/users/276689",
+            "event": "/v4/events/100015938",
+            "createdAt": "2019-09-03T15:53:30+00:00",
+            "updatedAt": "2019-09-03T15:53:30+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/388",
+            "@type": "Booking",
+            "id": 388,
+            "type": "manual",
+            "device": "/v4/devices/1752159",
+            "event": "/v4/events/100015938",
+            "createdAt": "2019-09-03T15:54:29+00:00",
+            "updatedAt": "2019-09-03T15:54:29+00:00",
+            "action": "interested"
+        },
+        {
+            "@id": "/v4/bookings/390",
+            "@type": "Booking",
+            "id": 390,
+            "type": "manual",
+            "device": "/v4/devices/1752160",
+            "event": "/v4/events/100015938",
+            "createdAt": "2019-09-03T15:58:24+00:00",
+            "updatedAt": "2019-09-03T15:58:24+00:00",
+            "action": "interested"
+        },
+        {
+            "@id": "/v4/bookings/395",
+            "@type": "Booking",
+            "id": 395,
+            "type": "manual",
+            "device": "/v4/devices/1748495",
+            "event": "/v4/events/100015869",
+            "createdAt": "2019-09-04T12:49:08+00:00",
+            "updatedAt": "2019-09-04T12:49:08+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/396",
+            "@type": "Booking",
+            "id": 396,
+            "type": "eticket",
+            "device": "/v4/devices/1748495",
+            "user": "/v4/users/276270",
+            "event": "/v4/events/100015832",
+            "createdAt": "2019-09-04T12:49:33+00:00",
+            "updatedAt": "2019-09-04T12:49:33+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/397",
+            "@type": "Booking",
+            "id": 397,
+            "type": "eticket",
+            "device": "/v4/devices/1748495",
+            "user": "/v4/users/276270",
+            "event": "/v4/events/100015833",
+            "createdAt": "2019-09-04T12:49:59+00:00",
+            "updatedAt": "2019-09-04T12:49:59+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/398",
+            "@type": "Booking",
+            "id": 398,
+            "type": "eticket",
+            "device": "/v4/devices/1748495",
+            "user": "/v4/users/276270",
+            "event": "/v4/events/100016484",
+            "createdAt": "2019-09-04T12:53:49+00:00",
+            "updatedAt": "2019-09-04T12:53:49+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/400",
+            "@type": "Booking",
+            "id": 400,
+            "type": "manual",
+            "device": "/v4/devices/1752016",
+            "user": "/v4/users/277575",
+            "event": "/v4/events/100016485",
+            "createdAt": "2019-09-04T15:26:37+00:00",
+            "updatedAt": "2019-09-04T15:26:37+00:00",
+            "action": "interested"
+        },
+        {
+            "@id": "/v4/bookings/403",
+            "@type": "Booking",
+            "id": 403,
+            "type": "manual",
+            "device": "/v4/devices/1752175",
+            "user": "/v4/users/276689",
+            "event": "/v4/events/100012070",
+            "createdAt": "2019-09-05T10:29:18+00:00",
+            "updatedAt": "2019-09-05T10:29:18+00:00",
+            "action": "interested"
+        },
+        {
+            "@id": "/v4/bookings/404",
+            "@type": "Booking",
+            "id": 404,
+            "type": "eticket",
+            "device": "/v4/devices/1752181",
+            "user": "/v4/users/276689",
+            "event": "/v4/events/100012070",
+            "createdAt": "2019-09-05T10:39:52+00:00",
+            "updatedAt": "2019-09-05T10:39:52+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/405",
+            "@type": "Booking",
+            "id": 405,
+            "type": "eticket",
+            "device": "/v4/devices/1752181",
+            "user": "/v4/users/276689",
+            "event": "/v4/events/100014128",
+            "createdAt": "2019-09-05T10:40:07+00:00",
+            "updatedAt": "2019-09-05T10:40:07+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/419",
+            "@type": "Booking",
+            "id": 419,
+            "type": "manual",
+            "device": "/v4/devices/1751782",
+            "event": "/v4/events/100012070",
+            "createdAt": "2019-09-05T15:40:50+00:00",
+            "updatedAt": "2019-09-05T15:40:50+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/425",
+            "@type": "Booking",
+            "id": 425,
+            "type": "eticket",
+            "device": "/v4/devices/1749299",
+            "user": "/v4/users/277596",
+            "event": "/v4/events/100015938",
+            "createdAt": "2019-09-06T15:26:28+00:00",
+            "updatedAt": "2019-09-06T15:26:28+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/431",
+            "@type": "Booking",
+            "id": 431,
+            "type": "manual",
+            "device": "/v4/devices/1752200",
+            "event": "/v4/events/100012066",
+            "createdAt": "2019-09-06T16:59:57+00:00",
+            "updatedAt": "2019-09-06T16:59:57+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/436",
+            "@type": "Booking",
+            "id": 436,
+            "type": "manual",
+            "device": "/v4/devices/1751371",
+            "event": "/v4/events/100012070",
+            "createdAt": "2019-09-07T14:18:31+00:00",
+            "updatedAt": "2019-09-07T14:18:31+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/437",
+            "@type": "Booking",
+            "id": 437,
+            "type": "eticket",
+            "device": "/v4/devices/1752191",
+            "user": "/v4/users/276689",
+            "event": "/v4/events/100012066",
+            "createdAt": "2019-09-08T18:03:50+00:00",
+            "updatedAt": "2019-09-08T18:03:50+00:00",
+            "action": "going"
+        },
+        {
+            "@id": "/v4/bookings/438",
+            "@type": "Booking",
+            "id": 438,
+            "type": "manual",
+            "device": "/v4/devices/1752210",
+            "event": "/v4/events/100012070",
+            "createdAt": "2019-09-09T09:45:42+00:00",
+            "updatedAt": "2019-09-09T09:45:42+00:00",
+            "action": "going"
+        }
+    ],
+    "hydra:totalItems": 1032,
+    "hydra:view": {
+        "@id": "/v4/bookings?page=2",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/bookings?page=1",
+        "hydra:previous": "/v4/bookings?page=1"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/v4/bookings{?order[id],action,action[],type,type[],device,device[],user,user[],event,event[]}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[id]",
+                "property": "id",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "action",
+                "property": "action",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "action[]",
+                "property": "action",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "type",
+                "property": "type",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "type[]",
+                "property": "type",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "device",
+                "property": "device",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "device[]",
+                "property": "device",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "user",
+                "property": "user",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "user[]",
+                "property": "user",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "event",
+                "property": "event",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "event[]",
+                "property": "event",
+                "required": false
+            }
+        ]
+    }
+}

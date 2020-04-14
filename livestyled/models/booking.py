@@ -9,16 +9,19 @@ class Booking:
             id,
             type,
             device_id,
-            user_id,
             event_id,
             created_at,
             updated_at,
             action,
+            user_id=None,
     ):
         self._id = id
         self.type = type
         self._device = Device.placeholder(id=device_id)
-        self._user = User.placeholder(id=user_id)
+        if user_id:
+            self._user = User.placeholder(id=user_id)
+        else:
+            self._user = None
         self._event = Event.placeholder(id=event_id)
         self.created_at = created_at
         self.updated_at = updated_at
@@ -49,6 +52,10 @@ class Booking:
         booking._device = device
         booking._event = event
         return booking
+
+    @property
+    def id(self):
+        return self._id
 
     @property
     def device_id(self):
