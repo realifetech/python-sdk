@@ -617,9 +617,18 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     def get_events(
             self,
             title: str or None = None,
+            status: str or None = None,
+            start_at_after: str or None = None
     ) -> Generator[Event, None, None]:
+        filters = {}
         if title:
-            return self._get_resource_list(EventSchema, filters={'title': title})
+            filters['title'] = title
+        if status:
+            filters['status'] = status
+        if start_at_after:
+            filters['event_dates.start_at[gt]'] = start_at_after
+        if filters:
+            return self._get_resource_list(EventSchema, filters=filters)
         else:
             return self._get_resource_list(EventSchema)
 
