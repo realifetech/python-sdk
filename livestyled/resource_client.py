@@ -603,7 +603,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
             magic_field_id: int,
     ) -> MagicField:
-        return self._get_resource(magic_field_id, MagicFieldSchema)
+        return self._get_resource_by_id(MagicFieldSchema, magic_field_id)
 
     def create_magic_field(
             self,
