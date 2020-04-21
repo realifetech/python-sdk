@@ -71,10 +71,7 @@ class DevicePreference:
 
     @property
     def venue_id(self):
-        if self._venue:
-            return self._venue.id
-        else:
-            return None
+        return self._venue.id
 
     @property
     def venue(self):
