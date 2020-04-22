@@ -1,6 +1,6 @@
 from marshmallow import EXCLUDE, fields, Schema
 
-from livestyled.models.user import User, UserInfo, UserSSO
+from livestyled.models.user import User, UserConsent, UserInfo, UserSSO
 from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.device import DeviceSchema
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
@@ -37,6 +37,16 @@ class UserInfoSchema(Schema):
     gender = fields.String()
 
 
+class UserConsentSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+        model = UserConsent
+
+    id = fields.Int()
+    marketing_consent = fields.Boolean(data_key='marketingConsent', allow_none=False)
+    analysis_consent = fields.Boolean(data_key='analysisConsent', allow_none=False)
+
+
 class UserSchema(Schema):
     class Meta:
         unknown = EXCLUDE
@@ -62,6 +72,7 @@ class UserSchema(Schema):
     cohorts = RelatedResourceLinkField(schema=CohortSchema, many=True)
     magic_fields = RelatedResourceField(schema=MagicFieldSchema, many=True, data_key='magicFields')
     user_emails = fields.Nested(UserEmail, data_key='userEmails', many=True)
+    user_consent = RelatedResourceField(schema=UserConsentSchema, data_key='userConsent')
 
 
 class UserSSOSchema(Schema):

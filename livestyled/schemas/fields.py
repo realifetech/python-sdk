@@ -75,4 +75,5 @@ class RelatedResourceField(fields.Field):
     def _deserialize(self, value, attr, data, **kwargs):
         if self.many:
             return [self.schema().load(v) for v in value]
-        return value
+        else:
+            return self.schema().load(value)

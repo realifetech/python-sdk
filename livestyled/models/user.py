@@ -40,6 +40,32 @@ class UserInfo:
         )
 
 
+class UserConsent:
+    def __init__(
+            self,
+            id: int or None = None,
+            marketing_consent: bool = None,
+            analysis_consent: bool = None
+    ):
+        self.id = id
+        self.marketing_consent = marketing_consent
+        self.analysis_consent = analysis_consent
+
+    def __hash__(self):
+        return hash((self.marketing_consent, self.analysis_consent))
+
+    def __eq__(self, other):
+        if not isinstance(other, type(self)):
+            return NotImplemented
+
+        return all(
+            [
+                self.marketing_consent == other.marketing_consent,
+                self.analysis_consent == other.analysis_consent
+            ]
+        )
+
+
 class UserEmail:
     def __init__(
             self,
@@ -61,7 +87,8 @@ class User:
             password: str or None = None,
             cohorts: List[int] or None = None,
             magic_fields: List[Dict] or None = None,
-            user_emails: List[Dict] or None = None
+            user_emails: List[Dict] or None = None,
+            user_consent: Dict or None = None,
     ):
         self.id = id
         self.email = email
@@ -89,6 +116,13 @@ class User:
             self.user_emails = [UserEmail(**u) for u in user_emails]
         else:
             self.user_emails = []
+        if user_consent:
+            if isinstance(user_consent, UserConsent):
+                self.user_consent = user_consent
+            elif isinstance(user_consent, dict):
+                self.user_consent = UserConsent(**user_consent)
+        else:
+            self.user_consent = None
 
     @classmethod
     def create_new(
@@ -101,6 +135,8 @@ class User:
             password: str or None,
             dob: datetime or None = None,
             gender: str or None = None,
+            marketing_consent: bool = False,
+            analysis_consent: bool = False
     ):
         user = User(
             id=None,
@@ -108,7 +144,8 @@ class User:
             auth_type=auth_type,
             user_info=UserInfo(first_name=first_name, last_name=last_name, dob=dob, gender=gender),
             device_id=None,
-            password=password
+            password=password,
+            user_consent=UserConsent(marketing_consent=marketing_consent, analysis_consent=analysis_consent)
         )
         user._device = device
         return user
@@ -125,12 +162,13 @@ class User:
             user_info=UserInfo(),
             device_id=None,
             password=None,
+            user_consent=UserConsent()
         )
 
     def diff(self, other):
         differences = {}
         fields = (
-            'email', 'auth_type', 'user_info'
+            'email', 'auth_type', 'user_info',
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

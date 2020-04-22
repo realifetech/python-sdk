@@ -31,5 +31,10 @@ def test_deserialize_user():
                     'email': 'reuben.gow+axs2@livestyled.com'
                 }
             ],
-            'magic_fields': []
+            'magic_fields': [],
+            'user_consent': {
+                'marketing_consent': False,
+                'analysis_consent': True,
+                'id': 658056
+            }
         }
