@@ -11,3 +11,7 @@ class DevicePushConsent:
         self.id = id
         self.consent = consent
         self._push_consent = PushConsent.placeholder(id=push_consent_id)
+
+    @property
+    def push_consent(self):
+        return self._push_consent
