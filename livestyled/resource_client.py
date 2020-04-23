@@ -48,6 +48,9 @@ from livestyled.schemas import (
     UserSSOSchema
 )
 
+ASCENDING = 'asc'
+DESCENDING = 'desc'
+
 
 class LiveStyledResourceClient(LiveStyledAPIClient):
     def __init__(
@@ -61,7 +64,8 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
             resource_schema: Type[Schema],
             external_id: str or None = None,
-            filters: Dict or None = None
+            filters: Dict or None = None,
+            order_by: Dict or None = None,
     ):
         filter_params = {}
         if filters:
@@ -69,15 +73,21 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         if external_id:
             filter_params['externalId'] = external_id
 
-        try:
-            default_ordering = resource_schema.Meta.default_ordering
-        except AttributeError:
-            pass
+        if order_by:
+            field = order_by.keys()[0]
+            direction = order_by.values()[1]
+            filter_params['order[{}]'.format(field)] = direction
+            # TODO validate order parameters
         else:
-            if default_ordering.startswith('-'):
-                filter_params['order[{}]'.format(default_ordering.lstrip('-'))] = 'desc'
+            try:
+                default_ordering = resource_schema.Meta.default_ordering
+            except AttributeError:
+                pass
             else:
-                filter_params['order[{}]'.format(default_ordering)] = 'asc'
+                if default_ordering.startswith('-'):
+                    filter_params['order[{}]'.format(default_ordering.lstrip('-'))] = 'desc'
+                else:
+                    filter_params['order[{}]'.format(default_ordering)] = 'asc'
 
         resources = self._get_resources(
             resource_schema,
@@ -465,8 +475,9 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_push_broadcasts(
             self,
+            order_by=None
     ) -> Generator[PushBroadcast, None, None]:
-        return self._get_resource_list(PushBroadcastSchema)
+        return self._get_resource_list(PushBroadcastSchema, order_by=order_by)
 
     def get_push_broadcast(
             self,
