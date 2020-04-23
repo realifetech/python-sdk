@@ -703,6 +703,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     # ---- DEVICES
 
+    def get_device(
+            self,
+            id,
+    ) -> Device:
+        return self._get_resource_by_id(DeviceSchema, id)
+
     def get_devices(
             self
     ) -> Generator[Device, None, None]:
