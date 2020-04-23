@@ -7,12 +7,12 @@ class PushBroadcast:
             id: int or None,
             title: str or None,
             message,
-            deep_link,
             message_id,
             delivered,
             updated_at,
             created_at,
-            push_consent_id,
+            push_consent_id=None,
+            deep_link=None,
             ttl=None,
     ):
         self.id = id
@@ -24,7 +24,10 @@ class PushBroadcast:
         self.delivered = delivered
         self.updated_at = updated_at
         self.created_at = created_at
-        self._push_consent = PushConsent.placeholder(id=push_consent_id)
+        if push_consent_id:
+            self._push_consent = PushConsent.placeholder(id=push_consent_id)
+        else:
+            self._push_consent = None
 
     @classmethod
     def create_new(
