@@ -3,6 +3,7 @@ from livestyled.models.cohort import Cohort
 from livestyled.models.competition import Competition
 from livestyled.models.device import Device
 from livestyled.models.device_preference import DevicePreference
+from livestyled.models.device_push_consent import DevicePushConsent
 from livestyled.models.device_token import DeviceToken
 from livestyled.models.event import Event
 from livestyled.models.fixture import Fixture
@@ -23,6 +24,7 @@ __all__ = [
     Competition,
     Device,
     DevicePreference,
+    DevicePushConsent,
     DeviceToken,
     Event,
     Fixture,

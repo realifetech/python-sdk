@@ -1,6 +1,18 @@
 from marshmallow import EXCLUDE, fields, Schema
 
-from livestyled.models import Device
+from livestyled.models import Device, DevicePushConsent
+from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
+from livestyled.schemas.push_consent import PushConsentSchema
+
+
+class DevicePushConsentSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+        model = DevicePushConsent
+
+    id = fields.Int()
+    consent = fields.Boolean()
+    push_consent_id = RelatedResourceLinkField(schema=PushConsentSchema, data_key='pushConsent')
 
 
 class DeviceSchema(Schema):
@@ -13,7 +25,7 @@ class DeviceSchema(Schema):
     id = fields.Int()
     token = fields.String()
     consent = fields.Nested('livestyled.schemas.device_consent.DeviceConsentSchema', allow_none=True)
-    push_consents = fields.List(fields.Dict, data_key='pushConsents', allow_none=True)  # TODO
+    push_consents = RelatedResourceField(schema=DevicePushConsentSchema, many=True, data_key='pushConsents')
     type = fields.String()
     status = fields.String()
     app_version = fields.String(data_key='appVersion')

@@ -1,4 +1,4 @@
-from livestyled.models import Device
+from livestyled.models.device import Device
 
 
 class DeviceToken:
