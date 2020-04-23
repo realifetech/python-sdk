@@ -8,12 +8,12 @@ class PushBroadcast:
             title: str or None,
             message,
             deep_link,
-            ttl,
             message_id,
             delivered,
             updated_at,
             created_at,
-            push_consent_id
+            push_consent_id,
+            ttl=None,
     ):
         self.id = id
         self.title = title
