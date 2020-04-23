@@ -22,7 +22,7 @@ def test_deserialize_device_tokens():
                     },
                     'subscription': 'arn:aws:sns:eu-west-1:1:push_TEST:e9bd4b66-2fed-43e6-a2ee-16651d3e18a1'
                 },
-                'device': 1755585
+                'device_id': 1755585
             },
             {
                 'id': 43729,
@@ -31,14 +31,14 @@ def test_deserialize_device_tokens():
                 'payload': {
                     'subscription': None
                 },
-                'device': 1755586
+                'device_id': 1755586
             },
             {
                 'id': 43730,
                 'provider': 'GOOGLE',
                 'provider_token': '180f3242-8934-4792-a5e6-207e4bda9dfe',
                 'payload': [],
-                'device': 1755586
+                'device_id': 1755586
             },
             {
                 'id': 43731,
@@ -47,7 +47,7 @@ def test_deserialize_device_tokens():
                 'payload': {
                     'subscription': 'arn:aws:sns:eu-west-1:1:push_TEST:636b261e-6e3d-4c0c-a6e1-9c761cc1e529'
                 },
-                'device': 1755586
+                'device_id': 1755586
             },
             {
                 'id': 43732,
@@ -56,14 +56,14 @@ def test_deserialize_device_tokens():
                 'payload': {
                     'subscription': None
                 },
-                'device': 1755587
+                'device_id': 1755587
             },
             {
                 'id': 43733,
                 'provider': 'GOOGLE',
                 'provider_token': '06aa8455-18cf-4332-8cdc-c937b5bfa811',
                 'payload': [],
-                'device': 1755587
+                'device_id': 1755587
             },
             {
                 'id': 43734,
@@ -72,7 +72,7 @@ def test_deserialize_device_tokens():
                 'payload': {
                     'subscription': None
                 },
-                'device': 1755587
+                'device_id': 1755587
             },
             {
                 'id': 43735,
@@ -81,14 +81,14 @@ def test_deserialize_device_tokens():
                 'payload': {
                     'subscription': None
                 },
-                'device': 1755589
+                'device_id': 1755589
             },
             {
                 'id': 43736,
                 'provider': 'GOOGLE',
                 'provider_token': '172dbabd-59fd-42be-b962-2754f1c6576f',
                 'payload': [],
-                'device': 1755589
+                'device_id': 1755589
             },
             {
                 'id': 43737,
@@ -97,7 +97,7 @@ def test_deserialize_device_tokens():
                 'payload': {
                     'subscription': None
                 },
-                'device': 1755589
+                'device_id': 1755589
             },
             {
                 'id': 43738,
@@ -106,14 +106,14 @@ def test_deserialize_device_tokens():
                 'payload': {
                     'subscription': None
                 },
-                'device': 1755591
+                'device_id': 1755591
             },
             {
                 'id': 43739,
                 'provider': 'GOOGLE',
                 'provider_token': '9760d22f-ddfa-46e9-9fdc-e2a5f43bedd5',
                 'payload': [],
-                'device': 1755591
+                'device_id': 1755591
             },
             {
                 'id': 43740,
@@ -122,7 +122,7 @@ def test_deserialize_device_tokens():
                 'payload': {
                     'subscription': 'arn:aws:sns:eu-west-1:435820695836:TEST:9e91f333-da33-4d0c-8bfa-00aa963cc006'
                 },
-                'device': 1755591
+                'device_id': 1755591
             },
             {
                 'id': 43741,
@@ -131,13 +131,13 @@ def test_deserialize_device_tokens():
                 'payload': {
                     'subscription': None
                 },
-                'device': 1755594
+                'device_id': 1755594
             },
             {
                 'id': 43742,
                 'provider': 'GOOGLE',
                 'provider_token': 'c884894b-b21e-452f-9259-79ea9a8319a8',
                 'payload': [],
-                'device': 1755594
+                'device_id': 1755594
             }
         ]

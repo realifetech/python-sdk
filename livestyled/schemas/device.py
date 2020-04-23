@@ -1,11 +1,14 @@
 from marshmallow import EXCLUDE, fields, Schema
 
+from livestyled.models import Device
+
 
 class DeviceSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'devices'
         url = 'v4/devices'
+        model = Device
 
     id = fields.Int()
     token = fields.String()

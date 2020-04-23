@@ -8,7 +8,9 @@ from livestyled.models import (
     Booking,
     Cohort,
     Competition,
+    Device,
     DevicePreference,
+    DeviceToken,
     Event,
     Fixture,
     LeagueTable,
@@ -30,6 +32,8 @@ from livestyled.schemas import (
     CohortSchema,
     CompetitionSchema,
     DevicePreferenceSchema,
+    DeviceSchema,
+    DeviceTokenSchema,
     EventSchema,
     FixtureSchema,
     LeagueTableGroupSchema,
@@ -696,3 +700,47 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             device_preference: DevicePreference
     ) -> DevicePreference:
         return self._create_resource(DevicePreferenceSchema, device_preference)
+
+    # ---- DEVICES
+
+    def get_devices(
+            self
+    ) -> Generator[Device, None, None]:
+        return self._get_resource_list(DeviceSchema)
+
+    # ---- DEVICE TOKENS
+
+    def get_tokens_for_device(
+            self,
+            device: Device,
+            provider: str or None = None
+    ) -> Generator[DeviceToken, None, None]:
+        filters = {}
+        if provider:
+            filters['provider'] = provider
+        try:
+            device_token_data = self._api_get(
+                'v4/devices/{}/device_tokens'.format(device.id),
+                params=filters
+            )
+        except HTTPError as http_error:
+            if http_error.response.status_code == 404:
+                yield
+            else:
+                raise
+        for device_token in device_token_data['hydra:member']:
+            token = DeviceTokenSchema().load(device_token)
+            yield DeviceTokenSchema.Meta.model(**token)
+
+    def create_device_token(
+            self,
+            device_token: DeviceToken
+    ) -> DeviceToken:
+        return self._create_resource(DeviceTokenSchema, device_token)
+
+    def update_device_token(
+            self,
+            device_token: DeviceToken,
+            attributes: Dict
+    ) -> DeviceToken:
+        return self._update_resource(DeviceTokenSchema, device_token.id, attributes)
