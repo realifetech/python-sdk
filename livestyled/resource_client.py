@@ -74,8 +74,8 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             filter_params['externalId'] = external_id
 
         if order_by:
-            field = order_by.keys()[0]
-            direction = order_by.values()[1]
+            field = list(order_by.keys())[0]
+            direction = list(order_by.values())[1]
             filter_params['order[{}]'.format(field)] = direction
             # TODO validate order parameters
         else:
