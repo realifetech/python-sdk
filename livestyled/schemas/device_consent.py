@@ -1,9 +1,12 @@
 from marshmallow import EXCLUDE, fields, Schema
 
+from livestyled.models.device_consent import DeviceConsent
+
 
 class DeviceConsentSchema(Schema):
     class Meta:
         unknown = EXCLUDE
+        model = DeviceConsent
 
     id = fields.Int()
     location_capture = fields.Boolean(data_key='locationCapture', allow_none=True)

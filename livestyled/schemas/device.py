@@ -2,6 +2,7 @@ from marshmallow import EXCLUDE, fields, Schema
 
 from livestyled.models import Device, DevicePushConsent
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
+from livestyled.schemas.device_consent import DeviceConsentSchema
 from livestyled.schemas.push_consent import PushConsentSchema
 
 
@@ -24,7 +25,7 @@ class DeviceSchema(Schema):
 
     id = fields.Int()
     token = fields.String()
-    consent = fields.Nested('livestyled.schemas.device_consent.DeviceConsentSchema', allow_none=True)
+    consent = RelatedResourceField(schema=DeviceConsentSchema, allow_none=True)
     push_consents = RelatedResourceField(schema=DevicePushConsentSchema, many=True, data_key='pushConsents')
     type = fields.String()
     status = fields.String()

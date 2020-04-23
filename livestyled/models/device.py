@@ -1,6 +1,7 @@
 from datetime import datetime
 from typing import Dict, List
 
+from livestyled.models.device_consent import DeviceConsent
 from livestyled.models.device_push_consent import DevicePushConsent
 
 
@@ -9,7 +10,7 @@ class Device:
             self,
             id: int,
             token: str,
-            consent: str,
+            consent: Dict,
             push_consents: List[Dict],
             type: str,
             status: str,
@@ -24,7 +25,10 @@ class Device:
     ):
         self._id = id
         self.token = token
-        self.consent = consent
+        if consent:
+            self.consent = DeviceConsent(**consent)
+        else:
+            self.consent = None
         if push_consents:
             self.push_consents = [DevicePushConsent(**dpc) for dpc in push_consents]
         else:
