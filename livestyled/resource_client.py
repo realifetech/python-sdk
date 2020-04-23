@@ -75,7 +75,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
         if order_by:
             field = list(order_by.keys())[0]
-            direction = list(order_by.values())[1]
+            direction = list(order_by.values())[0]
             filter_params['order[{}]'.format(field)] = direction
             # TODO validate order parameters
         else:
