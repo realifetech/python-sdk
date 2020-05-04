@@ -37,6 +37,8 @@ class RelatedResourceLinkField(fields.Field):
     def _deserialize(self, value, attr, data, **kwargs):
         if self.many:
             return [int(v.split('/')[-1]) for v in value]
+        elif isinstance(value, dict):
+            return int(value['@id'].split('/')[-1])
         return int(value.split('/')[-1])
 
 

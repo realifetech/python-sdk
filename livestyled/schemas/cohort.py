@@ -13,4 +13,4 @@ class CohortSchema(Schema):
         bulk_user_detach_url = 'v4/users/{}/cohorts/bulk-detach'
 
     title = fields.String()
-    external_id = fields.String(data_key='externalId')
+    external_id = fields.String(data_key='externalId', required=False, missing=None)

@@ -52,7 +52,7 @@ class News:
     def diff(self, other):
         differences = {}
         fields = (
-            'headline', 'image_url', 'title', 'external_id', 'media', 'url', 'author', 'published_at', 'updated_at'
+            'headline', 'image_url', 'title', 'external_id', 'media', 'url', 'author', 'published_at',
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

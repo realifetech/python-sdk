@@ -1,8 +1,8 @@
 from marshmallow import EXCLUDE, fields, Schema
 
 from livestyled.models import Device, DevicePushConsent
-from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
 from livestyled.schemas.device_consent import DeviceConsentSchema
+from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
 from livestyled.schemas.push_consent import PushConsentSchema
 
 

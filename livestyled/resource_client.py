@@ -1,6 +1,7 @@
+import logging
 from typing import Dict, Generator, List, Type
 
-from marshmallow import Schema
+from marshmallow import Schema, ValidationError
 from requests.exceptions import HTTPError
 
 from livestyled.client import LiveStyledAPIClient
@@ -51,6 +52,9 @@ from livestyled.schemas import (
     UserSchema,
     UserSSOSchema
 )
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 ASCENDING = 'asc'
 DESCENDING = 'desc'
@@ -118,11 +122,17 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         for key, value in list(payload.items()):
             if value is None:
                 payload.pop(key)
+        logger.info(payload)
         new_instance = self._api_post(
             '{}'.format(schema.Meta.url),
             payload
         )
-        return schema.Meta.model(**schema().load(new_instance))
+        try:
+            return schema.Meta.model(**schema().load(new_instance))
+        except ValidationError as err:
+            logger.error(new_instance)
+            logger.error(err.messages)
+            raise
 
     def _update_resource(
             self,
@@ -164,6 +174,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             team: Team
     ) -> Team:
         return self._create_resource(TeamSchema, team)
+
+    def delete_team(
+            self,
+            team: Team
+    ):
+        self._delete_resource(TeamSchema, team)
 
     def update_team(
             self,

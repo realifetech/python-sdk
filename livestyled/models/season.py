@@ -39,6 +39,10 @@ class Season:
 
     def diff(self, other):
         differences = {}
-        for key, value in self.__dict__.items() - other.__dict__.items():
-            differences[key] = value
+        fields = (
+            'name', 'is_current', 'external_id'
+        )
+        for field in fields:
+            if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
         return differences
