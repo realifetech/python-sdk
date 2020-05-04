@@ -72,7 +72,7 @@ class UserEmail:
             valid: bool,
             email: str
     ):
-        self.valid = bool
+        self.valid = valid
         self.email = email
 
 
