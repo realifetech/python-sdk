@@ -312,13 +312,13 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def create_league_table(
             self,
-            league_table: LeagueTableSchema
+            league_table: LeagueTable
     ) -> LeagueTable:
         return self._create_resource(LeagueTableSchema, league_table)
 
     def update_league_table(
             self,
-            league_table: LeagueTableSchema,
+            league_table: LeagueTable,
             attributes: Dict
     ) -> LeagueTable:
         return self._update_resource(LeagueTableSchema, league_table.id, attributes)
@@ -338,13 +338,13 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def create_league_table_group(
             self,
-            league_table_group: LeagueTableSchema
+            league_table_group: LeagueTableGroup
     ) -> LeagueTableGroup:
         return self._create_resource(LeagueTableGroupSchema, league_table_group)
 
     def update_league_table_group(
             self,
-            league_table: LeagueTableGroupSchema,
+            league_table: LeagueTableGroup,
             attributes: Dict
     ) -> LeagueTableGroup:
         return self._update_resource(LeagueTableGroupSchema, league_table.id, attributes)

@@ -1,6 +1,5 @@
 from livestyled.models.competition import Competition
 from livestyled.models.season import Season
-from livestyled.models.sport_venue import SportVenue
 from livestyled.models.team import Team
 
 
@@ -39,6 +38,17 @@ class LeagueTableGroup:
     def title(self):
         return self._title
 
+    @classmethod
+    def placeholder(
+            cls,
+            id
+    ):
+        return cls(
+            id=id,
+            reference=None,
+            title=None
+        )
+
     def __repr__(self):
         return '<LeagueTableGroup(id={self.id!r})>'.format(self=self)
 
@@ -72,14 +82,17 @@ class LeagueTable:
             points,
             competition_id,
             season_id,
-            group_id
+            group_id=None
     ):
         self._id = id
         self.external_id = external_id
         self._team = Team.placeholder(id=team_id)
         self._season = Season.placeholder(id=season_id)
         self._competition = Competition.placeholder(id=competition_id)
-        self._group = SportVenue.placeholder(id=group_id)
+        if group_id:
+            self._group = LeagueTableGroup.placeholder(id=group_id)
+        else:
+            self._group = None
         self.featured_team = featured_team
         self.position = position
         self.played = played
