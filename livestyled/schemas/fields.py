@@ -32,7 +32,9 @@ class RelatedResourceLinkField(fields.Field):
         return self.__schema
 
     def _serialize(self, value, attr, obj, **kwargs):
-        return '/{}/{}'.format(self.schema.Meta.url, value)
+        if value:
+            return '/{}/{}'.format(self.schema.Meta.url, value)
+        return None
 
     def _deserialize(self, value, attr, data, **kwargs):
         if self.many:
@@ -72,7 +74,9 @@ class RelatedResourceField(fields.Field):
         return self.__schema
 
     def _serialize(self, value, attr, obj, **kwargs):
-        return '/{}/{}'.format(self.schema.Meta.url, value)
+        if value:
+            return '/{}/{}'.format(self.schema.Meta.url, value)
+        return None
 
     def _deserialize(self, value, attr, data, **kwargs):
         if self.many:
