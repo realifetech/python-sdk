@@ -168,7 +168,10 @@ class LeagueTable:
 
     @property
     def group_id(self):
-        return self._group.id
+        if self._group:
+            return self._group.id
+        else:
+            return None
 
     def __repr__(self):
         return '<LeagueTable(id={self.id!r})>'.format(self=self)
