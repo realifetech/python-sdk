@@ -186,6 +186,14 @@ class Fixture:
     def external_id(self):
         return self._external_id
 
+    @property
+    def home_penalties(self):
+        return self._home_penalties
+
+    @property
+    def away_penalties(self):
+        return self._away_penalties
+
     def __repr__(self):
         return '<Fixture(id={self.id!r})>'.format(self=self)
 
