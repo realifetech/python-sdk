@@ -63,9 +63,9 @@ class Fixture:
             is_terminated: bool,
             home: Team or str or int,
             away: Team or str or int,
-            home_goals: int,
+            home_goals: int or None,
             home_penalties: int or None,
-            away_goals: int,
+            away_goals: int or None,
             away_penalties: int or None,
             season: Season or str or int,
             competition: Competition or str or int,
@@ -179,6 +179,10 @@ class Fixture:
         return self._is_fulltime
 
     @property
+    def is_terminated(self):
+        return self._is_terminated
+
+    @property
     def start_at(self):
         return self._start_at
 
@@ -202,7 +206,7 @@ class Fixture:
         fields = (
             'competition_id', 'home_id', 'away_id', 'season_id', 'venue_id',
             'home_score', 'away_score', 'status', 'is_fulltime', 'start_at', 'external_id', 'url',
-            'allow_overwrite'
+            'allow_overwrite', 'is_terminated'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
