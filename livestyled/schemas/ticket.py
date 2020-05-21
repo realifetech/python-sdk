@@ -1,8 +1,16 @@
 from marshmallow import EXCLUDE, fields, Schema
+from marshmallow_polyfield import PolyField
 
 from livestyled.models.ticket import Ticket
 from livestyled.schemas.fields import RelatedResourceLinkField
 from livestyled.schemas.user import UserSchema
+
+
+def parent_ticket_selector(parent_ticket, ticket):
+    if isinstance(parent_ticket, str):
+        return RelatedResourceLinkField(schema=Ticket, required=False, missing=None, data_key='parentTicket')
+    elif isinstance(parent_ticket, dict):
+        return fields.Nested(TicketSchema)
 
 
 class TicketSchema(Schema):
@@ -38,3 +46,17 @@ class TicketSchema(Schema):
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=False)
     user_id = RelatedResourceLinkField(schema=UserSchema, required=False, missing=None, data_key='user')
     can_share = fields.Boolean(data_key='canShare', allow_none=False, required=False, missing=False)
+    share_code = fields.String(data_key='shareCode', allow_none=True, required=False, missing=None)
+    sharer_email = fields.String(data_key='sharerEmail', allow_none=True, required=False, missing=None)
+    redeemer_email = fields.String(data_key='redeemerEmail', allow_none=True, required=False, missing=None)
+    redeemed_at = fields.AwareDateTime(data_key='redeemedAt', required=False, missing=None)
+    shared_at = fields.AwareDateTime(data_key='sharedAt', required=False, missing=None)
+    sharer_id = RelatedResourceLinkField(schema=UserSchema, required=False, missing=None, data_key='sharer')
+    redeemer_id = RelatedResourceLinkField(schema=UserSchema, required=False, missing=None, data_key='redeemer')
+    parent_ticket = PolyField(
+        deserialization_schema_selector=parent_ticket_selector,
+        data_key='parentTicket',
+        required=False,
+        missing=None,
+        allow_none=True
+    )
