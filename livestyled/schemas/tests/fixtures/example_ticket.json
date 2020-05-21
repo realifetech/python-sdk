@@ -1,0 +1,21 @@
+{
+    "@context": "/v4/contexts/Ticket",
+    "@id": "/v4/tickets/44",
+    "@type": "Ticket",
+    "id": 44,
+    "externalTicketId": "99999999",
+    "seat": "1",
+    "qrCodeUrl": "",
+    "sessionDate": "2020-12-24T00:00:00+00:00",
+    "title": "128_U_1",
+    "section": "128",
+    "row": "U",
+    "premium": false,
+    "clientEmail": "test@livestyled.com",
+    "price": 199.9,
+    "currency": "/v4/currencies/2",
+    "createdAt": "2019-05-16T15:31:45+00:00",
+    "updatedAt": "2019-05-24T12:41:22+00:00",
+    "canShare": true,
+    "status": "active"
+}
