@@ -39,7 +39,8 @@ class Ticket:
             parent_ticket=None,
             shared_at=None,
             legal_long_text=None,
-            legal_short_text=None
+            legal_short_text=None,
+            map_url=None,
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
@@ -92,6 +93,7 @@ class Ticket:
             self._parent_ticket = None
         self.legal_long_text = legal_long_text
         self.legal_short_text = legal_short_text
+        self.map_url = map_url
 
     @classmethod
     def placeholder(
@@ -134,7 +136,8 @@ class Ticket:
             parent_ticket=None,
             shared_at=None,
             legal_long_text=None,
-            legal_short_text=None
+            legal_short_text=None,
+            map_url=None,
         )
 
     @classmethod
@@ -173,6 +176,7 @@ class Ticket:
             shared_at=None,
             legal_long_text=None,
             legal_short_text=None,
+            map_url=None
     ):
         ticket = Ticket(
             id=None,
@@ -211,6 +215,7 @@ class Ticket:
             shared_at=shared_at,
             legal_long_text=legal_long_text,
             legal_short_text=legal_short_text,
+            map_url=map_url
         )
         if isinstance(user, (str, int)):
             user = User.placeholder(id=user)
@@ -272,7 +277,7 @@ class Ticket:
             'external_ticket_id', 'seat', 'qr_code_url', 'session_date', 'title', 'external_event_id',
             'barcode', 'sector_name', 'venue_name', 'venue_room', 'client_name', 'premium', 'client_email',
             'price', 'status', 'can_share', 'sharer_email', 'redeemed_at', 'redeemer_id', 'share_code',
-            'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text'
+            'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text', 'map_url'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

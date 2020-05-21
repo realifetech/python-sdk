@@ -55,6 +55,7 @@ def test_deserialize_ticket():
                      'this is the legal long text this is the legal long text '
                      'this is the legal long text this is the legal long text',
             'legal_short_text': 'More information or questions regarding the ADA ticket',
+            'map_url': None,
         }
 
 
@@ -99,6 +100,7 @@ def test_deserialize_ticket_shared():
             'redeemed_at': None,
             'legal_long_text': None,
             'legal_short_text': None,
+            'map_url': None
         }
 
 
@@ -143,4 +145,5 @@ def test_deserialize_ticket_shared_redeemed():
             'redeemed_at': datetime(2019, 5, 24, 13, 41, 22, tzinfo=timezone(timedelta(0), '+0000')),
             'legal_long_text': None,
             'legal_short_text': None,
+            'map_url': None,
         }
