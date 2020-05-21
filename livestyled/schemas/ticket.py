@@ -60,3 +60,5 @@ class TicketSchema(Schema):
         missing=None,
         allow_none=True
     )
+    legal_short_text = fields.String(data_key='legalShortText', required=False, allow_none=True, missing=None)
+    legal_long_text = fields.String(data_key='legalLongText', required=False, allow_none=True, missing=None)
