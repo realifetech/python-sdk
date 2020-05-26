@@ -267,7 +267,7 @@ class Ticket:
 
     @property
     def sharer(self):
-        return self.sharer
+        return self._sharer
 
     @property
     def parent_ticket(self):
