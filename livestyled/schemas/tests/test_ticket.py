@@ -56,6 +56,7 @@ def test_deserialize_ticket():
                      'this is the legal long text this is the legal long text',
             'legal_short_text': 'More information or questions regarding the ADA ticket',
             'map_url': None,
+            'map_image_url': None,
         }
 
 
@@ -100,7 +101,8 @@ def test_deserialize_ticket_shared():
             'redeemed_at': None,
             'legal_long_text': None,
             'legal_short_text': None,
-            'map_url': None
+            'map_url': None,
+            'map_image_url': None,
         }
 
 
@@ -146,4 +148,5 @@ def test_deserialize_ticket_shared_redeemed():
             'legal_long_text': None,
             'legal_short_text': None,
             'map_url': None,
+            'map_image_url': None,
         }

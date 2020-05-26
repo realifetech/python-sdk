@@ -63,3 +63,4 @@ class TicketSchema(Schema):
     legal_short_text = fields.String(data_key='legalShortText', required=False, allow_none=True, missing=None)
     legal_long_text = fields.String(data_key='legalLongText', required=False, allow_none=True, missing=None)
     map_url = fields.String(data_key='mapUrl', required=False, allow_none=True, missing=None)
+    map_image_url = fields.String(data_key='mapImageUrl', required=False, allow_none=True, missing=None)
