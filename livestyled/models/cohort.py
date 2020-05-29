@@ -2,7 +2,7 @@ class Cohort:
     def __init__(
             self,
             title,
-            external_id
+            external_id=None
     ):
         self.id = None
         self.title = title
