@@ -2,6 +2,7 @@ from livestyled.models.booking import Booking
 from livestyled.models.cohort import Cohort
 from livestyled.models.competition import Competition
 from livestyled.models.device import Device
+from livestyled.models.device_consent import DeviceConsent
 from livestyled.models.device_preference import DevicePreference
 from livestyled.models.device_push_consent import DevicePushConsent
 from livestyled.models.device_token import DeviceToken
@@ -23,6 +24,7 @@ __all__ = [
     Cohort,
     Competition,
     Device,
+    DeviceConsent,
     DevicePreference,
     DevicePushConsent,
     DeviceToken,

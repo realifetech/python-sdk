@@ -1,11 +1,14 @@
 from marshmallow import EXCLUDE, fields, Schema
 
+from livestyled.models.app import App
+
 
 class AppSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'apps'
         url = 'v4/apps'
+        model = App
 
     id = fields.Int()
     email = fields.Email(allow_none=True)

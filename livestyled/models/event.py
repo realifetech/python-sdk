@@ -1,4 +1,4 @@
-from .event_date import EventDate
+from livestyled.models.event_date import EventDate
 
 
 class Event:
