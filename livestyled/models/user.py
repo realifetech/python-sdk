@@ -89,6 +89,7 @@ class User:
             magic_fields: List[Dict] or None = None,
             user_emails: List[Dict] or None = None,
             user_consent: Dict or None = None,
+            devices: List[Dict] or None = None,
     ):
         self.id = id
         self.email = email
@@ -123,6 +124,10 @@ class User:
                 self.user_consent = UserConsent(**user_consent)
         else:
             self.user_consent = None
+        if devices:
+            self.devices = [Device(**d) for d in devices]
+        else:
+            self.devices = []
 
     @classmethod
     def create_new(

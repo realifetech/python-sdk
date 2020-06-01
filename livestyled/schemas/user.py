@@ -71,6 +71,7 @@ class UserSchema(Schema):
     user_info = fields.Nested(UserInfoSchema, data_key='userInfo')
     cohorts = RelatedResourceLinkField(schema=CohortSchema, many=True)
     magic_fields = RelatedResourceField(schema=MagicFieldSchema, many=True, data_key='magicFields')
+    devices = RelatedResourceField(schema=DeviceSchema, many=True, data_key='devices')
     user_emails = fields.Nested(UserEmail, data_key='userEmails', many=True)
     user_consent = RelatedResourceField(schema=UserConsentSchema, data_key='userConsent')
 
