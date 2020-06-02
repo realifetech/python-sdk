@@ -25,7 +25,7 @@ class DeviceSchema(Schema):
 
     id = fields.Int()
     token = fields.String()
-    consent = RelatedResourceField(schema=DeviceConsentSchema, allow_none=True)
+    consent = RelatedResourceField(schema=DeviceConsentSchema, allow_none=True, missing=None)
     push_consents = RelatedResourceField(schema=DevicePushConsentSchema, many=True, data_key='pushConsents', required=False, missing=None)
     type = fields.String()
     status = fields.String()
