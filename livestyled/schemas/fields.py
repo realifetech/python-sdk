@@ -40,7 +40,7 @@ class RelatedResourceLinkField(fields.Field):
         if self.many:
             return [int(v.split('/')[-1]) for v in value]
         elif isinstance(value, dict):
-            return int(value['@id'].split('/')[-1])
+            return int(value['id'])
         return int(value.split('/')[-1])
 
 
