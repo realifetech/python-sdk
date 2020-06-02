@@ -15,5 +15,5 @@ class DeviceConsentSchema(Schema):
     calendar = fields.Boolean(allow_none=True)
     photo_sharing = fields.Boolean(data_key='photoSharing', allow_none=True)
     push_notification = fields.Boolean(data_key='pushNotification', allow_none=True)
-    updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True)
-    created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True)
+    updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True, missing=None)
+    created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True, missing=None)
