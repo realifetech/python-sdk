@@ -22,7 +22,8 @@ def test_deserialize_user():
                 'first_name': 'Reuben',
                 'last_name': 'Gow',
                 'dob': datetime(1980, 1, 1, 0, 0, tzinfo=timezone(timedelta(0), '+0000')),
-                'phone': '+4712345678'
+                'phone': '+4712345678',
+                'gender': None
             },
             'cohorts': [],
             'user_emails': [

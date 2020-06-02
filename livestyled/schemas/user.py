@@ -30,11 +30,11 @@ class UserInfoSchema(Schema):
         model = UserInfo
 
     id = fields.Int()
-    first_name = fields.String(data_key='firstName')
-    last_name = fields.String(data_key='lastName')
-    phone = fields.String(data_key='phone')
-    dob = fields.AwareDateTime()
-    gender = fields.String()
+    first_name = fields.String(data_key='firstName', missing=None)
+    last_name = fields.String(data_key='lastName', missing=None)
+    phone = fields.String(data_key='phone', missing=None)
+    dob = fields.AwareDateTime(missing=None)
+    gender = fields.String(missing=None)
 
 
 class UserConsentSchema(Schema):
