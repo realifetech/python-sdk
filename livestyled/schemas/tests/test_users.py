@@ -48,6 +48,7 @@ def test_deserialize_user():
                         'created_at': datetime(2020, 2, 17, 14, 37, 12, tzinfo=timezone(timedelta(0), '+0000')),
                         'id': 4514,
                         'location_capture': True,
+                        'location_granular': None,
                         'photo_sharing': True,
                         'push_notification': True,
                         'updated_at': datetime(2020, 2, 18, 12, 53, 42, tzinfo=timezone(timedelta(0), '+0000'))},
