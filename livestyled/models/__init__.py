@@ -8,9 +8,23 @@ from livestyled.models.device_push_consent import DevicePushConsent
 from livestyled.models.device_token import DeviceToken
 from livestyled.models.event import Event
 from livestyled.models.fixture import Fixture
+from livestyled.models.fulfilment_point import (
+    FulfilmentPoint,
+    FulfilmentPointCategory,
+    FulfilmentPointCategoryTranslation,
+    FulfilmentPointTranslation
+)
 from livestyled.models.league_table import LeagueTable, LeagueTableGroup
 from livestyled.models.magic_field import MagicField
 from livestyled.models.news import News
+from livestyled.models.order import Order, OrderItem
+from livestyled.models.product import (
+    Product,
+    ProductCategory,
+    ProductImage,
+    ProductTranslation,
+    ProductVariant
+)
 from livestyled.models.push_broadcast import PushBroadcast
 from livestyled.models.push_consent import PushConsent
 from livestyled.models.season import Season
@@ -30,10 +44,21 @@ __all__ = [
     DeviceToken,
     Event,
     Fixture,
+    FulfilmentPoint,
+    FulfilmentPointCategory,
+    FulfilmentPointCategoryTranslation,
+    FulfilmentPointTranslation,
     LeagueTable,
     LeagueTableGroup,
     MagicField,
     News,
+    Order,
+    OrderItem,
+    Product,
+    ProductCategory,
+    ProductImage,
+    ProductTranslation,
+    ProductVariant,
     PushBroadcast,
     PushConsent,
     Season,

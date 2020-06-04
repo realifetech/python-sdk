@@ -18,6 +18,9 @@ from livestyled.models import (
     LeagueTableGroup,
     MagicField,
     News,
+    Order,
+    Product,
+    ProductCategory,
     PushBroadcast,
     PushConsent,
     Season,
@@ -26,7 +29,7 @@ from livestyled.models import (
     Ticket,
     User,
     UserInfo,
-    UserSSO
+    UserSSO,
 )
 from livestyled.schemas import (
     BookingSchema,
@@ -41,6 +44,9 @@ from livestyled.schemas import (
     LeagueTableSchema,
     MagicFieldSchema,
     NewsSchema,
+    OrderSchema,
+    ProductCategorySchema,
+    ProductSchema,
     PushBroadcastSchema,
     PushConsentSchema,
     SeasonSchema,
@@ -766,3 +772,42 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             attributes: Dict
     ) -> DeviceToken:
         return self._update_resource(DeviceTokenSchema, device_token.id, attributes)
+
+    # ---- ORDERS
+
+    def get_order(
+            self,
+            id
+    ) -> Order:
+        return self._get_resource_by_id(OrderSchema, id)
+
+    def get_orders(
+            self,
+    ) -> Generator[Order, None, None]:
+        return self._get_resource_list(OrderSchema)
+
+    # -- PRODUCTS
+
+    def get_product(
+            self,
+            id
+    ) -> Product:
+        return self._get_resource_by_id(ProductSchema, id)
+
+    def get_products(
+            self,
+    ) -> Generator[Product, None, None]:
+        return self._get_resource_list(ProductSchema)
+
+    # ---- PRODUCT CATEGORIES
+
+    def get_product_category(
+            self,
+            id
+    ) -> ProductCategory:
+        return self._get_resource_by_id(ProductCategorySchema, id)
+
+    def get_product_categories(
+            self,
+    ) -> Generator[ProductCategory, None, None]:
+        return self._get_resource_list(ProductCategorySchema)

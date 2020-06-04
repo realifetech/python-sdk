@@ -80,6 +80,12 @@ class RelatedResourceField(fields.Field):
 
     def _deserialize(self, value, attr, data, **kwargs):
         if self.many:
-            return [self.schema().load(v) for v in value]
+            deserialized = []
+            for v in value:
+                if isinstance(v, str):
+                    deserialized.append(int(v.split('/')[-1]))
+                elif isinstance(v, dict):
+                    deserialized.append(self.schema().load(v))
+            return deserialized
         else:
             return self.schema().load(value)

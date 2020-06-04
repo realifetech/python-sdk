@@ -1,0 +1,1186 @@
+{
+    "@context": "/v4/contexts/Product",
+    "@id": "/v4/products",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/v4/products/1",
+            "@type": "Product",
+            "createdAt": "2019-06-03T10:21:31+00:00",
+            "updatedAt": "2020-01-08T11:34:35+00:00",
+            "id": 1,
+            "status": "ACTIVE",
+            "reference": "Plant",
+            "translations": [
+                {
+                    "id": 1,
+                    "title": "Plant",
+                    "description": "A vegan burger from Beyond Meat with vegan smoked Gouda, Rubies in the Rubble Chipotle ‘Mayo’, mustard, red onion, pickles and lettuce.\r\n\r\nAfter a successful trial at our King's Cross restaurant, we're finally rolling out the Plant burger to every single Honest Burgers restaurant!\r\n\r\nThe Beyond Meat patty that goes into this burger is the result of over seven years of product development to look, cook and taste like beef. It also packs 20 grams of plant-based protein and has no GMOs, soy or gluten.\r\n\r\nA vegan burger from Beyond Meat with vegan smoked Gouda, Rubies in the Rubble Chipotle ‘Mayo’, mustard, red onion, pickles and lettuce.\r\n\r\nA vegan burger from Beyond Meat with vegan smoked Gouda, Rubies in the Rubble Chipotle ‘Mayo’, mustard, red onion, pickles and lettuce.\r\n\r\nAfter a successful trial at our King's Cross restaurant, we're finally rolling out the Plant burger to every single Honest Burgers restaurant!\r\n\r\nThe Beyond Meat patty that goes into this burger is the result of over seven years of product development to look, cook and taste like beef. It also packs 20 grams of plant-based protein and has no GMOs, soy or gluten.\r\n\r\nA vegan burger from Beyond Meat with vegan smoked Gouda, Rubies in the Rubble Chipotle ‘Mayo’, mustard, red onion, pickles and lettuce.\r\n\r\nA vegan burger from Beyond Meat with vegan smoked Gouda, Rubies in the Rubble Chipotle ‘Mayo’, mustard, red onion, pickles and lettuce.\r\n\r\nAfter a successful trial at our King's Cross restaurant, we're finally rolling out the Plant burger to every single Honest Burgers restaurant!\r\n\r\nThe Beyond Meat patty that goes into this burger is the result of over seven years of product development to look, cook and taste like beef. It also packs 20 grams of plant-based protein and has no GMOs, soy or gluten.\r\n\r\nA vegan burger from Beyond Meat with vegan smoked Gouda, Rubies in the Rubble Chipotle ‘Mayo’, mustard, red onion, pickles and lettuce.",
+                    "language": "en",
+                    "product": "/v4/products/1",
+                    "createdAt": "2019-06-03T10:21:31+00:00",
+                    "updatedAt": "2019-12-05T09:27:12+00:00"
+                },
+                {
+                    "id": 358849,
+                    "title": "Plant DE",
+                    "description": "DE A vegan burger from Beyond Meat with vegan smoked Gouda, Rubies in the Rubble Chipotle ‘Mayo’, mustard, red onion, pickles and lettuce.\r\n\r\nAfter a successful trial at our King's Cross restaurant, we're finally rolling out the Plant burger to every single Honest Burgers restaurant!\r\n\r\nThe Beyond Meat patty that goes into this burger is the result of over seven years of product development to look, cook and taste like beef. It also packs 20 grams of plant-based protein and has no GMOs, soy or gluten.\r\n\r\nA vegan burger from Beyond Meat with vegan smoked Gouda, Rubies in the Rubble Chipotle ‘Mayo’, mustard, red onion, pickles and lettuce.",
+                    "language": "de",
+                    "product": "/v4/products/1",
+                    "createdAt": "2019-08-13T13:39:50+00:00",
+                    "updatedAt": "2019-08-13T13:40:55+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/1"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/1"
+            ],
+            "variants": [
+                "/v4/product_variants/1",
+                "/v4/product_variants/720",
+                "/v4/product_variants/721"
+            ],
+            "modifierLists": [
+                "/v4/product_modifier_lists/1"
+            ],
+            "externalId": null,
+            "holdingTime": 60,
+            "images": [],
+            "reconciliationGroup": {
+                "id": 1,
+                "name": "Food",
+                "createdAt": "2019-12-16T11:55:01+00:00",
+                "updatedAt": "2019-12-16T11:55:01+00:00",
+                "__initializer__": null,
+                "__cloner__": null,
+                "__isInitialized__": true
+            }
+        },
+        {
+            "@id": "/v4/products/2",
+            "@type": "Product",
+            "createdAt": "2019-07-03T13:30:55+00:00",
+            "updatedAt": "2019-11-21T12:19:20+00:00",
+            "id": 2,
+            "status": "ACTIVE",
+            "reference": "Amy's product",
+            "translations": [
+                {
+                    "id": 2,
+                    "title": "Amy's product",
+                    "description": "A vegan burger from Beyond Meat with vegan smoked Gouda, Rubies in the Rubble Chipotle ‘Mayo’, mustard, red onion, pickles and lettuce.\r\n\r\nAfter a successful trial at our King's Cross restaurant, we're finally rolling out the Plant burger to every single Honest Burgers restaurant!\r\n\r\nThe Beyond Meat patty that goes into this burger is the result of over seven years of product development to look, cook and taste like beef. It also packs 20 grams of plant-based protein and has no GMOs, soy or gluten.\r\n\r\nA vegan burger from Beyond Meat with vegan smoked Gouda, Rubies in the Rubble Chipotle ‘Mayo’, mustard, red onion, pickles and lettuce.\r\n\r\nAfter a successful trial at our King's Cross restaurant, we're finally rolling out the Plant burger to every single Honest Burgers restaurant!\r\n\r\nThe Beyond Meat patty that goes into this burger is the result of over seven years of product development to look, cook and taste like beef. It also packs 20 grams of plant-based protein and has no GMOs, soy or gluten.\r\n\r\nA vegan burger from Beyond Meat with vegan smoked Gouda, Rubies in the Rubble Chipotle ‘Mayo’, mustard, red onion, pickles and lettuce.\r\n\r\nAfter a successful trial at our King's Cross restaurant, we're finally rolling out the Plant burger to every single Honest Burgers restaurant!\r\n\r\nThe Beyond Meat patty that goes into this burger is the result of over seven years of product development to look, cook and taste like beef. It also packs 20 grams of plant-based protein and has no GMOs, soy or gluten.",
+                    "language": "en",
+                    "product": "/v4/products/2",
+                    "createdAt": "2019-07-23T11:00:02+00:00",
+                    "updatedAt": "2019-07-25T11:30:36+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/2"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/2"
+            ],
+            "variants": [
+                "/v4/product_variants/2",
+                "/v4/product_variants/723",
+                "/v4/product_variants/724"
+            ],
+            "modifierLists": [],
+            "externalId": null,
+            "holdingTime": null,
+            "images": [
+                {
+                    "id": 3,
+                    "product": "/v4/products/2",
+                    "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/productimage/corgi%20bum.png",
+                    "position": 1,
+                    "createdAt": "2019-07-23T11:09:57+00:00",
+                    "updatedAt": "2019-11-08T11:19:31+00:00",
+                    "externalId": null
+                }
+            ],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/3",
+            "@type": "Product",
+            "createdAt": "2019-07-24T13:35:03+00:00",
+            "updatedAt": "2020-04-23T10:25:44+00:00",
+            "id": 3,
+            "status": "ACTIVE",
+            "reference": "Men's Tank",
+            "translations": [
+                {
+                    "id": 101138,
+                    "title": "Men's Tank",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/3",
+                    "createdAt": "2019-07-30T07:55:14+00:00",
+                    "updatedAt": "2019-07-30T07:55:14+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/2"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/2"
+            ],
+            "variants": [
+                "/v4/product_variants/3"
+            ],
+            "modifierLists": [],
+            "externalId": "JKA6GZQXM53ODTURZAOL36EI",
+            "holdingTime": null,
+            "images": [
+                {
+                    "id": 4,
+                    "product": "/v4/products/3",
+                    "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/productimage/original-2.jpeg",
+                    "position": 1,
+                    "createdAt": "2019-07-24T13:35:03+00:00",
+                    "updatedAt": "2019-08-01T12:40:28+00:00",
+                    "externalId": "6N6H3B3IZVGBK3OMFOCFNGE2"
+                }
+            ],
+            "reconciliationGroup": {
+                "id": 1,
+                "name": "Food",
+                "createdAt": "2019-12-16T11:55:01+00:00",
+                "updatedAt": "2019-12-16T11:55:01+00:00",
+                "__initializer__": null,
+                "__cloner__": null,
+                "__isInitialized__": true
+            }
+        },
+        {
+            "@id": "/v4/products/4",
+            "@type": "Product",
+            "createdAt": "2019-07-24T13:36:04+00:00",
+            "updatedAt": "2019-11-21T12:20:07+00:00",
+            "id": 4,
+            "status": "ACTIVE",
+            "reference": "Wmns Evnt T",
+            "translations": [
+                {
+                    "id": 101139,
+                    "title": "Wmns Evnt T",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/4",
+                    "createdAt": "2019-07-30T07:55:15+00:00",
+                    "updatedAt": "2019-07-30T07:55:15+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/2"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/3"
+            ],
+            "variants": [
+                "/v4/product_variants/4"
+            ],
+            "modifierLists": [],
+            "externalId": "WQG2A6XML7LXDEUKBR3ZIMF5",
+            "holdingTime": null,
+            "images": [
+                {
+                    "id": 5,
+                    "product": "/v4/products/4",
+                    "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/productimage/woms-event-t-2.png",
+                    "position": 1,
+                    "createdAt": "2019-07-24T13:36:04+00:00",
+                    "updatedAt": "2019-07-30T15:36:08+00:00",
+                    "externalId": "WXWZRBYXCRXOCTGQNYUS3CIB"
+                }
+            ],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/5",
+            "@type": "Product",
+            "createdAt": "2019-07-24T13:36:04+00:00",
+            "updatedAt": "2019-07-24T13:37:06+00:00",
+            "id": 5,
+            "status": "ACTIVE",
+            "reference": "Evnt T 1",
+            "translations": [
+                {
+                    "id": 101140,
+                    "title": "Evnt T 1",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/5",
+                    "createdAt": "2019-07-30T07:55:15+00:00",
+                    "updatedAt": "2019-07-30T07:55:15+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/4"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/3"
+            ],
+            "variants": [
+                "/v4/product_variants/5"
+            ],
+            "modifierLists": [],
+            "externalId": "4ETHZZCDZKKXTDKRTC3MMHFP",
+            "holdingTime": null,
+            "images": [
+                {
+                    "id": 6,
+                    "product": "/v4/products/5",
+                    "imageUrl": "https://square-production.s3.amazonaws.com/files/a639e8b169c82f4c025a85c537ec35bcb62f6b6f/original.jpeg",
+                    "position": 1,
+                    "createdAt": "2019-07-24T13:36:04+00:00",
+                    "updatedAt": "2019-07-30T07:55:15+00:00",
+                    "externalId": "N37HGNQA74JAI2QCBOSEGICA"
+                }
+            ],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/6",
+            "@type": "Product",
+            "createdAt": "2019-07-24T13:37:06+00:00",
+            "updatedAt": "2019-11-21T12:20:28+00:00",
+            "id": 6,
+            "status": "ACTIVE",
+            "reference": "Event Tee 2",
+            "translations": [
+                {
+                    "id": 101141,
+                    "title": "Event Tee 2",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/6",
+                    "createdAt": "2019-07-30T07:55:16+00:00",
+                    "updatedAt": "2019-07-30T07:55:16+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/2"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/3"
+            ],
+            "variants": [
+                "/v4/product_variants/6"
+            ],
+            "modifierLists": [],
+            "externalId": "BV7UX65UJ2GP46NUMOPZL2ZP",
+            "holdingTime": null,
+            "images": [
+                {
+                    "id": 7,
+                    "product": "/v4/products/6",
+                    "imageUrl": "https://square-production.s3.amazonaws.com/files/31542cbce79d1b91a6d8f615919ee232f4d65296/original.jpeg",
+                    "position": 1,
+                    "createdAt": "2019-07-24T13:37:06+00:00",
+                    "updatedAt": "2019-07-30T07:55:16+00:00",
+                    "externalId": "YFWRWWCOKBPBZBDSRBZKHWSS"
+                }
+            ],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/7",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:47:59+00:00",
+            "updatedAt": "2020-01-10T14:15:32+00:00",
+            "id": 7,
+            "status": "ACTIVE",
+            "reference": "Comp Vanilla Sandwich",
+            "translations": [
+                {
+                    "id": 101224,
+                    "title": "Comp Vanilla Sandwich",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/7",
+                    "createdAt": "2019-07-30T07:58:30+00:00",
+                    "updatedAt": "2019-07-30T07:58:30+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/5"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/4"
+            ],
+            "variants": [
+                "/v4/product_variants/7"
+            ],
+            "modifierLists": [],
+            "externalId": "27IKABF37KS7M7NA7F475QHT",
+            "holdingTime": null,
+            "images": [
+                {
+                    "id": 215,
+                    "product": "/v4/products/7",
+                    "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/productimage/Icecream%20sandwhich.jpeg",
+                    "position": 1,
+                    "createdAt": "2019-12-12T13:34:18+00:00",
+                    "updatedAt": "2019-12-12T13:34:18+00:00",
+                    "externalId": null
+                }
+            ],
+            "reconciliationGroup": {
+                "id": 1,
+                "name": "Food",
+                "createdAt": "2019-12-16T11:55:01+00:00",
+                "updatedAt": "2019-12-16T11:55:01+00:00",
+                "__initializer__": null,
+                "__cloner__": null,
+                "__isInitialized__": true
+            }
+        },
+        {
+            "@id": "/v4/products/8",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:00+00:00",
+            "updatedAt": "2019-07-25T09:37:19+00:00",
+            "id": 8,
+            "status": "ACTIVE",
+            "reference": "Comp 2 Tacos",
+            "translations": [
+                {
+                    "id": 101225,
+                    "title": "Comp 2 Tacos",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/8",
+                    "createdAt": "2019-07-30T07:58:31+00:00",
+                    "updatedAt": "2019-07-30T07:58:31+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/6"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/4"
+            ],
+            "variants": [
+                "/v4/product_variants/8"
+            ],
+            "modifierLists": [],
+            "externalId": "QLCSVDQPPCX623QRIAUYX6IV",
+            "holdingTime": null,
+            "images": [
+                {
+                    "id": 217,
+                    "product": "/v4/products/8",
+                    "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/productimage/Tacos.jpeg",
+                    "position": 1,
+                    "createdAt": "2019-12-12T13:36:28+00:00",
+                    "updatedAt": "2019-12-12T13:36:28+00:00",
+                    "externalId": null
+                }
+            ],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/9",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:00+00:00",
+            "updatedAt": "2019-07-25T18:43:34+00:00",
+            "id": 9,
+            "status": "ACTIVE",
+            "reference": "Comp Baked Pasta",
+            "translations": [
+                {
+                    "id": 101226,
+                    "title": "Comp Baked Pasta",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/9",
+                    "createdAt": "2019-07-30T07:58:32+00:00",
+                    "updatedAt": "2019-07-30T07:58:32+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/7"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/4"
+            ],
+            "variants": [
+                "/v4/product_variants/9"
+            ],
+            "modifierLists": [],
+            "externalId": "FMDCPWE4BTEBGSP5JWGVCMQF",
+            "holdingTime": null,
+            "images": [
+                {
+                    "id": 8,
+                    "product": "/v4/products/9",
+                    "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/productimage/nav-shop%402x.png",
+                    "position": 1,
+                    "createdAt": "2019-07-25T15:39:08+00:00",
+                    "updatedAt": "2019-07-25T15:39:08+00:00",
+                    "externalId": null
+                }
+            ],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/10",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:01+00:00",
+            "updatedAt": "2019-07-25T09:37:21+00:00",
+            "id": 10,
+            "status": "ACTIVE",
+            "reference": "Comp Pastrami Burrito",
+            "translations": [
+                {
+                    "id": 101227,
+                    "title": "Comp Pastrami Burrito",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/10",
+                    "createdAt": "2019-07-30T07:58:32+00:00",
+                    "updatedAt": "2019-07-30T07:58:32+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/8"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/4"
+            ],
+            "variants": [
+                "/v4/product_variants/10"
+            ],
+            "modifierLists": [],
+            "externalId": "LGBTTATB2CKXJBVELCYFLVAA",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/11",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:02+00:00",
+            "updatedAt": "2019-11-21T12:23:26+00:00",
+            "id": 11,
+            "status": "ACTIVE",
+            "reference": "Comp Chowder Bread Bowl",
+            "translations": [
+                {
+                    "id": 101228,
+                    "title": "Comp Chowder Bread Bowl",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/11",
+                    "createdAt": "2019-07-30T07:58:33+00:00",
+                    "updatedAt": "2019-07-30T07:58:33+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/6"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/4"
+            ],
+            "variants": [
+                "/v4/product_variants/11"
+            ],
+            "modifierLists": [],
+            "externalId": "6EQEBYOVKSEGAEMXUVKEIQBM",
+            "holdingTime": null,
+            "images": [
+                {
+                    "id": 213,
+                    "product": "/v4/products/11",
+                    "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/productimage/Chowder%202.jpeg",
+                    "position": 1,
+                    "createdAt": "2019-12-04T18:38:02+00:00",
+                    "updatedAt": "2019-12-04T18:38:58+00:00",
+                    "externalId": null
+                }
+            ],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/12",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:02+00:00",
+            "updatedAt": "2019-07-25T18:54:19+00:00",
+            "id": 12,
+            "status": "ACTIVE",
+            "reference": "Liquid Chocolate Bar",
+            "translations": [
+                {
+                    "id": 101229,
+                    "title": "Liquid Chocolate Bar",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/12",
+                    "createdAt": "2019-07-30T07:58:34+00:00",
+                    "updatedAt": "2019-07-30T07:58:34+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/11"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/6"
+            ],
+            "variants": [
+                "/v4/product_variants/12",
+                "/v4/product_variants/742"
+            ],
+            "modifierLists": [],
+            "externalId": "U5P2S2SBQVX4YDD45WWXQPRP",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/13",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:03+00:00",
+            "updatedAt": "2019-07-25T09:37:24+00:00",
+            "id": 13,
+            "status": "ACTIVE",
+            "reference": "Coffee Au Lait",
+            "translations": [
+                {
+                    "id": 101230,
+                    "title": "Coffee Au Lait",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/13",
+                    "createdAt": "2019-07-30T07:58:34+00:00",
+                    "updatedAt": "2019-07-30T07:58:34+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/12"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/5"
+            ],
+            "variants": [
+                "/v4/product_variants/13"
+            ],
+            "modifierLists": [],
+            "externalId": "TPMDV64LLHTO6WXZKLV5SV73",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/14",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:03+00:00",
+            "updatedAt": "2019-07-25T09:37:25+00:00",
+            "id": 14,
+            "status": "ACTIVE",
+            "reference": "Nitro Can",
+            "translations": [
+                {
+                    "id": 101231,
+                    "title": "Nitro Can",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/14",
+                    "createdAt": "2019-07-30T07:58:35+00:00",
+                    "updatedAt": "2019-07-30T07:58:35+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/12"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/5"
+            ],
+            "variants": [
+                "/v4/product_variants/14"
+            ],
+            "modifierLists": [],
+            "externalId": "HMFHLAVBRBEWPT3SIOSVMOKL",
+            "holdingTime": null,
+            "images": [
+                {
+                    "id": 150,
+                    "product": "/v4/products/14",
+                    "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/productimage/German-Shepherd-Puppy-Fetch.jpg",
+                    "position": 1,
+                    "createdAt": "2019-08-05T10:47:29+00:00",
+                    "updatedAt": "2019-08-05T10:47:29+00:00",
+                    "externalId": null
+                }
+            ],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/15",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:04+00:00",
+            "updatedAt": "2019-07-25T09:37:26+00:00",
+            "id": 15,
+            "status": "ACTIVE",
+            "reference": "Cookies",
+            "translations": [
+                {
+                    "id": 101232,
+                    "title": "Cookies",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/15",
+                    "createdAt": "2019-07-30T07:58:36+00:00",
+                    "updatedAt": "2019-07-30T07:58:36+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/13"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/5"
+            ],
+            "variants": [
+                "/v4/product_variants/15"
+            ],
+            "modifierLists": [],
+            "externalId": "6KDJBUFEAY3JNZAL3RAWCS4C",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/16",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:04+00:00",
+            "updatedAt": "2019-07-25T09:37:27+00:00",
+            "id": 16,
+            "status": "ACTIVE",
+            "reference": "Chk Bowl",
+            "translations": [
+                {
+                    "id": 101233,
+                    "title": "Chk Bowl",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/16",
+                    "createdAt": "2019-07-30T07:58:36+00:00",
+                    "updatedAt": "2019-07-30T07:58:36+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/14"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [],
+            "variants": [
+                "/v4/product_variants/16"
+            ],
+            "modifierLists": [],
+            "externalId": "JFLGFBF6EPVTHDEPQ6SVRSWE",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/17",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:06+00:00",
+            "updatedAt": "2019-07-25T09:37:29+00:00",
+            "id": 17,
+            "status": "ACTIVE",
+            "reference": "$5 Tacos",
+            "translations": [
+                {
+                    "id": 101234,
+                    "title": "$5 Tacos",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/17",
+                    "createdAt": "2019-07-30T07:58:37+00:00",
+                    "updatedAt": "2019-07-30T07:58:37+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/16"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/6"
+            ],
+            "variants": [
+                "/v4/product_variants/17"
+            ],
+            "modifierLists": [],
+            "externalId": "VSZJPMQWARU4DP5JXY6A4IYY",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/18",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:06+00:00",
+            "updatedAt": "2019-07-25T09:37:31+00:00",
+            "id": 18,
+            "status": "ACTIVE",
+            "reference": "Pork Sliders",
+            "translations": [
+                {
+                    "id": 101235,
+                    "title": "Pork Sliders",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/18",
+                    "createdAt": "2019-07-30T07:58:38+00:00",
+                    "updatedAt": "2019-07-30T07:58:38+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/17"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/6"
+            ],
+            "variants": [
+                "/v4/product_variants/18"
+            ],
+            "modifierLists": [],
+            "externalId": "BKIVIP5SX766SZWF2KF4JZMG",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/19",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:07+00:00",
+            "updatedAt": "2019-07-25T09:37:32+00:00",
+            "id": 19,
+            "status": "ACTIVE",
+            "reference": "Jackfruit Sliders",
+            "translations": [
+                {
+                    "id": 101236,
+                    "title": "Jackfruit Sliders",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/19",
+                    "createdAt": "2019-07-30T07:58:39+00:00",
+                    "updatedAt": "2019-07-30T07:58:39+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/17"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/6"
+            ],
+            "variants": [
+                "/v4/product_variants/19"
+            ],
+            "modifierLists": [],
+            "externalId": "NZ67BLJJFETBSH2XMVP5IHXE",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/20",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:08+00:00",
+            "updatedAt": "2019-07-25T09:37:32+00:00",
+            "id": 20,
+            "status": "ACTIVE",
+            "reference": "Float",
+            "translations": [
+                {
+                    "id": 101237,
+                    "title": "Float",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/20",
+                    "createdAt": "2019-07-30T07:58:39+00:00",
+                    "updatedAt": "2019-07-30T07:58:39+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/18"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [],
+            "variants": [
+                "/v4/product_variants/20"
+            ],
+            "modifierLists": [],
+            "externalId": "BSQWRXMAFGYP3PHLATGQMORN",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/21",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:08+00:00",
+            "updatedAt": "2019-07-25T09:37:33+00:00",
+            "id": 21,
+            "status": "ACTIVE",
+            "reference": "Duck Slider",
+            "translations": [
+                {
+                    "id": 101238,
+                    "title": "Duck Slider",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/21",
+                    "createdAt": "2019-07-30T07:58:40+00:00",
+                    "updatedAt": "2019-07-30T07:58:40+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/18"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/6"
+            ],
+            "variants": [
+                "/v4/product_variants/21"
+            ],
+            "modifierLists": [],
+            "externalId": "IVJRNDCPREAY7WIB62KP7L5F",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/22",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:09+00:00",
+            "updatedAt": "2019-07-25T09:37:34+00:00",
+            "id": 22,
+            "status": "ACTIVE",
+            "reference": "Beef Hummus",
+            "translations": [
+                {
+                    "id": 101239,
+                    "title": "Beef Hummus",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/22",
+                    "createdAt": "2019-07-30T07:58:41+00:00",
+                    "updatedAt": "2019-07-30T07:58:41+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/18"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/6"
+            ],
+            "variants": [
+                "/v4/product_variants/22"
+            ],
+            "modifierLists": [],
+            "externalId": "YD3HOVYYOLTL74EAJ2ZTK3LJ",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/23",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:09+00:00",
+            "updatedAt": "2019-07-25T09:37:35+00:00",
+            "id": 23,
+            "status": "ACTIVE",
+            "reference": "Shortcake",
+            "translations": [
+                {
+                    "id": 101240,
+                    "title": "Shortcake",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/23",
+                    "createdAt": "2019-07-30T07:58:41+00:00",
+                    "updatedAt": "2019-07-30T07:58:41+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/18"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [
+                "/v4/product_categories/6"
+            ],
+            "variants": [
+                "/v4/product_variants/23"
+            ],
+            "modifierLists": [],
+            "externalId": "OIYWK7NSULN4TUZ6HNBJPVO4",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/24",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:10+00:00",
+            "updatedAt": "2019-07-25T09:37:36+00:00",
+            "id": 24,
+            "status": "ACTIVE",
+            "reference": "Vanilla Ice Cream Taco",
+            "translations": [
+                {
+                    "id": 101241,
+                    "title": "Vanilla Ice Cream Taco",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/24",
+                    "createdAt": "2019-07-30T07:58:42+00:00",
+                    "updatedAt": "2019-07-30T07:58:42+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/19"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [],
+            "variants": [
+                "/v4/product_variants/24"
+            ],
+            "modifierLists": [],
+            "externalId": "N6HUOTAD5GOAVGPKXLXVKAZ3",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/25",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:10+00:00",
+            "updatedAt": "2019-07-25T09:37:37+00:00",
+            "id": 25,
+            "status": "ACTIVE",
+            "reference": "Mint Chip Ice Cream Taco",
+            "translations": [
+                {
+                    "id": 101242,
+                    "title": "Mint Chip Ice Cream Taco",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/25",
+                    "createdAt": "2019-07-30T07:58:42+00:00",
+                    "updatedAt": "2019-07-30T07:58:42+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/19"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [],
+            "variants": [
+                "/v4/product_variants/25"
+            ],
+            "modifierLists": [],
+            "externalId": "72P2XS5DZ4FAEFP45SOVHER6",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/26",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:11+00:00",
+            "updatedAt": "2019-07-25T09:37:38+00:00",
+            "id": 26,
+            "status": "ACTIVE",
+            "reference": "Espresso Ice Cream Taco",
+            "translations": [
+                {
+                    "id": 101243,
+                    "title": "Espresso Ice Cream Taco",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/26",
+                    "createdAt": "2019-07-30T07:58:43+00:00",
+                    "updatedAt": "2019-07-30T07:58:43+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/19"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [],
+            "variants": [
+                "/v4/product_variants/26"
+            ],
+            "modifierLists": [],
+            "externalId": "R4OTCKCOLK4POLVNELPAK5F7",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/27",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:11+00:00",
+            "updatedAt": "2019-07-25T09:37:38+00:00",
+            "id": 27,
+            "status": "ACTIVE",
+            "reference": "Cookies & Cream Ice Cream Taco",
+            "translations": [
+                {
+                    "id": 101244,
+                    "title": "Cookies & Cream Ice Cream Taco",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/27",
+                    "createdAt": "2019-07-30T07:58:43+00:00",
+                    "updatedAt": "2019-07-30T07:58:43+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/19"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [],
+            "variants": [
+                "/v4/product_variants/27"
+            ],
+            "modifierLists": [],
+            "externalId": "N5UXOMSXKKCMMEQNOLDUUAXJ",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/28",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:12+00:00",
+            "updatedAt": "2019-07-25T09:37:39+00:00",
+            "id": 28,
+            "status": "ACTIVE",
+            "reference": "Strawberry Ice Cream Taco",
+            "translations": [
+                {
+                    "id": 101245,
+                    "title": "Strawberry Ice Cream Taco",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/28",
+                    "createdAt": "2019-07-30T07:58:44+00:00",
+                    "updatedAt": "2019-07-30T07:58:44+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/19"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [],
+            "variants": [
+                "/v4/product_variants/28"
+            ],
+            "modifierLists": [],
+            "externalId": "WAGGHT2BLM7KS7OWQWCEPANV",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/29",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:12+00:00",
+            "updatedAt": "2019-07-25T09:37:40+00:00",
+            "id": 29,
+            "status": "ACTIVE",
+            "reference": "Fudge Chip Taco",
+            "translations": [
+                {
+                    "id": 101246,
+                    "title": "Fudge Chip Taco",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/29",
+                    "createdAt": "2019-07-30T07:58:45+00:00",
+                    "updatedAt": "2019-07-30T07:58:45+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/19"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [],
+            "variants": [
+                "/v4/product_variants/29"
+            ],
+            "modifierLists": [],
+            "externalId": "DLCXBJOSTAEPYYOPSBANK6XL",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        },
+        {
+            "@id": "/v4/products/30",
+            "@type": "Product",
+            "createdAt": "2019-07-25T08:48:13+00:00",
+            "updatedAt": "2019-07-25T09:37:40+00:00",
+            "id": 30,
+            "status": "ACTIVE",
+            "reference": "Vegan Coconut Taco",
+            "translations": [
+                {
+                    "id": 101247,
+                    "title": "Vegan Coconut Taco",
+                    "description": null,
+                    "language": "en",
+                    "product": "/v4/products/30",
+                    "createdAt": "2019-07-30T07:58:45+00:00",
+                    "updatedAt": "2019-07-30T07:58:45+00:00"
+                }
+            ],
+            "fulfilmentPoints": [
+                "/v4/fulfilment_points/19"
+            ],
+            "app": "/v4/apps/27",
+            "categories": [],
+            "variants": [
+                "/v4/product_variants/30"
+            ],
+            "modifierLists": [],
+            "externalId": "H2UMSZI4FHYD5X7CCHAN6K34",
+            "holdingTime": null,
+            "images": [],
+            "reconciliationGroup": null
+        }
+    ],
+    "hydra:totalItems": 99,
+    "hydra:view": {
+        "@id": "/v4/products?page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/products?page=1",
+        "hydra:last": "/v4/products?page=4"
+    }
+}

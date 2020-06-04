@@ -64,7 +64,7 @@ class UserSchema(Schema):
         email = fields.String()
 
     id = fields.Int()
-    auth_type = fields.String(data_key='authType')
+    auth_type = fields.String(data_key='authType', missing=None)
     email = fields.Email()
     password = fields.String()
     device_id = RelatedResourceLinkField(schema=DeviceSchema, data_key='device')
@@ -74,6 +74,7 @@ class UserSchema(Schema):
     devices = RelatedResourceField(schema=DeviceSchema, many=True, data_key='devices')
     user_emails = fields.Nested(UserEmail, data_key='userEmails', many=True)
     user_consent = RelatedResourceField(schema=UserConsentSchema, data_key='userConsent')
+    token = fields.String(missing=None)
 
 
 class UserSSOSchema(Schema):

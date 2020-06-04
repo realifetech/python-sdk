@@ -25,6 +25,7 @@ def test_deserialize_user():
                 'phone': '+4712345678',
                 'gender': None
             },
+            'token': '46c6cc97-bbe7-4209-8d52-b71531959757',
             'cohorts': [],
             'user_emails': [
                 {

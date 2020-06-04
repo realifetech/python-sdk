@@ -90,6 +90,7 @@ class User:
             user_emails: List[Dict] or None = None,
             user_consent: Dict or None = None,
             devices: List[Dict] or None = None,
+            token=None,
     ):
         self.id = id
         self.email = email
@@ -107,6 +108,7 @@ class User:
         self.last_name = user_info.last_name
         self.password = password
         self.cohorts = []
+        self.token = token
         if cohorts:
             self.cohorts = [Cohort.placeholder(int(c_id)) for c_id in cohorts]
         if magic_fields:

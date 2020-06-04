@@ -14,6 +14,8 @@ from livestyled.schemas.fixture import FixtureSchema
 from livestyled.schemas.league_table import LeagueTableGroupSchema, LeagueTableSchema
 from livestyled.schemas.magic_field import MagicFieldSchema
 from livestyled.schemas.news import NewsSchema
+from livestyled.schemas.order import OrderSchema
+from livestyled.schemas.product import ProductSchema, ProductCategorySchema
 from livestyled.schemas.push_broadcast import PushBroadcastSchema
 from livestyled.schemas.push_consent import PushConsentSchema
 from livestyled.schemas.season import SeasonSchema
@@ -40,6 +42,9 @@ __all__ = [
     LeagueTableGroupSchema,
     MagicFieldSchema,
     NewsSchema,
+    OrderSchema,
+    ProductCategorySchema,
+    ProductSchema,
     PushBroadcastSchema,
     PushConsentSchema,
     SeasonSchema,
