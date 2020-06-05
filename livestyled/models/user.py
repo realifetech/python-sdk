@@ -89,7 +89,7 @@ class User:
             magic_fields: List[Dict] or None = None,
             user_emails: List[Dict] or None = None,
             user_consent: Dict or None = None,
-            devices: List[Dict] or None = None,
+            devices: List[Dict] or List[str] or None = None,
             token=None,
     ):
         self.id = id
@@ -127,7 +127,12 @@ class User:
         else:
             self.user_consent = None
         if devices:
-            self.devices = [Device(**d) for d in devices]
+            self.devices = []
+            for device in devices:
+                if isinstance(device, (str, int)):
+                    self.devices.append(Device.placeholder(id=device))
+                elif isinstance(device, dict):
+                    self.devices.append(Device(**device))
         else:
             self.devices = []
 

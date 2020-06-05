@@ -44,33 +44,7 @@
         "analysisConsent": true
     },
     "devices": [
-        {
-            "@id": "/v4/devices/1753940",
-            "@type": "Device",
-            "id": 1753940,
-            "token": "EEDF8B6C-4DD8-4D04-B5D6-D6AE62CD5146",
-            "consent": {
-                "id": 4103,
-                "locationCapture": true,
-                "locationGranular": "appInUse",
-                "camera": false,
-                "calendar": false,
-                "photoSharing": false,
-                "pushNotification": true,
-                "createdAt": "2020-01-20T17:36:35+00:00",
-                "updatedAt": "2020-01-20T17:36:44+00:00"
-            },
-            "type": "IOS",
-            "status": "ACTIVE",
-            "appVersion": "11.2",
-            "osVersion": "12.4",
-            "model": "Simulator",
-            "manufacturer": "APPLE",
-            "bluetoothOn": false,
-            "wifiConnected": true,
-            "createdAt": "2020-01-20T17:36:25+00:00",
-            "updatedAt": "2020-04-22T16:09:57+00:00"
-        }
+        "/v4/devices/1753940"
     ],
     "cohorts": [
         "/v4/cohorts/1",

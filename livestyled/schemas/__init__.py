@@ -15,7 +15,7 @@ from livestyled.schemas.league_table import LeagueTableGroupSchema, LeagueTableS
 from livestyled.schemas.magic_field import MagicFieldSchema
 from livestyled.schemas.news import NewsSchema
 from livestyled.schemas.order import OrderSchema
-from livestyled.schemas.product import ProductSchema, ProductCategorySchema
+from livestyled.schemas.product import ProductCategorySchema, ProductSchema
 from livestyled.schemas.push_broadcast import PushBroadcastSchema
 from livestyled.schemas.push_consent import PushConsentSchema
 from livestyled.schemas.season import SeasonSchema

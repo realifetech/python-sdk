@@ -43,9 +43,6 @@ def test_get_user_by_id(requests_mock):
     assert user.magic_fields[0].id == 52
     assert len(user.devices) == 1
     assert user.devices[0].id == 1753940
-    assert user.devices[0].token == 'EEDF8B6C-4DD8-4D04-B5D6-D6AE62CD5146'
-    assert user.devices[0].type == 'IOS'
-    assert user.devices[0].consent.push_notification is True
 
 
 def test_user_diff(requests_mock):
