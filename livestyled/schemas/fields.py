@@ -75,6 +75,8 @@ class RelatedResourceField(fields.Field):
 
     def _serialize(self, value, attr, obj, **kwargs):
         if value:
+            if not isinstance(value, (str, int)):
+                value = getattr(value, 'id')
             return '/{}/{}'.format(self.schema.Meta.url, value)
         return None
 

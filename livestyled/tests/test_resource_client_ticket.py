@@ -1,7 +1,9 @@
 from datetime import datetime, timedelta, timezone
+import json
 import os
 
 from livestyled.models.ticket import Ticket
+from livestyled.models.ticket_integration import TicketIntegration
 from livestyled.models.user import User
 from livestyled.resource_client import LiveStyledResourceClient
 from livestyled.tests.utils import configure_mock_responses
@@ -145,3 +147,45 @@ def test_get_ticket_shared_redeemed(requests_mock):
     assert ticket.venue_name is None
     assert ticket.venue_room is None
     assert ticket.redeemed_at == datetime(2019, 5, 24, 13, 41, 22, tzinfo=timezone(timedelta(0), '+0000'))
+
+
+def test_create_ticket(requests_mock):
+
+    mock_responses = (
+        ('POST', 'https://' + TEST_API_DOMAIN + '/v4/tickets', 'mock_responses/ls_api/create_ticket.json', 200),
+    )
+    configure_mock_responses(requests_mock, mock_responses, FIXTURES_DIR, CONTENT_TYPE)
+
+    ticket_integration = TicketIntegration(
+        label='TestTicketIntegration',
+        id=99,
+        name='TestTickets',
+        module=None,
+        endpoint_url=None,
+        login_request=None,
+        adapter=None,
+        auth_required=None,
+        default=None,
+        can_share=None,
+        config_payload=None
+    )
+
+    ticket = Ticket.create_new(
+        ticket_integration=ticket_integration,
+        user=User.placeholder(id='1234')
+    )
+
+    resource_client = LiveStyledResourceClient(TEST_API_DOMAIN, 'bar')
+
+    created_ticket = resource_client.create_ticket(ticket)
+    assert created_ticket.ticket_integration.id == 99
+
+    create_request = requests_mock.request_history[0]
+    assert create_request.method == 'POST'
+    assert json.loads(create_request.body) == {
+        'canShare': False,
+        'premium': False,
+        'price': 0,
+        'user': '/v4/users/1234',
+        'ticketIntegration': '/v4/ticket_integrations/99'
+    }

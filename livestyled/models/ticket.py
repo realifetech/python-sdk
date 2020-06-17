@@ -103,6 +103,8 @@ class Ticket:
                 self._ticket_integration = TicketIntegration(**ticket_integration)
             elif isinstance(ticket_integration, (int, str)):
                 self._ticket_integration = TicketIntegration.placeholder(ticket_integration)
+            elif isinstance(ticket_integration, TicketIntegration):
+                self._ticket_integration = ticket_integration
         else:
             self._ticket_integration = None
 
