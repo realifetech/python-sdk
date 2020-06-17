@@ -57,6 +57,19 @@ def test_deserialize_ticket():
             'legal_short_text': 'More information or questions regarding the ADA ticket',
             'map_url': None,
             'map_image_url': None,
+            'ticket_integration': {
+                'adapter': 'XXXXXXds',
+                'auth_required': False,
+                'can_share': False,
+                'config_payload': None,
+                'default': False,
+                'endpoint_url': 'XXXXXXsd',
+                'id': 17,
+                'label': 'XXXXXXdsds',
+                'login_request': 'XXXXXXXdsds',
+                'module': 'SHARE',
+                'name': 'SeatGeek'
+            },
         }
 
 
@@ -103,6 +116,7 @@ def test_deserialize_ticket_shared():
             'legal_short_text': None,
             'map_url': None,
             'map_image_url': None,
+            'ticket_integration': None
         }
 
 
@@ -149,4 +163,5 @@ def test_deserialize_ticket_shared_redeemed():
             'legal_short_text': None,
             'map_url': None,
             'map_image_url': None,
+            'ticket_integration': None
         }

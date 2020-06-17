@@ -115,6 +115,8 @@ class LiveStyledAPIClient:
             },
             data=json.dumps(data)
         )
+        if response.status_code >= 400:
+            print(response.json())
         response.raise_for_status()
         return response.json()
 

@@ -27,6 +27,7 @@ from livestyled.models import (
     SportVenue,
     Team,
     Ticket,
+    TicketIntegration,
     User,
     UserInfo,
     UserSSO,
@@ -52,6 +53,7 @@ from livestyled.schemas import (
     SeasonSchema,
     SportVenueSchema,
     TeamSchema,
+    TicketIntegrationSchema,
     TicketSchema,
     UserCreateSchema,
     UserInfoSchema,
@@ -811,3 +813,22 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
     ) -> Generator[ProductCategory, None, None]:
         return self._get_resource_list(ProductCategorySchema)
+
+    # ---- TICKET INTEGRATIONS
+
+    def get_ticket_integrations(
+            self,
+    ) -> Generator[TicketIntegration, None, None]:
+        return self._get_resource_list(TicketIntegrationSchema)
+
+    def get_ticket_integration(
+            self,
+            id
+    ) -> TicketIntegration:
+        return self._get_resource_by_id(TicketIntegrationSchema, id)
+
+    def create_ticket_integration(
+            self,
+            ticket_integration: TicketIntegration
+    ) -> TicketIntegration:
+        return self._create_resource(TicketIntegrationSchema, ticket_integration)
