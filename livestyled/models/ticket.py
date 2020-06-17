@@ -1,3 +1,4 @@
+from livestyled.models.ticket_integration import TicketIntegration
 from livestyled.models.user import User
 
 
@@ -42,6 +43,7 @@ class Ticket:
             legal_short_text=None,
             map_url=None,
             map_image_url=None,
+            ticket_integration=None
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
@@ -96,6 +98,13 @@ class Ticket:
         self.legal_short_text = legal_short_text
         self.map_url = map_url
         self.map_image_url = map_image_url
+        if ticket_integration:
+            if isinstance(ticket_integration, dict):
+                self._ticket_integration = TicketIntegration(**ticket_integration)
+            elif isinstance(ticket_integration, (int, str)):
+                self._ticket_integration = TicketIntegration.placeholder(ticket_integration)
+        else:
+            self._ticket_integration = None
 
     @classmethod
     def placeholder(
@@ -141,6 +150,7 @@ class Ticket:
             legal_short_text=None,
             map_url=None,
             map_image_url=None,
+            ticket_integration=None
         )
 
     @classmethod
@@ -181,6 +191,7 @@ class Ticket:
             legal_short_text=None,
             map_url=None,
             map_image_url=None,
+            ticket_integration=None
     ):
         ticket = Ticket(
             id=None,
@@ -221,6 +232,7 @@ class Ticket:
             legal_short_text=legal_short_text,
             map_url=map_url,
             map_image_url=map_image_url,
+            ticket_integration=ticket_integration
         )
         if isinstance(user, (str, int)):
             user = User.placeholder(id=user)
@@ -273,6 +285,10 @@ class Ticket:
     def parent_ticket(self):
         return self._parent_ticket
 
+    @property
+    def ticket_integration(self):
+        return self._ticket_integration
+
     def __repr__(self):
         return '<Ticket(id={self.id!r})>'.format(self=self)
 
@@ -283,7 +299,7 @@ class Ticket:
             'barcode', 'sector_name', 'venue_name', 'venue_room', 'client_name', 'premium', 'client_email',
             'price', 'status', 'can_share', 'sharer_email', 'redeemed_at', 'redeemer_id', 'share_code',
             'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text', 'map_url',
-            'map_image_url'
+            'map_image_url', 'ticket_integration'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

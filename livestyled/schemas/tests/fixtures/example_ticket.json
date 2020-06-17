@@ -19,5 +19,23 @@
     "canShare": true,
     "status": "active",
     "legalLongText": "this is the legal long text this is the legal long text this is the legal long text this is the legal long text this is the legal long text this is the legal long text this is the legal long text this is the legal long text this is the legal long text this is the legal long text this is the legal long text this is the legal long text this is the legal long text this is the legal long text",
-    "legalShortText": "More information or questions regarding the ADA ticket"
+    "legalShortText": "More information or questions regarding the ADA ticket",
+    "ticketIntegration": {
+        "@context": "/v4/contexts/TicketIntegration",
+        "@id": "/v4/ticket_integrations/17",
+        "@type": "TicketIntegration",
+        "id": 17,
+        "endpointUrl": "XXXXXXsd",
+        "label": "XXXXXXdsds",
+        "name": "SeatGeek",
+        "loginRequest": "XXXXXXXdsds",
+        "adapter": "XXXXXXds",
+        "default": false,
+        "createdAt": "2018-07-19T15:10:00+00:00",
+        "updatedAt": "2020-01-27T14:57:57+00:00",
+        "module": "SHARE",
+        "authRequired": false,
+        "canShare": false,
+        "app": "/v4/apps/27"
+    }
 }

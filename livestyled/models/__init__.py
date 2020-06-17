@@ -31,6 +31,7 @@ from livestyled.models.season import Season
 from livestyled.models.sport_venue import SportVenue
 from livestyled.models.team import Team
 from livestyled.models.ticket import Ticket
+from livestyled.models.ticket_integration import TicketIntegration
 from livestyled.models.user import User, UserInfo, UserSSO
 
 __all__ = [
@@ -65,6 +66,7 @@ __all__ = [
     SportVenue,
     Team,
     Ticket,
+    TicketIntegration,
     UserInfo,
     User,
     UserSSO
