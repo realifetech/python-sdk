@@ -27,8 +27,10 @@ from livestyled.models import (
     SportVenue,
     Team,
     Ticket,
+    TicketAuth,
     TicketIntegration,
     User,
+    UserEmail,
     UserInfo,
     UserSSO,
 )
@@ -53,6 +55,7 @@ from livestyled.schemas import (
     SeasonSchema,
     SportVenueSchema,
     TeamSchema,
+    TicketAuthSchema,
     TicketIntegrationSchema,
     TicketSchema,
     UserCreateSchema,
@@ -832,3 +835,41 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             ticket_integration: TicketIntegration
     ) -> TicketIntegration:
         return self._create_resource(TicketIntegrationSchema, ticket_integration)
+
+    # ---- TICKET AUTHS
+
+    def get_ticket_auths(
+            self,
+            user_email_address=None,
+            ticket_integration=None,
+    ) -> Generator[TicketAuth, None, None]:
+        filters = {}
+
+        if user_email_address:
+            if isinstance(user_email_address, str):
+                filters['userEmail.email'] = user_email_address
+            elif isinstance(user_email_address, UserEmail):
+                filters['userEmail.email'] = user_email_address.email
+        if ticket_integration:
+            if isinstance(ticket_integration, (str, int)):
+                filters['ticketIntegration'] = ticket_integration
+            elif isinstance(ticket_integration, TicketIntegration):
+                filters['ticketIntegration'] = ticket_integration.id
+
+        if filters:
+            return self._get_resource_list(TicketAuthSchema, filters=filters)
+        else:
+            return self._get_resource_list(TicketAuthSchema)
+
+    def get_ticket_auth(
+            self,
+            id
+    ) -> TicketAuth:
+        return self._get_resource_by_id(TicketAuthSchema, id)
+
+    def update_ticket_auth(
+            self,
+            ticket_auth: TicketAuth,
+            attributes: Dict
+    ) -> TicketAuth:
+        return self._update_resource(TicketAuthSchema, ticket_auth.id, attributes)

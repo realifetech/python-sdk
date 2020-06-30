@@ -29,6 +29,7 @@ def test_deserialize_user():
             'cohorts': [],
             'user_emails': [
                 {
+                    'id': 329601,
                     'valid': False,
                     'email': 'reuben.gow+axs2@livestyled.com'
                 }

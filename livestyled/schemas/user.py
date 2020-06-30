@@ -1,6 +1,6 @@
 from marshmallow import EXCLUDE, fields, Schema
 
-from livestyled.models.user import User, UserConsent, UserInfo, UserSSO
+from livestyled.models.user import User, UserConsent, UserEmail, UserInfo, UserSSO
 from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.device import DeviceSchema
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
@@ -47,6 +47,16 @@ class UserConsentSchema(Schema):
     analysis_consent = fields.Boolean(data_key='analysisConsent', allow_none=False)
 
 
+class UserEmailSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+        model = UserEmail
+
+    valid = fields.Boolean()
+    email = fields.String()
+    id = fields.Int()
+
+
 class UserSchema(Schema):
     class Meta:
         unknown = EXCLUDE
@@ -57,12 +67,6 @@ class UserSchema(Schema):
         magic_fields_url = 'v4/users/{}/magic_fields'
         model = User
 
-    class UserEmail(Schema):
-        class Meta:
-            unknown = EXCLUDE
-        valid = fields.Boolean()
-        email = fields.String()
-
     id = fields.Int()
     auth_type = fields.String(data_key='authType', missing=None)
     email = fields.Email()
@@ -72,7 +76,7 @@ class UserSchema(Schema):
     cohorts = RelatedResourceLinkField(schema=CohortSchema, many=True)
     magic_fields = RelatedResourceField(schema=MagicFieldSchema, many=True, data_key='magicFields')
     devices = RelatedResourceField(schema=DeviceSchema, many=True, data_key='devices')
-    user_emails = fields.Nested(UserEmail, data_key='userEmails', many=True)
+    user_emails = RelatedResourceField(schema=UserEmailSchema, data_key='userEmails', many=True)
     user_consent = RelatedResourceField(schema=UserConsentSchema, data_key='userConsent')
     token = fields.String(missing=None)
 

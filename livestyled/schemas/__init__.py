@@ -22,8 +22,9 @@ from livestyled.schemas.season import SeasonSchema
 from livestyled.schemas.sport_venue import SportVenueSchema
 from livestyled.schemas.team import TeamSchema
 from livestyled.schemas.ticket import TicketSchema
+from livestyled.schemas.ticket_auth import TicketAuthSchema
 from livestyled.schemas.ticket_integration import TicketIntegrationSchema
-from livestyled.schemas.user import UserCreateSchema, UserInfoSchema, UserSchema, UserSSOSchema
+from livestyled.schemas.user import UserCreateSchema, UserEmailSchema, UserInfoSchema, UserSchema, UserSSOSchema
 
 __all__ = [
     AppSchema,
@@ -51,9 +52,11 @@ __all__ = [
     SeasonSchema,
     SportVenueSchema,
     TeamSchema,
+    TicketAuthSchema,
     TicketIntegrationSchema,
     TicketSchema,
     UserCreateSchema,
+    UserEmailSchema,
     UserInfoSchema,
     UserSchema,
     UserSSOSchema,
