@@ -20,7 +20,8 @@ def test_deserialize_league_table():
             'image_url': 'https://image.livestyled.com/abcdefg',
             'media': {
                 'type': 'EXTERNALVIDEO',
-                'url': 'https://www.thenews.com/video'
+                'url': 'https://www.thenews.com/video',
+                'thumbnail_url': None,
             },
             'published_at': datetime(2020, 2, 23, 4, 56, 59, tzinfo=timezone(timedelta(0), '+0000')),
             'title': 'Things happened',

@@ -29,6 +29,7 @@ def test_get_news_by_id(requests_mock):
     assert news.media == {
         'type': 'EXTERNALVIDEO',
         'url': 'https://www.thenews.com/video',
+        'thumbnail_url': None,
     }
 
 
