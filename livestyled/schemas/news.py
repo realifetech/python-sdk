@@ -16,7 +16,7 @@ class NewsSchema(Schema):
 
         type = fields.String(required=True, allow_none=False)
         url = fields.String(required=True, allow_none=False)
-        thumbnail_url = fields.String(required=False, allow_none=False, missing=None)
+        thumbnail_url = fields.String(required=False, allow_none=False, missing=None, data_key='thumbnailUrl')
 
     id = fields.Int()
     external_id = fields.String(data_key='externalId')
