@@ -1,0 +1,15 @@
+{
+  "@context": "/v4/contexts/TicketAuth",
+  "@id": "/v4/ticket_auths/1038",
+  "@type": "TicketAuth",
+  "id": 1038,
+  "userEmail": {
+    "id": 330325,
+    "valid": true,
+    "email": "amy.keane+verificatintest@livestyled.com"
+  },
+  "ticketIntegration": "/v4/ticket_integrations/40",
+  "clientEmail": "amy.keane+verificatintest@livestyled.com",
+  "clientId": "99999",
+  "app": "/v4/apps/27"
+}

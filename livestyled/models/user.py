@@ -69,9 +69,11 @@ class UserConsent:
 class UserEmail:
     def __init__(
             self,
+            id: int,
             valid: bool,
             email: str
     ):
+        self.id = id
         self.valid = valid
         self.email = email
 
