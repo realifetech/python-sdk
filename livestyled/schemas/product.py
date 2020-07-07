@@ -62,6 +62,13 @@ class ProductTranslationSchema(Schema):
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True, missing=None)
 
 
+class CoreProductCategorySchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+    id = fields.Integer()
+    name = fields.String()
+
+
 class ProductSchema(Schema):
     class Meta:
         unknown = EXCLUDE
@@ -81,3 +88,4 @@ class ProductSchema(Schema):
     translations = RelatedResourceField(schema=ProductTranslationSchema, many=True, missing=[])
     fulfilment_points = RelatedResourceLinkField(schema=FulfilmentPointSchema, many=True, missing=[], data_key='fulfilmentPoints')
     variants = RelatedResourceLinkField(schema=ProductVariantSchema, many=True, missing=[])
+    core_product_category = fields.Nested(CoreProductCategorySchema, missing=None, data_key='coreProductCategory')

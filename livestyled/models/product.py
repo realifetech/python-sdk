@@ -92,7 +92,8 @@ class Product:
             holding_time,
             reconciliation_group,
             fulfilment_points,
-            variants
+            variants,
+            core_product_category
     ):
         self.id = id
         self.status = status
@@ -101,6 +102,7 @@ class Product:
         self.external_id = external_id
         self.holding_time = holding_time
         self.reconciliation_group = reconciliation_group
+        self.core_product_category = core_product_category
         if images:
             self.images = []
             for image in images:
@@ -168,5 +170,6 @@ class Product:
             fulfilment_points=None,
             holding_time=None,
             reconciliation_group=None,
-            modifier_lists=None
+            modifier_lists=None,
+            core_product_category=None
         )

@@ -39,7 +39,8 @@ def test_deserialize_order():
                         'external_id': None,
                         'holding_time': None,
                         'modifier_lists': [],
-                        'reconciliation_group': None
+                        'reconciliation_group': None,
+                        'core_product_category': None,
                     },
                     'fulfilment_point': {
                         'categories': [
