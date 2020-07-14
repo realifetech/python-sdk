@@ -133,7 +133,6 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         for key, value in list(payload.items()):
             if value is None:
                 payload.pop(key)
-        logger.info(payload)
         new_instance = self._api_post(
             '{}'.format(schema.Meta.url),
             payload
