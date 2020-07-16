@@ -19,6 +19,34 @@ def test_deserialize_order():
             'discount': 0,
             'gross_amount': 1,
             'id': 1,
+            'app': {
+                'api_keys': None,
+                'code': None,
+                'cohorts': None,
+                'currency': {
+                    'id': None,
+                    'iso_code': 'GBP',
+                    'sign': '£',
+                    'title': 'Pound'
+                },
+                'deeplink_namespace': None,
+                'email': None,
+                'google_api_key': None,
+                'id': None,
+                'merchant_accounts': None,
+                'name': None,
+                'password': None,
+                'payment_gateway': None,
+                'roles': None,
+                'salt': None,
+                'sender_email': None,
+                'status': None,
+                'timezone': None,
+                'title': None,
+                'token': None,
+                'username': None,
+                'venues': None
+            },
             'items': [
                 {
                     'product': {

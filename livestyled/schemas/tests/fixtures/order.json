@@ -2,6 +2,17 @@
   "@id": "/v4/orders/1",
   "@type": "Order",
   "id": 1,
+  "app": {
+    "@id": "/v4/apps/27",
+    "@type": "App",
+    "currency": {
+      "@id": "/v4/currencies/1",
+      "@type": "Currency",
+      "title": "Pound",
+      "isoCode": "GBP",
+      "sign": "£"
+    }
+  },
   "user": {
     "@id": "/v4/users/274814",
     "@type": "User",

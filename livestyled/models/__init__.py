@@ -1,3 +1,4 @@
+from livestyled.models.app import App, Currency
 from livestyled.models.booking import Booking
 from livestyled.models.cohort import Cohort
 from livestyled.models.competition import Competition
@@ -36,6 +37,8 @@ from livestyled.models.ticket_integration import TicketIntegration
 from livestyled.models.user import User, UserEmail, UserInfo, UserSSO
 
 __all__ = [
+    App,
+    Currency,
     Booking,
     Cohort,
     Competition,

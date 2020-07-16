@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, timezone
 import os
 
-from livestyled.models import FulfilmentPoint, FulfilmentPointCategory, FulfilmentPointCategoryTranslation, FulfilmentPointTranslation, Order, OrderItem, Product, ProductCategory, ProductVariant, User
+from livestyled.models import App, Currency, FulfilmentPoint, FulfilmentPointCategory, FulfilmentPointCategoryTranslation, FulfilmentPointTranslation, Order, OrderItem, Product, ProductCategory, ProductVariant, User
 from livestyled.resource_client import LiveStyledResourceClient
 from livestyled.tests.utils import configure_mock_responses
 
@@ -91,3 +91,8 @@ def test_get_orders(requests_mock):
     assert order.user.user_info.gender == 'MALE'
     assert order.user.user_info.phone == '+4712345678'
     assert order.user.user_info.dob == datetime(2020, 4, 30, 0, 0, tzinfo=timezone(timedelta(0), '+0000'))
+    assert isinstance(order.app, App)
+    assert isinstance(order.app.currency, Currency)
+    assert order.app.currency.iso_code == 'GBP'
+    assert order.app.currency.title == 'Pound'
+    assert order.app.currency.sign == '£'

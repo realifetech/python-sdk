@@ -53,13 +53,8 @@ def test_client_can_get_app_by_id(requests_mock, test_client):
         'currency': {
             'id': 1,
             'title': 'Pound',
-            'isoCode': 'GBP',
+            'iso_code': 'GBP',
             'sign': '£',
-            'updatedAt': '2016-08-09T10:49:34+00:00',
-            'createdAt': '2016-08-09T10:49:34+00:00',
-            '__initializer__': None,
-            '__cloner__': None,
-            '__isInitialized__': True
         },
         'cohorts': []
     }

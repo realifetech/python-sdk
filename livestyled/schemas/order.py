@@ -4,6 +4,7 @@ from livestyled.models.order import (
     Order,
     OrderItem,
 )
+from livestyled.schemas.app import AppSchema
 from livestyled.schemas.fields import RelatedResourceField
 from livestyled.schemas.fulfilment_point import FulfilmentPointSchema
 from livestyled.schemas.product import ProductSchema, ProductVariantSchema
@@ -35,6 +36,7 @@ class OrderSchema(Schema):
         model = Order
 
     id = fields.Int()
+    app = fields.Nested(AppSchema, missing=None)
     user = fields.Nested(UserSchema, missing=None)
     status = fields.String(missing=None)
     gross_amount = fields.Integer(data_key='grossAmount', missing=None)

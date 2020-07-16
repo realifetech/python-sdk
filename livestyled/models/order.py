@@ -1,3 +1,4 @@
+from livestyled.models.app import App
 from livestyled.models.fulfilment_point import FulfilmentPoint
 from livestyled.models.product import Product, ProductVariant
 from livestyled.models.user import User
@@ -63,7 +64,8 @@ class Order:
             order_number,
             items,
             updated_at,
-            created_at
+            created_at,
+            app,
     ):
         self.id = id
         self.status = status
@@ -92,3 +94,11 @@ class Order:
                     self.items.append(OrderItem(**item))
         else:
             self.items = None
+
+        if app:
+            if isinstance(app, App):
+                self.app = app
+            elif isinstance(app, dict):
+                self.app = App(**app)
+        else:
+            self.app = None
