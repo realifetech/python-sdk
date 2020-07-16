@@ -6,7 +6,8 @@ from livestyled.models.fulfilment_point import (
     FulfilmentPointCategoryTranslation,
     FulfilmentPointTranslation,
 )
-from livestyled.schemas.fields import RelatedResourceField
+from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
+from livestyled.schemas.venue import VenueSchema
 
 
 class FulfilmentPointTranslationSchema(Schema):
@@ -57,3 +58,4 @@ class FulfilmentPointSchema(Schema):
     reference = fields.String(missing=None)
     translations = RelatedResourceField(schema=FulfilmentPointTranslationSchema, many=True)
     categories = RelatedResourceField(schema=FulfilmentPointCategorySchema, many=True)
+    venue = RelatedResourceLinkField(schema=VenueSchema, required=False, missing=None)

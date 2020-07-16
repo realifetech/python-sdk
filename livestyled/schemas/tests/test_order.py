@@ -77,7 +77,8 @@ def test_deserialize_order():
                                          '1'
                             }
                         ],
-                        'type': 'COLLECTION'
+                        'type': 'COLLECTION',
+                        'venue': 10000974
                     },
                     'id': 1,
                     'image_url': 'https://apiv3.s3.eu-west-1.amazonaws.com/productimage/Web-Homepage-graphic-1.jpg',

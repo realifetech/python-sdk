@@ -1,3 +1,6 @@
+from livestyled.models.venue import Venue
+
+
 class FulfilmentPointCategoryTranslation:
     def __init__(
             self,
@@ -61,6 +64,7 @@ class FulfilmentPoint:
             reference,
             translations,
             categories,
+            venue
     ):
         self.id = id
         self.status = status
@@ -92,6 +96,14 @@ class FulfilmentPoint:
         else:
             self.categories = []
 
+        if venue:
+            if isinstance(venue, Venue):
+                self.venue = venue
+            elif isinstance(venue, dict):
+                self.venue = Venue(**venue)
+            elif isinstance(venue, (str, int)):
+                self.venue = Venue.placeholder(id=venue)
+
     @classmethod
     def placeholder(cls, id):
         return cls(
@@ -105,5 +117,6 @@ class FulfilmentPoint:
             position=None,
             reference=None,
             translations=None,
-            categories=None
+            categories=None,
+            venue=None,
         )
