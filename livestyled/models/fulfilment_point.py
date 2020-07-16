@@ -103,6 +103,8 @@ class FulfilmentPoint:
                 self.venue = Venue(**venue)
             elif isinstance(venue, (str, int)):
                 self.venue = Venue.placeholder(id=venue)
+        else:
+            self.venue = None
 
     @classmethod
     def placeholder(cls, id):
