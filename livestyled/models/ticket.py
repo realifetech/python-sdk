@@ -301,7 +301,7 @@ class Ticket:
             'barcode', 'sector_name', 'venue_name', 'venue_room', 'client_name', 'premium', 'client_email',
             'price', 'status', 'can_share', 'sharer_email', 'redeemed_at', 'redeemer_id', 'share_code',
             'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text', 'map_url',
-            'map_image_url', 'ticket_integration'
+            'map_image_url', 'ticket_integration', 'entrance', 'row', 'section', 'price_code', 'external_customer_ref'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
