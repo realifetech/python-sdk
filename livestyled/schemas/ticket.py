@@ -37,7 +37,7 @@ class TicketSchema(Schema):
     client_email = fields.String(data_key='clientEmail', required=False, missing=None)
     price = fields.Int(required=False, missing=None)
     share_link = fields.String(data_key='shareLink', required=False, missing=None)
-    external_customer_ref = fields.String(data_key='externalCustomerRed', required=False, missing=None)
+    external_customer_ref = fields.String(data_key='externalCustomerRef', required=False, missing=None)
     entrance = fields.String(required=False, missing=None)
     section = fields.String(required=False, missing=None)
     row = fields.String(required=False, missing=None)
