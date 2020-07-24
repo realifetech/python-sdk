@@ -1,4 +1,4 @@
-from marshmallow import EXCLUDE, fields, Schema
+from marshmallow import EXCLUDE, fields, post_load, Schema
 
 from livestyled.models.venue import Venue
 
@@ -10,7 +10,8 @@ class VenueSchema(Schema):
         url = 'v4/venues'
         model = Venue
 
-    id = fields.Int()
+    id = fields.Int(missing=None)
+    iri = fields.String(data_key='@id')
     name = fields.String()
     label = fields.String()
     status = fields.String()
@@ -29,3 +30,10 @@ class VenueSchema(Schema):
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True)
     venue_icon_url = fields.String(data_key='venueIconUrl', allow_none=True)
+
+    @post_load
+    def fix_missing_id(self, data, **kwargs):
+        if data['id'] is None:
+            data['id'] = int(data['iri'].split('/')[-1])
+            data.pop('iri', None)
+        return data
