@@ -36,3 +36,5 @@ def test_get_events(requests_mock):
     assert event.event_dates[0].end_at == datetime(2017, 3, 29, 19, 0, tzinfo=timezone(timedelta(0), '+0000'))
     assert event.event_dates[0].general_ticket_url == 'https://www.ticketmaster.co.uk/Blue-tickets/artist/1843366'
     assert event.translations is None
+    assert len(event.venues) == 1
+    assert event.venues[0].id == 10000994

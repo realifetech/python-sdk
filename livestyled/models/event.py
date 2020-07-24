@@ -1,4 +1,5 @@
 from livestyled.models.event_date import EventDate
+from livestyled.models.venue import Venue
 
 
 class Event:
@@ -14,6 +15,7 @@ class Event:
             created_at=None,
             translations=None,
             image_url=None,
+            venues=None,
     ):
         self._id = id
         self.status = status
@@ -26,6 +28,17 @@ class Event:
         if event_dates:
             self.event_dates = [EventDate(**ed) for ed in event_dates]
         self.translations = translations
+        if venues:
+            self.venues = []
+            for venue in venues:
+                if isinstance(venue, dict):
+                    self.venues.append(Venue(**venue))
+                elif isinstance(venue, (str, int)):
+                    self.venues.append(Venue.placeholder(id=venue))
+                elif isinstance(venue, Venue):
+                    self.venues.append(Venue)
+        else:
+            self.venues = []
 
     @classmethod
     def placeholder(

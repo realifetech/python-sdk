@@ -25,7 +25,11 @@
                 }
             ],
             "venues": [
-                "/v4/venues/10000918"
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }
             ],
             "socialMedia": [],
             "usefulInfo": [
@@ -84,8 +88,11 @@
             "updatedAt": "2019-03-27T14:50:01+00:00",
             "eventDates": [],
             "venues": [
-                "/v4/venues/10000918"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -105,8 +112,11 @@
             "updatedAt": "2019-03-27T14:49:55+00:00",
             "eventDates": [],
             "venues": [
-                "/v4/venues/10000918"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -147,8 +157,11 @@
             "updatedAt": "2015-08-12T11:37:17+00:00",
             "eventDates": [],
             "venues": [
-                "/v4/venues/10000918"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -168,8 +181,11 @@
             "updatedAt": "2015-08-12T11:39:33+00:00",
             "eventDates": [],
             "venues": [
-                "/v4/venues/10000918"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -189,8 +205,11 @@
             "updatedAt": "2015-08-12T11:40:46+00:00",
             "eventDates": [],
             "venues": [
-                "/v4/venues/10000918"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -210,8 +229,11 @@
             "updatedAt": "2015-08-12T11:41:54+00:00",
             "eventDates": [],
             "venues": [
-                "/v4/venues/10000918"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -240,8 +262,11 @@
                 }
             ],
             "venues": [
-                "/v4/venues/10000918"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -261,8 +286,11 @@
             "updatedAt": "2015-08-12T11:50:22+00:00",
             "eventDates": [],
             "venues": [
-                "/v4/venues/10000918"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -292,8 +320,11 @@
             ],
             "category": "/v4/event_categories/117",
             "venues": [
-                "/v4/venues/10000975"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [
                 {
                     "@id": "/v4/social_media/3397",
@@ -351,8 +382,11 @@
             ],
             "category": "/v4/event_categories/113",
             "venues": [
-                "/v4/venues/10000974"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "eventStage": "/v4/event_stages/6",
@@ -440,8 +474,11 @@
             ],
             "category": "/v4/event_categories/134",
             "venues": [
-                "/v4/venues/10000976"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [
                 {
                     "@id": "/v4/social_media/3525",
@@ -551,8 +588,11 @@
             "eventDates": [],
             "category": "/v4/event_categories/75",
             "venues": [
-                "/v4/venues/10000917"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -583,8 +623,11 @@
             ],
             "category": "/v4/event_categories/75",
             "venues": [
-                "/v4/venues/10000917"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -615,8 +658,11 @@
             ],
             "category": "/v4/event_categories/62",
             "venues": [
-                "/v4/venues/10000917"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -647,8 +693,11 @@
             ],
             "category": "/v4/event_categories/7",
             "venues": [
-                "/v4/venues/10000917"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -686,8 +735,11 @@
             ],
             "category": "/v4/event_categories/7",
             "venues": [
-                "/v4/venues/10000917"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [
                 {
@@ -743,8 +795,11 @@
             ],
             "category": "/v4/event_categories/75",
             "venues": [
-                "/v4/venues/10000917"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [
                 {
                     "@id": "/v4/social_media/61",
@@ -805,8 +860,11 @@
             ],
             "category": "/v4/event_categories/64",
             "venues": [
-                "/v4/venues/10000917"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -837,8 +895,11 @@
             ],
             "category": "/v4/event_categories/75",
             "venues": [
-                "/v4/venues/10000917"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -869,8 +930,11 @@
             ],
             "category": "/v4/event_categories/62",
             "venues": [
-                "/v4/venues/10000917"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -901,8 +965,11 @@
             ],
             "category": "/v4/event_categories/7",
             "venues": [
-                "/v4/venues/10000917"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -933,8 +1000,11 @@
             ],
             "category": "/v4/event_categories/7",
             "venues": [
-                "/v4/venues/10000917"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -965,8 +1035,11 @@
             ],
             "category": "/v4/event_categories/7",
             "venues": [
-                "/v4/venues/10000917"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -997,8 +1070,11 @@
             ],
             "category": "/v4/event_categories/7",
             "venues": [
-                "/v4/venues/10000918"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -1036,8 +1112,11 @@
             ],
             "category": "/v4/event_categories/7",
             "venues": [
-                "/v4/venues/10000918"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -1069,8 +1148,11 @@
             ],
             "category": "/v4/event_categories/7",
             "venues": [
-                "/v4/venues/10000918"
-            ],
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
             "socialMedia": [],
             "usefulInfo": [],
             "translations": [],
@@ -1102,7 +1184,11 @@
             ],
             "category": "/v4/event_categories/7",
             "venues": [
-                "/v4/venues/10000918"
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }
             ],
             "socialMedia": [],
             "usefulInfo": [],

@@ -25,7 +25,11 @@
             ],
             "category": "/v4/event_categories/7",
             "venues": [
-                "/v4/venues/10000917"
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }
             ],
             "socialMedia": [],
             "usefulInfo": [],

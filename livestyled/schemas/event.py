@@ -1,7 +1,9 @@
 from marshmallow import EXCLUDE, fields, Schema
 
 from livestyled.models import Event
+from livestyled.schemas.fields import RelatedResourceLinkField
 from livestyled.schemas.utils import get_id_from_url
+from livestyled.schemas.venue import VenueSchema
 
 
 class EventDate(Schema):
@@ -30,7 +32,7 @@ class EventSchema(Schema):
     promoted = fields.Boolean()
     event_dates = fields.Nested(EventDate, data_key='eventDates', many=True)
     app = fields.Function(get_id_from_url)
-    venues = fields.List(fields.Inferred),  # TODO
+    venues = fields.List(RelatedResourceLinkField(schema=VenueSchema), many=True, missing=None)
     artists = fields.List(fields.Inferred),  # TODO
     useful_info = fields.List(fields.Inferred, data_key='usefulInfo'),  # TODO
     user_actions = fields.List(fields.Inferred, data_key='userActions'),  # TODO
