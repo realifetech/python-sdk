@@ -1,5 +1,7 @@
+from livestyled.models.event import Event
 from livestyled.models.ticket_integration import TicketIntegration
 from livestyled.models.user import User
+from livestyled.models.venue import Venue
 
 
 class Ticket:
@@ -43,7 +45,9 @@ class Ticket:
             legal_short_text=None,
             map_url=None,
             map_image_url=None,
-            ticket_integration=None
+            ticket_integration=None,
+            venue=None,
+            event=None,
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
@@ -108,6 +112,26 @@ class Ticket:
         else:
             self._ticket_integration = None
 
+        if event:
+            if isinstance(event, Event):
+                self.event = event
+            elif isinstance(event, (int, str)):
+                self.event = Event.placeholder(id=event)
+            elif isinstance(event, dict):
+                self.event = Event(**event)
+        else:
+            self.event = None
+
+        if venue:
+            if isinstance(venue, Venue):
+                self.venue = venue
+            elif isinstance(venue, (int, str)):
+                self.venue = Venue.placeholder(id=venue)
+            elif isinstance(venue, dict):
+                self.venue = Venue(**venue)
+        else:
+            self.venue = None
+
     @classmethod
     def placeholder(
             cls,
@@ -152,7 +176,9 @@ class Ticket:
             legal_short_text=None,
             map_url=None,
             map_image_url=None,
-            ticket_integration=None
+            ticket_integration=None,
+            venue=None,
+            event=None
         )
 
     @classmethod
@@ -193,7 +219,9 @@ class Ticket:
             legal_short_text=None,
             map_url=None,
             map_image_url=None,
-            ticket_integration=None
+            ticket_integration=None,
+            venue: Venue or str or int or None = None,
+            event: Event or str or int or None = None,
     ):
         ticket = Ticket(
             id=None,
@@ -234,7 +262,9 @@ class Ticket:
             legal_short_text=legal_short_text,
             map_url=map_url,
             map_image_url=map_image_url,
-            ticket_integration=ticket_integration
+            ticket_integration=ticket_integration,
+            venue=venue,
+            event=event,
         )
         if isinstance(user, (str, int)):
             user = User.placeholder(id=user)
@@ -301,7 +331,8 @@ class Ticket:
             'barcode', 'sector_name', 'venue_name', 'venue_room', 'client_name', 'premium', 'client_email',
             'price', 'status', 'can_share', 'sharer_email', 'redeemed_at', 'redeemer_id', 'share_code',
             'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text', 'map_url',
-            'map_image_url', 'ticket_integration', 'entrance', 'row', 'section', 'price_code', 'external_customer_ref'
+            'map_image_url', 'ticket_integration', 'entrance', 'row', 'section', 'price_code', 'external_customer_ref',
+            'venue', 'event'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

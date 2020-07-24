@@ -2,9 +2,11 @@ from marshmallow import EXCLUDE, fields, Schema
 from marshmallow_polyfield import PolyField
 
 from livestyled.models.ticket import Ticket
+from livestyled.schemas.event import EventSchema
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
 from livestyled.schemas.ticket_integration import TicketIntegrationSchema
 from livestyled.schemas.user import UserSchema
+from livestyled.schemas.venue import VenueSchema
 
 
 def parent_ticket_selector(parent_ticket, ticket):
@@ -66,3 +68,5 @@ class TicketSchema(Schema):
     map_url = fields.String(data_key='mapUrl', required=False, allow_none=True, missing=None)
     map_image_url = fields.String(data_key='mapImageUrl', required=False, allow_none=True, missing=None)
     ticket_integration = RelatedResourceField(schema=TicketIntegrationSchema, required=False, missing=None, data_key='ticketIntegration')
+    event = RelatedResourceLinkField(schema=EventSchema, required=False, missing=None)
+    venue = RelatedResourceLinkField(schema=VenueSchema, required=False, missing=None)

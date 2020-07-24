@@ -33,6 +33,7 @@ from livestyled.models import (
     UserEmail,
     UserInfo,
     UserSSO,
+    Venue,
 )
 from livestyled.schemas import (
     BookingSchema,
@@ -61,7 +62,8 @@ from livestyled.schemas import (
     UserCreateSchema,
     UserInfoSchema,
     UserSchema,
-    UserSSOSchema
+    UserSSOSchema,
+    VenueSchema,
 )
 
 logger = logging.getLogger(__name__)
@@ -665,7 +667,8 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
             title: str or None = None,
             status: str or None = None,
-            start_at_after: str or None = None
+            start_at_after: str or None = None,
+            external_id: str or None = None
     ) -> Generator[Event, None, None]:
         filters = {}
         if title:
@@ -674,6 +677,8 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             filters['status'] = status
         if start_at_after:
             filters['event_dates.start_at[gt]'] = start_at_after
+        if external_id:
+            filters['externalId'] = external_id
         if filters:
             return self._get_resource_list(EventSchema, filters=filters)
         else:
@@ -872,3 +877,17 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             attributes: Dict
     ) -> TicketAuth:
         return self._update_resource(TicketAuthSchema, ticket_auth.id, attributes)
+
+    # ---- VENUES
+
+    def get_venues(
+            self,
+            external_id: str or None = None,
+    ) -> Generator[Venue, None, None]:
+        return self._get_resource_list(VenueSchema, external_id)
+
+    def get_venue(
+            self,
+            id: int
+    ) -> Venue:
+        return self._get_resource_by_id(VenueSchema, id)

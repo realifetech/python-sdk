@@ -70,6 +70,8 @@ def test_deserialize_ticket():
                 'module': 'SHARE',
                 'name': 'SeatGeek'
             },
+            'venue': None,
+            'event': None
         }
 
 
@@ -116,7 +118,9 @@ def test_deserialize_ticket_shared():
             'legal_short_text': None,
             'map_url': None,
             'map_image_url': None,
-            'ticket_integration': None
+            'ticket_integration': None,
+            'venue': None,
+            'event': None
         }
 
 
@@ -163,5 +167,68 @@ def test_deserialize_ticket_shared_redeemed():
             'legal_short_text': None,
             'map_url': None,
             'map_image_url': None,
-            'ticket_integration': None
+            'ticket_integration': None,
+            'venue': None,
+            'event': None
+        }
+
+
+def test_deserialize_ticket_with_event_and_venue():
+    with open(os.path.join(FIXTURES_DIR, 'example_ticket_with_event_and_venue.json'), 'r') as fixture_file:
+        ticket = fixture_file.read()
+        deserialized_ticket = TicketSchema().loads(ticket)
+        assert deserialized_ticket == {
+            'barcode': '224199046363003230328509',
+            'can_share': False,
+            'client_email': 'test@livestyled.com',
+            'client_name': None,
+            'created_at': datetime(2020, 7, 15, 15, 5, 37, tzinfo=timezone(timedelta(0), '+0000')),
+            'entrance': 'F',
+            'external_customer_ref': None,
+            'external_event_id': '2019-11-18T19:45:00',
+            'external_ticket_id': 'bf645a9e-2a06-ea11-96ab-005056b500e3',
+            'id': 8299,
+            'parent_ticket': None,
+            'premium': False,
+            'price': None,
+            'price_code': 'LÄKTARE 1 LÅNGSIDA,',
+            'qr_code_url': 'http://api-staging.livestyled.com/v3/web/tickets/qr-code/224199046363003230328509.png',
+            'redeemer_email': None,
+            'redeemer_id': None,
+            'row': '7',
+            'seat': '200',
+            'section': '111 - 113Höger',
+            'sector_name': None,
+            'session_date': datetime(2019, 11, 18, 18, 45, tzinfo=timezone(timedelta(0), '+0000')),
+            'share_code': None,
+            'share_link': None,
+            'shared_at': None,
+            'sharer_email': None,
+            'sharer_id': None,
+            'status': 'active',
+            'title': 'EM-KVAL SVERIGE - FÄRÖARNA 2019',
+            'updated_at': datetime(2020, 7, 23, 10, 8, 16, tzinfo=timezone(timedelta(0), '+0000')),
+            'user_id': 279285,
+            'venue_room': None,
+            'redeemed_at': None,
+            'legal_long_text': None,
+            'legal_short_text': None,
+            'map_url': None,
+            'map_image_url': None,
+            'ticket_integration': {
+                'adapter': 'SeatgeekAuthHandler',
+                'auth_required': False,
+                'can_share': False,
+                'config_payload': None,
+                'default': True,
+                'endpoint_url': '/',
+                'id': 40,
+                'label': 'SeatGeek',
+                'login_request': '/',
+                'module': 'AUTH',
+                'name': 'SeatGeek'
+            },
+            'event': 100017009,
+            'venue': 10000992,
+            'venue_name': 'Friends Arena'
         }
