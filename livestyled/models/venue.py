@@ -70,26 +70,27 @@ class Venue:
             updated_at: datetime or None = None,
             venue_icon_url: str or None = None,
     ):
-        cls._id = None
-        cls.name = name
-        cls.label = label
-        cls.status = status
-        cls.is_default = is_default
-        cls.description = description
-        cls.image_url = image_url
-        cls.map_image_url = map_image_url
-        cls.geo_latitude = geo_latitude
-        cls.geo_longitude = geo_longitude
-        cls.geo_latitude_north_west = geo_latitude_north_west
-        cls.geo_longitude_north_west = geo_longitude_north_west
-        cls.geo_latitude_south_east = geo_latitude_south_east
-        cls.geo_longitude_south_west = geo_longitude_south_west
-        cls.city = city
-        cls.external_id = external_id
-        cls.created_at = created_at
-        cls.updated_at = updated_at
-        cls.venue_icon_url = venue_icon_url
-        return cls
+        return Venue(
+            id=None,
+            name=name,
+            label=label,
+            status=status,
+            is_default=is_default,
+            description=description,
+            image_url=image_url,
+            map_image_url=map_image_url,
+            geo_latitude=geo_latitude,
+            geo_longitude=geo_longitude,
+            geo_latitude_north_west=geo_latitude_north_west,
+            geo_longitude_north_west=geo_longitude_north_west,
+            geo_latitude_south_east=geo_latitude_south_east,
+            geo_longitude_south_west=geo_longitude_south_west,
+            city=city,
+            external_id=external_id,
+            created_at=created_at,
+            updated_at=updated_at,
+            venue_icon_url=venue_icon_url,
+        )
 
     @classmethod
     def placeholder(
