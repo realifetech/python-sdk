@@ -795,6 +795,13 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     ) -> Generator[Order, None, None]:
         return self._get_resource_list(OrderSchema)
 
+    def update_order(
+            self,
+            order: Order,
+            attributes: Dict
+    ) -> Order:
+        return self._update_resource(OrderSchema, order.id, attributes)
+
     # -- PRODUCTS
 
     def get_product(
