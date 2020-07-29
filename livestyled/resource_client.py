@@ -701,9 +701,15 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     ) -> Generator[Booking, None, None]:
         filters = {}
         if device:
-            filters['device'] = device
+            if isinstance(device, Device):
+                filters['device'] = '/v4/devices/{}'.format(device.id)
+            else:
+                filters['device'] = device
         if event:
-            filters['event'] = event
+            if isinstance(event, Event):
+                filters['event'] = '/v4/events/{}'.format(event.id)
+            else:
+                filters['event'] = event
         if action:
             filters['action'] = action
         if type:
