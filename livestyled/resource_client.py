@@ -558,9 +558,18 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     def get_tickets(
             self,
             external_ticket_id: str or None = None,
+            user: User or str or int or None = None,
     ) -> Generator[Ticket, None, None]:
+        filters = {}
         if external_ticket_id:
-            return self._get_resource_list(TicketSchema, filters={'externalTicketId': external_ticket_id})
+            filters['externalTicketId'] = external_ticket_id
+        if user:
+            if isinstance(user, User):
+                filters['user'] = '/v4/users/{}'.format(user.id)
+            else:
+                filters['user'] = '/v4/users/{}'.format(user)
+        if filters:
+            return self._get_resource_list(TicketSchema, filters=filters)
         else:
             return self._get_resource_list(TicketSchema)
 
@@ -724,6 +733,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             booking: Booking
     ) -> Booking:
         return self._create_resource(BookingSchema, booking)
+
+    def delete_booking(
+            self,
+            booking: Booking
+    ) -> None:
+        return self._delete_resource(BookingSchema, booking)
 
     # ---- DEVICE PREFERENCES
 
