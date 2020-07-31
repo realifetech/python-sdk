@@ -689,7 +689,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         if start_at_after:
             filters['event_dates.start_at[gt]'] = start_at_after
         if start_at_before:
-            filters['event_dates.state_at[lt]'] = start_at_before
+            filters['event_dates.start_at[lt]'] = start_at_before
         if end_at_after:
             filters['event_dates.end_at[gt]'] = end_at_after
         if external_id:
