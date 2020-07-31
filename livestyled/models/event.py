@@ -2,6 +2,11 @@ from livestyled.models.event_date import EventDate
 from livestyled.models.venue import Venue
 
 
+class CoreEventCategory:
+    def __init__(self, name):
+        self.name = name
+
+
 class Event:
     def __init__(
             self,
@@ -16,6 +21,7 @@ class Event:
             translations=None,
             image_url=None,
             venues=None,
+            core_event_category=None
     ):
         self._id = id
         self.status = status
@@ -39,6 +45,13 @@ class Event:
                     self.venues.append(Venue)
         else:
             self.venues = []
+        if core_event_category:
+            if isinstance(core_event_category, dict):
+                self.core_event_category = CoreEventCategory(name=core_event_category['name'])
+            elif isinstance(core_event_category, CoreEventCategory):
+                self.core_event_category = core_event_category
+        else:
+            self.core_event_category = CoreEventCategory(name='Other')
 
     @classmethod
     def placeholder(

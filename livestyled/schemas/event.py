@@ -16,6 +16,13 @@ class EventDate(Schema):
     general_ticket_url = fields.String(data_key='generalTicketUrl', required=False)
 
 
+class CoreEventCategory(Schema):
+    class Meta:
+        unknown = EXCLUDE
+
+    name = fields.String()
+
+
 class EventSchema(Schema):
     class Meta:
         unknown = EXCLUDE
@@ -40,3 +47,4 @@ class EventSchema(Schema):
     translations = fields.List(fields.Inferred),  # TODO
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True)
+    core_event_category = fields.Nested(CoreEventCategory, data_key='coreEventCategory', missing=None)
