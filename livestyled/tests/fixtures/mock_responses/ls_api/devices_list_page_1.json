@@ -54,9 +54,9 @@
     "hydra:view": {
         "@id": "/v4/devices?page=1",
         "@type": "hydra:PartialCollectionView",
-        "hydra:first": "/v4/devices?page=1",
-        "hydra:last": "/v4/devices?page=2",
-        "hydra:next": "/v4/devices?page=2"
+        "hydra:first": "/v4/user_management/devices?page=1",
+        "hydra:last": "/v4/user_management/devices?page=2",
+        "hydra:next": "/v4/user_management/devices?page=2"
     },
     "hydra:search": {
         "@type": "hydra:IriTemplate",

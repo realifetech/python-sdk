@@ -7,8 +7,9 @@ class TicketIntegrationSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'ticket_integrations'
-        url = 'v4/ticket_integrations'
+        url = 'ticket_integrations'
         model = TicketIntegration
+        include_v4_in_iri = True
 
     id = fields.Int()
     label = fields.String(required=False, missing=None)

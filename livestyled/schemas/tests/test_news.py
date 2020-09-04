@@ -8,7 +8,7 @@ FIXTURES_DIR = os.path.join(os.path.dirname(__file__), 'fixtures')
 TEST_API_DOMAIN = 'test.livestyled.com'
 
 
-def test_deserialize_league_table():
+def test_deserialize_news():
     with open(os.path.join(FIXTURES_DIR, 'news.json'), 'r') as fixture_file:
         news = fixture_file.read()
         deserialized_news = NewsSchema().loads(news)

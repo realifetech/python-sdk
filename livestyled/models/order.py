@@ -31,6 +31,8 @@ class OrderItem:
                 self.product_variant = product_variant
             elif isinstance(product_variant, dict):
                 self.product_variant = ProductVariant(**product_variant)
+            elif isinstance(product_variant, int):
+                self.product_variant = ProductVariant.placeholder(id=product_variant)
         else:
             self.product_variant = None
 
@@ -39,6 +41,8 @@ class OrderItem:
                 self.fulfilment_point = fulfilment_point
             elif isinstance(fulfilment_point, dict):
                 self.fulfilment_point = FulfilmentPoint(**fulfilment_point)
+            elif isinstance(fulfilment_point, int):
+                self.fulfilment_point = FulfilmentPoint.placeholder(id=fulfilment_point)
         else:
             self.fulfilment_point = None
 
@@ -47,6 +51,8 @@ class OrderItem:
                 self.product = product
             elif isinstance(product, dict):
                 self.product = Product(**product)
+            elif isinstance(product, int):
+                self.product = Product.placeholder(id=product)
         else:
             self.product = None
 
@@ -66,6 +72,9 @@ class Order:
             updated_at,
             created_at,
             app,
+            collection_date,
+            estimated_at,
+            fulfilment_point,
     ):
         self.id = id
         self.status = status
@@ -76,12 +85,16 @@ class Order:
         self.updated_at = updated_at
         self.created_at = created_at
         self.order_number = order_number
+        self.collection_date = collection_date
+        self.estimated_at = estimated_at
 
         if user:
             if isinstance(user, User):
                 self.user = user
             elif isinstance(user, dict):
                 self.user = User(**user)
+            elif isinstance(user, int):
+                self.user = User.placeholder(id=user)
         else:
             self.user = None
 
@@ -102,3 +115,33 @@ class Order:
                 self.app = App(**app)
         else:
             self.app = None
+
+        if fulfilment_point:
+            if isinstance(fulfilment_point, FulfilmentPoint):
+                self.fulfilment_point = fulfilment_point
+            elif isinstance(fulfilment_point, dict):
+                self.fulfilment_point = FulfilmentPoint(**fulfilment_point)
+            elif isinstance(fulfilment_point, int):
+                self.fulfilment_point = FulfilmentPoint.placeholder(id=fulfilment_point)
+        else:
+            self.fulfilment_point = None
+
+    @classmethod
+    def placeholder(cls, id):
+        return cls(
+            id,
+            user=None,
+            status=None,
+            gross_amount=None,
+            discount=None,
+            net_amount=None,
+            order_amount=None,
+            order_number=None,
+            items=None,
+            updated_at=None,
+            created_at=None,
+            app=None,
+            collection_date=None,
+            estimated_at=None,
+            fulfilment_point=None
+        )

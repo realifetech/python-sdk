@@ -11,9 +11,11 @@ from livestyled.models import (
     Competition,
     Device,
     DevicePreference,
+    DeviceReality,
     DeviceToken,
     Event,
     Fixture,
+    FulfilmentPoint,
     LeagueTable,
     LeagueTableGroup,
     MagicField,
@@ -21,8 +23,11 @@ from livestyled.models import (
     Order,
     Product,
     ProductCategory,
+    ProductVariant,
     PushBroadcast,
     PushConsent,
+    Reality,
+    RealityType,
     Season,
     SportVenue,
     Team,
@@ -40,10 +45,12 @@ from livestyled.schemas import (
     CohortSchema,
     CompetitionSchema,
     DevicePreferenceSchema,
+    DeviceRealitySchema,
     DeviceSchema,
     DeviceTokenSchema,
     EventSchema,
     FixtureSchema,
+    FulfilmentPointSchema,
     LeagueTableGroupSchema,
     LeagueTableSchema,
     MagicFieldSchema,
@@ -51,8 +58,11 @@ from livestyled.schemas import (
     OrderSchema,
     ProductCategorySchema,
     ProductSchema,
+    ProductVariantSchema,
     PushBroadcastSchema,
     PushConsentSchema,
+    RealitySchema,
+    RealityTypeSchema,
     SeasonSchema,
     SportVenueSchema,
     TeamSchema,
@@ -136,7 +146,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             if value is None:
                 payload.pop(key)
         new_instance = self._api_post(
-            '{}'.format(schema.Meta.url),
+            'v4/{}'.format(schema.Meta.url),
             payload
         )
         try:
@@ -155,7 +165,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         attributes_to_update = list(attributes.keys())
         update_payload = schema(only=attributes_to_update).dump(attributes)
         updated_resource = self._api_patch(
-            '{}/{}'.format(schema.Meta.url, resource_id),
+            'v4/{}/{}'.format(schema.Meta.url, resource_id),
             update_payload
         )
         return schema.Meta.model(**schema().load(updated_resource))
@@ -494,7 +504,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             user_id,
     ) -> UserSSO or None:
         try:
-            user_sso_data = self._api_get('v4/users/{}/user_s_s_o'.format(user_id))
+            user_sso_data = self._api_get('users/{}/user_s_s_o'.format(user_id))
         except HTTPError as http_error:
             if http_error.response.status_code == 404:
                 return None
@@ -565,9 +575,9 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             filters['externalTicketId'] = external_ticket_id
         if user:
             if isinstance(user, User):
-                filters['user'] = '/v4/users/{}'.format(user.id)
+                filters['user'] = 'users/{}'.format(user.id)
             else:
-                filters['user'] = '/v4/users/{}'.format(user)
+                filters['user'] = 'users/{}'.format(user)
         if filters:
             return self._get_resource_list(TicketSchema, filters=filters)
         else:
@@ -711,12 +721,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         filters = {}
         if device:
             if isinstance(device, Device):
-                filters['device'] = '/v4/devices/{}'.format(device.id)
+                filters['device'] = 'devices/{}'.format(device.id)
             else:
                 filters['device'] = device
         if event:
             if isinstance(event, Event):
-                filters['event'] = '/v4/events/{}'.format(event.id)
+                filters['event'] = 'events/{}'.format(event.id)
             else:
                 filters['event'] = event
         if action:
@@ -748,8 +758,10 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             event: str or None = None,
     ) -> Generator[DevicePreference, None, None]:
         if device and event:
-            return self._get_resource_list(DevicePreferenceSchema,
-                                           filters={'device': device, 'event': event})
+            return self._get_resource_list(
+                DevicePreferenceSchema,
+                filters={'device': device, 'event': event}
+            )
         else:
             return self._get_resource_list(DevicePreferenceSchema)
 
@@ -784,7 +796,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             filters['provider'] = provider
         try:
             device_token_data = self._api_get(
-                'v4/devices/{}/device_tokens'.format(device.id),
+                'devices/{}/device_tokens'.format(device.id),
                 params=filters
             )
         except HTTPError as http_error:
@@ -819,8 +831,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_orders(
             self,
+            external_id: str or None = None,
     ) -> Generator[Order, None, None]:
-        return self._get_resource_list(OrderSchema)
+        if external_id:
+            return self._get_resource_list(OrderSchema, external_id)
+        else:
+            return self._get_resource_list(OrderSchema)
 
     def update_order(
             self,
@@ -842,6 +858,19 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     ) -> Generator[Product, None, None]:
         return self._get_resource_list(ProductSchema)
 
+    def update_product(
+            self,
+            product: Product,
+            attributes: Dict
+    ) -> Product:
+        return self._update_resource(ProductSchema, product.id, attributes)
+
+    def create_product(
+            self,
+            product: Product
+    ) -> Product:
+        return self._create_resource(ProductSchema, product)
+
     # ---- PRODUCT CATEGORIES
 
     def get_product_category(
@@ -854,6 +883,45 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
     ) -> Generator[ProductCategory, None, None]:
         return self._get_resource_list(ProductCategorySchema)
+
+    def update_product_category(
+            self,
+            product_category: ProductCategory,
+            attributes: Dict
+    ) -> ProductCategory:
+        return self._update_resource(ProductCategorySchema, product_category.id, attributes)
+
+    def create_product_category(
+            self,
+            product_category: ProductCategory
+    ) -> ProductCategory:
+        return self._create_resource(ProductCategorySchema, product_category)
+
+    # ---- PRODUCT VARIANTS
+
+    def get_product_variant(
+            self,
+            id
+    ) -> ProductVariant:
+        return self._get_resource_by_id(ProductVariantSchema, id)
+
+    def get_product_variants(
+            self,
+    ) -> Generator[ProductVariant, None, None]:
+        return self._get_resource_list(ProductVariantSchema)
+
+    def update_product_variant(
+            self,
+            product_variant: ProductVariant,
+            attributes: Dict
+    ) -> ProductVariant:
+        return self._update_resource(ProductVariantSchema, product_variant.id, attributes)
+
+    def create_product_variant(
+            self,
+            product_variant: ProductVariant
+    ) -> ProductVariant:
+        return self._create_resource(ProductVariantSchema, product_variant)
 
     # ---- TICKET INTEGRATIONS
 
@@ -925,3 +993,59 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             id: int
     ) -> Venue:
         return self._get_resource_by_id(VenueSchema, id)
+
+    # ---- FULFILMENT POINTS
+
+    def get_fulfilment_points(
+            self,
+            external_id: str or None = None,
+    ) -> Generator[FulfilmentPoint, None, None]:
+        if external_id:
+            return self._get_resource_list(FulfilmentPointSchema, external_id)
+        else:
+            return self._get_resource_list(FulfilmentPointSchema)
+
+    def get_fulfilment_point(
+            self,
+            id: int
+    ) -> FulfilmentPoint:
+        return self._get_resource_by_id(FulfilmentPointSchema, id)
+
+    def create_fulfilment_point(
+            self,
+            fulfilment_point: FulfilmentPoint
+    ) -> FulfilmentPoint:
+        return self._create_resource(FulfilmentPointSchema, fulfilment_point)
+
+    def update_fulfilment_point(
+            self,
+            fulfilment_point: FulfilmentPoint,
+            attributes: Dict
+    ) -> FulfilmentPoint:
+        return self._update_resource(FulfilmentPointSchema, fulfilment_point.id, attributes)
+
+    # ---- DEVICE REALITIES
+
+    def get_device_reality(
+            self,
+    ) -> Generator[DeviceReality, None, None]:
+        return self._get_resource_list(DeviceRealitySchema)
+
+    def get_device_realities(
+            self,
+            id: int
+    ) -> DeviceReality:
+        return self._get_resource_by_id(DeviceRealitySchema, id)
+
+    def create_device_reality(
+            self,
+            device_reality: DeviceReality
+    ) -> DeviceReality:
+        return self._create_resource(DeviceRealitySchema, device_reality)
+
+    def update_device_reality(
+            self,
+            device_reality: DeviceReality,
+            attributes: Dict
+    ) -> DeviceReality:
+        return self._update_resource(DeviceRealitySchema, device_reality.id, attributes)

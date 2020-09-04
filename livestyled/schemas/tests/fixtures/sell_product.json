@@ -1,0 +1,36 @@
+{
+  "@context": "string",
+  "@id": "string",
+  "@type": "string",
+  "id": 0,
+  "status": "active",
+  "reference": "string",
+  "translations": [
+    {
+      "language": "en",
+      "title": "string"
+    }
+  ],
+  "fulfilmentPoints": [
+    "/sell/fulfilment_points/123"
+  ],
+  "categories": [
+    "/sell/product_categories/123"
+  ],
+  "variants": [
+    "/sell/product_variants/123"
+  ],
+  "modifierLists": [
+    "/sell/product_modifier_lists/123"
+  ],
+  "externalId": "string",
+  "images": [
+    {
+      "externalId": "string",
+      "imageUrl": "string",
+      "position": 0
+    }
+  ],
+  "createdAt": "2020-08-25T09:50:03.817Z",
+  "updatedAt": "2020-08-25T09:50:03.817Z"
+}

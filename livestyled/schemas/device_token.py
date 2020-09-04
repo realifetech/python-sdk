@@ -9,7 +9,7 @@ class DeviceTokenSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'device_tokens'
-        url = 'v4/device_tokens'
+        url = 'device_tokens'
         model = DeviceToken
 
     id = fields.Int()

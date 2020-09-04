@@ -11,8 +11,9 @@ class LeagueTableGroupSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'league_table_groups'
-        url = 'v4/league_table_groups'
+        url = 'league_table_groups'
         model = LeagueTableGroup
+        include_v4_in_iri = True
 
     id = fields.Int(required=False, allow_none=False)
     reference = fields.String(required=True, allow_none=True)
@@ -23,7 +24,7 @@ class LeagueTableSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'league_tables'
-        url = 'v4/league_tables'
+        url = 'league_tables'
         model = LeagueTable
 
     id = fields.Int(required=False, allow_none=False)

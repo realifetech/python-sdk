@@ -10,7 +10,7 @@ class TicketAuthSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'ticket_auths'
-        url = 'v4/ticket_auths'
+        url = 'ticket_auths'
         model = TicketAuth
 
     id = fields.Int()

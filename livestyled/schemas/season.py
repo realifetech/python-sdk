@@ -7,8 +7,9 @@ class SeasonSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'seasons'
-        url = 'v4/seasons'
+        url = 'seasons'
         model = Season
+        include_v4_in_iri = True
 
     id = fields.Int()
     label = fields.String()

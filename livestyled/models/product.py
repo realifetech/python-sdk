@@ -1,3 +1,5 @@
+from typing import List
+
 from livestyled.models.fulfilment_point import FulfilmentPoint
 
 
@@ -6,11 +8,25 @@ class ProductVariant:
             self,
             id,
             price,
-            stocks
+            stocks,
+            external_id,
+            translations,
+            product,
     ):
         self.id = id
         self.price = price
         self.stocks = stocks
+        self.external_id = external_id
+        self.translations = translations
+        if product:
+            if isinstance(product, Product):
+                self.product = product
+            elif isinstance(product, int):
+                self.product = Product.placeholder(id=product)
+            elif isinstance(product, dict):
+                self.product = Product(**product)
+        else:
+            self.product = None
 
     @classmethod
     def placeholder(cls, id):
@@ -18,7 +34,40 @@ class ProductVariant:
             id,
             price=None,
             stocks=None,
+            external_id=None,
+            translations=None,
+            product=None
         )
+
+    @classmethod
+    def create_new(
+            cls,
+            external_id,
+            price,
+            product: 'Product',
+            translations,
+            stocks
+    ):
+        product_variant = ProductVariant(
+            id=None,
+            external_id=external_id,
+            price=price,
+            translations=translations,
+            product=product,
+            stocks=stocks
+        )
+
+        return product_variant
+
+    def diff(self, other):
+        differences = {}
+        fields = (
+            'external_id', 'price', 'translations', 'product'
+        )
+        for field in fields:
+            if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
+        return differences
 
 
 class ProductTranslation:
@@ -35,6 +84,22 @@ class ProductTranslation:
         self.language = language
         self.title = title
         self.description = description
+        self.created_at = created_at
+        self.updated_at = updated_at
+
+
+class ProductModifierListTranslation:
+    def __init__(
+            self,
+            id,
+            language,
+            title,
+            created_at,
+            updated_at
+    ):
+        self.id = id
+        self.language = language
+        self.title = title
         self.created_at = created_at
         self.updated_at = updated_at
 
@@ -71,11 +136,47 @@ class ProductCategory:
             self,
             id,
             reference,
-            position
+            position,
+            external_id,
+            status,
+            translations
     ):
         self.id = id
         self.reference = reference
         self.position = position
+        self.external_id = external_id
+        self.status = status
+        self.translations = translations
+
+    @classmethod
+    def create_new(
+            cls,
+            reference,
+            position,
+            external_id,
+            status,
+            translations,
+    ):
+        product_category = ProductCategory(
+            id=None,
+            reference=reference,
+            position=position,
+            external_id=external_id,
+            status=status,
+            translations=translations
+        )
+
+        return product_category
+
+    def diff(self, other):
+        differences = {}
+        fields = (
+            'external_id', 'status', 'reference', 'translations', 'position'
+        )
+        for field in fields:
+            if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
+        return differences
 
 
 class Product:
@@ -109,6 +210,7 @@ class Product:
                 if isinstance(image, ProductImage):
                     self.images.append(image)
                 elif isinstance(image, dict):
+                    image['product'] = self
                     self.images.append(ProductImage(**image))
         else:
             self.images = []
@@ -149,6 +251,7 @@ class Product:
                 if isinstance(variant, ProductVariant):
                     self.variants.append(variant)
                 elif isinstance(variant, dict):
+                    variant['product'] = self
                     self.variants.append(ProductVariant(**variant))
                 elif isinstance(variant, int):
                     self.variants.append(ProductVariant.placeholder(id=variant))
@@ -173,3 +276,50 @@ class Product:
             modifier_lists=None,
             core_product_category=None
         )
+
+    @classmethod
+    def create_new(
+            cls,
+            external_id,
+            status,
+            reference,
+            categories: List[ProductCategory] or None,
+            translations,
+            price,
+            fulfilment_points: List[FulfilmentPoint] or None,
+            core_product_category,
+            holding_time: int or None,
+            images,
+            modifier_lists,
+            reconciliation_group,
+            variants: List[ProductVariant] or None
+    ):
+        product = Product(
+            id=None,
+            status=status,
+            reference=reference,
+            categories=categories,
+            translations=translations,
+            external_id=external_id,
+            fulfilment_points=fulfilment_points,
+            core_product_category=core_product_category,
+            holding_time=holding_time,
+            images=images,
+            modifier_lists=modifier_lists,
+            reconciliation_group=reconciliation_group,
+            variants=variants,
+        )
+
+        return product
+
+    def diff(self, other):
+        differences = {}
+        fields = (
+            'external_id', 'status', 'reference', 'translations', 'categories', 'fulfilment_points',
+            'core_product_category', 'holding_time', 'images', 'modifier_lists', 'reconciliation_group',
+            'variants'
+        )
+        for field in fields:
+            if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
+        return differences

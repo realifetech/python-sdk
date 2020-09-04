@@ -20,7 +20,7 @@ class DeviceSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'devices'
-        url = 'v4/devices'
+        url = 'user_management/devices'
         model = Device
 
     id = fields.Int()

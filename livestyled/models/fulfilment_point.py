@@ -1,3 +1,5 @@
+from typing import List
+
 from livestyled.models.venue import Venue
 
 
@@ -16,13 +18,11 @@ class FulfilmentPointCategoryTranslation:
 class FulfilmentPointTranslation:
     def __init__(
             self,
-            id,
             language,
             title,
             description,
             collection_note
     ):
-        self.id = id
         self.language = language
         self.title = title
         self.description = description
@@ -49,6 +49,17 @@ class FulfilmentPointCategory:
         else:
             self.translations = []
 
+    @classmethod
+    def placeholder(
+            cls,
+            id
+    ):
+        return cls(
+            id=id,
+            status=None,
+            translations=None
+        )
+
 
 class FulfilmentPoint:
     def __init__(
@@ -64,7 +75,8 @@ class FulfilmentPoint:
             reference,
             translations,
             categories,
-            venue
+            venue,
+            external_id,
     ):
         self.id = id
         self.status = status
@@ -75,6 +87,7 @@ class FulfilmentPoint:
         self.type = type
         self.position = position
         self.reference = reference
+        self.external_id = external_id
 
         if translations:
             for translation in translations:
@@ -93,6 +106,8 @@ class FulfilmentPoint:
                     self.categories.append(category)
                 elif isinstance(category, dict):
                     self.categories.append(FulfilmentPointCategory(**category))
+                elif isinstance(category, int):
+                    self.categories.append(FulfilmentPointCategory.placeholder(id=category))
         else:
             self.categories = []
 
@@ -121,4 +136,49 @@ class FulfilmentPoint:
             translations=None,
             categories=None,
             venue=None,
+            external_id=None
         )
+
+    @classmethod
+    def create_new(
+            cls,
+            external_id,
+            status,
+            type: str,
+            position: int,
+            reference: str,
+            image_url: str or None = None,
+            map_image_url: str or None = None,
+            lat: int or None = None,
+            long: int or None = None,
+            translations: List or None = None,
+            categories: List or None = None,
+            venue: str or None = None
+    ):
+        fulfilment_point = FulfilmentPoint(
+            id=None,
+            external_id=external_id,
+            status=status,
+            position=position,
+            image_url=image_url,
+            map_image_url=map_image_url,
+            lat=lat,
+            long=long,
+            type=type,
+            reference=reference,
+            translations=translations,
+            categories=categories,
+            venue=venue
+        )
+        return fulfilment_point
+
+    def diff(self, other):
+        differences = {}
+        fields = (
+            'external_id', 'type', 'status', 'position', 'reference', 'image_url', 'map_image_url', 'lat', 'long',
+            'translations', 'categories', 'venue'
+        )
+        for field in fields:
+            if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
+        return differences

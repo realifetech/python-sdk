@@ -8,7 +8,7 @@ class EventStageSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'event_stages'
-        url = 'v4/event_stages'
+        url = 'event_stages'
         model = EventStage
 
     id = fields.Int()

@@ -20,8 +20,9 @@ class TicketSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'tickets'
-        url = 'v4/tickets'
+        url = 'tickets'
         model = Ticket
+        include_v4_in_iri = True
 
     id = fields.Int()
     external_ticket_id = fields.String(data_key='externalTicketId')

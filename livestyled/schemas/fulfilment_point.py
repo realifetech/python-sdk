@@ -15,7 +15,6 @@ class FulfilmentPointTranslationSchema(Schema):
         unknown = EXCLUDE
         model = FulfilmentPointTranslation
 
-    id = fields.Int()
     language = fields.String()
     title = fields.String(missing=None)
     description = fields.String(missing=None)
@@ -45,6 +44,8 @@ class FulfilmentPointCategorySchema(Schema):
 class FulfilmentPointSchema(Schema):
     class Meta:
         unknown = EXCLUDE
+        api_type = 'fulfilment_points'
+        url = 'sell/fulfilment_points'
         model = FulfilmentPoint
 
     id = fields.Int()
@@ -56,6 +57,7 @@ class FulfilmentPointSchema(Schema):
     type = fields.String(missing=None)
     position = fields.Int(missing=None)
     reference = fields.String(missing=None)
-    translations = RelatedResourceField(schema=FulfilmentPointTranslationSchema, many=True)
-    categories = RelatedResourceField(schema=FulfilmentPointCategorySchema, many=True)
+    translations = fields.Nested(FulfilmentPointTranslationSchema, many=True)
+    categories = RelatedResourceField(schema=FulfilmentPointCategorySchema, many=True, missing=[])
     venue = RelatedResourceLinkField(schema=VenueSchema, required=False, missing=None)
+    external_id = fields.String(missing=None)

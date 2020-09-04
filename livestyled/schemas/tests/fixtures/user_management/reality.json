@@ -1,0 +1,10 @@
+{
+  "@context": "Reality",
+  "@id": "/user_management/realities/{id}",
+  "id": 0,
+  "name": "string",
+  "realityType": "/user_management/reality_types/1",
+  "config": {},
+  "createdAt": "2020-09-03T13:40:06.587Z",
+  "updatedAt": "2020-09-03T13:40:06.587Z"
+}

@@ -54,7 +54,7 @@ def test_client():
 def test_client_can_get_device_by_id(requests_mock, test_client):
 
     mock_responses = (
-        ('GET', 'https://' + TEST_API_DOMAIN + '/v4/devices/1', 'mock_responses/ls_api/device_1.json', 200),
+        ('GET', 'https://' + TEST_API_DOMAIN + '/v4/user_management/devices/1', 'mock_responses/ls_api/device_1.json', 200),
     )
     configure_mock_responses(requests_mock, mock_responses, FIXTURES_DIR, CONTENT_TYPE)
 
@@ -90,8 +90,8 @@ def test_client_can_get_device_by_id(requests_mock, test_client):
 def test_client_can_get_list_of_devices(requests_mock, test_client):
 
     mock_responses = (
-        ('GET', 'https://' + TEST_API_DOMAIN + '/v4/devices', 'mock_responses/ls_api/devices_list_page_1.json', 200),
-        ('GET', 'https://' + TEST_API_DOMAIN + '/v4/devices?page=2', 'mock_responses/ls_api/devices_list_page_2.json', 200),
+        ('GET', 'https://' + TEST_API_DOMAIN + '/v4/user_management/devices', 'mock_responses/ls_api/devices_list_page_1.json', 200),
+        ('GET', 'https://' + TEST_API_DOMAIN + '/v4/user_management/devices?page=2', 'mock_responses/ls_api/devices_list_page_2.json', 200),
     )
     configure_mock_responses(requests_mock, mock_responses, FIXTURES_DIR, CONTENT_TYPE)
 
@@ -101,7 +101,7 @@ def test_client_can_get_list_of_devices(requests_mock, test_client):
 
 def test_client_can_update_device(requests_mock, test_client):
     mock_responses = (
-        ('PATCH', 'https://' + TEST_API_DOMAIN + '/v4/devices/12345', 'mock_responses/ls_api/update_device_12345.json', 200),
+        ('PATCH', 'https://' + TEST_API_DOMAIN + '/v4/user_management/devices/12345', 'mock_responses/ls_api/update_device_12345.json', 200),
     )
     configure_mock_responses(requests_mock, mock_responses, FIXTURES_DIR, CONTENT_TYPE)
 
@@ -114,7 +114,7 @@ def test_client_can_update_device(requests_mock, test_client):
     )
 
     for request in requests_mock.request_history:
-        if request.method.upper() == 'PATCH' and request.url == 'https://' + TEST_API_DOMAIN + '/v4/devices/12345':
+        if request.method.upper() == 'PATCH' and request.url == 'https://' + TEST_API_DOMAIN + '/v4/user_management/devices/12345':
             actual_payload = request.json()
 
             assert actual_payload == {'appVersion': 'new-version', 'bluetoothOn': True}

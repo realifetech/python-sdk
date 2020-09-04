@@ -1,0 +1,20 @@
+{
+  "@context": "string",
+  "@id": "string",
+  "@type": "string",
+  "id": 0,
+  "externalId": "string",
+  "translations": [
+    {
+      "language": "en",
+      "title": "string"
+    }
+  ],
+  "stocks": [
+    "/sell/product_variant_stocks/123"
+  ],
+  "product": "/sell/products/123",
+  "price": 0,
+  "createdAt": "2020-08-25T09:50:03.790Z",
+  "updatedAt": "2020-08-25T09:50:03.790Z"
+}

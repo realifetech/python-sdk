@@ -8,9 +8,9 @@ class CohortSchema(Schema):
         unknown = EXCLUDE
         model = Cohort
         api_type = 'cohorts'
-        url = 'v4/cohorts'
-        bulk_user_attach_url = 'v4/users/{}/cohorts/bulk-attach'
-        bulk_user_detach_url = 'v4/users/{}/cohorts/bulk-detach'
+        url = 'cohorts'
+        bulk_user_attach_url = 'users/{}/cohorts/bulk-attach'
+        bulk_user_detach_url = 'users/{}/cohorts/bulk-detach'
 
     title = fields.String()
     external_id = fields.String(data_key='externalId', required=False, missing=None)

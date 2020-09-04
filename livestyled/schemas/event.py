@@ -27,8 +27,9 @@ class EventSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'events'
-        url = 'v4/events'
+        url = 'events'
         model = Event
+        include_v4_in_iri = True
 
     id = fields.Int()
     status = fields.String()

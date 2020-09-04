@@ -7,7 +7,7 @@ class VenueSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'venues'
-        url = 'v4/venues'
+        url = 'venues'
         model = Venue
 
     id = fields.Int(missing=None)

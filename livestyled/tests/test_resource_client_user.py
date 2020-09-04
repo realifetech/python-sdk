@@ -14,7 +14,7 @@ CONTENT_TYPE = 'application/ld+json'
 
 def test_get_user_by_id(requests_mock):
     mock_responses = (
-        ('GET', 'https://' + TEST_API_DOMAIN + '/v4/users/1234', 'mock_responses/ls_api/user_1234.json', 200),
+        ('GET', 'https://' + TEST_API_DOMAIN + '/v4/user_management/users/1234', 'mock_responses/ls_api/user_1234.json', 200),
     )
     configure_mock_responses(requests_mock, mock_responses, FIXTURES_DIR, CONTENT_TYPE)
 
@@ -47,7 +47,7 @@ def test_get_user_by_id(requests_mock):
 
 def test_user_diff(requests_mock):
     mock_responses = (
-        ('GET', 'https://' + TEST_API_DOMAIN + '/v4/users/1234', 'mock_responses/ls_api/user_1234.json', 200),
+        ('GET', 'https://' + TEST_API_DOMAIN + '/v4/user_management/users/1234', 'mock_responses/ls_api/user_1234.json', 200),
     )
     configure_mock_responses(requests_mock, mock_responses, FIXTURES_DIR, CONTENT_TYPE)
 

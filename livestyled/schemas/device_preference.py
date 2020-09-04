@@ -12,7 +12,7 @@ class DevicePreferenceSchema(Schema):
         unknown = EXCLUDE
         model = DevicePreference
         api_type = 'device_preferences'
-        url = 'v4/device_preferences'
+        url = 'device_preferences'
         default_ordering = '-createdAt'
 
     id = fields.Int()
