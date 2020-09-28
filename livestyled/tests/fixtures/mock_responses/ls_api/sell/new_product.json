@@ -1,0 +1,84 @@
+{
+    "@context": "/v4/contexts/Sell/Product",
+    "@id": "/sell/products/828",
+    "@type": "Sell/Product",
+    "id": 828,
+    "status": "ACTIVE",
+    "reference": "fdfd",
+    "createdAt": "2020-07-28T15:33:43+00:00",
+    "updatedAt": "2020-07-28T15:33:43+00:00",
+    "translations": [
+        {
+            "id": 358989,
+            "language": "en",
+            "title": "dfd"
+        }
+    ],
+    "fulfilmentPoints": [
+        {
+            "@id": "/sell/fulfilment_points/398",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 398,
+            "status": "ACTIVE",
+            "type": "COLLECTION",
+            "position": 10,
+            "translations": [
+                {
+                    "id": 939265,
+                    "language": "en",
+                    "title": "Data Fulfilment Point"
+                }
+            ],
+            "categories": [
+                {
+                    "@id": "/v4/sell/fulfilment_point_categories/39",
+                    "@type": "Sell/FulfilmentPointCategory",
+                    "id": 39,
+                    "status": "ACTIVE",
+                    "position": 10,
+                    "translations": [
+                        {
+                            "id": 38,
+                            "language": "en",
+                            "title": "Data Fulfilment Point Category"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "images": [
+        {
+            "id": 335,
+            "imageUrl": "$s3Url",
+            "position": 1
+        }
+    ],
+    "categories": [
+        {
+            "@id": "/sell/product_categories/1",
+            "@type": "Sell/ProductCategory",
+            "id": 1,
+            "status": "ACTIVE",
+            "position": 1,
+            "createdAt": "2019-06-03T10:24:26+00:00",
+            "updatedAt": "2019-06-03T10:24:26+00:00",
+            "translations": [
+                {
+                    "id": 1,
+                    "language": "en",
+                    "title": "Kartiks product Category"
+                }
+            ]
+        }
+    ],
+    "variants": [
+        {
+            "@id": "/sell/product_variants/1048",
+            "@type": "Sell/ProductVariant",
+            "id": 1048,
+            "price": 543
+        }
+    ],
+    "modifierLists": []
+}

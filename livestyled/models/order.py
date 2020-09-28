@@ -8,7 +8,6 @@ class OrderItem:
     def __init__(
             self,
             id,
-            product_variant,
             fulfilment_point,
             quantity,
             title,
@@ -17,6 +16,7 @@ class OrderItem:
             price,
             total_price,
             product,
+            product_variant=None,
     ):
         self.id = id
         self.quantity = quantity
@@ -75,6 +75,8 @@ class Order:
             collection_date,
             estimated_at,
             fulfilment_point,
+            external_id,
+            seat_info
     ):
         self.id = id
         self.status = status
@@ -87,6 +89,8 @@ class Order:
         self.order_number = order_number
         self.collection_date = collection_date
         self.estimated_at = estimated_at
+        self.external_id = external_id
+        self.seat_info = seat_info
 
         if user:
             if isinstance(user, User):
@@ -143,5 +147,7 @@ class Order:
             app=None,
             collection_date=None,
             estimated_at=None,
-            fulfilment_point=None
+            fulfilment_point=None,
+            external_id=None,
+            seat_info=None
         )

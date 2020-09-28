@@ -3,7 +3,7 @@ from typing import Dict
 
 
 class RealityType:
-    def __init(
+    def __init__(
             self,
             id,
             name,

@@ -19,6 +19,8 @@ def test_deserialize_order():
             'discount': 0,
             'gross_amount': 1,
             'id': 1,
+            'external_id': None,
+            'seat_info': None,
             'app': {
                 'api_keys': None,
                 'code': None,

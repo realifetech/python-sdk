@@ -60,4 +60,4 @@ class FulfilmentPointSchema(Schema):
     translations = fields.Nested(FulfilmentPointTranslationSchema, many=True)
     categories = RelatedResourceField(schema=FulfilmentPointCategorySchema, many=True, missing=[])
     venue = RelatedResourceLinkField(schema=VenueSchema, required=False, missing=None)
-    external_id = fields.String(missing=None)
+    external_id = fields.String(missing=None, data_key='externalId')

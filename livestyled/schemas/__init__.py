@@ -1,4 +1,6 @@
 from livestyled.schemas.app import AppSchema
+from livestyled.schemas.audience import AudienceSchema
+from livestyled.schemas.audience_device import AudienceDeviceSchema
 from livestyled.schemas.booking import BookingSchema
 from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.competition import CompetitionSchema
@@ -17,7 +19,13 @@ from livestyled.schemas.league_table import LeagueTableGroupSchema, LeagueTableS
 from livestyled.schemas.magic_field import MagicFieldSchema
 from livestyled.schemas.news import NewsSchema
 from livestyled.schemas.order import OrderSchema
-from livestyled.schemas.product import ProductCategorySchema, ProductSchema, ProductVariantSchema
+from livestyled.schemas.product import (
+    ProductCategorySchema,
+    ProductModifierItemSchema,
+    ProductModifierListSchema,
+    ProductSchema,
+    ProductVariantSchema
+)
 from livestyled.schemas.push_broadcast import PushBroadcastSchema
 from livestyled.schemas.push_consent import PushConsentSchema
 from livestyled.schemas.reality import RealitySchema, RealityTypeSchema
@@ -32,6 +40,8 @@ from livestyled.schemas.venue import VenueSchema
 
 __all__ = [
     AppSchema,
+    AudienceSchema,
+    AudienceDeviceSchema,
     BookingSchema,
     CohortSchema,
     CompetitionSchema,
@@ -52,6 +62,8 @@ __all__ = [
     NewsSchema,
     OrderSchema,
     ProductCategorySchema,
+    ProductModifierItemSchema,
+    ProductModifierListSchema,
     ProductSchema,
     ProductVariantSchema,
     PushBroadcastSchema,

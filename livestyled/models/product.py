@@ -70,40 +70,6 @@ class ProductVariant:
         return differences
 
 
-class ProductTranslation:
-    def __init__(
-            self,
-            id,
-            language,
-            title,
-            description,
-            created_at,
-            updated_at
-    ):
-        self.id = id
-        self.language = language
-        self.title = title
-        self.description = description
-        self.created_at = created_at
-        self.updated_at = updated_at
-
-
-class ProductModifierListTranslation:
-    def __init__(
-            self,
-            id,
-            language,
-            title,
-            created_at,
-            updated_at
-    ):
-        self.id = id
-        self.language = language
-        self.title = title
-        self.created_at = created_at
-        self.updated_at = updated_at
-
-
 class ProductImage:
     def __init__(
             self,
@@ -129,6 +95,126 @@ class ProductImage:
                 self.product = Product(**product)
             elif isinstance(product, int):
                 self.product = Product.placeholder(id=product)
+
+
+class ProductModifierList:
+    def __init__(
+            self,
+            id,
+            reference,
+            status,
+            external_id,
+            items,
+            translations,
+            mandatory_select,
+            multiple_select
+    ):
+        self.id = id
+        self.reference = reference
+        self.items = items
+        self.external_id = external_id
+        self.status = status
+        self.translations = translations
+        self.mandatory_select = mandatory_select
+        self.multiple_select = multiple_select
+
+    @classmethod
+    def create_new(
+            cls,
+            reference,
+            items,
+            external_id,
+            status,
+            translations,
+            mandatory_select,
+            multiple_select
+    ):
+        product_modifier_list = ProductModifierList(
+            id=None,
+            reference=reference,
+            items=items,
+            external_id=external_id,
+            status=status,
+            translations=translations,
+            mandatory_select=mandatory_select,
+            multiple_select=multiple_select
+        )
+
+        return product_modifier_list
+
+    @classmethod
+    def placeholder(cls, id):
+        return cls(
+            id,
+            reference=None,
+            items=None,
+            external_id=None,
+            translations=None,
+            status=None,
+            mandatory_select=None,
+            multiple_select=None
+        )
+
+    def diff(self, other):
+        differences = {}
+        fields = (
+            'external_id', 'status', 'reference', 'translations', 'items', 'mandatory_select', 'multiple_select'
+        )
+        for field in fields:
+            if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
+        return differences
+
+
+class ProductModifierItem:
+    def __init__(
+            self,
+            id,
+            additional_price,
+            translations,
+            external_id,
+            modifier_list,
+    ):
+        self.id = id
+        self.additional_price = additional_price
+        self.external_id = external_id
+        self.translations = translations
+        self.modifier_list = None
+        if modifier_list:
+            if isinstance(modifier_list, ProductModifierList):
+                self.modifier_list = modifier_list
+            elif isinstance(modifier_list, dict):
+                self.modifier_list = ProductModifierList(**modifier_list)
+            elif isinstance(modifier_list, int):
+                self.modifier_list = ProductModifierList.placeholder(id=modifier_list)
+
+    @classmethod
+    def create_new(
+            cls,
+            additional_price,
+            external_id,
+            translations,
+            modifier_list,
+    ):
+        product_modifier_item = ProductModifierItem(
+            id=None,
+            additional_price=additional_price,
+            external_id=external_id,
+            translations=translations,
+            modifier_list=modifier_list
+        )
+
+        return product_modifier_item
+
+    def diff(self, other):
+        differences = {}
+        fields = (
+            'external_id', 'additional_price', 'translations'
+        )
+        for field in fields:
+            if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
+        return differences
 
 
 class ProductCategory:
@@ -194,24 +280,18 @@ class Product:
             reconciliation_group,
             fulfilment_points,
             variants,
-            core_product_category
+            core_product_category,
     ):
+        self.__is_placeholder = False
         self.id = id
         self.status = status
         self.reference = reference
-        self.modifier_lists = modifier_lists
         self.external_id = external_id
         self.holding_time = holding_time
         self.reconciliation_group = reconciliation_group
         self.core_product_category = core_product_category
         if images:
-            self.images = []
-            for image in images:
-                if isinstance(image, ProductImage):
-                    self.images.append(image)
-                elif isinstance(image, dict):
-                    image['product'] = self
-                    self.images.append(ProductImage(**image))
+            self.images = images
         else:
             self.images = []
 
@@ -226,17 +306,12 @@ class Product:
             self.categories = []
 
         if translations:
-            self.translations = []
-            for translation in translations:
-                if isinstance(translation, ProductTranslation):
-                    self.translations.append(translation)
-                elif isinstance(translation, dict):
-                    self.translations.append(ProductTranslation(**translation))
+            self.translations = translations
         else:
             self.translations = []
 
+        self.fulfilment_points = []
         if fulfilment_points:
-            self.fulfilment_points = []
             for fulfilment_point in fulfilment_points:
                 if isinstance(fulfilment_point, FulfilmentPoint):
                     self.fulfilment_points.append(fulfilment_point)
@@ -245,8 +320,8 @@ class Product:
                 elif isinstance(fulfilment_point, int):
                     self.fulfilment_points.append(FulfilmentPoint.placeholder(id=fulfilment_point))
 
+        self.variants = []
         if variants:
-            self.variants = []
             for variant in variants:
                 if isinstance(variant, ProductVariant):
                     self.variants.append(variant)
@@ -256,12 +331,22 @@ class Product:
                 elif isinstance(variant, int):
                     self.variants.append(ProductVariant.placeholder(id=variant))
 
+        self.modifier_lists = []
+        if modifier_lists:
+            for modifier_list in modifier_lists:
+                if isinstance(modifier_list, ProductModifierList):
+                    self.modifier_lists.append(modifier_list)
+                elif isinstance(modifier_list, dict):
+                    self.modifier_lists.append(ProductModifierList(**modifier_list))
+                elif isinstance(modifier_list, int):
+                    self.modifier_lists.append(ProductModifierList.placeholder(id=modifier_list))
+
     @classmethod
     def placeholder(
             cls,
             id
     ):
-        return cls(
+        product = cls(
             id=id,
             status=None,
             reference=None,
@@ -276,6 +361,8 @@ class Product:
             modifier_lists=None,
             core_product_category=None
         )
+        product.__is_placeholder = True
+        return product
 
     @classmethod
     def create_new(
@@ -312,14 +399,45 @@ class Product:
 
         return product
 
+    def __eq__(self, other):
+        if self.__is_placeholder or other.__is_placeholder:
+            return str(self.id) == str(other.id)
+        return all(
+            [
+                self.external_id == other.external_id,
+                self.reference == other.reference,
+                self.translations == other.translations,
+                self.categories == other.categories,
+                self.fulfilment_points == other.fulfilment_points,
+                self.core_product_category == other.core_product_categories,
+                self.holding_time == other.holding_time,
+                self.images == other.images,
+                self.modifier_lists == other.modifier_lists,
+                self.reconciliation_group == other.reconciliation_group,
+                self.variants == other.variants,
+            ]
+        )
+
     def diff(self, other):
         differences = {}
         fields = (
-            'external_id', 'status', 'reference', 'translations', 'categories', 'fulfilment_points',
-            'core_product_category', 'holding_time', 'images', 'modifier_lists', 'reconciliation_group',
+            'external_id', 'status', 'reference', 'translations',
+            'holding_time', 'images', 'reconciliation_group',
             'variants'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
+        related_resource_list_fields = (
+            'categories', 'fulfilment_points', 'modifier_lists',
+        )
+        for field in related_resource_list_fields:
+            self_ids = {item.id for item in getattr(self, field)}
+            other_ids = {item.id for item in getattr(other, field)}
+            if self_ids != other_ids:
+                differences[field] = getattr(self, field)
+        related_resource_fields = ('core_product_category', )
+        for field in related_resource_fields:
+            if getattr(getattr(self, field), 'id', None) != getattr(getattr(other, field), 'id', None):
                 differences[field] = getattr(self, field)
         return differences

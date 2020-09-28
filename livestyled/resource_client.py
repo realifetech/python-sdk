@@ -6,6 +6,8 @@ from requests.exceptions import HTTPError
 
 from livestyled.client import LiveStyledAPIClient
 from livestyled.models import (
+    Audience,
+    AudienceDevice,
     Booking,
     Cohort,
     Competition,
@@ -23,6 +25,8 @@ from livestyled.models import (
     Order,
     Product,
     ProductCategory,
+    ProductModifierItem,
+    ProductModifierList,
     ProductVariant,
     PushBroadcast,
     PushConsent,
@@ -41,6 +45,8 @@ from livestyled.models import (
     Venue,
 )
 from livestyled.schemas import (
+    AudienceSchema,
+    AudienceDeviceSchema,
     BookingSchema,
     CohortSchema,
     CompetitionSchema,
@@ -57,6 +63,8 @@ from livestyled.schemas import (
     NewsSchema,
     OrderSchema,
     ProductCategorySchema,
+    ProductModifierItemSchema,
+    ProductModifierListSchema,
     ProductSchema,
     ProductVariantSchema,
     PushBroadcastSchema,
@@ -139,7 +147,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             schema: Type[Schema],
             model_instance
     ):
-        if getattr(model_instance, 'id', False) and model_instance.id is not None:
+        if not getattr(model_instance, 'compound_id', False) and getattr(model_instance, 'id', False) and model_instance.id is not None:
             raise ValueError('Cannot create a {} with an ID'.format(schema.Meta.model.__name__))
         payload = schema().dump(model_instance)
         for key, value in list(payload.items()):
@@ -855,8 +863,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_products(
             self,
+            external_id: str or None = None
     ) -> Generator[Product, None, None]:
-        return self._get_resource_list(ProductSchema)
+        if external_id:
+            return self._get_resource_list(ProductSchema, external_id=external_id)
+        else:
+            return self._get_resource_list(ProductSchema)
 
     def update_product(
             self,
@@ -881,8 +893,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_product_categories(
             self,
+            external_id: str or None = None
     ) -> Generator[ProductCategory, None, None]:
-        return self._get_resource_list(ProductCategorySchema)
+        if external_id:
+            return self._get_resource_list(ProductCategorySchema, external_id=external_id)
+        else:
+            return self._get_resource_list(ProductCategorySchema)
 
     def update_product_category(
             self,
@@ -907,8 +923,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_product_variants(
             self,
+            external_id: str or None = None
     ) -> Generator[ProductVariant, None, None]:
-        return self._get_resource_list(ProductVariantSchema)
+        if external_id:
+            return self._get_resource_list(ProductVariantSchema, external_id=external_id)
+        else:
+            return self._get_resource_list(ProductVariantSchema)
 
     def update_product_variant(
             self,
@@ -1028,14 +1048,30 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_device_reality(
             self,
-    ) -> Generator[DeviceReality, None, None]:
-        return self._get_resource_list(DeviceRealitySchema)
-
-    def get_device_realities(
-            self,
             id: int
     ) -> DeviceReality:
         return self._get_resource_by_id(DeviceRealitySchema, id)
+
+    def get_device_realities(
+            self,
+            reality=None,
+            device=None
+    ) -> Generator[DeviceReality, None, None]:
+        filters = {}
+        if device:
+            if isinstance(device, Device):
+                filters['device'] = device.id
+            else:
+                filters['device'] = device
+        if reality:
+            if isinstance(reality, Reality):
+                filters['reality'] = reality.id
+            else:
+                filters['reality'] = reality
+        if filters:
+            return self._get_resource_list(DeviceRealitySchema, filters=filters)
+        else:
+            return self._get_resource_list(DeviceRealitySchema)
 
     def create_device_reality(
             self,
@@ -1049,3 +1085,155 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             attributes: Dict
     ) -> DeviceReality:
         return self._update_resource(DeviceRealitySchema, device_reality.id, attributes)
+
+    def delete_device_reality(
+            self,
+            device_reality: DeviceReality
+    ):
+        self._delete_resource(DeviceRealitySchema, device_reality)
+
+    # ---- PRODUCT MODIFIER ITEMS
+
+    def get_product_modifier_item(
+            self,
+            id: int,
+    ) -> ProductModifierItem:
+        return self._get_resource_by_id(ProductModifierItemSchema, id)
+
+    def get_product_modifier_items(
+            self,
+            external_id: str or None = None
+    ) -> Generator[ProductModifierItem, None, None]:
+        if external_id:
+            return self._get_resource_list(ProductModifierItemSchema, external_id=external_id)
+        else:
+            return self._get_resource_list(ProductModifierItemSchema, id)
+
+    def create_product_modifier_item(
+            self,
+            product_modifier_item: ProductModifierItem
+    ) -> ProductModifierItem:
+        return self._create_resource(ProductModifierItemSchema, product_modifier_item)
+
+    def update_product_modifier_item(
+            self,
+            product_modifier_item: ProductModifierItem,
+            attributes: Dict
+    ) -> ProductModifierItem:
+        return self._update_resource(ProductModifierItemSchema, product_modifier_item.id, attributes)
+
+    # ---- PRODUCT MODIFIER LISTS
+
+    def get_product_modifier_list(
+            self,
+            id: int,
+    ) -> ProductModifierList:
+        return self._get_resource_by_id(ProductModifierListSchema, id)
+
+    def get_product_modifier_lists(
+            self,
+            external_id: str or None = None
+    ) -> Generator[ProductModifierList, None, None]:
+        if external_id:
+            return self._get_resource_list(ProductModifierListSchema, external_id=external_id)
+        else:
+            return self._get_resource_list(ProductModifierListSchema, id)
+
+    def create_product_modifier_list(
+            self,
+            product_modifier_list: ProductModifierList
+    ) -> ProductModifierList:
+        return self._create_resource(ProductModifierListSchema, product_modifier_list)
+
+    def update_product_modifier_list(
+            self,
+            product_modifier_list: ProductModifierList,
+            attributes: Dict
+    ) -> ProductModifierList:
+        return self._update_resource(ProductModifierListSchema, product_modifier_list.id, attributes)
+
+    # ---- REALITIES
+
+    def get_reality(
+            self,
+            id: int
+    ) -> Reality:
+        return self._get_resource_by_id(RealitySchema, id)
+
+    def get_realities(
+            self,
+    ) -> Generator[Reality, None, None]:
+        return self._get_resource_list(RealitySchema)
+
+    # ---- REALITY TYPES
+
+    def get_reality_type(
+            self,
+            id: int
+    ) -> RealityType:
+        return self._get_resource_by_id(RealityTypeSchema, id)
+
+    def get_reality_types(
+            self,
+    ) -> Generator[RealityType, None, None]:
+        return self._get_resource_list(RealityTypeSchema)
+
+    # ---- AUDIENCES
+
+    def get_audience(
+            self,
+            id: int
+    ) -> Audience:
+        return self._get_resource_by_id(AudienceSchema, id)
+
+    def get_audiences(
+            self,
+            reality_values__reality: Reality or str or None = None
+    ) -> Generator[Audience, None, None]:
+        if reality_values__reality:
+            if isinstance(reality_values__reality, Reality):
+                reality_filter = '{}/{}'.format(RealitySchema.Meta.url, reality_values__reality.id)
+            elif isinstance(reality_values__reality, str):
+                reality_filter = reality_values__reality
+            else:
+                raise TypeError('Incorrect type for reality values reality filter')
+            filters = {
+                'realityValues.reality': reality_filter
+            }
+            return self._get_resource_list(AudienceSchema, filters=filters)
+        return self._get_resource_list(AudienceSchema)
+
+    # ---- AUDIENCE DEVICES
+
+    def get_audience_devices(
+            self,
+            audience: Audience or None = None
+    ) -> Generator[AudienceDevice, None, None]:
+        if audience:
+            filters = {
+                'audience': audience.id
+            }
+            return self._get_resource_list(AudienceDeviceSchema, filters=filters)
+        return self._get_resource_list(AudienceDeviceSchema)
+
+    def create_audience_device(
+            self,
+            audience_device: AudienceDevice
+    ) -> AudienceDevice:
+        try:
+            return self._create_resource(AudienceDeviceSchema, audience_device)
+        except HTTPError as http_error:
+            if http_error.response.status_code == 500:
+                if http_error.response.json() == {
+                    "code": 500,
+                    "type": "ValidationException",
+                    "message": "audience: Audience and Device combination already exists"
+                }:
+                    return audience_device
+            raise
+
+    def delete_audience_device(
+            self,
+            audience_device: AudienceDevice
+    ) -> None:
+        return self._delete_resource(AudienceDeviceSchema, audience_device)

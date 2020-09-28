@@ -32,7 +32,6 @@ class RelatedResourceLinkField(fields.Field):
         return self.__schema
 
     def _serialize(self, value, attr, obj, **kwargs):
-        print(value, attr, obj)
         if value:
             if isinstance(value, (str, int)):
                 if getattr(self.schema.Meta, 'include_v4_in_iri', False):
@@ -46,7 +45,6 @@ class RelatedResourceLinkField(fields.Field):
 
     def _deserialize(self, value, attr, data, **kwargs):
         if self.many:
-            print(value, attr, data)
             return [int(v.split('/')[-1]) for v in value]
         elif isinstance(value, dict):
             return int(value['id'])
@@ -88,11 +86,22 @@ class RelatedResourceField(fields.Field):
                 if getattr(self.schema.Meta, 'include_v4_in_iri', False):
                     return '/v4/{}/{}'.format(self.schema.Meta.url, value)
                 return '/{}/{}'.format(self.schema.Meta.url, value)
+            elif isinstance(value, list):
+                r_value = []
+                for v in value:
+                    if getattr(self.schema.Meta, 'include_v4_in_iri', False):
+                        r_value.append('/v4/{}/{}'.format(self.schema.Meta.url, v.id))
+                    r_value.append('/{}/{}'.format(self.schema.Meta.url, v.id))
+                return r_value
             else:
                 if getattr(self.schema.Meta, 'include_v4_in_iri', False):
                     return '/v4/{}/{}'.format(self.schema.Meta.url, value.id)
                 return '/{}/{}'.format(self.schema.Meta.url, value.id)
-        return None
+        else:
+            if self.many:
+                return []
+            else:
+                return None
 
     def _deserialize(self, value, attr, data, **kwargs):
         if self.many:

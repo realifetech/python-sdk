@@ -45,9 +45,11 @@ class OrderSchema(Schema):
     order_amount = fields.Integer(data_key='orderAmount', missing=None)
     order_number = fields.Integer(data_key='orderNumber', missing=None)
     items = RelatedResourceField(schema=OrderItemSchema, many=True)
+    external_id = fields.String(data_key='externalId', missing=None, allow_none=True)
 
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True, missing=None)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True, missing=None)
     estimated_at = fields.AwareDateTime(data_key='estimated_at', allow_none=True, missing=None)
     collection_date = fields.Date(data_key='collectionDate', allow_none=True, missing=None)
     fulfilment_point = RelatedResourceLinkField(schema=FulfilmentPointSchema, data_key='fulfilmentPoint', missing=None)
+    seat_info = fields.Raw(data_key='seatInfo', missing=None, allow_none=True)

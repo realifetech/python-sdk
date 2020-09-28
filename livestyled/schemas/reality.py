@@ -13,8 +13,8 @@ class RealityTypeSchema(Schema):
 
     id = fields.Int()
     name = fields.String(missing=None)
-    config_json_schema = fields.Raw(missing={}, data_key='configJsonSchema')
-    config_ui_schema = fields.Raw(missing={}, data_key='configUiSchema')
+    config_json_schema = fields.Raw(missing={}, data_key='configJsonSchema', allow_none=True)
+    config_ui_schema = fields.Raw(missing={}, data_key='configUiSchema', allow_none=True)
     evaluator = fields.Raw(missing={})
     watch = fields.Raw()
     value_type = fields.String(data_key='valueType')

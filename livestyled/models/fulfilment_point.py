@@ -28,6 +28,16 @@ class FulfilmentPointTranslation:
         self.description = description
         self.collection_note = collection_note
 
+    def __eq__(self, other):
+        return all(
+            [
+                self.language == other.language,
+                self.title == other.title,
+                self.description == other.description,
+                self.collection_note == other.collection_note
+            ]
+        )
+
 
 class FulfilmentPointCategory:
     def __init__(
@@ -78,6 +88,7 @@ class FulfilmentPoint:
             venue,
             external_id,
     ):
+        self.__is_placeholder = False
         self.id = id
         self.status = status
         self.image_url = image_url
@@ -123,7 +134,7 @@ class FulfilmentPoint:
 
     @classmethod
     def placeholder(cls, id):
-        return cls(
+        fp = cls(
             id,
             status=None,
             image_url=None,
@@ -138,6 +149,8 @@ class FulfilmentPoint:
             venue=None,
             external_id=None
         )
+        fp.__is_placeholder = True
+        return fp
 
     @classmethod
     def create_new(
@@ -182,3 +195,21 @@ class FulfilmentPoint:
             if getattr(self, field) != getattr(other, field):
                 differences[field] = getattr(self, field)
         return differences
+
+    def __eq__(self, other):
+        if self.__is_placeholder or other.__is_placeholder:
+            return str(self.id) == str(other.id)
+        return all(
+            [
+                self.external_id == other.external_id,
+                self.lat == other.lat,
+                self.long == other.long,
+                self.type == other.type,
+                self.position == other.position,
+                self.reference == other.reference,
+                self.map_image_url == other.map_image_url,
+                self.translations == other.translations,
+                self.categories == other.categories,
+                self.venue == other.venue
+            ]
+        )

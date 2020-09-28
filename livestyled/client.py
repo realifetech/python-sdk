@@ -92,6 +92,8 @@ class LiveStyledAPIClient:
             },
             data=json.dumps(data)
         )
+        if response.status_code >= 400:
+            print(response.content)
         response.raise_for_status()
         return response.json()
 
@@ -116,7 +118,7 @@ class LiveStyledAPIClient:
             data=json.dumps(data)
         )
         if response.status_code >= 400:
-            print(response.json())
+            print(response.content)
         response.raise_for_status()
         return response.json()
 
@@ -126,7 +128,7 @@ class LiveStyledAPIClient:
             id: str
     ) -> None:
         requests.delete(
-            'https://{}/{}/{}'.format(
+            'https://{}/v4/{}/{}'.format(
                 self._api_domain,
                 endpoint,
                 id
@@ -161,8 +163,9 @@ class LiveStyledAPIClient:
             'v4/{}'.format(schema.Meta.url),
             params
         )
+        _schema = schema()
         for resource_data in data_generator:
-            yield schema().load(resource_data)
+            yield _schema.load(resource_data)
 
     def get_app(
             self,

@@ -1,4 +1,6 @@
 from livestyled.models.app import App, Currency
+from livestyled.models.audience import Audience
+from livestyled.models.audience_device import AudienceDevice
 from livestyled.models.booking import Booking
 from livestyled.models.cohort import Cohort
 from livestyled.models.competition import Competition
@@ -24,8 +26,8 @@ from livestyled.models.product import (
     Product,
     ProductCategory,
     ProductImage,
-    ProductModifierListTranslation,
-    ProductTranslation,
+    ProductModifierItem,
+    ProductModifierList,
     ProductVariant
 )
 from livestyled.models.push_broadcast import PushBroadcast
@@ -42,6 +44,8 @@ from livestyled.models.venue import Venue
 
 __all__ = [
     App,
+    Audience,
+    AudienceDevice,
     Currency,
     Booking,
     Cohort,
@@ -67,8 +71,8 @@ __all__ = [
     Product,
     ProductCategory,
     ProductImage,
-    ProductModifierListTranslation,
-    ProductTranslation,
+    ProductModifierItem,
+    ProductModifierList,
     ProductVariant,
     PushBroadcast,
     PushConsent,

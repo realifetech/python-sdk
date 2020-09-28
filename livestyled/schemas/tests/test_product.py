@@ -16,9 +16,7 @@ def test_deserialize_product():
             'external_id': 'string',
             'translations': [
                 {
-                    'created_at': None,
                     'description': None,
-                    'updated_at': None,
                     'language': 'en',
                     'title': 'string'
                 }
@@ -32,9 +30,7 @@ def test_deserialize_product():
             'images': [
                 {
                     'external_id': 'string',
-                    'created_at': None,
                     'image_url': 'string',
-                    'updated_at': None,
                     'position': 0
                 }
             ],
