@@ -35,3 +35,4 @@ class RealitySchema(Schema):
     config = fields.Raw(missing={})
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True, missing=None)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True, missing=None)
+    status = fields.String()

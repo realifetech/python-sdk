@@ -13,7 +13,7 @@ class RealityType:
             watch,
             value_type,
             updated_at,
-            created_at
+            created_at,
     ):
         self.id = id
         self.name = name
@@ -58,13 +58,15 @@ class Reality:
             name: str,
             config: Dict,
             updated_at: datetime,
-            created_at: datetime
+            created_at: datetime,
+            status: str
     ):
         self.id = id
         self.name = name
         self.created_at = created_at
         self.updated_at = updated_at
         self.config = config
+        self.status = status
 
         if reality_type:
             if isinstance(reality_type, RealityType):
@@ -84,13 +86,14 @@ class Reality:
             name=None,
             config={},
             updated_at=None,
-            created_at=None
+            created_at=None,
+            status=None,
         )
 
     def diff(self, other):
         differences = {}
         fields = (
-            'reality_type', 'name', 'config'
+            'reality_type', 'name', 'config', 'status'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
