@@ -43,7 +43,8 @@ class Ticket:
             legal_short_text=None,
             map_url=None,
             map_image_url=None,
-            ticket_integration=None
+            ticket_integration=None,
+            ticket_auth=None,
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
