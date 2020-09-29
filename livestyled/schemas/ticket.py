@@ -3,6 +3,7 @@ from marshmallow_polyfield import PolyField
 
 from livestyled.models.ticket import Ticket
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
+from livestyled.schemas.ticket_auth import TicketAuthSchema
 from livestyled.schemas.ticket_integration import TicketIntegrationSchema
 from livestyled.schemas.user import UserSchema
 
@@ -66,4 +67,4 @@ class TicketSchema(Schema):
     map_url = fields.String(data_key='mapUrl', required=False, allow_none=True, missing=None)
     map_image_url = fields.String(data_key='mapImageUrl', required=False, allow_none=True, missing=None)
     ticket_integration = RelatedResourceField(schema=TicketIntegrationSchema, required=False, missing=None, data_key='ticketIntegration')
-    ticket_auth = fields.String(data_key='ticketAuth', missing=None, allow_none=True)
+    ticket_auth = RelatedResourceField(schema=TicketAuthSchema, data_key='ticketAuth', missing=None, allow_none=True)
