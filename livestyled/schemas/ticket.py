@@ -3,7 +3,6 @@ from marshmallow_polyfield import PolyField
 
 from livestyled.models.ticket import Ticket
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
-from livestyled.schemas.ticket_auth import TicketAuthSchema
 from livestyled.schemas.ticket_integration import TicketIntegrationSchema
 from livestyled.schemas.user import UserSchema
 
@@ -13,6 +12,15 @@ def parent_ticket_selector(parent_ticket, ticket):
         return RelatedResourceLinkField(schema=Ticket, required=False, missing=None, data_key='parentTicket')
     elif isinstance(parent_ticket, dict):
         return fields.Nested(TicketSchema)
+
+
+class TicketTicketAuthSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+        api_type = 'ticket_auths'
+        url = 'v4/ticket_auths'
+
+    id = fields.Int()
 
 
 class TicketSchema(Schema):
@@ -67,4 +75,4 @@ class TicketSchema(Schema):
     map_url = fields.String(data_key='mapUrl', required=False, allow_none=True, missing=None)
     map_image_url = fields.String(data_key='mapImageUrl', required=False, allow_none=True, missing=None)
     ticket_integration = RelatedResourceField(schema=TicketIntegrationSchema, required=False, missing=None, data_key='ticketIntegration')
-    ticket_auth = RelatedResourceField(schema=TicketAuthSchema, data_key='ticketAuth', missing=None, allow_none=True)
+    ticket_auth = RelatedResourceField(schema=TicketTicketAuthSchema, data_key='ticketAuth', missing=None, allow_none=True)
