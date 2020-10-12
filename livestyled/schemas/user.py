@@ -10,8 +10,7 @@ from livestyled.schemas.magic_field import MagicFieldSchema
 class UserCreateSchema(Schema):
     class Meta:
         api_type = 'users'
-        url = 'v4/users'
-        create_url = 'v4/users/register'
+        create_url = 'users/register'
         model = User
 
     auth_type = fields.String(data_key='authType')
@@ -26,7 +25,7 @@ class UserInfoSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'user_info'
-        url = 'v4/user_infos'
+        url = 'user_infos'
         model = UserInfo
 
     id = fields.Int()
@@ -61,10 +60,10 @@ class UserSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'users'
-        url = 'v4/users'
-        create_url = 'v4/users/register'
-        authorise_url = 'v4/users/{}/authorise'
-        magic_fields_url = 'v4/users/{}/magic_fields'
+        url = 'user_management/users'
+        create_url = 'users/register'
+        authorise_url = 'users/{}/authorise'
+        magic_fields_url = 'users/{}/magic_fields'
         model = User
 
     id = fields.Int()
@@ -85,7 +84,7 @@ class UserSSOSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'user_sso'
-        url = 'v4/user_ssos'
+        url = 'user_ssos'
         model = UserSSO
 
     id = fields.Int()

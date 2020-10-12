@@ -8,7 +8,7 @@ class EventCategorySchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'event_categories'
-        url = 'v4/event_categories'
+        url = 'event_categories'
         model = EventCategory
 
     id = fields.Int()

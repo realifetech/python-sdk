@@ -7,8 +7,9 @@ class TeamSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'teams'
-        url = 'v4/teams'
+        url = 'teams'
         model = Team
+        include_v4_in_iri = True
 
     id = fields.Int(required=False, allow_none=False)
     name = fields.String(data_key='name')

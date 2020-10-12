@@ -12,8 +12,9 @@ class FixtureSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'fixtures'
-        url = 'v4/fixtures'
+        url = 'fixtures'
         model = Fixture
+        include_v4_in_iri = True
 
     class ScoreSchema(Schema):
         goals = fields.Int(allow_none=True)

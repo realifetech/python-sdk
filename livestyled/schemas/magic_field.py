@@ -8,7 +8,7 @@ class MagicFieldSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'magic_fields'
-        url = 'v4/magic_fields'
+        url = 'magic_fields'
         model = MagicField
 
     id = fields.Int()

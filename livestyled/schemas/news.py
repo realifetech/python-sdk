@@ -7,8 +7,9 @@ class NewsSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'news'
-        url = 'v4/news'
+        url = 'news'
         model = News
+        include_v4_in_iri = True
 
     class NewsMediaSchema(Schema):
         class Meta:

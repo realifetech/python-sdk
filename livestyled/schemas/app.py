@@ -8,7 +8,7 @@ class CurrencySchema(Schema):
         unknown = EXCLUDE
         model = Currency
         api_type = 'currencies'
-        url = 'v4/currencies'
+        url = 'currencies'
 
     id = fields.Int(missing=None)
     title = fields.String(missing=None)
@@ -20,7 +20,7 @@ class AppSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'apps'
-        url = 'v4/apps'
+        url = 'apps'
         model = App
 
     id = fields.Int(missing=None)

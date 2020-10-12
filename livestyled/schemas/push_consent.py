@@ -7,7 +7,7 @@ class PushConsentSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'push_consents'
-        url = 'v4/push_consents'
+        url = 'push_consents'
         model = PushConsent
 
     id = fields.Int()

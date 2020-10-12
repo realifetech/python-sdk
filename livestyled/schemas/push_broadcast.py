@@ -9,8 +9,8 @@ class PushBroadcastSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'push_broadcasts'
-        url = 'v4/push_broadcasts'
-        publish_url = 'v4/push_broadcasts/publish'
+        url = 'push_broadcasts'
+        publish_url = 'push_broadcasts/publish'
         model = PushBroadcast
 
     id = fields.Int(required=False, allow_none=False)

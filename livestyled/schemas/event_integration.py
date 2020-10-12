@@ -8,7 +8,7 @@ class EventIntegrationSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'event_integration'
-        url = 'v4/event_integration'
+        url = 'event_integration'
         model = Event
 
     id = fields.Int()

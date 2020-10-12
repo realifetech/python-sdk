@@ -11,7 +11,7 @@ CONTENT_TYPE = 'application/ld+json'
 
 def test_get_device_by_id(requests_mock):
     mock_responses = (
-        ('GET', 'https://' + TEST_API_DOMAIN + '/v4/devices/1234', 'mock_responses/ls_api/device_1234.json', 200),
+        ('GET', 'https://' + TEST_API_DOMAIN + '/v4/user_management/devices/1234', 'mock_responses/ls_api/device_1234.json', 200),
     )
     configure_mock_responses(requests_mock, mock_responses, FIXTURES_DIR, CONTENT_TYPE)
 

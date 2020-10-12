@@ -33,7 +33,14 @@ class RelatedResourceLinkField(fields.Field):
 
     def _serialize(self, value, attr, obj, **kwargs):
         if value:
-            return '/{}/{}'.format(self.schema.Meta.url, value)
+            if isinstance(value, (str, int)):
+                if getattr(self.schema.Meta, 'include_v4_in_iri', False):
+                    return '/v4/{}/{}'.format(self.schema.Meta.url, value)
+                return '/{}/{}'.format(self.schema.Meta.url, value)
+            else:
+                if getattr(self.schema.Meta, 'include_v4_in_iri', False):
+                    return '/v4/{}/{}'.format(self.schema.Meta.url, value.id)
+                return '/{}/{}'.format(self.schema.Meta.url, value.id)
         return None
 
     def _deserialize(self, value, attr, data, **kwargs):
@@ -75,10 +82,26 @@ class RelatedResourceField(fields.Field):
 
     def _serialize(self, value, attr, obj, **kwargs):
         if value:
-            if not isinstance(value, (str, int)):
-                value = getattr(value, 'id')
-            return '/{}/{}'.format(self.schema.Meta.url, value)
-        return None
+            if isinstance(value, (str, int)):
+                if getattr(self.schema.Meta, 'include_v4_in_iri', False):
+                    return '/v4/{}/{}'.format(self.schema.Meta.url, value)
+                return '/{}/{}'.format(self.schema.Meta.url, value)
+            elif isinstance(value, list):
+                r_value = []
+                for v in value:
+                    if getattr(self.schema.Meta, 'include_v4_in_iri', False):
+                        r_value.append('/v4/{}/{}'.format(self.schema.Meta.url, v.id))
+                    r_value.append('/{}/{}'.format(self.schema.Meta.url, v.id))
+                return r_value
+            else:
+                if getattr(self.schema.Meta, 'include_v4_in_iri', False):
+                    return '/v4/{}/{}'.format(self.schema.Meta.url, value.id)
+                return '/{}/{}'.format(self.schema.Meta.url, value.id)
+        else:
+            if self.many:
+                return []
+            else:
+                return None
 
     def _deserialize(self, value, attr, data, **kwargs):
         if self.many:

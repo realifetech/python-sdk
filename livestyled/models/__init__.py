@@ -1,4 +1,6 @@
 from livestyled.models.app import App, Currency
+from livestyled.models.audience import Audience
+from livestyled.models.audience_device import AudienceDevice
 from livestyled.models.booking import Booking
 from livestyled.models.cohort import Cohort
 from livestyled.models.competition import Competition
@@ -6,6 +8,7 @@ from livestyled.models.device import Device
 from livestyled.models.device_consent import DeviceConsent
 from livestyled.models.device_preference import DevicePreference
 from livestyled.models.device_push_consent import DevicePushConsent
+from livestyled.models.device_reality import DeviceReality
 from livestyled.models.device_token import DeviceToken
 from livestyled.models.event import Event
 from livestyled.models.fixture import Fixture
@@ -23,11 +26,13 @@ from livestyled.models.product import (
     Product,
     ProductCategory,
     ProductImage,
-    ProductTranslation,
+    ProductModifierItem,
+    ProductModifierList,
     ProductVariant
 )
 from livestyled.models.push_broadcast import PushBroadcast
 from livestyled.models.push_consent import PushConsent
+from livestyled.models.reality import Reality, RealityType
 from livestyled.models.season import Season
 from livestyled.models.sport_venue import SportVenue
 from livestyled.models.team import Team
@@ -39,6 +44,8 @@ from livestyled.models.venue import Venue
 
 __all__ = [
     App,
+    Audience,
+    AudienceDevice,
     Currency,
     Booking,
     Cohort,
@@ -47,6 +54,7 @@ __all__ = [
     DeviceConsent,
     DevicePreference,
     DevicePushConsent,
+    DeviceReality,
     DeviceToken,
     Event,
     Fixture,
@@ -63,10 +71,13 @@ __all__ = [
     Product,
     ProductCategory,
     ProductImage,
-    ProductTranslation,
+    ProductModifierItem,
+    ProductModifierList,
     ProductVariant,
     PushBroadcast,
     PushConsent,
+    Reality,
+    RealityType,
     Season,
     SportVenue,
     Team,

@@ -92,6 +92,8 @@ class LiveStyledAPIClient:
             },
             data=json.dumps(data)
         )
+        if response.status_code >= 400:
+            print(response.content)
         response.raise_for_status()
         return response.json()
 
@@ -116,7 +118,7 @@ class LiveStyledAPIClient:
             data=json.dumps(data)
         )
         if response.status_code >= 400:
-            print(response.json())
+            print(response.content)
         response.raise_for_status()
         return response.json()
 
@@ -126,7 +128,7 @@ class LiveStyledAPIClient:
             id: str
     ) -> None:
         requests.delete(
-            'https://{}/{}/{}'.format(
+            'https://{}/v4/{}/{}'.format(
                 self._api_domain,
                 endpoint,
                 id
@@ -144,7 +146,7 @@ class LiveStyledAPIClient:
             schema: Type[Schema]
     ):
         resource_data = self._api_get(
-            '{}/{}'.format(
+            'v4/{}/{}'.format(
                 schema.Meta.url,
                 resource_id
             )
@@ -158,11 +160,12 @@ class LiveStyledAPIClient:
             params: Dict or None = None,
     ) -> Generator[Dict, None, None]:
         data_generator = self._api_get_paginated(
-            schema.Meta.url,
+            'v4/{}'.format(schema.Meta.url),
             params
         )
+        _schema = schema()
         for resource_data in data_generator:
-            yield schema().load(resource_data)
+            yield _schema.load(resource_data)
 
     def get_app(
             self,
@@ -223,7 +226,7 @@ class LiveStyledAPIClient:
         attributes_to_update = list(attributes.keys())
         update_payload = DeviceSchema(only=attributes_to_update).dump(attributes)
         updated_device = self._api_patch(
-            '{}/{}'.format(DeviceSchema.Meta.url, device_id),
+            'v4/{}/{}'.format(DeviceSchema.Meta.url, device_id),
             update_payload
         )
         return DeviceSchema().load(updated_device)
@@ -385,7 +388,7 @@ class LiveStyledAPIClient:
         attributes_to_update = list(attributes.keys())
         update_payload = TeamSchema(only=attributes_to_update).dump(attributes)
         updated_team = self._api_patch(
-            '{}/{}'.format(TeamSchema.Meta.url, team_id),
+            'v4/{}/{}'.format(TeamSchema.Meta.url, team_id),
             update_payload
         )
         return TeamSchema().load(updated_team)
@@ -396,7 +399,7 @@ class LiveStyledAPIClient:
     ) -> Dict:
         payload = TeamSchema().dump(attributes)
         new_team = self._api_post(
-            '{}'.format(TeamSchema.Meta.url),
+            'v4/{}'.format(TeamSchema.Meta.url),
             payload
         )
         return TeamSchema().load(new_team)
@@ -420,7 +423,7 @@ class LiveStyledAPIClient:
     ) -> Dict:
         payload = NewsSchema().dump(attributes)
         new_team = self._api_post(
-            '{}'.format(NewsSchema.Meta.url),
+            'v4/{}'.format(NewsSchema.Meta.url),
             payload
         )
         return NewsSchema().load(new_team)

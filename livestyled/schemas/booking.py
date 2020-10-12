@@ -12,7 +12,8 @@ class BookingSchema(Schema):
         unknown = EXCLUDE
         model = Booking
         api_type = 'bookings'
-        url = 'v4/bookings'
+        url = 'bookings'
+        include_v4_in_iri = True
 
     id = fields.Int()
     title = fields.String()

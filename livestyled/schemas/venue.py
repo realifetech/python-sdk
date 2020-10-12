@@ -7,8 +7,9 @@ class VenueSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'venues'
-        url = 'v4/venues'
+        url = 'venues'
         model = Venue
+        include_v4_in_iri = True
 
     id = fields.Int(missing=None)
     iri = fields.String(data_key='@id')
@@ -26,7 +27,7 @@ class VenueSchema(Schema):
     geo_latitude_south_east = fields.String(allow_none=True)
     geo_longitude_south_west = fields.String(allow_none=True)
     city = fields.String(allow_none=True)
-    external_id = fields.String(data_key='externalId')
+    external_id = fields.String(data_key='externalId', allow_none=True, missing=None)
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True)
     venue_icon_url = fields.String(data_key='venueIconUrl', allow_none=True)
