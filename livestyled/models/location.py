@@ -10,14 +10,14 @@ class LocationCoordinates:
 
     @property
     def lat(self):
-        if self._lat:
+        if self._lat is not None:
             return float(self._lat)
         else:
             return None
 
     @property
     def lon(self):
-        if self._lon:
+        if self._lon is not None:
             return float(self._lon)
         else:
             return None
