@@ -45,8 +45,8 @@ from livestyled.models import (
     Venue,
 )
 from livestyled.schemas import (
-    AudienceSchema,
     AudienceDeviceSchema,
+    AudienceSchema,
     BookingSchema,
     CohortSchema,
     CompetitionSchema,
@@ -1225,9 +1225,9 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         except HTTPError as http_error:
             if http_error.response.status_code == 500:
                 if http_error.response.json() == {
-                    "code": 500,
-                    "type": "ValidationException",
-                    "message": "audience: Audience and Device combination already exists"
+                    'code': 500,
+                    'type': 'ValidationException',
+                    'message': 'audience: Audience and Device combination already exists'
                 }:
                     return audience_device
             raise

@@ -1,9 +1,9 @@
 from marshmallow import EXCLUDE, fields, Schema
 
 from livestyled.models.audience_device import AudienceDevice
-from livestyled.schemas.fields import RelatedResourceLinkField
 from livestyled.schemas.audience import AudienceSchema
 from livestyled.schemas.device import DeviceSchema
+from livestyled.schemas.fields import RelatedResourceLinkField
 
 
 class AudienceDeviceSchema(Schema):

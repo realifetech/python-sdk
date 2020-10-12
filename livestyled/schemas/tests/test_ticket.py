@@ -232,3 +232,60 @@ def test_deserialize_ticket_with_event_and_venue():
             'venue': 10000992,
             'venue_name': 'Friends Arena'
         }
+
+
+def test_serialize_ticket():
+    from livestyled.models.ticket import Ticket
+    ticket = Ticket.create_new(
+        venue=1,
+        barcode='testbarcode',
+        client_email='test@test.com',
+        client_name='Test Testerson',
+        entrance='Entrance A',
+        event=9999,
+        user=8888
+    )
+    serialized_ticket = TicketSchema().dump(ticket)
+    assert serialized_ticket == {
+        'priceCode': None,
+        'redeemer': None,
+        'venue': '/v4/venues/1',
+        'updatedAt': None,
+        'mapImageUrl': None,
+        'legalLongText': None,
+        'venueRoom': None,
+        'entrance': 'Entrance A',
+        'ticketIntegration': None,
+        'barCode': 'testbarcode',
+        'seat': None,
+        'price': 0,
+        'externalCustomerRef': None,
+        'sessionDate': None,
+        'redeemerEmail': None,
+        'title': None,
+        'eventUid': None,
+        'row': None,
+        'parentTicket': None,
+        'sharer': None,
+        'event': '/v4/events/9999',
+        'sharerEmail': None,
+        'shareCode': None,
+        'legalShortText': None,
+        'sectorName': None,
+        'mapUrl': None,
+        'clientEmail': 'test@test.com',
+        'premium': False,
+        'shareLink': None,
+        'qrCodeUrl': None,
+        'user': '/user_management/users/8888',
+        'id': None,
+        'externalTicketId': None,
+        'clientName': 'Test Testerson',
+        'section': None,
+        'sharedAt': None,
+        'redeemedAt': None,
+        'canShare': False,
+        'status': None,
+        'createdAt': None,
+        'venueName': None
+    }
