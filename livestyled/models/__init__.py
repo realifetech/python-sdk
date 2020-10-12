@@ -19,6 +19,7 @@ from livestyled.models.fulfilment_point import (
     FulfilmentPointTranslation
 )
 from livestyled.models.league_table import LeagueTable, LeagueTableGroup
+from livestyled.models.location import Location
 from livestyled.models.magic_field import MagicField
 from livestyled.models.news import News
 from livestyled.models.order import Order, OrderItem
@@ -64,6 +65,7 @@ __all__ = [
     FulfilmentPointTranslation,
     LeagueTable,
     LeagueTableGroup,
+    Location,
     MagicField,
     News,
     Order,

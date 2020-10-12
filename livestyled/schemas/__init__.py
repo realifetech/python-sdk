@@ -16,6 +16,7 @@ from livestyled.schemas.event_stage import EventStageSchema
 from livestyled.schemas.fixture import FixtureSchema
 from livestyled.schemas.fulfilment_point import FulfilmentPointSchema
 from livestyled.schemas.league_table import LeagueTableGroupSchema, LeagueTableSchema
+from livestyled.schemas.location import LocationSchema
 from livestyled.schemas.magic_field import MagicFieldSchema
 from livestyled.schemas.news import NewsSchema
 from livestyled.schemas.order import OrderSchema
@@ -58,6 +59,7 @@ __all__ = [
     FulfilmentPointSchema,
     LeagueTableSchema,
     LeagueTableGroupSchema,
+    LocationSchema,
     MagicFieldSchema,
     NewsSchema,
     OrderSchema,

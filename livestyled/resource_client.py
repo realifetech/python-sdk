@@ -20,6 +20,7 @@ from livestyled.models import (
     FulfilmentPoint,
     LeagueTable,
     LeagueTableGroup,
+    Location,
     MagicField,
     News,
     Order,
@@ -59,6 +60,7 @@ from livestyled.schemas import (
     FulfilmentPointSchema,
     LeagueTableGroupSchema,
     LeagueTableSchema,
+    LocationSchema,
     MagicFieldSchema,
     NewsSchema,
     OrderSchema,
@@ -1237,3 +1239,10 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             audience_device: AudienceDevice
     ) -> None:
         return self._delete_resource(AudienceDeviceSchema, audience_device)
+
+    # ---- LOCATIONS
+
+    def get_locations(
+            self,
+    ) -> Generator[Location, None, None]:
+        return self._get_resource_list(LocationSchema)
