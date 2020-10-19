@@ -1194,7 +1194,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     ) -> Generator[Audience, None, None]:
         if reality_values__reality:
             if isinstance(reality_values__reality, Reality):
-                reality_filter = '{}/{}'.format(RealitySchema.Meta.url, reality_values__reality.id)
+                reality_filter = reality_values__reality.id
             elif isinstance(reality_values__reality, str):
                 reality_filter = reality_values__reality
             else:
