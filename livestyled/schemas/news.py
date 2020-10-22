@@ -9,7 +9,6 @@ class NewsSchema(Schema):
         api_type = 'news'
         url = 'news'
         model = News
-        include_v4_in_iri = True
 
     class NewsMediaSchema(Schema):
         class Meta:

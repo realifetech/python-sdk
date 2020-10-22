@@ -14,7 +14,6 @@ class FixtureSchema(Schema):
         api_type = 'fixtures'
         url = 'fixtures'
         model = Fixture
-        include_v4_in_iri = True
 
     class ScoreSchema(Schema):
         goals = fields.Int(allow_none=True)

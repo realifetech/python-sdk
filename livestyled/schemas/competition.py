@@ -6,10 +6,9 @@ from livestyled.models.competition import Competition
 class CompetitionSchema(Schema):
     class Meta:
         unknown = EXCLUDE
-        api_type = 'competitons'
+        api_type = 'competitions'
         url = 'competitions'
         model = Competition
-        include_v4_in_iri = True
 
     id = fields.Int()
     label = fields.String()

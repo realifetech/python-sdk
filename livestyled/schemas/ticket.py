@@ -31,7 +31,6 @@ class TicketSchema(Schema):
         api_type = 'tickets'
         url = 'tickets'
         model = Ticket
-        include_v4_in_iri = True
 
     id = fields.Int()
     external_ticket_id = fields.String(data_key='externalTicketId')
@@ -57,7 +56,7 @@ class TicketSchema(Schema):
     price_code = fields.String(data_key='priceCode', required=False, missing=None)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=False)
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=False)
-    user_id = RelatedResourceLinkField(schema=UserSchema, required=False, missing=None, data_key='user')
+    user_id = RelatedResourceLinkField(schema=UserSchema, required=False, missing=None, data_key='user', microservice_aware=False)
     can_share = fields.Boolean(data_key='canShare', allow_none=False, required=False, missing=False)
     share_code = fields.String(data_key='shareCode', allow_none=True, required=False, missing=None)
     sharer_email = fields.String(data_key='sharerEmail', allow_none=True, required=False, missing=None)

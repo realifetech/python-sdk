@@ -9,7 +9,6 @@ class SeasonSchema(Schema):
         api_type = 'seasons'
         url = 'seasons'
         model = Season
-        include_v4_in_iri = True
 
     id = fields.Int()
     label = fields.String()

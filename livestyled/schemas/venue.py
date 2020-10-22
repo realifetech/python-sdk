@@ -9,7 +9,6 @@ class VenueSchema(Schema):
         api_type = 'venues'
         url = 'venues'
         model = Venue
-        include_v4_in_iri = True
 
     id = fields.Int(missing=None)
     iri = fields.String(data_key='@id')

@@ -9,7 +9,6 @@ class TeamSchema(Schema):
         api_type = 'teams'
         url = 'teams'
         model = Team
-        include_v4_in_iri = True
 
     id = fields.Int(required=False, allow_none=False)
     name = fields.String(data_key='name')

@@ -11,7 +11,7 @@ class AudienceRealityValuesValueSchema(Schema):
 
 
 class AudienceRealityValuesSchema(Schema):
-    reality = RelatedResourceLinkField(schema=RealitySchema)
+    reality = RelatedResourceLinkField(schema=RealitySchema, microservice_aware=True)
     values = fields.Nested(AudienceRealityValuesValueSchema, many=True)
 
 

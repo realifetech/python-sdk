@@ -13,6 +13,6 @@ class AudienceDeviceSchema(Schema):
         url = 'user_management/audience_devices'
         model = AudienceDevice
 
-    audience = RelatedResourceLinkField(schema=AudienceSchema)
-    device = RelatedResourceLinkField(schema=DeviceSchema)
+    audience = RelatedResourceLinkField(schema=AudienceSchema, microservice_aware=True)
+    device = RelatedResourceLinkField(schema=DeviceSchema, microservice_aware=True)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True, missing=None)

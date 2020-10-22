@@ -29,7 +29,6 @@ class EventSchema(Schema):
         api_type = 'events'
         url = 'events'
         model = Event
-        include_v4_in_iri = True
 
     id = fields.Int()
     status = fields.String()

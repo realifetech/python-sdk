@@ -88,7 +88,7 @@ def test_create_booking(requests_mock, device, user, event):
     assert json.loads(requests_mock.request_history[0].body) == {
         'action': 'going',
         'event': '/v4/events/8888',
-        'device': '/user_management/devices/1234',
+        'device': '/v4/devices/1234',
         'type': 'manual',
-        'user': '/user_management/users/5555'
+        'user': '/v4/users/5555'
     }

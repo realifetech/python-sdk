@@ -14,6 +14,8 @@ from livestyled.schemas.fulfilment_point import FulfilmentPointSchema
 class ProductVariantStocksSchema(Schema):
     class Meta:
         unknown = EXCLUDE
+        api_type = 'product_variant_stocks'
+        url = 'sell/product_variant_stocks'
 
     id = fields.Integer()
 
@@ -23,6 +25,7 @@ class ProductVariantSchema(Schema):
         unknown = EXCLUDE
         model = ProductVariant
         url = 'sell/product_variants'
+        api_type = 'product_variants'
 
     class ProductVariantTranslationSchema(Schema):
         class Meta:
@@ -32,8 +35,8 @@ class ProductVariantSchema(Schema):
 
     id = fields.Int()
     price = fields.Integer()
-    stocks = RelatedResourceLinkField(schema=ProductVariantStocksSchema, many=True, missing=[])
-    product = RelatedResourceLinkField(schema='livestyled.schemas.product.ProductSchema')
+    stocks = RelatedResourceLinkField(schema=ProductVariantStocksSchema, many=True, missing=[], microservice_aware=True)
+    product = RelatedResourceLinkField(schema='livestyled.schemas.product.ProductSchema', microservice_aware=True)
     external_id = fields.String(missing=None, data_key='externalId')
     translations = fields.Nested(ProductVariantTranslationSchema, many=True, missing=None)
 
@@ -102,7 +105,7 @@ class ProductModifierItemSchema(Schema):
     external_id = fields.String(data_key='externalId')
     additional_price = fields.Integer(data_key='additionalPrice')
     translations = fields.Nested(ProductModifierItemTranslationsSchema, many=True, missing=[])
-    modifier_list = RelatedResourceLinkField('livestyled.schemas.product.ProductModifierListSchema', data_key='modifierList')
+    modifier_list = RelatedResourceLinkField('livestyled.schemas.product.ProductModifierListSchema', data_key='modifierList', microservice_aware=True)
 
 
 class ProductModifierListTranslationsSchema(Schema):
@@ -126,7 +129,7 @@ class ProductModifierListSchema(Schema):
     multiple_select = fields.Boolean(data_key='multipleSelect')
     mandatory_select = fields.Boolean(data_key='mandatorySelect')
     translations = fields.Nested(ProductModifierListTranslationsSchema, many=True, missing=[])
-    items = RelatedResourceField(schema=ProductModifierItemSchema, many=True, missing=[])
+    items = RelatedResourceField(schema=ProductModifierItemSchema, many=True, missing=[], microservice_aware=True)
 
 
 class ProductSchema(Schema):
@@ -139,13 +142,13 @@ class ProductSchema(Schema):
     id = fields.Int()
     status = fields.String(missing=None)
     reference = fields.String(missing=None)
-    modifier_lists = RelatedResourceField(schema=ProductModifierListSchema, many=True, missing=[], data_key='modifierLists')
+    modifier_lists = RelatedResourceField(schema=ProductModifierListSchema, many=True, missing=[], data_key='modifierLists', microservice_aware=True)
     external_id = fields.String(data_key='externalId', missing=None)
     holding_time = fields.Raw(missing=None, data_key='holdingTime')
     reconciliation_group = fields.Raw(missing=None, data_key='reconciliation_group')
     images = fields.Nested(ProductImageSchema, many=True)
-    categories = RelatedResourceField(schema=ProductCategorySchema, many=True, missing=[])
+    categories = RelatedResourceField(schema=ProductCategorySchema, many=True, missing=[], microservice_aware=True)
     translations = fields.Nested(ProductTranslationSchema, many=True, missing=[])
-    fulfilment_points = RelatedResourceField(schema=FulfilmentPointSchema, many=True, missing=[], data_key='fulfilmentPoints')
-    variants = RelatedResourceField(schema=ProductVariantSchema, many=True, missing=[])
+    fulfilment_points = RelatedResourceField(schema=FulfilmentPointSchema, many=True, missing=[], data_key='fulfilmentPoints', microservice_aware=True)
+    variants = RelatedResourceField(schema=ProductVariantSchema, many=True, missing=[], microservice_aware=True)
     core_product_category = fields.Nested(CoreProductCategorySchema, missing=None, data_key='coreProductCategory')

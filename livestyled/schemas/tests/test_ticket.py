@@ -283,7 +283,7 @@ def test_serialize_ticket():
         'premium': False,
         'shareLink': None,
         'qrCodeUrl': None,
-        'user': '/user_management/users/8888',
+        'user': '/v4/users/8888',
         'id': None,
         'externalTicketId': None,
         'clientName': 'Test Testerson',

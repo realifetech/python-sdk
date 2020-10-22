@@ -18,5 +18,5 @@ class DevicePreferenceSchema(Schema):
     id = fields.Int()
     created_at = fields.AwareDateTime(data_key='createdAt')
     venue_id = RelatedResourceLinkField(schema=VenueSchema, data_key='venue', allow_none=True)
-    device_id = RelatedResourceLinkField(schema=DeviceSchema, data_key='device')
+    device_id = RelatedResourceLinkField(schema=DeviceSchema, data_key='device', microservice_aware=True)
     event_id = RelatedResourceLinkField(schema=EventSchema, data_key='event', allow_none=True)

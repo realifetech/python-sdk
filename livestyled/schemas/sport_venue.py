@@ -9,7 +9,6 @@ class SportVenueSchema(Schema):
         api_type = 'sport_venues'
         url = 'sport_venues'
         model = SportVenue
-        include_v4_in_iri = True
 
     id = fields.Int()
     name = fields.String()

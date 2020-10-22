@@ -8,11 +8,13 @@ class RelatedResourceLinkField(fields.Field):
             self,
             schema=None,
             many=False,
+            microservice_aware=False,
             **kwargs
     ):
         self._schema_arg = schema
         self.many = many
         self.__schema = None
+        self.__microservice_aware = microservice_aware
         super(RelatedResourceLinkField, self).__init__(**kwargs)
 
     @property
@@ -34,13 +36,15 @@ class RelatedResourceLinkField(fields.Field):
     def _serialize(self, value, attr, obj, **kwargs):
         if value:
             if isinstance(value, (str, int)):
-                if getattr(self.schema.Meta, 'include_v4_in_iri', False):
-                    return '/v4/{}/{}'.format(self.schema.Meta.url, value)
-                return '/{}/{}'.format(self.schema.Meta.url, value)
+                if self.__microservice_aware:
+                    return '/{}/{}'.format(self.schema.Meta.url, value)
+                else:
+                    return '/v4/{}/{}'.format(self.schema.Meta.api_type, value)
             else:
-                if getattr(self.schema.Meta, 'include_v4_in_iri', False):
-                    return '/v4/{}/{}'.format(self.schema.Meta.url, value.id)
-                return '/{}/{}'.format(self.schema.Meta.url, value.id)
+                if self.__microservice_aware:
+                    return '/{}/{}'.format(self.schema.Meta.url, value.id)
+                else:
+                    return '/v4/{}/{}'.format(self.schema.Meta.api_type, value.id)
         return None
 
     def _deserialize(self, value, attr, data, **kwargs):
@@ -57,11 +61,13 @@ class RelatedResourceField(fields.Field):
             self,
             schema=None,
             many=False,
+            microservice_aware=False,
             **kwargs
     ):
         self._schema_arg = schema
         self.many = many
         self.__schema = None
+        self.__microservice_aware = microservice_aware
         super(RelatedResourceField, self).__init__(**kwargs)
 
     @property
@@ -83,20 +89,24 @@ class RelatedResourceField(fields.Field):
     def _serialize(self, value, attr, obj, **kwargs):
         if value:
             if isinstance(value, (str, int)):
-                if getattr(self.schema.Meta, 'include_v4_in_iri', False):
+                if self.__microservice_aware:
+                    return '/{}/{}'.format(self.schema.Meta.url, value)
+                else:
                     return '/v4/{}/{}'.format(self.schema.Meta.url, value)
-                return '/{}/{}'.format(self.schema.Meta.url, value)
             elif isinstance(value, list):
                 r_value = []
                 for v in value:
-                    if getattr(self.schema.Meta, 'include_v4_in_iri', False):
-                        r_value.append('/v4/{}/{}'.format(self.schema.Meta.url, v.id))
+                    if self.__microservice_aware:
+                        r_value.append('/{}/{}'.format(self.schema.Meta.url, v.id))
+                    else:
+                        r_value.append('/v4/{}/{}'.format(self.schema.Meta.api_type, v.id))
                     r_value.append('/{}/{}'.format(self.schema.Meta.url, v.id))
                 return r_value
             else:
-                if getattr(self.schema.Meta, 'include_v4_in_iri', False):
-                    return '/v4/{}/{}'.format(self.schema.Meta.url, value.id)
-                return '/{}/{}'.format(self.schema.Meta.url, value.id)
+                if self.__microservice_aware:
+                    return '/{}/{}'.format(self.schema.Meta.url, value.id)
+                else:
+                    return '/v4/{}/{}'.format(self.schema.Meta.api_type, value.id)
         else:
             if self.many:
                 return []

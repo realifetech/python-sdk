@@ -30,7 +30,7 @@ class RealitySchema(Schema):
         model = Reality
 
     id = fields.Int()
-    reality_type = RelatedResourceLinkField(schema=RealityTypeSchema, allow_none=False, data_key='realityType')
+    reality_type = RelatedResourceLinkField(schema=RealityTypeSchema, allow_none=False, data_key='realityType', microservice_aware=True)
     name = fields.String(missing=None)
     config = fields.Raw(missing={})
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True, missing=None)

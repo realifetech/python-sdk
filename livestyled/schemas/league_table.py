@@ -13,7 +13,6 @@ class LeagueTableGroupSchema(Schema):
         api_type = 'league_table_groups'
         url = 'league_table_groups'
         model = LeagueTableGroup
-        include_v4_in_iri = True
 
     id = fields.Int(required=False, allow_none=False)
     reference = fields.String(required=True, allow_none=True)
