@@ -71,7 +71,8 @@ def test_deserialize_ticket():
                 'name': 'SeatGeek'
             },
             'venue': None,
-            'event': None
+            'event': None,
+            'ticket_auth': None,
         }
 
 
@@ -120,7 +121,8 @@ def test_deserialize_ticket_shared():
             'map_image_url': None,
             'ticket_integration': None,
             'venue': None,
-            'event': None
+            'event': None,
+            'ticket_auth': None,
         }
 
 
@@ -169,7 +171,8 @@ def test_deserialize_ticket_shared_redeemed():
             'map_image_url': None,
             'ticket_integration': None,
             'venue': None,
-            'event': None
+            'event': None,
+            'ticket_auth': None
         }
 
 
@@ -230,7 +233,10 @@ def test_deserialize_ticket_with_event_and_venue():
             },
             'event': 100017009,
             'venue': 10000992,
-            'venue_name': 'Friends Arena'
+            'venue_name': 'Friends Arena',
+            'ticket_auth': {
+                'id': 513
+            }
         }
 
 

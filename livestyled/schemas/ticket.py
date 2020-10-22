@@ -16,6 +16,15 @@ def parent_ticket_selector(parent_ticket, ticket):
         return fields.Nested(TicketSchema)
 
 
+class TicketTicketAuthSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+        api_type = 'ticket_auths'
+        url = 'v4/ticket_auths'
+
+    id = fields.Int()
+
+
 class TicketSchema(Schema):
     class Meta:
         unknown = EXCLUDE
@@ -69,5 +78,6 @@ class TicketSchema(Schema):
     map_url = fields.String(data_key='mapUrl', required=False, allow_none=True, missing=None)
     map_image_url = fields.String(data_key='mapImageUrl', required=False, allow_none=True, missing=None)
     ticket_integration = RelatedResourceField(schema=TicketIntegrationSchema, required=False, missing=None, data_key='ticketIntegration')
+    ticket_auth = RelatedResourceField(schema=TicketTicketAuthSchema, data_key='ticketAuth', missing=None, allow_none=True)
     event = RelatedResourceLinkField(schema=EventSchema, required=False, missing=None)
     venue = RelatedResourceLinkField(schema=VenueSchema, required=False, missing=None)

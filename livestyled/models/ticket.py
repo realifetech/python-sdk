@@ -48,6 +48,7 @@ class Ticket:
             ticket_integration=None,
             venue=None,
             event=None,
+            ticket_auth=None,
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
