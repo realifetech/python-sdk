@@ -585,9 +585,9 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             filters['externalTicketId'] = external_ticket_id
         if user:
             if isinstance(user, User):
-                filters['user'] = 'users/{}'.format(user.id)
+                filters['user'] = '{}'.format(user.id)
             else:
-                filters['user'] = 'users/{}'.format(user)
+                filters['user'] = '{}'.format(user)
         if filters:
             return self._get_resource_list(TicketSchema, filters=filters)
         else:
