@@ -2,7 +2,7 @@ from marshmallow import EXCLUDE, fields, Schema
 from marshmallow_polyfield import PolyField
 
 from livestyled.models.ticket import Ticket
-from livestyled.schemas.event import EventSchema
+from livestyled.schemas.event import EventDateSchema, EventSchema
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
 from livestyled.schemas.ticket_integration import TicketIntegrationSchema
 from livestyled.schemas.user import UserSchema
@@ -65,6 +65,7 @@ class TicketSchema(Schema):
     shared_at = fields.AwareDateTime(data_key='sharedAt', required=False, missing=None)
     sharer_id = RelatedResourceLinkField(schema=UserSchema, required=False, missing=None, data_key='sharer')
     redeemer_id = RelatedResourceLinkField(schema=UserSchema, required=False, missing=None, data_key='redeemer')
+    event_date = RelatedResourceLinkField(schema=EventDateSchema, required=False, missing=None, data_key='eventDate')
     parent_ticket = PolyField(
         deserialization_schema_selector=parent_ticket_selector,
         data_key='parentTicket',

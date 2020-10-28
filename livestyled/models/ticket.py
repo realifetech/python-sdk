@@ -1,4 +1,4 @@
-from livestyled.models.event import Event
+from livestyled.models.event import Event, EventDate
 from livestyled.models.ticket_integration import TicketIntegration
 from livestyled.models.user import User
 from livestyled.models.venue import Venue
@@ -49,6 +49,7 @@ class Ticket:
             venue=None,
             event=None,
             ticket_auth=None,
+            event_date=None
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
@@ -122,6 +123,16 @@ class Ticket:
                 self.event = Event(**event)
         else:
             self.event = None
+
+        if event_date:
+            if isinstance(event_date, EventDate):
+                self.event_date = event_date
+            elif isinstance(event_date, (int, str)):
+                self.event_date = EventDate.placeholder(id=event_date)
+            elif isinstance(event_date, dict):
+                self.event_date = EventDate(**event_date)
+        else:
+            self.event_date = None
 
         if venue:
             if isinstance(venue, Venue):
@@ -333,7 +344,7 @@ class Ticket:
             'price', 'status', 'can_share', 'sharer_email', 'redeemed_at', 'redeemer_id', 'share_code',
             'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text', 'map_url',
             'map_image_url', 'ticket_integration', 'entrance', 'row', 'section', 'price_code', 'external_customer_ref',
-            'venue', 'event'
+            'venue', 'event', 'event_date'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

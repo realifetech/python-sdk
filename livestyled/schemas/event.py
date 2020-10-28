@@ -6,7 +6,7 @@ from livestyled.schemas.utils import get_id_from_url
 from livestyled.schemas.venue import VenueSchema
 
 
-class EventDate(Schema):
+class EventDateSchema(Schema):
     class Meta:
         unknown = EXCLUDE
 
@@ -37,7 +37,7 @@ class EventSchema(Schema):
     description = fields.String()
     image_url = fields.Url(data_key='imageUrl')
     promoted = fields.Boolean()
-    event_dates = fields.Nested(EventDate, data_key='eventDates', many=True)
+    event_dates = fields.Nested(EventDateSchema, data_key='eventDates', many=True)
     app = fields.Function(get_id_from_url)
     venues = fields.List(RelatedResourceLinkField(schema=VenueSchema), many=True, missing=None)
     artists = fields.List(fields.Inferred),  # TODO

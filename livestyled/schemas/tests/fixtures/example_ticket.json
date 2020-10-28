@@ -37,5 +37,6 @@
         "authRequired": false,
         "canShare": false,
         "app": "/v4/apps/27"
-    }
+    },
+    "eventDate": "/v4/event_dates/249881"
 }

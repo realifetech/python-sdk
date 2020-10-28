@@ -73,6 +73,7 @@ def test_deserialize_ticket():
             'venue': None,
             'event': None,
             'ticket_auth': None,
+            'event_date': 249881
         }
 
 
@@ -123,6 +124,7 @@ def test_deserialize_ticket_shared():
             'venue': None,
             'event': None,
             'ticket_auth': None,
+            'event_date': None
         }
 
 
@@ -172,7 +174,8 @@ def test_deserialize_ticket_shared_redeemed():
             'ticket_integration': None,
             'venue': None,
             'event': None,
-            'ticket_auth': None
+            'ticket_auth': None,
+            'event_date': None,
         }
 
 
@@ -236,7 +239,8 @@ def test_deserialize_ticket_with_event_and_venue():
             'venue_name': 'Friends Arena',
             'ticket_auth': {
                 'id': 513
-            }
+            },
+            'event_date': None,
         }
 
 
@@ -293,5 +297,6 @@ def test_serialize_ticket():
         'canShare': False,
         'status': None,
         'createdAt': None,
-        'venueName': None
+        'venueName': None,
+        'eventDate': None,
     }

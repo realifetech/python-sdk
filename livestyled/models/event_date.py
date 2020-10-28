@@ -11,6 +11,18 @@ class EventDate:
         self.end_at = end_at
         self.general_ticket_url = general_ticket_url
 
+    @classmethod
+    def placeholder(
+            cls,
+            id
+    ):
+        return cls(
+            id=id,
+            start_at=None,
+            end_at=None,
+            general_ticket_url=None
+        )
+
     @property
     def id(self):
         return self._id
