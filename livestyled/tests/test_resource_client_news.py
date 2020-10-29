@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta, timezone
+import json
 import os
 
 from livestyled.models import News
@@ -46,3 +47,36 @@ def test_get_news(requests_mock):
     news.sort(key=lambda n: n.id)
     assert news[0].id == 1234
     assert news[1].id == 1235
+
+
+def test_create_news(requests_mock):
+    mock_responses = (
+        ('POST', 'https://' + TEST_API_DOMAIN + '/v4/news', 'mock_responses/ls_api/news_1234.json', 200),
+    )
+    configure_mock_responses(requests_mock, mock_responses, FIXTURES_DIR, CONTENT_TYPE)
+
+    resource_client = LiveStyledResourceClient(TEST_API_DOMAIN, 'bar')
+    resource_client.create_news(
+        News.create_new(
+            external_id='test',
+            title='This is a test article',
+            headline='Test headline',
+            media=None,
+            author='Tester',
+            url='https://news.com/1',
+            image_url='https://images.news.com/1',
+            published_at=datetime(2020, 10, 1, 9, 30, 0),
+            updated_at=datetime(2020, 10, 1, 9, 30, 0)
+        )
+    )
+    assert requests_mock.request_history[0].method == 'POST'
+    assert requests_mock.request_history[0].url == 'https://' + TEST_API_DOMAIN + '/v4/news'
+    assert json.loads(requests_mock.request_history[0].body) == {
+        'author': 'Tester',
+        'externalId': 'test',
+        'headline': 'Test headline',
+        'imageUrl': 'https://images.news.com/1',
+        'publishedAt': '2020-10-01T09:30:00',
+        'title': 'This is a test article',
+        'url': 'https://news.com/1'
+    }

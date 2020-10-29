@@ -106,6 +106,7 @@ class LiveStyledAPIClient:
         content_type = CONTENT_TYPE
         if content_type_override:
             content_type = content_type_override
+        data = {k: v for k, v in data.items() if v is not None}
         response = requests.post(
             'https://{}/{}'.format(
                 self._api_domain,
