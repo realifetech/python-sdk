@@ -20,6 +20,7 @@ class RealityTypeSchema(Schema):
     value_type = fields.String(data_key='valueType')
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True, missing=None)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True, missing=None)
+    combination_key = fields.String(data_key='combinationKey', allow_none=True, missing=None)
 
 
 class RealitySchema(Schema):

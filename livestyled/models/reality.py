@@ -14,6 +14,7 @@ class RealityType:
             value_type,
             updated_at,
             created_at,
+            combination_key,
     ):
         self.id = id
         self.name = name
@@ -24,6 +25,7 @@ class RealityType:
         self.value_type = value_type
         self.updated_at = updated_at
         self.created_at = created_at
+        self.combination_key = combination_key
 
     @classmethod
     def placeholder(cls, id):
@@ -36,13 +38,14 @@ class RealityType:
             watch=None,
             value_type=None,
             updated_at=None,
-            created_at=None
+            created_at=None,
+            combination_key=None,
         )
 
     def diff(self, other):
         differences = {}
         fields = (
-            'name', 'config_json_schema', 'config_ui_schema', 'evaluator', 'watch', 'updated_at', 'created_at'
+            'name', 'config_json_schema', 'config_ui_schema', 'evaluator', 'watch', 'updated_at', 'created_at', 'combination_key'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
