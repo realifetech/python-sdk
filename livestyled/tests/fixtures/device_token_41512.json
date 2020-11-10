@@ -1,0 +1,12 @@
+{
+    "@context": "/v4/contexts/DeviceToken",
+    "@id": "/v4/device_tokens/41512",
+    "@type": "DeviceToken",
+    "id": 41512,
+    "provider": "ONESIGNAL",
+    "providerToken": "3842b3a8-2027-45a4-bac5-1ba4c608d0e5",
+    "payload": {
+        "subscription": null
+    },
+    "device": "/v4/devices/1753617"
+}

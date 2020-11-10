@@ -1,0 +1,29 @@
+{
+    "@context": "/v4/contexts/Device",
+    "@id": "/v4/devices/6",
+    "@type": "Device",
+    "id": 6,
+    "token": "002332C86002",
+    "consent": {
+        "id": 2,
+        "locationCapture": true,
+        "locationGranular": null,
+        "camera": true,
+        "calendar": false,
+        "photoSharing": true,
+        "pushNotification": true,
+        "createdAt": "2018-12-05T17:15:03+00:00",
+        "updatedAt": "2018-12-05T17:15:03+00:00"
+    },
+    "pushConsents": [],
+    "type": "IOS",
+    "status": "ACTIVE",
+    "appVersion": "7.1",
+    "osVersion": null,
+    "model": "Simulator",
+    "manufacturer": "Apple",
+    "bluetoothOn": null,
+    "wifiConnected": null,
+    "createdAt": null,
+    "updatedAt": null
+}

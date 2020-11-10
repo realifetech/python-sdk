@@ -1,0 +1,29 @@
+{
+    "@context": "/v4/contexts/Device",
+    "@id": "/v4/devices/1754392",
+    "@type": "Device",
+    "id": 1754392,
+    "token": "A12B149B-20C1-4958-B85F-4D248123456",
+    "consent": {
+        "id": 4299,
+        "locationCapture": true,
+        "locationGranular": "appInUse",
+        "camera": false,
+        "calendar": false,
+        "photoSharing": false,
+        "pushNotification": true,
+        "createdAt": "2020-02-05T14:29:53+00:00",
+        "updatedAt": "2020-02-05T14:29:56+00:00"
+    },
+    "pushConsents": [],
+    "type": "IOS",
+    "status": "ACTIVE",
+    "appVersion": "10.8",
+    "osVersion": "13.3",
+    "model": "Simulator",
+    "manufacturer": "APPLE",
+    "bluetoothOn": false,
+    "wifiConnected": true,
+    "createdAt": "2020-02-05T14:29:40+00:00",
+    "updatedAt": "2020-02-05T14:29:40+00:00"
+}

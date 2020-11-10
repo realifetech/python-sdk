@@ -1,0 +1,87 @@
+{
+  "@context": "/v4/contexts/TicketAuth",
+  "@id": "/v4/ticket_auths",
+  "@type": "hydra:Collection",
+  "hydra:member": [
+    {
+      "@context": "/v4/contexts/TicketAuth",
+      "@id": "/v4/ticket_auths/1038",
+      "@type": "TicketAuth",
+      "id": 1038,
+      "userEmail": {
+        "id": 330325,
+        "valid": true,
+        "email": "amy.keane+verificatintest@livestyled.com"
+      },
+      "ticketIntegration": "/v4/ticket_integrations/40",
+      "clientEmail": "amy.keane+verificatintest@livestyled.com",
+      "clientId": "129494829",
+      "app": "/v4/apps/27"
+    },
+    {
+      "@id": "/v4/ticket_auths/25",
+      "@type": "TicketAuth",
+      "id": 25,
+      "expireAt": "2018-05-04T00:00:00+00:00",
+      "clientEmail": "blueticketsandbox@gmail.com",
+      "clientId": "238026"
+    },
+    {
+      "@id": "/v4/ticket_auths/27",
+      "@type": "TicketAuth",
+      "id": 27,
+      "expireAt": "2018-05-09T00:00:00+00:00",
+      "clientEmail": "blueticketsandbox@gmail.com",
+      "clientId": "238026"
+    }
+  ],
+  "hydra:totalItems": 3,
+  "hydra:view": {
+    "@id": "/v4/ticket_auths?page=1",
+    "@type": "hydra:PartialCollectionView",
+    "hydra:first": "/v4/ticket_auths?page=1"
+  },
+  "hydra:search": {
+    "@type": "hydra:IriTemplate",
+    "hydra:template": "/v4/ticket_auths{?userEmail.email,userEmail.email[],ticketIntegration,ticketIntegration[],clientEmail,clientEmail[]}",
+    "hydra:variableRepresentation": "BasicRepresentation",
+    "hydra:mapping": [
+      {
+        "@type": "IriTemplateMapping",
+        "variable": "userEmail.email",
+        "property": "userEmail.email",
+        "required": false
+      },
+      {
+        "@type": "IriTemplateMapping",
+        "variable": "userEmail.email[]",
+        "property": "userEmail.email",
+        "required": false
+      },
+      {
+        "@type": "IriTemplateMapping",
+        "variable": "ticketIntegration",
+        "property": "ticketIntegration",
+        "required": false
+      },
+      {
+        "@type": "IriTemplateMapping",
+        "variable": "ticketIntegration[]",
+        "property": "ticketIntegration",
+        "required": false
+      },
+      {
+        "@type": "IriTemplateMapping",
+        "variable": "clientEmail",
+        "property": "clientEmail",
+        "required": false
+      },
+      {
+        "@type": "IriTemplateMapping",
+        "variable": "clientEmail[]",
+        "property": "clientEmail",
+        "required": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,1039 @@
+{
+    "@context": "/v4/contexts/Sell/FulfilmentPoint",
+    "@id": "/v4/sell/fulfilment_points",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/v4/sell/fulfilment_points/1",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 1,
+            "status": "ACTIVE",
+            "reference": "kartiks Collection point",
+            "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/fulfilmentpoint/German-Shepherd-Puppy-Fetch.jpg",
+            "mapImageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/fulfilmentpoint/british_summer_time_map_bigger.jpg",
+            "lat": "38.026641",
+            "long": "38.026641",
+            "type": "VIRTUAL_QUEUE",
+            "position": 0,
+            "createdAt": "2019-06-03T09:36:11+00:00",
+            "updatedAt": "2020-08-17T14:52:47+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Fulfilment point 1",
+                    "description": "Description",
+                    "collectionNote": "Fulfillment note 1"
+                }
+            ],
+            "categories": [
+                "/v4/fulfilment_point_categories/1"
+            ]
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/3",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 3,
+            "status": "ACTIVE",
+            "reference": "JA's Collection Point",
+            "mapImageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/fulfilmentpoint/Screenshot%202019-07-16%20at%2016.37.21.png",
+            "type": "HOME_DELIVERY",
+            "position": 1,
+            "createdAt": "2019-07-17T16:30:51+00:00",
+            "updatedAt": "2020-08-12T08:25:30+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000974",
+            "translations": [],
+            "categories": [
+                "/v4/fulfilment_point_categories/1"
+            ],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/4",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 4,
+            "externalId": "S3E7VQW34HDJ0",
+            "status": "ACTIVE",
+            "reference": "Red Star Holdings LLC",
+            "lat": "38.026641",
+            "long": "-78.468115",
+            "type": "COLLECTION",
+            "position": 3,
+            "createdAt": "2019-07-24T13:35:03+00:00",
+            "updatedAt": "2020-01-17T12:12:34+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000981",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "the Merch tent",
+                    "description": "Red Star Holdings LLC",
+                    "collectionNote": "Fp notes 1"
+                }
+            ],
+            "categories": [
+                "/v4/fulfilment_point_categories/8"
+            ],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/5",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 5,
+            "externalId": "4Z7RQHGNBG7EX",
+            "status": "ACTIVE",
+            "reference": "Three Twins Ice Cream - Polo Field North",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:47:59+00:00",
+            "updatedAt": "2020-06-18T12:16:04+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000981",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Three Twins Ice Cream - Polo Field North",
+                    "description": "Three Twins Ice Cream - Polo Field North",
+                    "collectionNote": "FP notes"
+                }
+            ],
+            "categories": [
+                "/v4/fulfilment_point_categories/8"
+            ],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/6",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 6,
+            "externalId": "VCCSY6023334H",
+            "status": "ACTIVE",
+            "reference": "Tres Tequila Lounge & Mexican Kitchen - McLaren Pass/Victorians",
+            "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/fulfilmentpoint/German-Shepherd-Puppy-Fetch.jpg",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:47:59+00:00",
+            "updatedAt": "2019-11-11T15:22:53+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Fulfilment point 6",
+                    "description": "Description",
+                    "collectionNote": "Fulfilment Point"
+                }
+            ],
+            "categories": [
+                "/v4/fulfilment_point_categories/1"
+            ],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/7",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 7,
+            "externalId": "98SAQBG4WHWM5",
+            "status": "ACTIVE",
+            "reference": "Trestle-Hellman Hollow South",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:00+00:00",
+            "updatedAt": "2019-07-25T17:24:51+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Trestle-Hellman Hollow South",
+                    "description": "Trestle-Hellman Hollow South",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/8",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 8,
+            "externalId": "8A2FK1MA8GYPA",
+            "status": "ACTIVE",
+            "reference": "Wise Sons-Hellman Hollow South ",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:01+00:00",
+            "updatedAt": "2019-07-25T17:24:51+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Wise Sons-Hellman Hollow South ",
+                    "description": "Wise Sons-Hellman Hollow South ",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/9",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 9,
+            "externalId": "KT96PA9F8M14X",
+            "status": "ACTIVE",
+            "reference": "Woodhouse Fish Co. - Hellman Hollow",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:01+00:00",
+            "updatedAt": "2019-07-25T17:25:55+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Woodhouse Fish Co. - Hellman Hollow",
+                    "description": "Woodhouse Fish Co. - Hellman Hollow",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/10",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 10,
+            "externalId": "0ARN7X0J8X8NB",
+            "status": "ACTIVE",
+            "reference": "Woodhouse Fish Co. - Winelands",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 1,
+            "createdAt": "2019-07-25T08:48:02+00:00",
+            "updatedAt": "2019-07-25T17:25:55+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Woodhouse Fish Co. - Winelands",
+                    "description": "Woodhouse Fish Co. - Winelands",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/11",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 11,
+            "externalId": "5HDKBZW65Z651",
+            "status": "ACTIVE",
+            "reference": "Guittard Chocolate-Winelands West Courtyard",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:02+00:00",
+            "updatedAt": "2019-07-25T18:57:05+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Guittard Chocolate-Winelands West Courtyard",
+                    "description": "Guittard Chocolate-Winelands West Courtyard",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/12",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 12,
+            "externalId": "XVJEHHPEZ8SPP",
+            "status": "ACTIVE",
+            "reference": "Peet's",
+            "lat": "37.869586",
+            "long": "-122.30018",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:03+00:00",
+            "updatedAt": "2019-07-25T08:48:03+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Peet's",
+                    "description": "Peet's",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/13",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 13,
+            "externalId": "KBTJ5DF0B8KJH",
+            "status": "ACTIVE",
+            "reference": "Precita Park Cafe-Polo Field South ",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:04+00:00",
+            "updatedAt": "2019-07-25T08:48:04+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Precita Park Cafe-Polo Field South ",
+                    "description": "Precita Park Cafe-Polo Field South ",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/14",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 14,
+            "externalId": "Z9Z7RDGF5RZQA",
+            "status": "ACTIVE",
+            "reference": "Dabba-Polo Field North",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:04+00:00",
+            "updatedAt": "2019-07-25T08:48:04+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Dabba-Polo Field North",
+                    "description": "Dabba-Polo Field North",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/15",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 15,
+            "externalId": "VQDME43EAH1G8",
+            "status": "ACTIVE",
+            "reference": "Son's Addition-Hellman Hollow South ",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:05+00:00",
+            "updatedAt": "2019-07-25T08:48:05+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Son's Addition-Hellman Hollow South ",
+                    "description": "Son's Addition-Hellman Hollow South ",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/16",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 16,
+            "externalId": "44EZWZ2DGBPTB",
+            "status": "ACTIVE",
+            "reference": "The Little Chihuahua - Hendricks",
+            "lat": "37.869586",
+            "long": "-122.30018",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:06+00:00",
+            "updatedAt": "2019-07-25T08:48:06+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "The Little Chihuahua - Hendricks",
+                    "description": "The Little Chihuahua - Hendricks",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/17",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 17,
+            "externalId": "TXBT7ZQSA28XM",
+            "status": "ACTIVE",
+            "reference": "Southpaw - Jim Beam",
+            "lat": "37.869586",
+            "long": "-122.30018",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:06+00:00",
+            "updatedAt": "2019-07-25T08:48:06+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Southpaw - Jim Beam",
+                    "description": "Southpaw - Jim Beam",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/18",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 18,
+            "externalId": "E3XCT62X143GF",
+            "status": "ACTIVE",
+            "reference": "Cannaisseur Series",
+            "lat": "37.869586",
+            "long": "-122.30018",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:08+00:00",
+            "updatedAt": "2019-07-25T08:48:08+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Cannaisseur Series",
+                    "description": "Cannaisseur Series",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/19",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 19,
+            "externalId": "DNPZ5ZY5NHE7C",
+            "status": "ACTIVE",
+            "reference": "Rocko's Ice Cream Tacos-Winelands West Courtyard",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:10+00:00",
+            "updatedAt": "2019-07-25T08:48:10+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Rocko's Ice Cream Tacos-Winelands West Courtyard",
+                    "description": "Rocko's Ice Cream Tacos-Winelands West Courtyard",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/20",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 20,
+            "externalId": "FC18YMG78D7YC",
+            "status": "ACTIVE",
+            "reference": "Lady Falcon Coffee Club-Hellman Hollow North ",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:22+00:00",
+            "updatedAt": "2019-07-25T08:48:22+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Lady Falcon Coffee Club-Hellman Hollow North ",
+                    "description": "Lady Falcon Coffee Club-Hellman Hollow North ",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/21",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 21,
+            "externalId": "GXT2K8YJMV1ZR",
+            "status": "ACTIVE",
+            "reference": "Mozzeria-Lindley Meadow East",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:24+00:00",
+            "updatedAt": "2019-07-25T08:48:24+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Mozzeria-Lindley Meadow East",
+                    "description": "Mozzeria-Lindley Meadow East",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/22",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 22,
+            "externalId": "EGV8T52EVJQ77",
+            "status": "ACTIVE",
+            "reference": "Alicia's Tamales Los Mayas-Polo Field North",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2019-07-25T08:48:25+00:00",
+            "updatedAt": "2019-07-25T08:48:25+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Alicia's Tamales Los Mayas-Polo Field North",
+                    "description": "Alicia's Tamales Los Mayas-Polo Field North",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/23",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 23,
+            "externalId": "Y6X6RKR1A7C8T",
+            "status": "ACTIVE",
+            "reference": "The Little Chihuahua - Polo Field South",
+            "lat": "37.776012",
+            "long": "-122.43205",
+            "type": "COLLECTION",
+            "position": 1,
+            "createdAt": "2019-07-25T08:48:26+00:00",
+            "updatedAt": "2019-07-25T08:48:26+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "The Little Chihuahua - Polo Field South",
+                    "description": "The Little Chihuahua - Polo Field South",
+                    "collectionNote": ""
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/327",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 327,
+            "status": "ACTIVE",
+            "reference": "Fulfilment point  1 - category 1",
+            "type": "VIRTUAL_QUEUE",
+            "position": 1,
+            "createdAt": "2019-11-25T16:02:31+00:00",
+            "updatedAt": "2020-08-20T10:57:56+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Beer from category 1",
+                    "description": "Beer and drink"
+                }
+            ],
+            "categories": [
+                "/v4/fulfilment_point_categories/1"
+            ],
+            "waitTime": 55,
+            "prepTime": 10,
+            "timeslots": [
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/8"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/14"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/15"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/22"
+                }
+            ]
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/328",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 328,
+            "status": "ACTIVE",
+            "reference": "Fulfilment point 2 - category 1",
+            "type": "HOME_DELIVERY",
+            "position": 2,
+            "createdAt": "2019-11-25T16:03:18+00:00",
+            "updatedAt": "2020-08-17T15:26:46+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Burger",
+                    "description": "Burger from category 1"
+                }
+            ],
+            "categories": [
+                "/v4/fulfilment_point_categories/1"
+            ],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/329",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 329,
+            "status": "ACTIVE",
+            "reference": "Fulfilment point  1 - category 2",
+            "type": "COLLECTION",
+            "position": 1,
+            "createdAt": "2019-11-25T16:05:15+00:00",
+            "updatedAt": "2019-11-25T16:05:15+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Drink",
+                    "description": "Drink from category 2"
+                }
+            ],
+            "categories": [
+                "/v4/fulfilment_point_categories/3"
+            ],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/330",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 330,
+            "status": "ACTIVE",
+            "reference": "Fulfilment point 2 - category 2",
+            "type": "COLLECTION",
+            "position": 2,
+            "createdAt": "2019-11-25T16:05:52+00:00",
+            "updatedAt": "2019-11-25T16:05:52+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "venue": "/v4/venues/10000917",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Wingstop",
+                    "description": "category 2"
+                }
+            ],
+            "categories": [
+                "/v4/fulfilment_point_categories/3"
+            ],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/350",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 350,
+            "status": "ACTIVE",
+            "reference": "Fulfilment point 1",
+            "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/fulfilmentpoint/white-png-7.png",
+            "mapImageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/fulfilmentpoint/white-png-7.png",
+            "lat": "38.026641",
+            "long": "38.026641",
+            "type": "HOME_DELIVERY",
+            "position": 1,
+            "createdAt": "2020-03-19T08:53:08+00:00",
+            "updatedAt": "2020-08-06T10:50:16+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Fulfilment title point 1",
+                    "description": "Fulfilment desc point 1",
+                    "collectionNote": "Fulfilment point note 1"
+                }
+            ],
+            "categories": [
+                "/v4/fulfilment_point_categories/20"
+            ],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/368",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 368,
+            "status": "ACTIVE",
+            "reference": "Pallavi's Bar",
+            "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/fulfilmentpoint/color-wheel.png",
+            "mapImageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/fulfilmentpoint/02.PNG",
+            "type": "VIRTUAL_QUEUE",
+            "position": 1,
+            "createdAt": "2020-05-26T15:09:02+00:00",
+            "updatedAt": "2020-08-20T10:57:59+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Pallavi's Bar",
+                    "description": "Test description: Collection point collect when ready test",
+                    "collectionNote": "Test fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test"
+                }
+            ],
+            "categories": [
+                "/v4/fulfilment_point_categories/3"
+            ],
+            "waitTime": 10,
+            "prepTime": 10,
+            "timeslots": [
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/8"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/9"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/11"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/12"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/21"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/22"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/23"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/24"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/26"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/27"
+                },
+                {
+                    "@context": {
+                        "@vocab": "http://api-staging.livestyled.com/v4/docs.jsonld#",
+                        "hydra": "http://www.w3.org/ns/hydra/core#",
+                        "id": "TimeslotOutputResponse/id",
+                        "externalId": "TimeslotOutputResponse/externalId",
+                        "title": "TimeslotOutputResponse/title",
+                        "reference": "TimeslotOutputResponse/reference",
+                        "startTime": "TimeslotOutputResponse/startTime",
+                        "endTime": "TimeslotOutputResponse/endTime",
+                        "createdAt": "TimeslotOutputResponse/createdAt",
+                        "updatedAt": "TimeslotOutputResponse/updatedAt",
+                        "translations": "TimeslotOutputResponse/translations"
+                    },
+                    "@type": "Timeslot",
+                    "@id": "/sell/timeslots/40"
+                }
+            ]
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/369",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 369,
+            "status": "ACTIVE",
+            "reference": "'Digital redemption' test",
+            "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/fulfilmentpoint/images.jpeg",
+            "mapImageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/fulfilmentpoint/color-wheel.png",
+            "type": "DIGITAL_REDEMPTION",
+            "position": 2,
+            "createdAt": "2020-05-26T15:10:55+00:00",
+            "updatedAt": "2020-05-26T15:10:55+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "'Digital redemption' title",
+                    "description": "'Digital redemption' description",
+                    "collectionNote": "'Digital redemption' fulfilment point note"
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        },
+        {
+            "@id": "/v4/sell/fulfilment_points/370",
+            "@type": "Sell/FulfilmentPoint",
+            "id": 370,
+            "status": "ACTIVE",
+            "reference": "TEST Fulfilment point 1",
+            "type": "COLLECTION",
+            "position": 0,
+            "createdAt": "2020-06-12T16:02:27+00:00",
+            "updatedAt": "2020-06-12T16:02:27+00:00",
+            "app": "/v4/user_management/tenants/27",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "TEST Fulfilment point 1"
+                }
+            ],
+            "categories": [],
+            "timeslots": []
+        }
+    ],
+    "hydra:totalItems": 55,
+    "hydra:view": {
+        "@id": "/v4/sell/fulfilment_points?page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/sell/fulfilment_points?page=1",
+        "hydra:last": "/v4/sell/fulfilment_points?page=2"
+    }
+}

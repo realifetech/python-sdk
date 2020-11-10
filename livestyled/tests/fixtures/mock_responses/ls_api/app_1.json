@@ -1,0 +1,39 @@
+{
+    "@id": "/v4/apps/1",
+    "@type": "App",
+    "email": null,
+    "roles": [
+        "ROLE_APP"
+    ],
+    "password": "APPID",
+    "salt": null,
+    "username": "TestAppUser1",
+    "code": "TARENA1",
+    "token": "token",
+    "id": 1,
+    "name": "Test Arena 1",
+    "apiKeys": [
+        "APPID"
+    ],
+    "timezone": "Europe/London",
+    "googleApiKey": null,
+    "paymentGateway": "PAYMENTGW1",
+    "venues": [],
+    "senderEmail": "support@livestyed.net",
+    "deeplinkNamespace": "",
+    "merchantAccounts": [],
+    "title": "Test Arena 1",
+    "status": "DISABLED",
+    "currency": {
+        "id": 1,
+        "title": "Pound",
+        "isoCode": "GBP",
+        "sign": "£",
+        "updatedAt": "2016-08-09T10:49:34+00:00",
+        "createdAt": "2016-08-09T10:49:34+00:00",
+        "__initializer__": null,
+        "__cloner__": null,
+        "__isInitialized__": true
+    },
+    "cohorts": []
+}

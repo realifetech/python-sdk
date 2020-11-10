@@ -1,0 +1,119 @@
+{
+    "@context": "/v4/contexts/News",
+    "@id": "/v4/news",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@context": "/v4/contexts/News",
+            "@id": "/v4/news/1234",
+            "@type": "News",
+            "id": 1234,
+            "featured": false,
+            "url": "https://www.thenews.com",
+            "imageUrl": "https://image.livestyled.com/abcdefg",
+            "headline": "Some news",
+            "title": "Things happened",
+            "externalId": "50990",
+            "status": "ACTIVE",
+            "publishedAt": "2020-02-23T04:56:59+00:00",
+            "createdAt": "2020-02-24T14:43:50+00:00",
+            "updatedAt": "2020-03-18T01:15:07+00:00",
+            "media": {
+                "id": 458911,
+                "type": "EXTERNALVIDEO",
+                "url": "https://www.thenews.com/video",
+                "createdAt": "2020-02-26T10:50:07+00:00",
+                "updatedAt": "2020-02-26T10:50:07+00:00"
+            }
+        },
+        {
+            "@context": "/v4/contexts/News",
+            "@id": "/v4/news/1235",
+            "@type": "News",
+            "id": 1235,
+            "featured": false,
+            "url": "https://www.thenews.com",
+            "imageUrl": "https://image.livestyled.com/abcdefg",
+            "headline": "Some more news",
+            "title": "Other Things happened",
+            "externalId": "50991",
+            "status": "ACTIVE",
+            "publishedAt": "2020-02-23T04:56:59+00:00",
+            "createdAt": "2020-02-24T14:43:50+00:00",
+            "updatedAt": "2020-03-18T01:15:07+00:00",
+            "media": {
+                "id": 458912,
+                "type": "EXTERNALVIDEO",
+                "url": "https://www.thenews.com/video",
+                "createdAt": "2020-02-26T10:50:07+00:00",
+                "updatedAt": "2020-02-26T10:50:07+00:00"
+            }
+        }
+    ],
+    "hydra:totalItems": 2,
+    "hydra:view": {
+        "@id": "/v4/news",
+        "@type": "hydra:PartialCollectionView"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/v4/news{?order[id],externalId,externalId[],status,status[],publishedAt[before],publishedAt[strictly_before],publishedAt[after],publishedAt[strictly_after]}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[id]",
+                "property": "id",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "externalId",
+                "property": "externalId",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "externalId[]",
+                "property": "externalId",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "status",
+                "property": "status",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "status[]",
+                "property": "status",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "publishedAt[before]",
+                "property": "publishedAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "publishedAt[strictly_before]",
+                "property": "publishedAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "publishedAt[after]",
+                "property": "publishedAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "publishedAt[strictly_after]",
+                "property": "publishedAt",
+                "required": false
+            }
+        ]
+    }
+}

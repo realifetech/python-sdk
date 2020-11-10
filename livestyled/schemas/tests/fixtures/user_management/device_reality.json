@@ -1,0 +1,9 @@
+{
+  "@context": "DeviceReality",
+  "@id": "/user_management/device_realities/1",
+  "reality": "/user_management/realities/1",
+  "device": "/user_management/devices/9",
+  "value": "true",
+  "createdAt": "2020-09-03T12:09:45.932Z",
+  "updatedAt": "2020-09-03T12:09:45.932Z"
+}

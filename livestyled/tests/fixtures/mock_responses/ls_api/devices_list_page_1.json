@@ -1,0 +1,98 @@
+{
+    "@context": "/v4/contexts/Device",
+    "@id": "/v4/devices",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/v4/devices/1",
+            "@type": "Device",
+            "id": 1,
+            "token": "4450430550887",
+            "consent": null,
+            "pushConsents": [],
+            "type": "IOS",
+            "status": "ACTIVE",
+            "appVersion": "7.1",
+            "osVersion": null,
+            "model": "iPhone 5S",
+            "manufacturer": "Apple",
+            "bluetoothOn": null,
+            "wifiConnected": null,
+            "createdAt": null,
+            "updatedAt": "2019-11-08T12:11:10+00:00"
+        },
+        {
+            "@id": "/v4/devices/6",
+            "@type": "Device",
+            "id": 6,
+            "token": "002332C86002",
+            "consent": {
+                "id": 2,
+                "locationCapture": true,
+                "locationGranular": null,
+                "camera": true,
+                "calendar": false,
+                "photoSharing": true,
+                "pushNotification": true,
+                "createdAt": "2018-12-05T17:15:03+00:00",
+                "updatedAt": "2018-12-05T17:15:03+00:00"
+            },
+            "pushConsents": [],
+            "type": "IOS",
+            "status": "ACTIVE",
+            "appVersion": "7.1",
+            "osVersion": null,
+            "model": "Simulator",
+            "manufacturer": "Apple",
+            "bluetoothOn": null,
+            "wifiConnected": null,
+            "createdAt": null,
+            "updatedAt": null
+        }
+    ],
+    "hydra:totalItems": 3,
+    "hydra:view": {
+        "@id": "/v4/devices?page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/user_management/devices?page=1",
+        "hydra:last": "/v4/user_management/devices?page=2",
+        "hydra:next": "/v4/user_management/devices?page=2"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/v4/devices{?order[id],token,token[],status,status[]}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[id]",
+                "property": "id",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "token",
+                "property": "token",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "token[]",
+                "property": "token",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "status",
+                "property": "status",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "status[]",
+                "property": "status",
+                "required": false
+            }
+        ]
+    }
+}

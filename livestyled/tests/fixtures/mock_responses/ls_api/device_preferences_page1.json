@@ -1,0 +1,334 @@
+{
+    "@context": "/v4/contexts/DevicePreference",
+    "@id": "/v4/device_preferences",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/v4/device_preferences/1",
+            "@type": "DevicePreference",
+            "id": 1,
+            "createdAt": "2019-02-12T15:12:46+00:00",
+            "device": "/v4/devices/1620610",
+            "venue": "/v4/venues/10000918",
+            "event": null
+        },
+        {
+            "@id": "/v4/device_preferences/2",
+            "@type": "DevicePreference",
+            "id": 2,
+            "createdAt": "2019-02-12T15:20:45+00:00",
+            "device": "/v4/devices/1748071",
+            "venue": "/v4/venues/10000917",
+            "event": null
+        },
+        {
+            "@id": "/v4/device_preferences/3",
+            "@type": "DevicePreference",
+            "id": 3,
+            "createdAt": "2019-08-23T16:33:40+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100015922"
+        },
+        {
+            "@id": "/v4/device_preferences/4",
+            "@type": "DevicePreference",
+            "id": 4,
+            "createdAt": "2019-08-27T17:19:06+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100015921"
+        },
+        {
+            "@id": "/v4/device_preferences/5",
+            "@type": "DevicePreference",
+            "id": 5,
+            "createdAt": "2019-08-27T17:23:38+00:00",
+            "device": "/v4/devices/1751590",
+            "venue": null,
+            "event": "/v4/events/100015922"
+        },
+        {
+            "@id": "/v4/device_preferences/6",
+            "@type": "DevicePreference",
+            "id": 6,
+            "createdAt": "2019-08-27T17:29:36+00:00",
+            "device": "/v4/devices/1751590",
+            "venue": null,
+            "event": "/v4/events/100015921"
+        },
+        {
+            "@id": "/v4/device_preferences/7",
+            "@type": "DevicePreference",
+            "id": 7,
+            "createdAt": "2019-08-27T17:29:58+00:00",
+            "device": "/v4/devices/1751590",
+            "venue": null,
+            "event": "/v4/events/100015922"
+        },
+        {
+            "@id": "/v4/device_preferences/8",
+            "@type": "DevicePreference",
+            "id": 8,
+            "createdAt": "2019-08-27T17:33:29+00:00",
+            "device": "/v4/devices/1751590",
+            "venue": null,
+            "event": "/v4/events/100015921"
+        },
+        {
+            "@id": "/v4/device_preferences/9",
+            "@type": "DevicePreference",
+            "id": 9,
+            "createdAt": "2019-08-27T17:33:34+00:00",
+            "device": "/v4/devices/1751590",
+            "venue": null,
+            "event": "/v4/events/100015921"
+        },
+        {
+            "@id": "/v4/device_preferences/10",
+            "@type": "DevicePreference",
+            "id": 10,
+            "createdAt": "2019-08-27T17:34:00+00:00",
+            "device": "/v4/devices/1751590",
+            "venue": null,
+            "event": "/v4/events/100015922"
+        },
+        {
+            "@id": "/v4/device_preferences/11",
+            "@type": "DevicePreference",
+            "id": 11,
+            "createdAt": "2019-08-29T13:25:06+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100012068"
+        },
+        {
+            "@id": "/v4/device_preferences/12",
+            "@type": "DevicePreference",
+            "id": 12,
+            "createdAt": "2019-08-29T13:26:22+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100012068"
+        },
+        {
+            "@id": "/v4/device_preferences/14",
+            "@type": "DevicePreference",
+            "id": 14,
+            "createdAt": "2019-08-29T13:46:38+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100012068"
+        },
+        {
+            "@id": "/v4/device_preferences/15",
+            "@type": "DevicePreference",
+            "id": 15,
+            "createdAt": "2019-08-29T16:59:18+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100012068"
+        },
+        {
+            "@id": "/v4/device_preferences/16",
+            "@type": "DevicePreference",
+            "id": 16,
+            "createdAt": "2019-08-29T16:59:21+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100012068"
+        },
+        {
+            "@id": "/v4/device_preferences/17",
+            "@type": "DevicePreference",
+            "id": 17,
+            "createdAt": "2019-08-29T16:59:24+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100012068"
+        },
+        {
+            "@id": "/v4/device_preferences/18",
+            "@type": "DevicePreference",
+            "id": 18,
+            "createdAt": "2019-08-29T16:59:49+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100012068"
+        },
+        {
+            "@id": "/v4/device_preferences/19",
+            "@type": "DevicePreference",
+            "id": 19,
+            "createdAt": "2019-08-29T16:59:52+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100012068"
+        },
+        {
+            "@id": "/v4/device_preferences/20",
+            "@type": "DevicePreference",
+            "id": 20,
+            "createdAt": "2019-08-29T16:59:55+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100012068"
+        },
+        {
+            "@id": "/v4/device_preferences/21",
+            "@type": "DevicePreference",
+            "id": 21,
+            "createdAt": "2019-08-29T16:59:57+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100012068"
+        },
+        {
+            "@id": "/v4/device_preferences/22",
+            "@type": "DevicePreference",
+            "id": 22,
+            "createdAt": "2019-08-29T16:59:59+00:00",
+            "device": "/v4/devices/1748339",
+            "venue": null,
+            "event": "/v4/events/100012068"
+        },
+        {
+            "@id": "/v4/device_preferences/23",
+            "@type": "DevicePreference",
+            "id": 23,
+            "createdAt": "2019-09-03T15:57:42+00:00",
+            "device": "/v4/devices/1752160",
+            "venue": null,
+            "event": "/v4/events/100015938"
+        },
+        {
+            "@id": "/v4/device_preferences/24",
+            "@type": "DevicePreference",
+            "id": 24,
+            "createdAt": "2019-09-05T11:12:25+00:00",
+            "device": "/v4/devices/1752183",
+            "venue": null,
+            "event": "/v4/events/100016484"
+        },
+        {
+            "@id": "/v4/device_preferences/25",
+            "@type": "DevicePreference",
+            "id": 25,
+            "createdAt": "2019-09-05T11:41:22+00:00",
+            "device": "/v4/devices/1751782",
+            "venue": null,
+            "event": "/v4/events/100015938"
+        },
+        {
+            "@id": "/v4/device_preferences/26",
+            "@type": "DevicePreference",
+            "id": 26,
+            "createdAt": "2019-09-05T11:41:40+00:00",
+            "device": "/v4/devices/1751782",
+            "venue": null,
+            "event": "/v4/events/100015860"
+        },
+        {
+            "@id": "/v4/device_preferences/27",
+            "@type": "DevicePreference",
+            "id": 27,
+            "createdAt": "2019-09-05T11:50:42+00:00",
+            "device": "/v4/devices/1752183",
+            "venue": null,
+            "event": "/v4/events/100015869"
+        },
+        {
+            "@id": "/v4/device_preferences/28",
+            "@type": "DevicePreference",
+            "id": 28,
+            "createdAt": "2019-09-05T11:51:32+00:00",
+            "device": "/v4/devices/1752183",
+            "venue": null,
+            "event": "/v4/events/100015938"
+        },
+        {
+            "@id": "/v4/device_preferences/29",
+            "@type": "DevicePreference",
+            "id": 29,
+            "createdAt": "2019-09-05T11:53:25+00:00",
+            "device": "/v4/devices/1752183",
+            "venue": null,
+            "event": "/v4/events/100015938"
+        },
+        {
+            "@id": "/v4/device_preferences/30",
+            "@type": "DevicePreference",
+            "id": 30,
+            "createdAt": "2019-09-05T11:54:39+00:00",
+            "device": "/v4/devices/1752183",
+            "venue": null,
+            "event": "/v4/events/100015938"
+        },
+        {
+            "@id": "/v4/device_preferences/31",
+            "@type": "DevicePreference",
+            "id": 31,
+            "createdAt": "2019-09-05T11:56:52+00:00",
+            "device": "/v4/devices/1752183",
+            "venue": null,
+            "event": "/v4/events/100015938"
+        }
+    ],
+    "hydra:totalItems": 31,
+    "hydra:view": {
+        "@id": "/v4/device_preferences?page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/device_preferences?page=1",
+        "hydra:last": "/v4/device_preferences?page=2",
+        "hydra:next": "/v4/device_preferences?page=2"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/v4/device_preferences{?order[id],device,device[],venue,venue[],event,event[]}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[id]",
+                "property": "id",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "device",
+                "property": "device",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "device[]",
+                "property": "device",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "venue",
+                "property": "venue",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "venue[]",
+                "property": "venue",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "event",
+                "property": "event",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "event[]",
+                "property": "event",
+                "required": false
+            }
+        ]
+    }
+}

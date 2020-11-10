@@ -1,0 +1,5 @@
+[flake8]
+ignore = E501,F405
+import-order-style = appnexus
+application-import-names = livestyled
+application-package-names =

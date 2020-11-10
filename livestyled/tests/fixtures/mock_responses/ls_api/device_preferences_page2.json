@@ -1,0 +1,73 @@
+{
+    "@context": "/v4/contexts/DevicePreference",
+    "@id": "/v4/device_preferences",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/v4/device_preferences/32",
+            "@type": "DevicePreference",
+            "id": 32,
+            "createdAt": "2019-09-05T15:28:30+00:00",
+            "device": "/v4/devices/1752189",
+            "venue": null,
+            "event": "/v4/events/100016029"
+        }
+    ],
+    "hydra:totalItems": 31,
+    "hydra:view": {
+        "@id": "/v4/device_preferences?page=2",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/device_preferences?page=1",
+        "hydra:last": "/v4/device_preferences?page=2",
+        "hydra:previous": "/v4/device_preferences?page=1"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/v4/device_preferences{?order[id],device,device[],venue,venue[],event,event[]}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[id]",
+                "property": "id",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "device",
+                "property": "device",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "device[]",
+                "property": "device",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "venue",
+                "property": "venue",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "venue[]",
+                "property": "venue",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "event",
+                "property": "event",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "event[]",
+                "property": "event",
+                "required": false
+            }
+        ]
+    }
+}

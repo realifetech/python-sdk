@@ -1,0 +1,13 @@
+{
+    "@context": "/v4/contexts/Competition",
+    "@id": "/v4/competitions/58",
+    "@type": "Competition",
+    "id": 58,
+    "name": "MLS Regular Season - West Conference",
+    "status": "ACTIVE",
+    "externalId": "98",
+    "logoUrl": null,
+    "sortId": 0,
+    "createdAt": "2020-01-31T14:23:49+00:00",
+    "updatedAt": "2020-02-27T12:09:20+00:00"
+}

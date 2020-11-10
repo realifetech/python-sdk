@@ -1,0 +1,47 @@
+{
+    "@context": "/v4/contexts/Sell/Order",
+    "@id": "/sell/orders/1",
+    "@type": "Sell/Order",
+    "id": 1,
+    "app": {
+        "@id": "/v4/user_management/tenants/27",
+        "@type": "UserManagement/Tenant",
+        "id": 27,
+        "currency": {
+            "@id": "/v4/currencies/1",
+            "@type": "Currency",
+            "title": "Pound",
+            "isoCode": "GBP",
+            "sign": "£"
+        }
+    },
+    "device": "/user_management/devices/1748071",
+    "user": "/user_management/users/274814",
+    "status": "IN_PROGRESS",
+    "grossAmount": 1,
+    "discount": 0,
+    "netAmount": 1,
+    "orderNumber": "12345678",
+    "collectionDate": "2020-08-12",
+    "createdAt": "2019-07-04T07:43:53+00:00",
+    "updatedAt": "2020-08-12T14:14:35+00:00",
+    "items": [
+        {
+            "id": 1,
+            "product": "/v4/products/1",
+            "productVariant": "/v4/product_variants/1",
+            "fulfilmentPoint": "/v4/sell/fulfilment_points/1",
+            "quantity": 1,
+            "title": "Kartiks 1st Product",
+            "subtitle": "TEST Product",
+            "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/productimage/Web-Homepage-graphic-1.jpg",
+            "price": 1,
+            "totalPrice": 1
+        }
+    ],
+    "timeslot": "/sell/timeslots/8",
+    "fulfilmentPoint": "/v4/sell/fulfilment_points/1",
+    "estimatedAt": "2020-08-12T13:00:00+00:00",
+    "orderReference": "12345678",
+    "orderNotes": []
+}

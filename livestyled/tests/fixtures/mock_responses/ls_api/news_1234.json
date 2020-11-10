@@ -1,0 +1,23 @@
+{
+    "@context": "/v4/contexts/News",
+    "@id": "/v4/news/1234",
+    "@type": "News",
+    "id": 1234,
+    "featured": false,
+    "url": "https://www.thenews.com",
+    "imageUrl": "https://image.livestyled.com/abcdefg",
+    "headline": "Some news",
+    "title": "Things happened",
+    "externalId": "50990",
+    "status": "ACTIVE",
+    "publishedAt": "2020-02-23T04:56:59+00:00",
+    "createdAt": "2020-02-24T14:43:50+00:00",
+    "updatedAt": "2020-03-18T01:15:07+00:00",
+    "media": {
+        "id": 458911,
+        "type": "EXTERNALVIDEO",
+        "url": "https://www.thenews.com/video",
+        "createdAt": "2020-02-26T10:50:07+00:00",
+        "updatedAt": "2020-02-26T10:50:07+00:00"
+    }
+}

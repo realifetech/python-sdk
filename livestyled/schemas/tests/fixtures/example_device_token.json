@@ -1,0 +1,10 @@
+{
+    "@context": "/v4/contexts/DeviceToken",
+    "@id": "/v4/device_tokens/7",
+    "@type": "DeviceToken",
+    "id": 7,
+    "provider": "GOOGLE",
+    "providerToken": "1213456789ABCDEFG",
+    "payload": [],
+    "device": "/v4/devices/1660877"
+}

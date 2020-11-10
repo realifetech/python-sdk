@@ -1,0 +1,18 @@
+{
+  "@context": "string",
+  "@id": "string",
+  "@type": "string",
+  "id": 0,
+  "externalId": "string",
+  "reference": "string",
+  "status": "string",
+  "position": 0,
+  "translations": [
+    {
+      "language": "en",
+      "title": "string"
+    }
+  ],
+  "createdAt": "2020-08-25T10:16:06.565Z",
+  "updatedAt": "2020-08-25T10:16:06.565Z"
+}

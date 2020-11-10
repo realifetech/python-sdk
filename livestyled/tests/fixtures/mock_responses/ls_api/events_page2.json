@@ -1,0 +1,94 @@
+{
+    "@context": "/v4/contexts/Event",
+    "@id": "/v4/events",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/v4/events/100005826",
+            "@type": "Event",
+            "id": 100005826,
+            "status": "DISABLED",
+            "title": "Bill Hicks",
+            "description": "William Melvin \"Bill\" Hicks was an American stand-up comedian, social critic, satirist, and musician",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/ZYM217TWAILD3BOPVH5F.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T15:06:49+00:00",
+            "updatedAt": "2018-07-24T16:50:42+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5499",
+                    "@type": "EventDate",
+                    "id": 5499,
+                    "startAt": "2018-04-29T15:00:00+00:00",
+                    "endAt": "2018-04-30T15:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/7",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }
+            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/7"
+            ]
+        }
+    ],
+    "hydra:totalItems": 1,
+    "hydra:view": {
+        "@id": "/v4/events?page=2",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/events?page=1",
+        "hydra:last": "/v4/events?page=2",
+        "hydra:previous": "/v4/events?page=1"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/v4/events{?order[id],status,status[],externalId,externalId[],promoted}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[id]",
+                "property": "id",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "status",
+                "property": "status",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "status[]",
+                "property": "status",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "externalId",
+                "property": "externalId",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "externalId[]",
+                "property": "externalId",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "promoted",
+                "property": "promoted",
+                "required": false
+            }
+        ]
+    }
+}

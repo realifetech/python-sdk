@@ -1,0 +1,93 @@
+{
+    "@context": "/v4/contexts/App",
+    "@id": "/v4/apps",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/v4/apps/1",
+            "@type": "App",
+            "email": null,
+            "roles": [
+                "ROLE_APP"
+            ],
+            "password": "APPID",
+            "salt": null,
+            "username": "TestAppUser1",
+            "code": "TARENA1",
+            "token": "token",
+            "id": 1,
+            "name": "Test Arena 1",
+            "apiKeys": [
+                "APPID"
+            ],
+            "timezone": "Europe/London",
+            "googleApiKey": null,
+            "paymentGateway": "PAYMENTGW1",
+            "venues": [],
+            "senderEmail": "support@livestyed.net",
+            "deeplinkNamespace": "",
+            "merchantAccounts": [],
+            "title": "Test Arena 1",
+            "status": "DISABLED",
+            "currency": {
+                "id": 1,
+                "title": "Pound",
+                "isoCode": "GBP",
+                "sign": "£",
+                "updatedAt": "2016-08-09T10:49:34+00:00",
+                "createdAt": "2016-08-09T10:49:34+00:00",
+                "__initializer__": null,
+                "__cloner__": null,
+                "__isInitialized__": true
+            },
+            "cohorts": []
+        },
+        {
+            "@id": "/v4/apps/2",
+            "@type": "App",
+            "email": null,
+            "roles": [
+                "ROLE_APP"
+            ],
+            "password": "password",
+            "salt": null,
+            "username": "TestAppUser2",
+            "code": "TARENA2",
+            "token": "token",
+            "id": 2,
+            "name": "ALT",
+            "apiKeys": [
+                "api-key"
+            ],
+            "timezone": "Europe/London",
+            "googleApiKey": null,
+            "paymentGateway": "PAYMENTGW1",
+            "venues": [],
+            "senderEmail": "support@livestyed.net",
+            "deeplinkNamespace": "",
+            "merchantAccounts": [],
+            "title": "Test Arena 2",
+            "status": "DISABLED",
+            "currency": {
+                "id": 1,
+                "title": "Pound",
+                "isoCode": "GBP",
+                "sign": "£",
+                "updatedAt": "2016-08-09T10:49:34+00:00",
+                "createdAt": "2016-08-09T10:49:34+00:00",
+                "__initializer__": null,
+                "__cloner__": null,
+                "__isInitialized__": true
+            },
+            "cohorts": []
+        }
+    ],
+    "hydra:totalItems": 4,
+    "hydra:view": {
+        "@id": "/v4/apps?page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/apps?page=1",
+        "hydra:last": "/v4/apps?page=2",
+        "hydra:next": "/v4/apps?page=2"
+    }
+}

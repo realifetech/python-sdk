@@ -1,0 +1,72 @@
+{
+    "@context": "/v4/contexts/User",
+    "@id": "/v4/users/278405",
+    "@type": "User",
+    "id": 278405,
+    "userEmails": [
+        {
+            "id": 329601,
+            "valid": false,
+            "email": "reuben.gow+axs2@livestyled.com",
+            "createdAt": "2020-02-19T18:28:28+00:00",
+            "updatedAt": "2020-02-19T18:28:28+00:00"
+        }
+    ],
+    "magicFields": [],
+    "email": "reuben.gow+axs2@livestyled.com",
+    "token": "46c6cc97-bbe7-4209-8d52-b71531959757",
+    "authType": "AXS",
+    "status": "ACTIVE",
+    "createdAt": "2020-02-19T18:28:27+00:00",
+    "updatedAt": "2020-02-19T18:28:27+00:00",
+    "userInfo": {
+        "id": 277763,
+        "firstName": "Reuben",
+        "lastName": "Gow",
+        "createdAt": "2020-02-19T18:28:27+00:00",
+        "dob": "1980-01-01T00:00:00+00:00",
+        "phone": "+4712345678",
+        "updatedAt": "2020-02-19T18:28:27+00:00"
+    },
+    "userConsent": {
+        "id": 658056,
+        "marketingConsent": false,
+        "analysisConsent": true
+    },
+    "devices": [
+        {
+            "@id": "/v4/devices/1754699",
+            "@type": "Device",
+            "id": 1754699,
+            "token": "243aadce-5bf0-4215-935a-2aab22f2a01c:com.livestyled.lagalaxy.beta",
+            "consent": {
+                "id": 4514,
+                "locationCapture": true,
+                "camera": true,
+                "calendar": true,
+                "photoSharing": true,
+                "pushNotification": true,
+                "createdAt": "2020-02-17T14:37:12+00:00",
+                "updatedAt": "2020-02-18T12:53:42+00:00"
+            },
+            "pushConsents": [
+                {
+                    "id": 17441,
+                    "consent": true,
+                    "pushConsent": "/v4/push_consents/60"
+                }
+            ],
+            "type": "ANDROID",
+            "status": "ACTIVE",
+            "appVersion": "10.7",
+            "osVersion": "8.0.0",
+            "model": "SM-G930F",
+            "manufacturer": "samsung",
+            "bluetoothOn": true,
+            "wifiConnected": true,
+            "createdAt": "2020-02-17T14:37:09+00:00",
+            "updatedAt": "2020-02-19T18:28:27+00:00"
+        }
+    ],
+    "cohorts": []
+}

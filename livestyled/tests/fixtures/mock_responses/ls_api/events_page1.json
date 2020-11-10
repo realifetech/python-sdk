@@ -1,0 +1,1253 @@
+{
+    "@context": "/v4/contexts/Event",
+    "@id": "/v4/events",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/v4/events/10000252",
+            "@type": "Event",
+            "id": 10000252,
+            "status": "ACTIVE",
+            "title": "SABATON",
+            "description": "Thirty-three drivers. 200 laps. 500 miles. One bottle of cold milk. The only thing missing from this magical Indianapolis 500 mix is you. Don't miss out on another incredible edition of \"The Greatest Spectacle in Racing.\"",
+            "imageUrl": "http://d255vb63773d25.cloudfront.net/-/media/IMS/events/schedule-images/indy-500/2020/Indy500.png?vs=1&d=20200326T144925Z",
+            "promoted": false,
+            "createdAt": "2015-07-22T17:53:56+00:00",
+            "updatedAt": "2020-04-09T15:00:42+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5448",
+                    "@type": "EventDate",
+                    "id": 5448,
+                    "startAt": "2017-03-29T16:00:00+00:00",
+                    "endAt": "2017-03-29T19:00:00+00:00",
+                    "generalTicketUrl": "https://www.ticketmaster.co.uk/Blue-tickets/artist/1843366"
+                }
+            ],
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }
+            ],
+            "socialMedia": [],
+            "usefulInfo": [
+                {
+                    "@id": "/v4/useful_infos/264",
+                    "@type": "UsefulInfo",
+                    "id": 264,
+                    "title": "24",
+                    "subtitle": "134",
+                    "imageUrl": "1",
+                    "iconUrl": "1",
+                    "url": "124124124",
+                    "translations": [],
+                    "createdAt": "2020-01-27T17:49:05+00:00",
+                    "updatedAt": "2020-01-27T17:49:05+00:00"
+                }
+            ],
+            "translations": [
+                {
+                    "@id": "/v4/event_translations/3",
+                    "@type": "EventTranslation",
+                    "id": 3,
+                    "language": "nb",
+                    "description": "nb test desc",
+                    "createdAt": "2020-02-05T15:45:42+00:00",
+                    "updatedAt": "2020-02-05T15:45:42+00:00"
+                }
+            ],
+            "eventActivities": [
+                {
+                    "@id": "/v4/event_activities/110135",
+                    "@type": "EventActivity",
+                    "id": 110135,
+                    "title": "104th Running of the Indianapolis 500 presented by Gainbridge",
+                    "startAt": "2020-08-23T17:00:00+00:00",
+                    "endAt": "2020-08-23T17:00:00+00:00",
+                    "url": "https://www.indianapolismotorspeedway.com/events/indy500/event-info/schedule?sc_device=mobile&day=sunday-august-23-indianapolis-500#104th-Indianapolis-500",
+                    "createdAt": "2020-04-01T14:30:32+00:00",
+                    "updatedAt": "2020-04-01T14:30:32+00:00"
+                }
+            ],
+            "categories": [
+                "/v4/event_categories/237"
+            ]
+        },
+        {
+            "@id": "/v4/events/10000278",
+            "@type": "Event",
+            "id": 10000278,
+            "status": "DISABLED",
+            "title": "Belfast Giants v Manchester Storm",
+            "description": "A night out at the Belfast Giants gives you non-stop, hard hitting, goal scoring action all night long at The SSE Arena, Belfast and it is truly a fantastic night out for all ages! The Giants are one of Northern Ireland’s top professional sporting organisations and are the most successful team in the Elite League thanks in part to over 5,000 fans cheering the team on at every home game to provide an electric atmosphere.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/V79DSF8B4YEGMUAIC1KW.jpg",
+            "promoted": false,
+            "createdAt": "2015-08-12T11:29:47+00:00",
+            "updatedAt": "2019-03-27T14:50:01+00:00",
+            "eventDates": [],
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": []
+        },
+        {
+            "@id": "/v4/events/10000282",
+            "@type": "Event",
+            "id": 10000282,
+            "status": "DISABLED",
+            "title": "Belfast Giants v Coventry Blazee",
+            "description": "A night out at the Belfast Giants gives you non-stop, hard hitting, goal scoring action all night long at The SSE Arena, Belfast and it is truly a fantastic night out for all ages! The Giants are one of Northern Ireland’s top professional sporting organisations and are the most successful team in the Elite League thanks in part to over 5,000 fans cheering the team on at every home game to provide an electric atmosphere.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/BJFOSV59A43H1UDNXP2K.jpg",
+            "promoted": false,
+            "createdAt": "2015-08-12T11:34:24+00:00",
+            "updatedAt": "2019-03-27T14:49:55+00:00",
+            "eventDates": [],
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": []
+        },
+        {
+            "@id": "/v4/events/10000283",
+            "@type": "Event",
+            "id": 10000283,
+            "status": "ACTIVE",
+            "title": "Belfast Giants v Cardiff Devils",
+            "description": "A night out at the Belfast Giants gives you non-stop, hard hitting, goal scoring action all night long at The SSE Arena, Belfast and it is truly a fantastic night out for all ages! The Giants are one of Northern Ireland’s top professional sporting organisations and are the most successful team in the Elite League thanks in part to over 5,000 fans cheering the team on at every home game to provide an electric atmosphere.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/YGREJ4ZK3DCWLF85X7MA.jpg",
+            "promoted": false,
+            "createdAt": "2015-08-12T11:35:25+00:00",
+            "updatedAt": "2020-04-07T13:01:51+00:00",
+            "eventDates": [],
+            "venues": [
+                "/v4/venues/10000918"
+            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": []
+        },
+        {
+            "@id": "/v4/events/10000285",
+            "@type": "Event",
+            "id": 10000285,
+            "status": "DISABLED",
+            "title": "Belfast Giants v Sheffield Steelers",
+            "description": "A night out at the Belfast Giants gives you non-stop, hard hitting, goal scoring action all night long at The SSE Arena, Belfast and it is truly a fantastic night out for all ages! The Giants are one of Northern Ireland’s top professional sporting organisations and are the most successful team in the Elite League thanks in part to over 5,000 fans cheering the team on at every home game to provide an electric atmosphere.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/VNLFHIU67S4OXRD1GE0C.jpg",
+            "promoted": false,
+            "createdAt": "2015-08-12T11:37:17+00:00",
+            "updatedAt": "2015-08-12T11:37:17+00:00",
+            "eventDates": [],
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": []
+        },
+        {
+            "@id": "/v4/events/10000287",
+            "@type": "Event",
+            "id": 10000287,
+            "status": "DISABLED",
+            "title": "Belfast Giants v Edinburgh Capitals",
+            "description": "A night out at the Belfast Giants gives you non-stop, hard hitting, goal scoring action all night long at The SSE Arena, Belfast and it is truly a fantastic night out for all ages! The Giants are one of Northern Ireland’s top professional sporting organisations and are the most successful team in the Elite League thanks in part to over 5,000 fans cheering the team on at every home game to provide an electric atmosphere.  ",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/QN586Z4GEFOTLRJ19HC2.jpg",
+            "promoted": false,
+            "createdAt": "2015-08-12T11:39:33+00:00",
+            "updatedAt": "2015-08-12T11:39:33+00:00",
+            "eventDates": [],
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": []
+        },
+        {
+            "@id": "/v4/events/10000288",
+            "@type": "Event",
+            "id": 10000288,
+            "status": "DISABLED",
+            "title": "Belfast Giants v Dundee Stars Challenge Cup",
+            "description": "A night out at the Belfast Giants gives you non-stop, hard hitting, goal scoring action all night long at The SSE Arena, Belfast and it is truly a fantastic night out for all ages! The Giants are one of Northern Ireland’s top professional sporting organisations and are the most successful team in the Elite League thanks in part to over 5,000 fans cheering the team on at every home game to provide an electric atmosphere. ",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/V8M72FWBHQS69E4D0GLR.jpg",
+            "promoted": false,
+            "createdAt": "2015-08-12T11:40:46+00:00",
+            "updatedAt": "2015-08-12T11:40:46+00:00",
+            "eventDates": [],
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": []
+        },
+        {
+            "@id": "/v4/events/10000289",
+            "@type": "Event",
+            "id": 10000289,
+            "status": "DISABLED",
+            "title": "Belfast Giants v Fife Flyers Challenge Cup",
+            "description": "A night out at the Belfast Giants gives you non-stop, hard hitting, goal scoring action all night long at The SSE Arena, Belfast and it is truly a fantastic night out for all ages! The Giants are one of Northern Ireland’s top professional sporting organisations and are the most successful team in the Elite League thanks in part to over 5,000 fans cheering the team on at every home game to provide an electric atmosphere.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/4IQ3KUCZTFB2YH8MPO0G.jpg",
+            "promoted": false,
+            "createdAt": "2015-08-12T11:41:54+00:00",
+            "updatedAt": "2015-08-12T11:41:54+00:00",
+            "eventDates": [],
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": []
+        },
+        {
+            "@id": "/v4/events/10000291",
+            "@type": "Event",
+            "id": 10000291,
+            "status": "DISABLED",
+            "title": "Belfast Giants v Nottingham Panthers",
+            "description": "A night out at the Belfast Giants gives you non-stop, hard hitting, goal scoring action all night long at The SSE Arena, Belfast and it is truly a fantastic night out for all ages! The Giants are one of Northern Ireland’s top professional sporting organisations and are the most successful team in the Elite League thanks in part to over 5,000 fans cheering the team on at every home game to provide an electric atmosphere.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/GMAUQ2K86CNJYXHREWDV.jpg",
+            "promoted": false,
+            "notificationsSentAt": "2019-04-06T14:45:01+00:00",
+            "createdAt": "2015-08-12T11:49:17+00:00",
+            "updatedAt": "2019-07-23T09:49:23+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5458",
+                    "@type": "EventDate",
+                    "id": 5458,
+                    "startAt": "2019-04-06T15:00:00+00:00",
+                    "endAt": "2019-08-03T15:00:00+00:00"
+                }
+            ],
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": []
+        },
+        {
+            "@id": "/v4/events/10000292",
+            "@type": "Event",
+            "id": 10000292,
+            "status": "DISABLED",
+            "title": "Belfast Giants v Nottingham Panthers",
+            "description": "A night out at the Belfast Giants gives you non-stop, hard hitting, goal scoring action all night long at The SSE Arena, Belfast and it is truly a fantastic night out for all ages! The Giants are one of Northern Ireland’s top professional sporting organisations and are the most successful team in the Elite League thanks in part to over 5,000 fans cheering the team on at every home game to provide an electric atmosphere.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/1X0DZM26P9RG5NOY4IHQ.jpg",
+            "promoted": false,
+            "createdAt": "2015-08-12T11:50:22+00:00",
+            "updatedAt": "2015-08-12T11:50:22+00:00",
+            "eventDates": [],
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": []
+        },
+        {
+            "@id": "/v4/events/10000293",
+            "@type": "Event",
+            "id": 10000293,
+            "status": "ACTIVE",
+            "title": "LiveStyled vs Manchester United",
+            "description": "Manchester United Football Club is a professional football club based in Old Trafford, Greater Manchester, England, that competes in the Premier League, the top flight of English football.",
+            "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/event/sausage.jpg",
+            "promoted": false,
+            "notificationsSentAt": "2019-03-01T14:45:02+00:00",
+            "createdAt": "2015-08-12T11:51:55+00:00",
+            "updatedAt": "2019-03-27T14:43:26+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/251182",
+                    "@type": "EventDate",
+                    "id": 251182,
+                    "startAt": "2019-06-01T13:00:00+00:00",
+                    "endAt": "2019-06-01T16:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/117",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [
+                {
+                    "@id": "/v4/social_media/3397",
+                    "@type": "SocialMedia",
+                    "id": 3397,
+                    "title": "website",
+                    "url": "www.google.co.uk",
+                    "iconUrl": "https://s3-eu-west-1.amazonaws.com/concertlive-external/Tele2/website-icon.png",
+                    "translations": [],
+                    "createdAt": "2019-03-27T14:43:26+00:00",
+                    "updatedAt": "2019-03-27T14:43:26+00:00"
+                }
+            ],
+            "usefulInfo": [
+                {
+                    "@id": "/v4/useful_infos/137",
+                    "@type": "UsefulInfo",
+                    "id": 137,
+                    "title": "Useful info",
+                    "url": "www.google.co.uk",
+                    "translations": [],
+                    "createdAt": "2019-03-27T14:43:26+00:00",
+                    "updatedAt": "2019-03-27T14:43:26+00:00"
+                }
+            ],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/117"
+            ]
+        },
+        {
+            "@id": "/v4/events/100002190",
+            "@type": "Event",
+            "id": 100002190,
+            "status": "ACTIVE",
+            "title": "Test Event 1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie justo ut neque tristique, et euismod leo convallis. Curabitur ac leo accumsan, facilisis nunc ut, rhoncus erat. Etiam ornare tincidunt.",
+            "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/event/sausage.jpg",
+            "promoted": false,
+            "notificationsSentAt": "2019-03-21T15:36:02+00:00",
+            "updatedAt": "2019-05-16T09:22:25+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/250598",
+                    "@type": "EventDate",
+                    "id": 250598,
+                    "startAt": "2019-05-24T14:50:11+00:00",
+                    "endAt": "2019-05-24T16:50:11+00:00",
+                    "generalTicketUrl": "www.livestyled.com",
+                    "premiumTicketUrl": "www.livestyled.com",
+                    "suiteTicketUrl": "www.livestyled.com",
+                    "alertTicketUrl": "www.livestyled.com"
+                }
+            ],
+            "category": "/v4/event_categories/113",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "eventStage": "/v4/event_stages/6",
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/113"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005808",
+            "@type": "Event",
+            "id": 100005808,
+            "status": "DISABLED",
+            "title": "Bear's Den",
+            "description": "Red Earth & Pouring Rain is the follow-up to Bear’s Den’s Ivor Novello-nominated 2014 debut, Islands. Building a huge fanbase through consistently stellar live shows, Red Earth & Pouring Rain sees the group taking huge leaps forward.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage-dev/event/58ac576909167-default.jpg",
+            "promoted": false,
+            "createdAt": "2017-03-22T17:01:37+00:00",
+            "updatedAt": "2019-03-27T14:47:32+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5442",
+                    "@type": "EventDate",
+                    "id": 5442,
+                    "startAt": "2017-04-01T22:00:00+00:00",
+                    "endAt": "2017-04-01T23:00:00+00:00"
+                },
+                {
+                    "@id": "/v4/event_dates/5443",
+                    "@type": "EventDate",
+                    "id": 5443,
+                    "startAt": "2017-05-01T22:00:00+00:00",
+                    "endAt": "2017-05-01T23:30:00+00:00"
+                },
+                {
+                    "@id": "/v4/event_dates/5444",
+                    "@type": "EventDate",
+                    "id": 5444,
+                    "startAt": "2017-03-30T22:00:00+00:00",
+                    "endAt": "2017-03-30T23:30:00+00:00"
+                },
+                {
+                    "@id": "/v4/event_dates/5450",
+                    "@type": "EventDate",
+                    "id": 5450,
+                    "startAt": "2017-09-12T09:11:00+00:00",
+                    "endAt": "2017-09-12T11:11:00+00:00"
+                },
+                {
+                    "@id": "/v4/event_dates/5451",
+                    "@type": "EventDate",
+                    "id": 5451,
+                    "startAt": "2018-01-20T16:00:00+00:00",
+                    "endAt": "2018-01-20T19:00:00+00:00"
+                }
+            ],
+            "venues": [],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": []
+        },
+        {
+            "@id": "/v4/events/100005809",
+            "@type": "Event",
+            "id": 100005809,
+            "status": "ACTIVE",
+            "title": "The Xx",
+            "description": "The xx’s third LP, I See You, is the spoils of four hard years’ labour, a vertiginous new height scaled for the pop group. The album is marked by a tonal shift to something close to pure, crisp pop structure and sees them performing with optimum new nerve, transparency and clarity.",
+            "imageUrl": "https://apiv3.s3.eu-west-1.amazonaws.com/event/XX.jpg",
+            "promoted": false,
+            "notificationsSentAt": "2019-08-23T06:45:05+00:00",
+            "createdAt": "2017-03-28T12:39:11+00:00",
+            "updatedAt": "2019-08-23T06:45:05+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5445",
+                    "@type": "EventDate",
+                    "id": 5445,
+                    "startAt": "2019-08-23T07:00:00+00:00",
+                    "endAt": "2019-08-23T09:10:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/134",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [
+                {
+                    "@id": "/v4/social_media/3525",
+                    "@type": "SocialMedia",
+                    "id": 3525,
+                    "title": "website",
+                    "url": "https://www.livestyled.com/",
+                    "iconUrl": "https://s3-eu-west-1.amazonaws.com/concertlive-external/Tele2/website-icon.png",
+                    "translations": [],
+                    "createdAt": "2019-06-20T12:39:10+00:00",
+                    "updatedAt": "2019-06-20T12:39:10+00:00"
+                },
+                {
+                    "@id": "/v4/social_media/3526",
+                    "@type": "SocialMedia",
+                    "id": 3526,
+                    "title": "facebook",
+                    "url": "https://www.livestyled.com/",
+                    "iconUrl": "https://s3-eu-west-1.amazonaws.com/concertlive-external/Tele2/icon-fb.png",
+                    "translations": [],
+                    "createdAt": "2019-06-20T12:39:10+00:00",
+                    "updatedAt": "2019-06-20T12:39:10+00:00"
+                },
+                {
+                    "@id": "/v4/social_media/3527",
+                    "@type": "SocialMedia",
+                    "id": 3527,
+                    "title": "twitter",
+                    "url": "https://www.livestyled.com/",
+                    "iconUrl": "https://s3-eu-west-1.amazonaws.com/concertlive-external/Tele2/icon-twitter.png",
+                    "translations": [],
+                    "createdAt": "2019-06-20T12:39:10+00:00",
+                    "updatedAt": "2019-06-20T12:39:10+00:00"
+                },
+                {
+                    "@id": "/v4/social_media/3528",
+                    "@type": "SocialMedia",
+                    "id": 3528,
+                    "title": "instagram",
+                    "url": "https://www.livestyled.com/",
+                    "iconUrl": "https://s3-eu-west-1.amazonaws.com/concertlive-external/Tele2/icon-instagram.png",
+                    "translations": [],
+                    "createdAt": "2019-06-20T12:39:10+00:00",
+                    "updatedAt": "2019-06-20T12:39:10+00:00"
+                },
+                {
+                    "@id": "/v4/social_media/3529",
+                    "@type": "SocialMedia",
+                    "id": 3529,
+                    "title": "google-plus",
+                    "url": "https://www.livestyled.com/",
+                    "iconUrl": "https://s3-eu-west-1.amazonaws.com/concertlive-external/Tele2/icon-youtube.png",
+                    "translations": [],
+                    "createdAt": "2019-06-20T12:39:10+00:00",
+                    "updatedAt": "2019-06-20T12:39:10+00:00"
+                }
+            ],
+            "usefulInfo": [
+                {
+                    "@id": "/v4/useful_infos/156",
+                    "@type": "UsefulInfo",
+                    "id": 156,
+                    "title": "Travel Info",
+                    "url": "https://www.livestyled.com/",
+                    "translations": [],
+                    "createdAt": "2019-06-20T12:39:10+00:00",
+                    "updatedAt": "2019-06-20T12:39:10+00:00"
+                },
+                {
+                    "@id": "/v4/useful_infos/157",
+                    "@type": "UsefulInfo",
+                    "id": 157,
+                    "title": "Collection points",
+                    "url": "https://www.livestyled.com/",
+                    "translations": [],
+                    "createdAt": "2019-06-20T12:39:10+00:00",
+                    "updatedAt": "2019-06-20T12:39:10+00:00"
+                },
+                {
+                    "@id": "/v4/useful_infos/158",
+                    "@type": "UsefulInfo",
+                    "id": 158,
+                    "title": "FAQ's",
+                    "url": "https://www.livestyled.com/",
+                    "translations": [],
+                    "createdAt": "2019-06-20T12:39:10+00:00",
+                    "updatedAt": "2019-06-20T12:39:10+00:00"
+                }
+            ],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/134"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005810",
+            "@type": "Event",
+            "id": 100005810,
+            "status": "DISABLED",
+            "title": "Russell Brand: Re:Birth",
+            "description": "Comedian, Russell Brand is embarking on his 'Re:Birth' tour, which poses questions like \"What is real?\" and \"Who are we?\". Journey with Russell as he talks about politics, sex, fatherhood and death.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage-dev/event/58ac57916974e-default.jpg",
+            "promoted": false,
+            "createdAt": "2017-03-28T12:40:38+00:00",
+            "updatedAt": "2018-08-23T13:22:27+00:00",
+            "eventDates": [],
+            "category": "/v4/event_categories/75",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/75"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005811",
+            "@type": "Event",
+            "id": 100005811,
+            "status": "DISABLED",
+            "title": "Helloween: Pumpkins United",
+            "description": "Following the announcement that the band’s resurrected its classic line up, the German power-metal group is returning to the UK. Hitting the O2 Academy Brixton in November, while on their “Pumpkins United” World Tour, the band will play classics that are not to be missed.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage-dev/event/58ac5790e5168-default.jpg",
+            "promoted": false,
+            "createdAt": "2017-03-28T12:43:52+00:00",
+            "updatedAt": "2018-08-23T13:26:42+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5447",
+                    "@type": "EventDate",
+                    "id": 5447,
+                    "startAt": "2018-07-16T10:26:00+00:00",
+                    "endAt": "2018-07-16T12:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/75",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/75"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005812",
+            "@type": "Event",
+            "id": 100005812,
+            "status": "DISABLED",
+            "title": "Jenny",
+            "description": "Lorem Ipsum",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/ZJVCND2OI5TBHM8EU1XF.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T14:10:24+00:00",
+            "updatedAt": "2018-08-23T13:27:02+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5802",
+                    "@type": "EventDate",
+                    "id": 5802,
+                    "startAt": "2017-03-29T10:00:00+00:00",
+                    "endAt": "2017-03-29T17:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/62",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/62"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005813",
+            "@type": "Event",
+            "id": 100005813,
+            "status": "DISABLED",
+            "title": "Easy Stride Band",
+            "description": "Easy Stride Band take influences from reggae, soul and breakbeat to create uplifting and energetic music that delivers positivity and incites a party",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/4JF1CRVH7GWZ9BQPK6ME.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T14:13:45+00:00",
+            "updatedAt": "2018-07-24T16:49:55+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5476",
+                    "@type": "EventDate",
+                    "id": 5476,
+                    "startAt": "2018-05-10T14:00:00+00:00",
+                    "endAt": "2018-05-17T14:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/7",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/7"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005814",
+            "@type": "Event",
+            "id": 100005814,
+            "status": "DISABLED",
+            "title": "A Tribe Called Quest",
+            "description": "A Tribe Called Quest is an American hip-hop group formed in 1985 and originally composed of MC and producer Q-Tip, MC Phife Dawg and DJ and producer Ali Shaheed Muhammad. A fourth member, MC Jarobi White, left the group in 1991 after the release of their debut album. He continued to contribute to the band sporadically before rejoining for their 2006 reunion.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/346DMGQU89IOEJBZ752H.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T14:14:55+00:00",
+            "updatedAt": "2018-07-24T16:49:57+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/96691",
+                    "@type": "EventDate",
+                    "id": 96691,
+                    "startAt": "2018-04-10T09:00:00+00:00",
+                    "endAt": "2021-04-10T09:00:00+00:00"
+                },
+                {
+                    "@id": "/v4/event_dates/96692",
+                    "@type": "EventDate",
+                    "id": 96692,
+                    "startAt": "2018-04-09T10:00:00+00:00",
+                    "endAt": "2023-04-09T10:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/7",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [
+                {
+                    "@id": "/v4/useful_infos/2",
+                    "@type": "UsefulInfo",
+                    "id": 2,
+                    "title": "Travel Info",
+                    "subtitle": "Getting to the venue",
+                    "imageUrl": ".",
+                    "url": "lsape://page/travel",
+                    "translations": [],
+                    "createdAt": "2018-04-10T19:19:10+00:00",
+                    "updatedAt": "2018-05-02T16:06:55+00:00"
+                },
+                {
+                    "@id": "/v4/useful_infos/3",
+                    "@type": "UsefulInfo",
+                    "id": 3,
+                    "title": "FAQs",
+                    "subtitle": "Frequently Asked Questions",
+                    "imageUrl": ".",
+                    "url": "lsape://page/faq",
+                    "translations": [],
+                    "createdAt": "2018-04-10T20:53:37+00:00",
+                    "updatedAt": "2018-05-02T16:06:55+00:00"
+                }
+            ],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/7"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005815",
+            "@type": "Event",
+            "id": 100005815,
+            "status": "DISABLED",
+            "title": "Django Django",
+            "description": "Django Django are a British art rock band based in London, England. The group was formed in 2009. They have released a self-titled studio album in 2012, followed up by Born Under Saturn, released on 4 May 2015.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/3DBN12ZVEUPGFMW5SORH.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T14:15:16+00:00",
+            "updatedAt": "2018-08-23T13:25:38+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5484",
+                    "@type": "EventDate",
+                    "id": 5484,
+                    "startAt": "2017-05-18T14:00:00+00:00",
+                    "endAt": "2018-05-31T14:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/75",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [
+                {
+                    "@id": "/v4/social_media/61",
+                    "@type": "SocialMedia",
+                    "id": 61,
+                    "title": "website",
+                    "url": "https://itunes.apple.com/gb/artist/django-django/318721881",
+                    "iconUrl": "",
+                    "translations": [],
+                    "createdAt": "2018-05-01T12:58:31+00:00",
+                    "updatedAt": "2018-08-23T13:25:38+00:00"
+                },
+                {
+                    "@id": "/v4/social_media/62",
+                    "@type": "SocialMedia",
+                    "id": 62,
+                    "title": "facebook",
+                    "url": "https://facebook.com",
+                    "iconUrl": "",
+                    "translations": [],
+                    "createdAt": "2018-05-01T13:03:48+00:00",
+                    "updatedAt": "2018-08-23T13:25:38+00:00"
+                }
+            ],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/75"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005816",
+            "@type": "Event",
+            "id": 100005816,
+            "status": "DISABLED",
+            "title": "Rolling Stones",
+            "description": "The Rolling Stones are an English rock band formed in London in 1962. The original line-up consisted of Brian Jones, Mick Jagger, Keith Richards, Bill Wyman, Charlie Watts, and Ian Stewart.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/A6T90WY48LJSMXIUHZOP.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T14:16:18+00:00",
+            "updatedAt": "2018-08-23T13:23:17+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5478",
+                    "@type": "EventDate",
+                    "id": 5478,
+                    "startAt": "2018-07-23T14:00:00+00:00",
+                    "endAt": "2018-07-24T14:00:00+00:00"
+                },
+                {
+                    "@id": "/v4/event_dates/5487",
+                    "@type": "EventDate",
+                    "id": 5487,
+                    "startAt": "2018-07-10T14:00:00+00:00",
+                    "endAt": "2018-07-11T14:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/64",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/64"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005817",
+            "@type": "Event",
+            "id": 100005817,
+            "status": "DISABLED",
+            "title": "Ghostface Killah",
+            "description": "Dennis Coles, better known by his stage name Ghostface Killah, is an American rapper and prominent member of the Wu-Tang Clan",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/1O3AFTWND70XJH46USEV.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T14:16:31+00:00",
+            "updatedAt": "2018-08-23T13:22:57+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5482",
+                    "@type": "EventDate",
+                    "id": 5482,
+                    "startAt": "2018-08-01T14:00:00+00:00",
+                    "endAt": "2018-08-02T14:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/75",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/75"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005818",
+            "@type": "Event",
+            "id": 100005818,
+            "status": "DISABLED",
+            "title": "50 Cent",
+            "description": "50 Cent",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/MHCW0IKUGEJA6QS5VYN8.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T14:16:45+00:00",
+            "updatedAt": "2018-08-23T13:22:51+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5479",
+                    "@type": "EventDate",
+                    "id": 5479,
+                    "startAt": "2018-08-18T14:00:00+00:00",
+                    "endAt": "2018-08-19T14:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/62",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/62"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005819",
+            "@type": "Event",
+            "id": 100005819,
+            "status": "DISABLED",
+            "title": "Bring me the horizon",
+            "description": "Bring Me the Horizon, often known by the acronym BMTH, are a British rock band from Sheffield, South Yorkshire",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/AL52EK6FC8XZ7OBY9MQ4.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T14:16:58+00:00",
+            "updatedAt": "2018-07-24T16:50:13+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5480",
+                    "@type": "EventDate",
+                    "id": 5480,
+                    "startAt": "2018-09-01T14:00:00+00:00",
+                    "endAt": "2018-09-02T14:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/7",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/7"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005820",
+            "@type": "Event",
+            "id": 100005820,
+            "status": "DISABLED",
+            "title": "A very long title is just a title with many words, too many words A very long title is just a title",
+            "description": "A Giant Dog is an American punk-rock band from Austin, Texas. The band is composed of Sabrina Ellis; Andrew Cashen; Andy Bauer; Graham Low; and Daniel Blanchard.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/OAN9SDM7PJU3KC0I1HYB.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T14:17:10+00:00",
+            "updatedAt": "2018-07-24T16:50:16+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5481",
+                    "@type": "EventDate",
+                    "id": 5481,
+                    "startAt": "2018-09-10T14:00:00+00:00",
+                    "endAt": "2018-09-11T14:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/7",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/7"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005821",
+            "@type": "Event",
+            "id": 100005821,
+            "status": "DISABLED",
+            "title": "Sizzla",
+            "description": "Sizzla Kalonji, or simply Sizzla is a reggae musician. He is one of the most commercially and critically successful contemporary reggae artists and is noted for his high number of releases. As of 2014 he has released over 70 solo albums.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/BJF5Y8940R13T67DPMAS.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T14:17:22+00:00",
+            "updatedAt": "2018-07-24T16:50:19+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5486",
+                    "@type": "EventDate",
+                    "id": 5486,
+                    "startAt": "2018-10-10T14:00:00+00:00",
+                    "endAt": "2018-10-11T14:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/7",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/7"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005822",
+            "@type": "Event",
+            "id": 100005822,
+            "status": "DISABLED",
+            "title": "American Football Is Not A Safe Sport",
+            "description": "American football, referred to as football in the United States and Canada, and also known as \"gridiron football\" or simply \"gridiron\", is a sport played by two teams of eleven players on a rectangular field with goalposts at each end.\r\n\r\nThe team with the most points at the end of a game wins.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/L2UE95TPNMGA3D0HBKFX.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T14:46:12+00:00",
+            "updatedAt": "2018-07-24T16:50:25+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5490",
+                    "@type": "EventDate",
+                    "id": 5490,
+                    "startAt": "2018-04-28T14:00:00+00:00",
+                    "endAt": "2018-04-28T14:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/7",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/7"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005823",
+            "@type": "Event",
+            "id": 100005823,
+            "status": "DISABLED",
+            "title": "WWE",
+            "description": "As in other professional wrestling promotions, WWE shows are not legitimate contests, but purely entertainment-based, featuring storyline-driven, scripted, and choreographed matches, though they often include moves that can put performers at risk of injury if not performed correctly. This was first publicly acknowledged by WWE's owner Vince McMahon in 1989 to avoid taxes from athletic commissions. Since the 1980s, WWE publicly has branded their product as sports entertainment, acknowledging the product's roots in competitive sport and dramatic theater.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/1HEU67J5O9C28GSFQZI0.jpg",
+            "promoted": false,
+            "createdAt": "2017-04-07T14:48:17+00:00",
+            "updatedAt": "2018-07-24T16:50:28+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5492",
+                    "@type": "EventDate",
+                    "id": 5492,
+                    "startAt": "2018-05-12T14:00:00+00:00",
+                    "endAt": "2018-05-13T14:00:00+00:00"
+                },
+                {
+                    "@id": "/v4/event_dates/5493",
+                    "@type": "EventDate",
+                    "id": 5493,
+                    "startAt": "2018-05-13T14:00:00+00:00",
+                    "endAt": "2018-05-14T14:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/7",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/7"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005824",
+            "@type": "Event",
+            "id": 100005824,
+            "status": "DISABLED",
+            "title": "Motocross",
+            "description": "The Dirt Bike Show is the premier indoor off-road event on the calendar and will welcome thousands of riders and enthusiasts looking to stock up on kit and accessories across its four-day running at Warwickshire’s NAEC Stoneleigh at Stoneleigh Park. All of the major manufacturers will be showcasing their latest ranges too, and it will include 2017 models for motocross, trials and enduro. All the fans’ favourites remain in place including live action display, stunts, competitions, rider interviews and more, and there will be new elements to help Europe’s largest event of its kind grow even bigger and better.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/Y30POB1IHZM98274CAJE.jpg",
+            "promoted": false,
+            "notificationsSentAt": "2018-06-03T14:45:19+00:00",
+            "createdAt": "2017-04-07T15:01:35+00:00",
+            "updatedAt": "2018-07-24T16:50:32+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5495",
+                    "@type": "EventDate",
+                    "id": 5495,
+                    "startAt": "2018-06-03T15:00:00+00:00",
+                    "endAt": "2018-06-03T15:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/7",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/7"
+            ]
+        },
+        {
+            "@id": "/v4/events/100005825",
+            "@type": "Event",
+            "id": 100005825,
+            "status": "ACTIVE",
+            "title": "Ice Hockey",
+            "description": "Ice hockey is a contact team sport played on ice, usually in a rink, in which two teams of skaters use their sticks to shoot a vulcanized rubber puck into their opponent's net to score points. Ice hockey teams usually consist of six players each: one goaltender, and five players who skate up and down the ice trying to take the puck and score a goal against the opposing team.",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/news/A0G5CMFT6NER2Q8ZJWVS.jpg",
+            "promoted": false,
+            "notificationsSentAt": "2019-07-31T12:45:02+00:00",
+            "createdAt": "2017-04-07T15:03:43+00:00",
+            "updatedAt": "2019-07-31T12:45:02+00:00",
+            "eventDates": [
+                {
+                    "@id": "/v4/event_dates/5497",
+                    "@type": "EventDate",
+                    "id": 5497,
+                    "startAt": "2019-07-31T13:00:00+00:00",
+                    "endAt": "2019-07-31T17:00:00+00:00"
+                }
+            ],
+            "category": "/v4/event_categories/7",
+            "venues": [
+                {
+                    "@id": "/v4/venues/10000994",
+                    "@type": "Venue",
+                    "id": 10000994
+                }
+            ],
+            "socialMedia": [],
+            "usefulInfo": [],
+            "translations": [],
+            "eventActivities": [],
+            "categories": [
+                "/v4/event_categories/7"
+            ]
+        }
+    ],
+    "hydra:totalItems": 247,
+    "hydra:view": {
+        "@id": "/v4/events?page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/events?page=1",
+        "hydra:last": "/v4/events?page=9",
+        "hydra:next": "/v4/events?page=2"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/v4/events{?order[id],status,status[],externalId,externalId[],promoted}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[id]",
+                "property": "id",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "status",
+                "property": "status",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "status[]",
+                "property": "status",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "externalId",
+                "property": "externalId",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "externalId[]",
+                "property": "externalId",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "promoted",
+                "property": "promoted",
+                "required": false
+            }
+        ]
+    }
+}
