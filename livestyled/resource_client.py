@@ -443,7 +443,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
                 payload.pop(key)
 
         user_create_response = self._api_post(
-            UserCreateSchema.Meta.create_url,
+            'v4/{}'.format(UserCreateSchema.Meta.create_url),
             payload
         )
         return User(**UserSchema().load(user_create_response))
@@ -472,7 +472,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         if not password:
             raise ValueError('Need a password to authorise a user')
         user_auth_response = self._api_post(
-            UserSchema.Meta.authorise_url.format(user.id),
+            'v4/{}'.format(UserSchema.Meta.authorise_url.format(user.id)),
             {
                 'password': password
             }
