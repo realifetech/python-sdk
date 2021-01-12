@@ -514,7 +514,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             user_id,
     ) -> UserSSO or None:
         try:
-            user_sso_data = self._api_get('users/{}/user_s_s_o'.format(user_id))
+            user_sso_data = self._api_get('v4/users/{}/user_s_s_o'.format(user_id))
         except HTTPError as http_error:
             if http_error.response.status_code == 404:
                 return None
