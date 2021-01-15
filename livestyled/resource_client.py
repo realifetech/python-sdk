@@ -1008,7 +1008,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
             external_id: str or None = None,
     ) -> Generator[Venue, None, None]:
-        return self._get_resource_list(VenueSchema)
+        return self._get_resource_list(VenueSchema, external_id)
 
     def get_venue(
             self,
