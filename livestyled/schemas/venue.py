@@ -35,5 +35,5 @@ class VenueSchema(Schema):
     def fix_missing_id(self, data, **kwargs):
         if data['id'] is None:
             data['id'] = int(data['iri'].split('/')[-1])
-            data.pop('iri', None)
+        data.pop('iri', None)
         return data
