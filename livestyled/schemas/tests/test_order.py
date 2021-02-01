@@ -69,6 +69,8 @@ def test_deserialize_order():
             'status': 'COMPLETE',
             'estimated_at': None,
             'collection_date': None,
+            'collection_preference_type': None,
+            'check_in_time': None,
             'updated_at': datetime(2020, 5, 27, 8, 48, 14, tzinfo=timezone(timedelta(0), '+0000')),
             'user': 274814,
             'fulfilment_point': None

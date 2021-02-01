@@ -51,5 +51,7 @@ class OrderSchema(Schema):
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True, missing=None)
     estimated_at = fields.AwareDateTime(data_key='estimated_at', allow_none=True, missing=None)
     collection_date = fields.Date(data_key='collectionDate', allow_none=True, missing=None)
+    collection_preference_type = fields.Date(data_key='collectionPreferenceType', allow_none=True, missing=None)
+    check_in_time = fields.Date(data_key='checkInTime', allow_none=True, missing=None)
     fulfilment_point = RelatedResourceLinkField(schema=FulfilmentPointSchema, data_key='fulfilmentPoint', missing=None, microservice_aware=True)
     seat_info = fields.Raw(data_key='seatInfo', missing=None, allow_none=True)
