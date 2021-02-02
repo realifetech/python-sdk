@@ -73,6 +73,8 @@ class Order:
             created_at,
             app,
             collection_date,
+            collection_preference_type,
+            check_in_time,
             estimated_at,
             fulfilment_point,
             external_id,
@@ -88,6 +90,8 @@ class Order:
         self.created_at = created_at
         self.order_number = order_number
         self.collection_date = collection_date
+        self.collection_preference_type = collection_preference_type
+        self.check_in_time = check_in_time
         self.estimated_at = estimated_at
         self.external_id = external_id
         self.seat_info = seat_info
@@ -146,6 +150,8 @@ class Order:
             created_at=None,
             app=None,
             collection_date=None,
+            collection_preference_type=None,
+            check_in_time=None,
             estimated_at=None,
             fulfilment_point=None,
             external_id=None,
