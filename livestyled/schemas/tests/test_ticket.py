@@ -73,7 +73,8 @@ def test_deserialize_ticket():
             'venue': None,
             'event': None,
             'ticket_auth': None,
-            'event_date': 249881
+            'event_date': 249881,
+            'currency': '/v4/currencies/2',
         }
 
 
@@ -124,7 +125,8 @@ def test_deserialize_ticket_shared():
             'venue': None,
             'event': None,
             'ticket_auth': None,
-            'event_date': None
+            'event_date': None,
+            'currency': '/v4/currencies/2',
         }
 
 
@@ -176,6 +178,7 @@ def test_deserialize_ticket_shared_redeemed():
             'event': None,
             'ticket_auth': None,
             'event_date': None,
+            'currency': '/v4/currencies/2',
         }
 
 
@@ -241,6 +244,7 @@ def test_deserialize_ticket_with_event_and_venue():
                 'id': 513
             },
             'event_date': None,
+            'currency': '/v4/currencies/1',
         }
 
 
@@ -299,4 +303,5 @@ def test_serialize_ticket():
         'createdAt': None,
         'venueName': None,
         'eventDate': None,
+        'currency': None,
     }

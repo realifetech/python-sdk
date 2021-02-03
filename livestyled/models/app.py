@@ -1,3 +1,5 @@
+from livestyled.models.currency import Currency
+
 class App:
     def __init__(
             self,
@@ -31,11 +33,3 @@ class App:
                 self.currency = Currency(**currency)
         else:
             self.currency = None
-
-
-class Currency:
-    def __init__(self, id, title, iso_code, sign):
-        self.id = id
-        self.title = title
-        self.iso_code = iso_code
-        self.sign = sign
