@@ -81,3 +81,4 @@ class TicketSchema(Schema):
     ticket_auth = RelatedResourceField(schema=TicketTicketAuthSchema, data_key='ticketAuth', missing=None, allow_none=True)
     event = RelatedResourceLinkField(schema=EventSchema, required=False, missing=None)
     venue = RelatedResourceLinkField(schema=VenueSchema, required=False, missing=None)
+    currency = fields.String(required=False, missing=None)

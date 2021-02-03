@@ -49,7 +49,8 @@ class Ticket:
             venue=None,
             event=None,
             ticket_auth=None,
-            event_date=None
+            event_date=None,
+            currency=None,
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
@@ -143,6 +144,7 @@ class Ticket:
                 self.venue = Venue(**venue)
         else:
             self.venue = None
+        self.currency = currency
 
     @classmethod
     def placeholder(
@@ -190,7 +192,8 @@ class Ticket:
             map_image_url=None,
             ticket_integration=None,
             venue=None,
-            event=None
+            event=None,
+            currency=None,
         )
 
     @classmethod
@@ -234,6 +237,7 @@ class Ticket:
             ticket_integration=None,
             venue: Venue or str or int or None = None,
             event: Event or str or int or None = None,
+            currency=None,
     ):
         ticket = Ticket(
             id=None,
@@ -277,6 +281,7 @@ class Ticket:
             ticket_integration=ticket_integration,
             venue=venue,
             event=event,
+            currency=currency,
         )
         if isinstance(user, (str, int)):
             user = User.placeholder(id=user)
@@ -344,7 +349,7 @@ class Ticket:
             'price', 'status', 'can_share', 'sharer_email', 'redeemed_at', 'redeemer_id', 'share_code',
             'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text', 'map_url',
             'map_image_url', 'ticket_integration', 'entrance', 'row', 'section', 'price_code', 'external_customer_ref',
-            'venue', 'event', 'event_date'
+            'venue', 'event', 'event_date', 'currency'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

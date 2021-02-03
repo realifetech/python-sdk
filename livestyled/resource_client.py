@@ -11,6 +11,7 @@ from livestyled.models import (
     Booking,
     Cohort,
     Competition,
+    Currency,
     Device,
     DevicePreference,
     DeviceReality,
@@ -51,6 +52,7 @@ from livestyled.schemas import (
     BookingSchema,
     CohortSchema,
     CompetitionSchema,
+    CurrencySchema,
     DevicePreferenceSchema,
     DeviceRealitySchema,
     DeviceSchema,
@@ -1246,3 +1248,15 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
     ) -> Generator[Location, None, None]:
         return self._get_resource_list(LocationSchema)
+
+    # ---- CURRENCIES
+    def get_currencies(
+            self,
+    ) -> Generator[Currency, None, None]:
+        return self._get_resource_list(CurrencySchema)
+
+    def get_currency(
+            self,
+            id: int
+    ) -> Audience:
+        return self._get_resource_by_id(CurrencySchema, id)

@@ -1,9 +1,10 @@
-from livestyled.models.app import App, Currency
+from livestyled.models.app import App
 from livestyled.models.audience import Audience
 from livestyled.models.audience_device import AudienceDevice
 from livestyled.models.booking import Booking
 from livestyled.models.cohort import Cohort
 from livestyled.models.competition import Competition
+from livestyled.models.currency import Currency
 from livestyled.models.device import Device
 from livestyled.models.device_consent import DeviceConsent
 from livestyled.models.device_preference import DevicePreference
