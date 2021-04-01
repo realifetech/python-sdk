@@ -34,6 +34,7 @@ class TicketSchema(Schema):
 
     id = fields.Int()
     external_ticket_id = fields.String(data_key='externalTicketId')
+    external_movement_id = fields.String(data_key='externalMovementId', required=False, missing=None)
     seat = fields.String(required=False, missing=None)
     qr_code_url = fields.String(data_key='qrCodeUrl', required=False, missing=None)
     session_date = fields.AwareDateTime(data_key='sessionDate', allow_none=False)
