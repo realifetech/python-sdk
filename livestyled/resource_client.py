@@ -582,7 +582,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     ) -> Generator[Ticket, None, None]:
         filters = {}
         if external_ticket_ids:
-            filters['externalTicketId'] = external_ticket_ids
+            filters['externalTicketId[]'] = external_ticket_ids
         if user:
             if isinstance(user, User):
                 filters['user'] = '{}'.format(user.id)
