@@ -9,6 +9,7 @@ class Ticket:
             self,
             id,
             external_ticket_id,
+            external_movement_id,
             seat,
             qr_code_url,
             title,
@@ -53,6 +54,7 @@ class Ticket:
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
+        self.external_movement_id = external_movement_id
         self.seat = seat
         self.qr_code_url = qr_code_url
         self.session_date = session_date
@@ -152,6 +154,7 @@ class Ticket:
         return cls(
             id=id,
             external_ticket_id=None,
+            external_movement_id=None,
             seat=None,
             qr_code_url=None,
             title=None,
@@ -198,6 +201,7 @@ class Ticket:
             cls,
             user: User or str or int,
             external_ticket_id=None,
+            external_movement_id=None,
             seat=None,
             qr_code_url=None,
             session_date=None,
@@ -238,6 +242,7 @@ class Ticket:
         ticket = Ticket(
             id=None,
             external_ticket_id=external_ticket_id,
+            external_movement_id=external_movement_id,
             seat=seat,
             qr_code_url=qr_code_url,
             session_date=session_date,

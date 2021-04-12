@@ -577,12 +577,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_tickets(
             self,
-            external_ticket_id: str or None = None,
+            external_ticket_ids: dict or None = None,
             user: User or str or int or None = None,
     ) -> Generator[Ticket, None, None]:
         filters = {}
-        if external_ticket_id:
-            filters['externalTicketId'] = external_ticket_id
+        if external_ticket_ids:
+            filters['externalTicketId[]'] = external_ticket_ids
         if user:
             if isinstance(user, User):
                 filters['user'] = '{}'.format(user.id)
