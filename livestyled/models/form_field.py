@@ -1,6 +1,32 @@
 from typing import Dict, List
 
 
+class FormFieldTranslation:
+    def __init__(
+            self,
+            id,
+            language,
+            label,
+            placeholder,
+            validation_error,
+    ):
+        self._id = id
+        self.language = language
+        self.label = label
+        self.placeholder = placeholder
+        self.validation_error = validation_error
+
+    def __eq__(self, other):
+        return all(
+            [
+                self.language == other.language,
+                self.label == other.label,
+                self.placeholder == other.placeholder,
+                self.validation_error == other.validation_error
+            ]
+        )
+
+
 class FormField:
     def __init__(
             self,
@@ -34,7 +60,7 @@ class FormField:
             required: bool or None = None,
             sort_id: int or None = None,
             select_options: List or None = None,
-            translations: List or None = None,
+            translations: List[FormFieldTranslation] or None = None,
             auto_fill: Dict or None = None,
     ):
         return FormField(
@@ -81,30 +107,4 @@ class FormField:
             sort_id=None,
             translations=None,
             auto_fill=None,
-        )
-
-
-class FormFieldTranslation:
-    def __init__(
-            self,
-            id,
-            language,
-            label,
-            placeholder,
-            validation_error,
-    ):
-        self._id = id
-        self.language = language
-        self.label = label
-        self.placeholder = placeholder
-        self.validation_error = validation_error
-
-    def __eq__(self, other):
-        return all(
-            [
-                self.language == other.language,
-                self.label == other.label,
-                self.placeholder == other.placeholder,
-                self.validation_error == other.validation_error
-            ]
         )
