@@ -24,7 +24,7 @@ class DeviceFormData:
             cls,
             device: Device or str or int,
             form: Form or str or int,
-            data: dict,
+            data: list,
     ):
         device_form_data = DeviceFormData(
             id=None,

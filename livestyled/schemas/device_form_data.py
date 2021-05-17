@@ -12,11 +12,11 @@ class DeviceFormDataSchema(Schema):
         model = DeviceFormData
         api_type = 'form_data'
         url = 'engage/form_data'
-        default_ordering = 'createdAt'
+        default_ordering = 'id'
 
     id = fields.Int()
     created_at = fields.AwareDateTime(data_key='createdAt', load_only=True, allow_none=True)
     updated_at = fields.AwareDateTime(data_key='updatedAt', load_only=True, allow_none=True)
-    data = fields.Dict(data_key='data')
+    data = fields.List(fields.Inferred, data_key='data')
     device_id = RelatedResourceLinkField(schema=DeviceSchema, data_key='device', microservice_aware=True)
     form_id = RelatedResourceLinkField(schema=FormSchema, data_key='form', microservice_aware=True)

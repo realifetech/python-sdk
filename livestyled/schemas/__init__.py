@@ -6,6 +6,7 @@ from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.competition import CompetitionSchema
 from livestyled.schemas.device import DeviceSchema
 from livestyled.schemas.device_consent import DeviceConsentSchema
+from livestyled.schemas.device_form_data import DeviceFormDataSchema
 from livestyled.schemas.device_preference import DevicePreferenceSchema
 from livestyled.schemas.device_reality import DeviceRealitySchema
 from livestyled.schemas.device_token import DeviceTokenSchema
@@ -48,6 +49,7 @@ __all__ = [
     CompetitionSchema,
     DeviceSchema,
     DeviceConsentSchema,
+    DeviceFormDataSchema,
     DevicePreferenceSchema,
     DeviceRealitySchema,
     DeviceTokenSchema,

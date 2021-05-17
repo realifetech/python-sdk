@@ -12,6 +12,7 @@ from livestyled.models import (
     Cohort,
     Competition,
     Device,
+    DeviceFormData,
     DevicePreference,
     DeviceReality,
     DeviceToken,
@@ -51,6 +52,7 @@ from livestyled.schemas import (
     BookingSchema,
     CohortSchema,
     CompetitionSchema,
+    DeviceFormDataSchema,
     DevicePreferenceSchema,
     DeviceRealitySchema,
     DeviceSchema,
@@ -1246,3 +1248,23 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
     ) -> Generator[Location, None, None]:
         return self._get_resource_list(LocationSchema)
+
+    # ---- FORM_DATA
+
+    def get_form_data(
+            self,
+            expires_at_before=None,
+            expires_at_after=None
+    ) -> Generator[DeviceFormData, None, None]:
+        filters = {}
+        if expires_at_before:
+            filters = {
+                'expiresAt[before]': expires_at_before
+            }
+        if expires_at_after:
+            filters = {
+                'expiresAt[after]': expires_at_after
+            }
+        if filters:
+            return self._get_resource_list(DeviceFormDataSchema, filters=filters)
+        return self._get_resource_list(DeviceFormDataSchema)
