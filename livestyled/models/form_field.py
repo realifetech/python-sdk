@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import Dict, List
 
 
 class FormField:
@@ -30,23 +30,23 @@ class FormField:
             cls,
             type: str or None = None,
             key: str or None = None,
-            validation_regex: str or None= None,
-            required: bool or None= None,
-            sort_id: int or None= None,
+            validation_regex: str or None = None,
+            required: bool or None = None,
+            sort_id: int or None = None,
             select_options: List or None = None,
             translations: List or None = None,
             auto_fill: Dict or None = None,
     ):
         return FormField(
             id=None,
-            type = type,
-            key = key,
-            validation_regex = validation_regex,
-            required = required,
-            select_options = select_options,
-            sort_id = sort_id,
-            translations = translations,
-            auto_fill = auto_fill,
+            type=type,
+            key=key,
+            validation_regex=validation_regex,
+            required=required,
+            select_options=select_options,
+            sort_id=sort_id,
+            translations=translations,
+            auto_fill=auto_fill,
         )
 
     @property
@@ -73,14 +73,14 @@ class FormField:
     ):
         return cls(
             id=id,
-            type = None,
-            key = None,
-            validation_regex = None,
-            required = None,
-            select_options = None,
-            sort_id = None,
-            translations = None,
-            auto_fill = None,
+            type=None,
+            key=None,
+            validation_regex=None,
+            required=None,
+            select_options=None,
+            sort_id=None,
+            translations=None,
+            auto_fill=None,
         )
 
 

@@ -51,17 +51,17 @@ class Form:
     ):
         return Form(
             id=None,
-            reference = reference,
-            image_url = image_url,
-            completion_button_url = completion_button_url,
-            completion_button_title = completion_button_title,
-            show_completion_date = show_completion_date,
-            allow_update = allow_update,
-            refresh_on_success = refresh_on_success,
-            fields = fields,
-            translations = translations,
-            requires_login = requires_login,
-            validation_integration = validation_integration,
+            reference=reference,
+            image_url=image_url,
+            completion_button_url=completion_button_url,
+            completion_button_title=completion_button_title,
+            show_completion_date=show_completion_date,
+            allow_update=allow_update,
+            refresh_on_success=refresh_on_success,
+            fields=fields,
+            translations=translations,
+            requires_login=requires_login,
+            validation_integration=validation_integration,
         )
 
     @property
