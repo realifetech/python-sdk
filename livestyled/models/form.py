@@ -3,6 +3,41 @@ from typing import List
 from livestyled.models.form_field import FormField
 
 
+class FormTranslation:
+    def __init__(
+            self,
+            id,
+            language,
+            title,
+            description,
+            submit_button_title=None,
+            completion_title=None,
+            completion_button_title=None,
+            completion_description=None,
+    ):
+        self._id = id
+        self.language = language
+        self.title = title
+        self.description = description
+        self.submit_button_title = submit_button_title
+        self.completion_button_title = completion_button_title
+        self.completion_title = completion_title
+        self.completion_description = completion_description
+
+    def __eq__(self, other):
+        return all(
+            [
+                self.language == other.language,
+                self.title == other.title,
+                self.description == other.description,
+                self.submit_button_title == other.submit_button_title,
+                self.completion_title == other.completion_title,
+                self.completion_button_title == other.completion_button_title,
+                self.completion_description == other.completion_description
+            ]
+        )
+
+
 class Form:
     def __init__(
             self,
@@ -28,9 +63,9 @@ class Form:
         self.allow_update = allow_update
         self.refresh_on_success = refresh_on_success
         if fields:
-            self.fields = [FormField(**ff) for ff in fields]
+            self.fields = [FormField(**field) for field in fields]
         if translations:
-            self.fields = [FormTranslation(**ft) for ft in translations]
+            self.fields = [FormTranslation(**translation) for translation in translations]
         self.requires_login = requires_login
         self.validation_integration = validation_integration
 
@@ -44,8 +79,8 @@ class Form:
             show_completion_date: bool or None = None,
             allow_update: bool or None = None,
             refresh_on_success: bool or None = None,
-            fields: List or None = None,
-            translations: List or None = None,
+            fields: List[FormField] or None = None,
+            translations: List[FormTranslation] or None = None,
             requires_login: bool or None = None,
             validation_integration: str or None = None,
     ):
@@ -100,39 +135,4 @@ class Form:
             translations=None,
             requires_login=None,
             validation_integration=None,
-        )
-
-
-class FormTranslation:
-    def __init__(
-            self,
-            id,
-            language,
-            title,
-            description,
-            submit_button_title=None,
-            completion_title=None,
-            completion_button_title=None,
-            completion_description=None,
-    ):
-        self._id = id
-        self.language = language
-        self.title = title
-        self.description = description
-        self.submit_button_title = submit_button_title
-        self.completion_button_title = completion_button_title
-        self.completion_title = completion_title
-        self.completion_description = completion_description
-
-    def __eq__(self, other):
-        return all(
-            [
-                self.language == other.language,
-                self.title == other.title,
-                self.description == other.description,
-                self.submit_button_title == other.submit_button_title,
-                self.completion_title == other.completion_title,
-                self.completion_button_title == other.completion_button_title,
-                self.completion_description == other.completion_description
-            ]
         )

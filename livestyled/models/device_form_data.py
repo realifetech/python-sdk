@@ -9,6 +9,7 @@ class DeviceFormData:
             device_id,
             form_id,
             data,
+            expires_at=None,
             created_at=None,
             updated_at=None
     ):
@@ -16,6 +17,7 @@ class DeviceFormData:
         self.data = data
         self.created_at = created_at
         self.updated_at = updated_at
+        self.expires_at = expires_at
         self._device = Device.placeholder(id=device_id)
         self._form = Form.placeholder(id=form_id)
 
@@ -31,6 +33,7 @@ class DeviceFormData:
             device_id=None,
             form_id=None,
             data=data,
+            expires_at=None,
             created_at=None,
             updated_at=None,
         )

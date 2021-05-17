@@ -23,7 +23,7 @@ class FormField:
         self.sort_id = sort_id
         self.auto_fill = auto_fill
         if translations:
-            self.fields = [FormFieldTranslation(**fft) for fft in translations]
+            self.fields = [FormFieldTranslation(**translation) for translation in translations]
 
     @classmethod
     def create_new(

@@ -15,6 +15,7 @@ class DeviceFormDataSchema(Schema):
         default_ordering = 'id'
 
     id = fields.Int()
+    expires_at = fields.AwareDateTime(data_key='expiresAt', load_only=True, allow_none=True)
     created_at = fields.AwareDateTime(data_key='createdAt', load_only=True, allow_none=True)
     updated_at = fields.AwareDateTime(data_key='updatedAt', load_only=True, allow_none=True)
     data = fields.List(fields.Inferred, data_key='data')

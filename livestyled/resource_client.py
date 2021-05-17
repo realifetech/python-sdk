@@ -1253,18 +1253,20 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_form_data(
             self,
+            device_id=None,
+            form_id=None,
             expires_at_before=None,
             expires_at_after=None
     ) -> Generator[DeviceFormData, None, None]:
         filters = {}
+        if device_id:
+            filters['device'] = device_id
+        if form_id:
+            filters['form'] = form_id
         if expires_at_before:
-            filters = {
-                'expiresAt[before]': expires_at_before
-            }
+            filters['expiresAt[before]'] = expires_at_before
         if expires_at_after:
-            filters = {
-                'expiresAt[after]': expires_at_after
-            }
+            filters['expiresAt[after]'] = expires_at_after
         if filters:
             return self._get_resource_list(DeviceFormDataSchema, filters=filters)
         return self._get_resource_list(DeviceFormDataSchema)
