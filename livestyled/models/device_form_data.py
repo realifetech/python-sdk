@@ -69,11 +69,7 @@ class DeviceFormData:
         return '<DeviceFormData(id={self.id!r}, device={self.device!r}, form={self.form!r})>'.format(self=self)
 
     def diff(self, other):
-        differences = {}
         fields = (
             'data',
         )
-        for field in fields:
-            if getattr(self, field) != getattr(other, field):
-                differences[field] = getattr(self, field)
-        return differences
+        return {field: getattr(self, field) for field in fields if getattr(self, field) != getattr(other, field)}
