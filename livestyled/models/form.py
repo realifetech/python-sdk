@@ -62,10 +62,8 @@ class Form:
         self.show_completion_date = show_completion_date
         self.allow_update = allow_update
         self.refresh_on_success = refresh_on_success
-        if fields:
-            self.fields = [FormField(**field) for field in fields]
-        if translations:
-            self.fields = [FormTranslation(**translation) for translation in translations]
+        self.fields = fields and [FormField(**field) for field in fields]
+        self.fields = translations and [FormTranslation(**translation) for translation in translations]
         self.requires_login = requires_login
         self.validation_integration = validation_integration
 
@@ -107,15 +105,11 @@ class Form:
         return '<Form(id={self.id!r})>'.format(self=self)
 
     def diff(self, other):
-        differences = {}
         fields = (
             'data', 'reference', 'image_url', 'completion_button_url', 'completion_button_title', 'show_completion_date',
             'allow_update', 'refresh_on_success', 'fields', 'translations', 'requires_login', 'validation_integration'
         )
-        for field in fields:
-            if getattr(self, field) != getattr(other, field):
-                differences[field] = getattr(self, field)
-        return differences
+        return {field: getattr(self, field) for field in fields if getattr(self, field) != getattr(other, field)}
 
     @classmethod
     def placeholder(

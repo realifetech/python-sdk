@@ -48,8 +48,7 @@ class FormField:
         self.select_options = select_options
         self.sort_id = sort_id
         self.auto_fill = auto_fill
-        if translations:
-            self.fields = [FormFieldTranslation(**translation) for translation in translations]
+        self.translations = translations and [FormFieldTranslation(**translation) for translation in translations]
 
     @classmethod
     def create_new(
@@ -83,14 +82,10 @@ class FormField:
         return '<FormField(id={self.id!r})>'.format(self=self)
 
     def diff(self, other):
-        differences = {}
         fields = (
             'data', 'type', 'key', 'required', 'translations', 'sort_id', 'validation_regex', 'select_options', 'auto_fill'
         )
-        for field in fields:
-            if getattr(self, field) != getattr(other, field):
-                differences[field] = getattr(self, field)
-        return differences
+        return {field: getattr(self, field) for field in fields if getattr(self, field) != getattr(other, field)}
 
     @classmethod
     def placeholder(
