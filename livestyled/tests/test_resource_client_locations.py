@@ -27,6 +27,7 @@ def test_get_locations(requests_mock):
     assert locations[0].coordinates.lon == 13.4050
     assert locations[0].polygon is None
     assert locations[0].sort_id == 10
+    assert locations[0].external_id == ''
 
     assert locations[2].id == 3
     assert locations[2].status == 'active'
@@ -40,3 +41,19 @@ def test_get_locations(requests_mock):
         LocationCoordinates(51.72022261695929, -0.416107177734375),
         LocationCoordinates(51.62142713341988, -0.536956787109375),
     ]
+
+    assert locations[3].id == 4
+    assert locations[3].status == 'active'
+    assert locations[3].listed is False
+    assert locations[3].name == 'LS Office CO'
+    assert locations[3].coordinates.lat == 51.5413393
+    assert locations[3].coordinates.lon == -0.09543170000000001
+    assert locations[3].polygon.coordinates == [
+        LocationCoordinates(51.543792920127274, -0.10062575340270996),
+        LocationCoordinates(51.542838751511205, -0.10001420974731445),
+        LocationCoordinates(51.54066343916916, -0.09590506553649901),
+        LocationCoordinates(51.543586074083876, -0.09056210517883301),
+        LocationCoordinates(51.54612821344662, -0.09384512901306152),
+        LocationCoordinates(51.543792920127274, -0.10062575340270996),
+    ]
+    assert locations[3].external_id is None

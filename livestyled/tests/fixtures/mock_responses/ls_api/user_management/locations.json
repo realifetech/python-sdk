@@ -75,7 +75,7 @@
         },
         {
             "@id": "/v4/user_management/locations/262",
-            "id": 262,
+            "id": 4,
             "status": "active",
             "listed": false,
             "name": "LS Office CO",
@@ -116,8 +116,7 @@
             },
             "sortId": 15,
             "createdAt": "2018-08-22T14:49:47+00:00",
-            "updatedAt": "2019-06-14T12:23:55+00:00",
-            "externalId": ""
+            "updatedAt": "2019-06-14T12:23:55+00:00"
         },
         {
             "@id": "/v4/user_management/locations/263",
