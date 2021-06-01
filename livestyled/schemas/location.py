@@ -32,4 +32,4 @@ class LocationSchema(Schema):
     coordinates = fields.Nested(LocationCoordinates, allow_none=True)
     polygon = fields.Nested(LocationPolygon, allow_none=True)
     sort_id = fields.Int(data_key='sortId')
-    external_id = fields.String(data_key='externalId', allow_none=True, blank=True)
+    external_id = fields.String(data_key='externalId', allow_none=True, blank=True, missing=None)
