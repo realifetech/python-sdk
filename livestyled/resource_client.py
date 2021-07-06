@@ -1022,13 +1022,13 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
             venue: Venue,
             attributes: Dict
-    ) -> ProductVariant:
+    ) -> Venue:
         return self._update_resource(VenueSchema, venue.id, attributes)
 
     def create_venue(
             self,
             venue: Venue
-    ) -> ProductVariant:
+    ) -> Venue:
         return self._create_resource(VenueSchema, venue)
 
     # ---- FULFILMENT POINTS
