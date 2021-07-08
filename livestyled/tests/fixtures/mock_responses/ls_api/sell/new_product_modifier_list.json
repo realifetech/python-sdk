@@ -1,0 +1,30 @@
+{
+    "@context": "/v4/contexts/Sell/ProductModifierList",
+    "@id": "/sell/product_modifier_lists/26",
+    "@type": "Sell/ProductModifierList",
+    "id": 26,
+    "status": "string",
+    "externalId": "list1",
+    "reference": "string",
+    "multipleSelect": true,
+    "mandatorySelect": true,
+    "translations": [
+        {
+            "@id": "/sell/product_modifier_list_translations/137",
+            "@type": "Sell/ProductModifierListTranslation",
+            "id": 137,
+            "title": "test",
+            "language": "en"
+        }
+    ],
+    "items": [
+        {
+            "@id": "/sell/product_modifier_items/35",
+            "@type": "Sell/ProductModifierItem",
+            "id": 35,
+            "externalId": "item1",
+            "additionalPrice": 150,
+            "translations": []
+        }
+    ]
+}
