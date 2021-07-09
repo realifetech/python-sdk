@@ -1,7 +1,7 @@
 import json
 import os
 
-from livestyled.models import Product, ProductModifierList, ProductModifierItem
+from livestyled.models import Product, ProductModifierItem, ProductModifierList
 from livestyled.resource_client import LiveStyledResourceClient
 from livestyled.tests.utils import configure_mock_responses
 
