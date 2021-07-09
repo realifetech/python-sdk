@@ -1018,6 +1018,19 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     ) -> Venue:
         return self._get_resource_by_id(VenueSchema, id)
 
+    def update_venue(
+            self,
+            venue: Venue,
+            attributes: Dict
+    ) -> Venue:
+        return self._update_resource(VenueSchema, venue.id, attributes)
+
+    def create_venue(
+            self,
+            venue: Venue
+    ) -> Venue:
+        return self._create_resource(VenueSchema, venue)
+
     # ---- FULFILMENT POINTS
 
     def get_fulfilment_points(

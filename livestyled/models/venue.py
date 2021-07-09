@@ -100,3 +100,15 @@ class Venue:
             status=None,
             is_default=False
         )
+
+    def diff(self, other):
+        differences = {}
+        fields = (
+            'name', 'label', 'status', 'is_default', 'description', 'image_url', 'map_image_url', 'geo_latitude',
+            'geo_longitude', 'geo_latitude_north_west', 'geo_longitude_north_west', 'geo_latitude_south_east',
+            'geo_longitude_south_west', 'city', 'external_id', 'created_at', 'updated_at', 'venue_icon_url'
+        )
+        for field in fields:
+            if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
+        return differences
