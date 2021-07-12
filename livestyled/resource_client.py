@@ -1220,6 +1220,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             return self._get_resource_list(AudienceSchema, filters=filters)
         return self._get_resource_list(AudienceSchema)
 
+    def get_audiences_by_external_id(
+            self,
+            external_id: str or None = None,
+    ) -> Generator[Audience, None, None]:
+        return self._get_resource_list(AudienceSchema, external_id)
+
     # ---- AUDIENCE DEVICES
 
     def get_audience_devices(
