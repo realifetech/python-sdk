@@ -108,7 +108,7 @@ class FulfilmentPoint:
             else:
                 audience_iris.append(audience)
 
-        self.audiences = audiences
+        self.audiences = audience_iris
 
         if translations:
             for translation in translations:
