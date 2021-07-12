@@ -39,5 +39,5 @@ def test_get_fulfilment_points(requests_mock):
     assert isinstance(fp.categories, list)
     assert isinstance(fp.audiences, list)
     assert isinstance(fp.categories[0], FulfilmentPointCategory)
-    assert fp.audiences[0] == "/user_management/audiences/1"
-    assert fp.audiences[1] == "/user_management/audiences/2"
+    assert fp.audiences[0] == '/user_management/audiences/1'
+    assert fp.audiences[1] == '/user_management/audiences/2'

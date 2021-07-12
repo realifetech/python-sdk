@@ -87,7 +87,7 @@ class FulfilmentPoint:
             categories,
             venue,
             external_id,
-            audiences = []
+            audiences=[]
     ):
         self.__is_placeholder = False
         self.id = id
@@ -104,7 +104,7 @@ class FulfilmentPoint:
         audience_iris = []
         for audience in audiences:
             if isinstance(audience, int):
-                audience_iris.append('/user_management/audiences'+audience)
+                audience_iris.append('/user_management/audiences' + audience)
             else:
                 audience_iris.append(audience)
 
