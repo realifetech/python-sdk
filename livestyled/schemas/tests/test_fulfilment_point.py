@@ -34,5 +34,6 @@ def test_deserialize_fulfilment_point():
                     'collection_note': 'Test fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test\r\nTest fulfilment note: Collection point collect when ready test',
                     'language': 'en'
                 }
-            ]
+            ],
+            'audiences': []
         }
