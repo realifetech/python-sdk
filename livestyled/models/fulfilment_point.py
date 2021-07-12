@@ -104,7 +104,7 @@ class FulfilmentPoint:
         audience_iris = []
         for audience in audiences:
             if isinstance(audience, int):
-                audience_iris.append('/user_management/audiences' + audience)
+                audience_iris.append('/user_management/audiences/' + str(audience))
             else:
                 audience_iris.append(audience)
 
