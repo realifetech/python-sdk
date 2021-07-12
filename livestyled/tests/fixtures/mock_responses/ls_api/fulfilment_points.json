@@ -28,6 +28,10 @@
             ],
             "categories": [
                 "/v4/fulfilment_point_categories/1"
+            ],
+            "audiences": [
+                "/user_management/audiences/1",
+                "/user_management/audiences/2"
             ]
         },
         {

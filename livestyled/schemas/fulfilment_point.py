@@ -61,3 +61,4 @@ class FulfilmentPointSchema(Schema):
     categories = RelatedResourceField(schema=FulfilmentPointCategorySchema, many=True, missing=[])
     venue = RelatedResourceLinkField(schema=VenueSchema, required=False, missing=None)
     external_id = fields.String(missing=None, data_key='externalId')
+    audiences = fields.List(fields.String(), missing=[])

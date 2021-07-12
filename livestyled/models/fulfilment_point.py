@@ -87,6 +87,7 @@ class FulfilmentPoint:
             categories,
             venue,
             external_id,
+            audiences = []
     ):
         self.__is_placeholder = False
         self.id = id
@@ -99,6 +100,15 @@ class FulfilmentPoint:
         self.position = position
         self.reference = reference
         self.external_id = external_id
+
+        audience_iris = []
+        for audience in audiences:
+            if isinstance(audience, int):
+                audience_iris.append('/user_management/audiences'+audience)
+            else:
+                audience_iris.append(audience)
+
+        self.audiences = audiences
 
         if translations:
             for translation in translations:
@@ -147,7 +157,8 @@ class FulfilmentPoint:
             translations=None,
             categories=None,
             venue=None,
-            external_id=None
+            external_id=None,
+            audiences=[]
         )
         fp.__is_placeholder = True
         return fp
@@ -166,7 +177,8 @@ class FulfilmentPoint:
             long: int or None = None,
             translations: List or None = None,
             categories: List or None = None,
-            venue: str or None = None
+            venue: str or None = None,
+            audiences: List = []
     ):
         fulfilment_point = FulfilmentPoint(
             id=None,
@@ -181,7 +193,8 @@ class FulfilmentPoint:
             reference=reference,
             translations=translations,
             categories=categories,
-            venue=venue
+            venue=venue,
+            audiences=audiences
         )
         return fulfilment_point
 
@@ -189,7 +202,7 @@ class FulfilmentPoint:
         differences = {}
         fields = (
             'external_id', 'type', 'status', 'position', 'reference', 'image_url', 'map_image_url', 'lat', 'long',
-            'translations', 'categories', 'venue'
+            'translations', 'categories', 'venue', 'audiences'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
@@ -210,6 +223,7 @@ class FulfilmentPoint:
                 self.map_image_url == other.map_image_url,
                 self.translations == other.translations,
                 self.categories == other.categories,
-                self.venue == other.venue
+                self.venue == other.venue,
+                self.audiences == other.audiences
             ]
         )
