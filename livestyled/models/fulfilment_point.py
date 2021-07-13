@@ -100,15 +100,7 @@ class FulfilmentPoint:
         self.position = position
         self.reference = reference
         self.external_id = external_id
-
-        audience_iris = []
-        for audience in audiences:
-            if isinstance(audience, int):
-                audience_iris.append('/user_management/audiences/' + str(audience))
-            else:
-                audience_iris.append(audience)
-
-        self.audiences = audience_iris
+        self.audiences = audiences
 
         if translations:
             for translation in translations:

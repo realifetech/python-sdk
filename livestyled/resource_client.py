@@ -1222,7 +1222,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_audiences_by_external_id(
             self,
-            external_id: str or None = None,
+            external_id: str,
     ) -> Generator[Audience, None, None]:
         return self._get_resource_list(AudienceSchema, external_id)
 
