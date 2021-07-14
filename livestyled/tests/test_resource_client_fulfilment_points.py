@@ -1,6 +1,6 @@
 import os
 
-from livestyled.models import FulfilmentPoint, FulfilmentPointCategory, FulfilmentPointTranslation
+from livestyled.models import FulfilmentPoint, FulfilmentPointCategory, FulfilmentPointTranslation, Audience
 from livestyled.resource_client import LiveStyledResourceClient
 from livestyled.tests.utils import configure_mock_responses
 
@@ -37,7 +37,9 @@ def test_get_fulfilment_points(requests_mock):
     assert fp.translations[0].description == 'Description'
     assert fp.translations[0].collection_note == 'Fulfillment note 1'
     assert isinstance(fp.categories, list)
-    assert isinstance(fp.audiences, list)
     assert isinstance(fp.categories[0], FulfilmentPointCategory)
-    assert fp.audiences[0] == '/user_management/audiences/1'
-    assert fp.audiences[1] == '/user_management/audiences/2'
+    assert isinstance(fp.audiences, list)
+    assert isinstance(fp.audiences[0], Audience)
+    assert isinstance(fp.audiences[1], Audience)
+    assert fp.audiences[0].id == 1
+    assert fp.audiences[1].id == 2

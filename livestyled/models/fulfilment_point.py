@@ -104,8 +104,8 @@ class FulfilmentPoint:
         self.external_id = external_id
 
         if audiences:
+            self.audiences = []
             for audience in audiences:
-                self.audiences = []
                 if isinstance(audience, Audience):
                     self.audiences.append(audience)
                 elif isinstance(audience, dict):
@@ -116,8 +116,8 @@ class FulfilmentPoint:
             self.audiences = []
 
         if translations:
+            self.translations = []
             for translation in translations:
-                self.translations = []
                 if isinstance(translation, FulfilmentPointTranslation):
                     self.translations.append(translation)
                 elif isinstance(translation, dict):
@@ -126,8 +126,8 @@ class FulfilmentPoint:
             self.translations = []
 
         if categories:
+            self.categories = []
             for category in categories:
-                self.categories = []
                 if isinstance(category, FulfilmentPointCategory):
                     self.categories.append(category)
                 elif isinstance(category, dict):

@@ -27,7 +27,8 @@
                 }
             ],
             "categories": [
-                "/v4/fulfilment_point_categories/1"
+                "/v4/fulfilment_point_categories/1",
+                "/v4/fulfilment_point_categories/2"
             ],
             "audiences": [
                 "/user_management/audiences/1",
