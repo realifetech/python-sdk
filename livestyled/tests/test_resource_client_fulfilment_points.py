@@ -1,6 +1,6 @@
 import os
 
-from livestyled.models import FulfilmentPoint, FulfilmentPointCategory, FulfilmentPointTranslation, Audience
+from livestyled.models import Audience, FulfilmentPoint, FulfilmentPointCategory, FulfilmentPointTranslation
 from livestyled.resource_client import LiveStyledResourceClient
 from livestyled.tests.utils import configure_mock_responses
 
