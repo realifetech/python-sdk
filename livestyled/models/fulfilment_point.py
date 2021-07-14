@@ -2,6 +2,8 @@ from typing import List
 
 from livestyled.models.venue import Venue
 
+from livestyled.models.audience import Audience
+
 
 class FulfilmentPointCategoryTranslation:
     def __init__(
@@ -100,7 +102,18 @@ class FulfilmentPoint:
         self.position = position
         self.reference = reference
         self.external_id = external_id
-        self.audiences = audiences
+
+        if audiences:
+            for audience in audiences:
+                self.audiences = []
+                if isinstance(audience, Audience):
+                    self.audiences.append(audience)
+                elif isinstance(audience, dict):
+                    self.audiences.append(Audience(**audience))
+                elif isinstance(audience, int):
+                    self.audiences.append(Audience.placeholder(id=audience))
+        else:
+            self.audiences = []
 
         if translations:
             for translation in translations:
@@ -150,7 +163,7 @@ class FulfilmentPoint:
             categories=None,
             venue=None,
             external_id=None,
-            audiences=[]
+            audiences=None
         )
         fp.__is_placeholder = True
         return fp
@@ -170,7 +183,7 @@ class FulfilmentPoint:
             translations: List or None = None,
             categories: List or None = None,
             venue: str or None = None,
-            audiences: List = []
+            audiences: List or None = None
     ):
         fulfilment_point = FulfilmentPoint(
             id=None,
