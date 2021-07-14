@@ -43,4 +43,3 @@ def test_get_fulfilment_points(requests_mock):
     assert isinstance(fp.audiences[1], Audience)
     assert fp.audiences[0].id == 1
     assert fp.audiences[1].id == 2
-    

@@ -1,8 +1,7 @@
 from typing import List
 
-from livestyled.models.venue import Venue
-
 from livestyled.models.audience import Audience
+from livestyled.models.venue import Venue
 
 
 class FulfilmentPointCategoryTranslation:

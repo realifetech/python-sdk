@@ -1,5 +1,6 @@
 from marshmallow import EXCLUDE, fields, Schema
 
+from livestyled.schemas.audience import AudienceSchema
 from livestyled.models.fulfilment_point import (
     FulfilmentPoint,
     FulfilmentPointCategory,
@@ -8,7 +9,6 @@ from livestyled.models.fulfilment_point import (
 )
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
 from livestyled.schemas.venue import VenueSchema
-from livestyled.schemas.audience import AudienceSchema
 
 
 class FulfilmentPointTranslationSchema(Schema):
