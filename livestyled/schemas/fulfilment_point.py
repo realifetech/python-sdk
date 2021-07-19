@@ -6,6 +6,7 @@ from livestyled.models.fulfilment_point import (
     FulfilmentPointCategoryTranslation,
     FulfilmentPointTranslation,
 )
+from livestyled.schemas.audience import AudienceSchema
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
 from livestyled.schemas.venue import VenueSchema
 
@@ -61,3 +62,4 @@ class FulfilmentPointSchema(Schema):
     categories = RelatedResourceField(schema=FulfilmentPointCategorySchema, many=True, missing=[])
     venue = RelatedResourceLinkField(schema=VenueSchema, required=False, missing=None)
     external_id = fields.String(missing=None, data_key='externalId')
+    audiences = RelatedResourceLinkField(schema=AudienceSchema, many=True, missing=[])
