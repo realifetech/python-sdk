@@ -1,3 +1,4 @@
+import json
 import logging
 from typing import Dict, Generator, List, Type
 
@@ -176,6 +177,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     ):
         attributes_to_update = list(attributes.keys())
         update_payload = schema(only=attributes_to_update).dump(attributes)
+        logger.info(json.dumps(update_payload))
         updated_resource = self._api_patch(
             'v4/{}/{}'.format(schema.Meta.url, resource_id),
             update_payload
@@ -879,6 +881,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             product: Product,
             attributes: Dict
     ) -> Product:
+        logger.info(json.dumps(attributes))
         return self._update_resource(ProductSchema, product.id, attributes)
 
     def create_product(
