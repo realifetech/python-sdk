@@ -142,7 +142,7 @@ class ProductSchema(Schema):
     id = fields.Int()
     status = fields.String(missing=None)
     reference = fields.String(missing=None)
-    modifier_lists = fields.List(RelatedResourceLinkField(schema=ProductModifierListSchema, data_key='modifierLists', microservice_aware=True), many=True, missing=None)
+    modifier_lists = fields.List(RelatedResourceLinkField(schema=ProductModifierListSchema, microservice_aware=True), data_key='modifierLists', many=True, missing=None)
     external_id = fields.String(data_key='externalId', missing=None)
     holding_time = fields.Raw(missing=None, data_key='holdingTime')
     reconciliation_group = fields.Raw(missing=None, data_key='reconciliation_group')
