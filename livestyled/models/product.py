@@ -63,7 +63,7 @@ class ProductVariant:
             cls,
             external_id,
             price,
-            product: 'Product' or None,
+            product: 'Product',
             translations,
             stocks,
             tax,
