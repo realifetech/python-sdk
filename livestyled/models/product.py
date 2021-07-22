@@ -34,6 +34,16 @@ class ProductVariant:
         else:
             self.product = None
 
+        if stocks:
+            self.stocks = []
+            for stock in stocks:
+                if isinstance(stock, ProductVariantStock):
+                    self.stocks.append(stock)
+                elif isinstance(stock, dict):
+                    self.stocks.append(ProductVariantStock(**stock))
+        else:
+            self.stocks = []
+
     @classmethod
     def placeholder(cls, id):
         return cls(
@@ -53,7 +63,7 @@ class ProductVariant:
             cls,
             external_id,
             price,
-            product: 'Product',
+            product: 'Product' or None,
             translations,
             stocks,
             tax,
@@ -78,6 +88,64 @@ class ProductVariant:
         differences = {}
         fields = (
             'external_id', 'price', 'translations', 'product', 'tax', 'tax_rate', 'tax_band'
+        )
+        for field in fields:
+            if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
+        return differences
+
+
+class ProductVariantStock:
+    def __init__(
+            self,
+            initial,
+            on_hand,
+            fulfilment_point,
+            product_variant
+    ):
+        self.initial = initial
+        self.on_hand = on_hand
+        if fulfilment_point:
+            if isinstance(fulfilment_point, FulfilmentPoint):
+                self.fulfilment_point = fulfilment_point
+            elif isinstance(fulfilment_point, int):
+                self.fulfilment_point = FulfilmentPoint.placeholder(id=fulfilment_point)
+            elif isinstance(fulfilment_point, dict):
+                self.fulfilment_point = FulfilmentPoint(**fulfilment_point)
+        else:
+            self.fulfilment_point = None
+
+        if product_variant:
+            if isinstance(product_variant, ProductVariant):
+                self.product_variant = product_variant
+            elif isinstance(product_variant, int):
+                self.product_variant = ProductVariant.placeholder(id=product_variant)
+            elif isinstance(product_variant, dict):
+                self.product_variant = ProductVariant(**product_variant)
+        else:
+            self.product_variant = None
+
+    @classmethod
+    def create_new(
+            cls,
+            initial,
+            on_hand,
+            fulfilment_point: FulfilmentPoint,
+            product_variant: ProductVariant or None
+    ):
+        product_variant_stock = ProductVariantStock(
+            initial=initial,
+            on_hand=on_hand,
+            fulfilment_point=fulfilment_point,
+            product_variant=product_variant
+        )
+
+        return product_variant_stock
+
+    def diff(self, other):
+        differences = {}
+        fields = (
+            'initial', 'on_hand', 'fulfilment_point', 'product_variant'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

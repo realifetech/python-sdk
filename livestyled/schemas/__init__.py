@@ -26,7 +26,8 @@ from livestyled.schemas.product import (
     ProductModifierItemSchema,
     ProductModifierListSchema,
     ProductSchema,
-    ProductVariantSchema
+    ProductVariantSchema,
+    ProductVariantStockSchema
 )
 from livestyled.schemas.push_broadcast import PushBroadcastSchema
 from livestyled.schemas.push_consent import PushConsentSchema
@@ -70,6 +71,7 @@ __all__ = [
     ProductModifierListSchema,
     ProductSchema,
     ProductVariantSchema,
+    ProductVariantStockSchema,
     PushBroadcastSchema,
     PushConsentSchema,
     RealitySchema,

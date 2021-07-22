@@ -5,7 +5,8 @@ from livestyled.models.product import (
     ProductCategory,
     ProductModifierItem,
     ProductModifierList,
-    ProductVariant
+    ProductVariant,
+    ProductVariantStock
 )
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
 from livestyled.schemas.fulfilment_point import FulfilmentPointSchema
@@ -18,9 +19,6 @@ class ProductVariantStocksSchema(Schema):
         url = 'sell/product_variant_stocks'
 
     id = fields.Integer()
-    initial = fields.Integer()
-    on_hand = fields.Integer(missing=None, data_key='onHand')
-    fulfilment_point = RelatedResourceLinkField(schema=FulfilmentPointSchema, microservice_aware=True, data_key='fulfilmentPoint')
 
 
 class ProductVariantSchema(Schema):
@@ -42,9 +40,22 @@ class ProductVariantSchema(Schema):
     product = RelatedResourceLinkField(schema='livestyled.schemas.product.ProductSchema', microservice_aware=True)
     external_id = fields.String(missing=None, data_key='externalId')
     translations = fields.Nested(ProductVariantTranslationSchema, many=True, missing=None)
-    tax = fields.Float(missing=None)
-    tax_rate = fields.Float(missing=None, data_key='taxRate')
+    tax = fields.String(missing=None)
+    tax_rate = fields.String(missing=None, data_key='taxRate')
     tax_band = fields.String(missing=None, data_key='taxBand')
+
+
+class ProductVariantStockSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+        model = ProductVariantStock
+        api_type = 'product_variant_stocks'
+        url = 'sell/product_variant_stocks'
+
+    initial = fields.Integer()
+    on_hand = fields.Integer(missing=None, data_key='onHand')
+    fulfilment_point = RelatedResourceLinkField(schema=FulfilmentPointSchema, microservice_aware=True, data_key='fulfilmentPoint')
+    product_variant = RelatedResourceLinkField(schema=ProductVariantSchema, microservice_aware=True, data_key='productVariant')
 
 
 class ProductCategorySchema(Schema):

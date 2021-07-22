@@ -30,7 +30,8 @@ from livestyled.models.product import (
     ProductImage,
     ProductModifierItem,
     ProductModifierList,
-    ProductVariant
+    ProductVariant,
+    ProductVariantStock
 )
 from livestyled.models.push_broadcast import PushBroadcast
 from livestyled.models.push_consent import PushConsent
@@ -78,6 +79,7 @@ __all__ = [
     ProductModifierItem,
     ProductModifierList,
     ProductVariant,
+    ProductVariantStock,
     PushBroadcast,
     PushConsent,
     Reality,

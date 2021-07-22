@@ -30,6 +30,7 @@ from livestyled.models import (
     ProductModifierItem,
     ProductModifierList,
     ProductVariant,
+    ProductVariantStock,
     PushBroadcast,
     PushConsent,
     Reality,
@@ -44,7 +45,7 @@ from livestyled.models import (
     UserEmail,
     UserInfo,
     UserSSO,
-    Venue,
+    Venue
 )
 from livestyled.schemas import (
     AudienceDeviceSchema,
@@ -71,6 +72,7 @@ from livestyled.schemas import (
     ProductModifierListSchema,
     ProductSchema,
     ProductVariantSchema,
+    ProductVariantStockSchema,
     PushBroadcastSchema,
     PushConsentSchema,
     RealitySchema,
@@ -157,6 +159,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         for key, value in list(payload.items()):
             if value is None:
                 payload.pop(key)
+
         new_instance = self._api_post(
             'v4/{}'.format(schema.Meta.url),
             payload
@@ -946,6 +949,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             product_variant: ProductVariant
     ) -> ProductVariant:
         return self._create_resource(ProductVariantSchema, product_variant)
+
+    def create_product_variant_stock(
+            self,
+            product_variant_stock: ProductVariantStock
+    ) -> ProductVariantStock:
+        return self._create_resource(ProductVariantStockSchema, product_variant_stock)
 
     # ---- TICKET INTEGRATIONS
 
