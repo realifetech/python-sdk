@@ -24,5 +24,8 @@ def test_deserialize_product_variant():
                     'language': 'en',
                     'title': 'string'
                 }
-            ]
+            ],
+            'tax': None,
+            'tax_rate': None,
+            'tax_band': None,
         }
