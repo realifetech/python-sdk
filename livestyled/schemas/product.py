@@ -20,7 +20,7 @@ class ProductVariantStocksSchema(Schema):
     id = fields.Integer()
     initial = fields.Integer()
     on_hand = fields.Integer(missing=None, data_key='onHand')
-    fulfilment_point = RelatedResourceLinkField(schema=FulfilmentPointSchema, microservice_aware=True)
+    fulfilment_point = RelatedResourceLinkField(schema=FulfilmentPointSchema, microservice_aware=True, data_key='fulfilmentPoint')
 
 
 class ProductVariantSchema(Schema):
