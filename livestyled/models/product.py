@@ -12,12 +12,18 @@ class ProductVariant:
             external_id,
             translations,
             product,
+            tax,
+            tax_rate,
+            tax_band
     ):
         self.id = id
         self.price = price
         self.stocks = stocks
         self.external_id = external_id
         self.translations = translations
+        self.tax = tax
+        self.tax_rate = tax_rate
+        self.tax_band = tax_band
         if product:
             if isinstance(product, Product):
                 self.product = product
@@ -36,7 +42,10 @@ class ProductVariant:
             stocks=None,
             external_id=None,
             translations=None,
-            product=None
+            product=None,
+            tax=None,
+            tax_rate=None,
+            tax_band=None
         )
 
     @classmethod
@@ -46,7 +55,10 @@ class ProductVariant:
             price,
             product: 'Product',
             translations,
-            stocks
+            stocks,
+            tax,
+            tax_rate,
+            tax_band
     ):
         product_variant = ProductVariant(
             id=None,
@@ -54,7 +66,10 @@ class ProductVariant:
             price=price,
             translations=translations,
             product=product,
-            stocks=stocks
+            stocks=stocks,
+            tax=tax,
+            tax_rate=tax_rate,
+            tax_band=tax_band
         )
 
         return product_variant
@@ -62,7 +77,7 @@ class ProductVariant:
     def diff(self, other):
         differences = {}
         fields = (
-            'external_id', 'price', 'translations', 'product'
+            'external_id', 'price', 'translations', 'product', 'tax', 'tax_rate', 'tax_band'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

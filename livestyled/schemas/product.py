@@ -18,6 +18,9 @@ class ProductVariantStocksSchema(Schema):
         url = 'sell/product_variant_stocks'
 
     id = fields.Integer()
+    initial = fields.Integer()
+    on_hand = fields.Integer(missing=None, data_key='onHand')
+    fulfilment_point = fields.RelatedResourceLinkField(schema=FulfilmentPointSchema, microservice_aware=True)
 
 
 class ProductVariantSchema(Schema):
@@ -39,6 +42,9 @@ class ProductVariantSchema(Schema):
     product = RelatedResourceLinkField(schema='livestyled.schemas.product.ProductSchema', microservice_aware=True)
     external_id = fields.String(missing=None, data_key='externalId')
     translations = fields.Nested(ProductVariantTranslationSchema, many=True, missing=None)
+    tax = fields.Float(missing=None)
+    tax_rate = fields.Float(missing=None, data_key='taxRate')
+    tax_band = fields.String(missing=None, data_key='taxBand')
 
 
 class ProductCategorySchema(Schema):
