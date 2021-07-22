@@ -174,12 +174,14 @@ class ProductModifierItem:
             translations,
             external_id,
             modifier_list,
+            status
     ):
         self.id = id
         self.additional_price = additional_price
         self.external_id = external_id
         self.translations = translations
         self.modifier_list = None
+        self.status = status
         if modifier_list:
             if isinstance(modifier_list, ProductModifierList):
                 self.modifier_list = modifier_list
@@ -195,13 +197,15 @@ class ProductModifierItem:
             external_id,
             translations,
             modifier_list,
+            status
     ):
         product_modifier_item = ProductModifierItem(
             id=None,
             additional_price=additional_price,
             external_id=external_id,
             translations=translations,
-            modifier_list=modifier_list
+            modifier_list=modifier_list,
+            status=status
         )
 
         return product_modifier_item
@@ -209,7 +213,7 @@ class ProductModifierItem:
     def diff(self, other):
         differences = {}
         fields = (
-            'external_id', 'additional_price', 'translations'
+            'external_id', 'additional_price', 'translations', 'status'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
