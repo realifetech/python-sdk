@@ -12,9 +12,9 @@ class ProductVariant:
             external_id,
             translations,
             product,
-            tax,
-            tax_rate,
-            tax_band
+            tax=None,
+            tax_rate=None,
+            tax_band=None
     ):
         self.id = id
         self.price = price
@@ -66,9 +66,9 @@ class ProductVariant:
             product: 'Product',
             translations,
             stocks,
-            tax,
-            tax_rate,
-            tax_band
+            tax=None,
+            tax_rate=None,
+            tax_band=None
     ):
         product_variant = ProductVariant(
             id=None,
