@@ -121,6 +121,7 @@ class ProductModifierItemSchema(Schema):
 
     id = fields.Int()
     external_id = fields.String(data_key='externalId')
+    status = fields.String(data_key='status')
     additional_price = fields.Integer(data_key='additionalPrice')
     translations = fields.Nested(ProductModifierItemTranslationsSchema, many=True, missing=[])
     modifier_list = RelatedResourceLinkField('livestyled.schemas.product.ProductModifierListSchema', data_key='modifierList', microservice_aware=True)
