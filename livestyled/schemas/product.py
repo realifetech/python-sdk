@@ -36,7 +36,8 @@ class ProductVariantSchema(Schema):
 
     id = fields.Int()
     price = fields.Integer()
-    stocks = RelatedResourceLinkField(schema=ProductVariantStocksSchema, many=True, missing=[], microservice_aware=True)
+    stocks = RelatedResourceLinkField(schema='livestyled.schemas.product.ProductVariantStockSchema', many=True,
+                                      missing=[], microservice_aware=True)
     product = RelatedResourceLinkField(schema='livestyled.schemas.product.ProductSchema', microservice_aware=True)
     external_id = fields.String(missing=None, data_key='externalId')
     translations = fields.Nested(ProductVariantTranslationSchema, many=True, missing=None)
