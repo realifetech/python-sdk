@@ -257,7 +257,7 @@ class ProductModifierItem:
             translations,
             external_id,
             modifier_list,
-            status
+            status=None
     ):
         self.id = id
         self.additional_price = additional_price
