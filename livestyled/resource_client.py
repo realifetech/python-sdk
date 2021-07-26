@@ -969,7 +969,6 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         else:
             return self._get_resource_list(TicketIntegrationSchema)
 
-
     def get_ticket_integration(
             self,
             id
