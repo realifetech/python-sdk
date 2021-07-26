@@ -951,8 +951,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_ticket_integrations(
             self,
+            filters: Dict or None = None
     ) -> Generator[TicketIntegration, None, None]:
-        return self._get_resource_list(TicketIntegrationSchema)
+        if filters:
+            return self._get_resource_list(TicketIntegrationSchema, filters=filters)
+        else:
+            return self._get_resource_list(TicketIntegrationSchema)
 
     def get_ticket_integration(
             self,
