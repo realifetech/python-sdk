@@ -121,7 +121,10 @@ class RelatedResourceField(fields.Field):
             deserialized = []
             for v in value:
                 if isinstance(v, str):
-                    deserialized.append(int(v.split('/')[-1]))
+                    try:
+                        deserialized.append(int(v.split('/')[-1]))
+                    except ValueError:
+                        deserialized.append(v.split('/')[-1])
                 elif isinstance(v, dict):
                     deserialized.append(self.schema().load(v))
             return deserialized
