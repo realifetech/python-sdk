@@ -8,11 +8,11 @@ class TicketAuth:
             id,
             client_email,
             client_id,
-            access_token,
-            refresh_token,
-            expire_at,
             user_email,
-            ticket_integration
+            ticket_integration,
+            access_token=None,
+            refresh_token=None,
+            expire_at=None
     ):
         self.id = id
         self.client_email = client_email
