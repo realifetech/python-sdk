@@ -1017,6 +1017,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     ) -> TicketAuth:
         return self._update_resource(TicketAuthSchema, ticket_auth.id, attributes)
 
+    def create_ticket_auth(
+            self,
+            ticket_auth: TicketAuth
+    ) -> TicketAuth:
+        return self._create_resource(TicketAuthSchema, ticket_auth)
+
     # ---- VENUES
 
     def get_venues(
