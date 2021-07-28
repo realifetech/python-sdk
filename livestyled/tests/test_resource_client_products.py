@@ -1,7 +1,7 @@
 import json
 import os
 
-from livestyled.models import Product
+from livestyled.models import Product, ProductModifierItem, ProductModifierList
 from livestyled.resource_client import LiveStyledResourceClient
 from livestyled.tests.utils import configure_mock_responses
 
@@ -89,4 +89,62 @@ def test_create_product(requests_mock):
         'fulfilmentPoints': [],
         'modifierLists': [],
         'variants': []
+    }
+
+
+def test_create_product_modifier_list(requests_mock):
+    resource_client = LiveStyledResourceClient(TEST_API_DOMAIN, 'bar')
+    mock_responses = (
+        ('POST', 'https://' + TEST_API_DOMAIN + '/v4/sell/product_modifier_lists', 'mock_responses/ls_api/sell/new_product_modifier_list.json', 200),
+    )
+    configure_mock_responses(requests_mock, mock_responses, FIXTURES_DIR, CONTENT_TYPE)
+
+    modifier_item = ProductModifierItem(
+        id=35,
+        external_id='item1',
+        additional_price=150,
+        translations=[
+            {
+                'language': 'en',
+                'title': 'test'
+            }
+        ],
+        modifier_list=None
+    )
+
+    resource_client.create_product_modifier_list(
+        ProductModifierList.create_new(
+            external_id='list1',
+            reference='reference',
+            status='ACTIVE',
+            multiple_select=True,
+            mandatory_select=True,
+            translations=[
+                {
+                    'language': 'en',
+                    'title': 'test'
+                }
+            ],
+            items=[
+                modifier_item
+            ]
+        )
+    )
+
+    assert len(requests_mock.request_history) == 1
+    assert requests_mock.request_history[0].method == 'POST'
+    assert requests_mock.request_history[0].url == 'https://' + TEST_API_DOMAIN + '/v4/sell/product_modifier_lists'
+    assert json.loads(requests_mock.request_history[0].body) == {
+        'externalId': 'list1',
+        'items': ['/sell/product_modifier_items/35', '/sell/product_modifier_items/35'],
+        'multipleSelect': True,
+        'mandatorySelect': True,
+        'reference': 'reference',
+        'status': 'ACTIVE',
+        'translations': [
+            {
+                'language': 'en',
+                'title': 'test'
+            }
+        ]
     }

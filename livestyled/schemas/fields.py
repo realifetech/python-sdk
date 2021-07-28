@@ -49,7 +49,10 @@ class RelatedResourceLinkField(fields.Field):
 
     def _deserialize(self, value, attr, data, **kwargs):
         if self.many:
-            return [int(v.split('/')[-1]) for v in value]
+            try:
+                return [int(v.split('/')[-1]) for v in value]
+            except ValueError:
+                return [v.split('/')[-1] for v in value]
         elif isinstance(value, dict):
             return int(value['id'])
         return int(value.split('/')[-1])
@@ -118,7 +121,10 @@ class RelatedResourceField(fields.Field):
             deserialized = []
             for v in value:
                 if isinstance(v, str):
-                    deserialized.append(int(v.split('/')[-1]))
+                    try:
+                        deserialized.append(int(v.split('/')[-1]))
+                    except ValueError:
+                        deserialized.append(v.split('/')[-1])
                 elif isinstance(v, dict):
                     deserialized.append(self.schema().load(v))
             return deserialized

@@ -30,6 +30,7 @@ from livestyled.models import (
     ProductModifierItem,
     ProductModifierList,
     ProductVariant,
+    ProductVariantStock,
     PushBroadcast,
     PushConsent,
     Reality,
@@ -44,7 +45,7 @@ from livestyled.models import (
     UserEmail,
     UserInfo,
     UserSSO,
-    Venue,
+    Venue
 )
 from livestyled.schemas import (
     AudienceDeviceSchema,
@@ -71,6 +72,7 @@ from livestyled.schemas import (
     ProductModifierListSchema,
     ProductSchema,
     ProductVariantSchema,
+    ProductVariantStockSchema,
     PushBroadcastSchema,
     PushConsentSchema,
     RealitySchema,
@@ -157,6 +159,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         for key, value in list(payload.items()):
             if value is None:
                 payload.pop(key)
+
         new_instance = self._api_post(
             'v4/{}'.format(schema.Meta.url),
             payload
@@ -947,6 +950,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     ) -> ProductVariant:
         return self._create_resource(ProductVariantSchema, product_variant)
 
+    def create_product_variant_stock(
+            self,
+            product_variant_stock: ProductVariantStock
+    ) -> ProductVariantStock:
+        return self._create_resource(ProductVariantStockSchema, product_variant_stock)
+
     # ---- TICKET INTEGRATIONS
 
     def get_ticket_integrations(
@@ -1027,6 +1036,19 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             id: int
     ) -> Venue:
         return self._get_resource_by_id(VenueSchema, id)
+
+    def update_venue(
+            self,
+            venue: Venue,
+            attributes: Dict
+    ) -> Venue:
+        return self._update_resource(VenueSchema, venue.id, attributes)
+
+    def create_venue(
+            self,
+            venue: Venue
+    ) -> Venue:
+        return self._create_resource(VenueSchema, venue)
 
     # ---- FULFILMENT POINTS
 
@@ -1216,6 +1238,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             }
             return self._get_resource_list(AudienceSchema, filters=filters)
         return self._get_resource_list(AudienceSchema)
+
+    def get_audiences_by_external_id(
+            self,
+            external_id: str,
+    ) -> Generator[Audience, None, None]:
+        return self._get_resource_list(AudienceSchema, external_id)
 
     # ---- AUDIENCE DEVICES
 

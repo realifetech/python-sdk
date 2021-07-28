@@ -5,7 +5,8 @@ from livestyled.models.product import (
     ProductCategory,
     ProductModifierItem,
     ProductModifierList,
-    ProductVariant
+    ProductVariant,
+    ProductVariantStock
 )
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
 from livestyled.schemas.fulfilment_point import FulfilmentPointSchema
@@ -35,10 +36,27 @@ class ProductVariantSchema(Schema):
 
     id = fields.Int()
     price = fields.Integer()
-    stocks = RelatedResourceLinkField(schema=ProductVariantStocksSchema, many=True, missing=[], microservice_aware=True)
+    stocks = RelatedResourceField(schema='livestyled.schemas.product.ProductVariantStockSchema', many=True,
+                                  microservice_aware=True)
     product = RelatedResourceLinkField(schema='livestyled.schemas.product.ProductSchema', microservice_aware=True)
     external_id = fields.String(missing=None, data_key='externalId')
     translations = fields.Nested(ProductVariantTranslationSchema, many=True, missing=None)
+    tax = fields.String(missing=None)
+    tax_rate = fields.String(missing=None, data_key='taxRate')
+    tax_band = fields.String(missing=None, data_key='taxBand')
+
+
+class ProductVariantStockSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+        model = ProductVariantStock
+        api_type = 'product_variant_stocks'
+        url = 'sell/product_variant_stocks'
+
+    initial = fields.Integer()
+    on_hand = fields.Integer(missing=None, data_key='onHand')
+    fulfilment_point = RelatedResourceLinkField(schema=FulfilmentPointSchema, microservice_aware=True, data_key='fulfilmentPoint')
+    product_variant = RelatedResourceLinkField(schema=ProductVariantSchema, microservice_aware=True, data_key='productVariant')
 
 
 class ProductCategorySchema(Schema):
@@ -103,9 +121,11 @@ class ProductModifierItemSchema(Schema):
 
     id = fields.Int()
     external_id = fields.String(data_key='externalId')
+    status = fields.String(data_key='status')
     additional_price = fields.Integer(data_key='additionalPrice')
     translations = fields.Nested(ProductModifierItemTranslationsSchema, many=True, missing=[])
     modifier_list = RelatedResourceLinkField('livestyled.schemas.product.ProductModifierListSchema', data_key='modifierList', microservice_aware=True)
+    status = fields.String(missing=None)
 
 
 class ProductModifierListTranslationsSchema(Schema):
@@ -142,7 +162,7 @@ class ProductSchema(Schema):
     id = fields.Int()
     status = fields.String(missing=None)
     reference = fields.String(missing=None)
-    modifier_lists = RelatedResourceField(schema=ProductModifierListSchema, many=True, missing=[], data_key='modifierLists', microservice_aware=True)
+    modifier_lists = fields.List(RelatedResourceLinkField(schema=ProductModifierListSchema, microservice_aware=True), data_key='modifierLists', many=True, missing=None)
     external_id = fields.String(data_key='externalId', missing=None)
     holding_time = fields.Raw(missing=None, data_key='holdingTime')
     reconciliation_group = fields.Raw(missing=None, data_key='reconciliation_group')

@@ -1,5 +1,6 @@
 from typing import List
 
+from livestyled.models.audience import Audience
 from livestyled.models.venue import Venue
 
 
@@ -87,6 +88,7 @@ class FulfilmentPoint:
             categories,
             venue,
             external_id,
+            audiences=[]
     ):
         self.__is_placeholder = False
         self.id = id
@@ -100,9 +102,21 @@ class FulfilmentPoint:
         self.reference = reference
         self.external_id = external_id
 
+        if audiences:
+            self.audiences = []
+            for audience in audiences:
+                if isinstance(audience, Audience):
+                    self.audiences.append(audience)
+                elif isinstance(audience, dict):
+                    self.audiences.append(Audience(**audience))
+                elif isinstance(audience, int):
+                    self.audiences.append(Audience.placeholder(id=audience))
+        else:
+            self.audiences = []
+
         if translations:
+            self.translations = []
             for translation in translations:
-                self.translations = []
                 if isinstance(translation, FulfilmentPointTranslation):
                     self.translations.append(translation)
                 elif isinstance(translation, dict):
@@ -111,8 +125,8 @@ class FulfilmentPoint:
             self.translations = []
 
         if categories:
+            self.categories = []
             for category in categories:
-                self.categories = []
                 if isinstance(category, FulfilmentPointCategory):
                     self.categories.append(category)
                 elif isinstance(category, dict):
@@ -147,7 +161,8 @@ class FulfilmentPoint:
             translations=None,
             categories=None,
             venue=None,
-            external_id=None
+            external_id=None,
+            audiences=None
         )
         fp.__is_placeholder = True
         return fp
@@ -166,7 +181,8 @@ class FulfilmentPoint:
             long: int or None = None,
             translations: List or None = None,
             categories: List or None = None,
-            venue: str or None = None
+            venue: str or None = None,
+            audiences: List or None = None
     ):
         fulfilment_point = FulfilmentPoint(
             id=None,
@@ -181,7 +197,8 @@ class FulfilmentPoint:
             reference=reference,
             translations=translations,
             categories=categories,
-            venue=venue
+            venue=venue,
+            audiences=audiences
         )
         return fulfilment_point
 
@@ -189,7 +206,7 @@ class FulfilmentPoint:
         differences = {}
         fields = (
             'external_id', 'type', 'status', 'position', 'reference', 'image_url', 'map_image_url', 'lat', 'long',
-            'translations', 'categories', 'venue'
+            'translations', 'categories', 'venue', 'audiences'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
@@ -210,6 +227,7 @@ class FulfilmentPoint:
                 self.map_image_url == other.map_image_url,
                 self.translations == other.translations,
                 self.categories == other.categories,
-                self.venue == other.venue
+                self.venue == other.venue,
+                self.audiences == other.audiences
             ]
         )
