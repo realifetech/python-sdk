@@ -584,6 +584,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
             external_ticket_ids: dict or None = None,
             user: User or str or int or None = None,
+            ticket_filters: dict or None = None
     ) -> Generator[Ticket, None, None]:
         filters = {}
         if external_ticket_ids:
@@ -593,6 +594,10 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
                 filters['user'] = '{}'.format(user.id)
             else:
                 filters['user'] = '{}'.format(user)
+
+        if ticket_filters:
+            filters.update(ticket_filters)
+
         if filters:
             return self._get_resource_list(TicketSchema, filters=filters)
         else:
