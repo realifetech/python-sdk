@@ -77,6 +77,17 @@ class UserEmail:
         self.valid = valid
         self.email = email
 
+    @classmethod
+    def placeholder(
+            cls,
+            id
+    ):
+        return cls(
+            id=id,
+            email=None,
+            valid=None
+        )
+
 
 class User:
     def __init__(
