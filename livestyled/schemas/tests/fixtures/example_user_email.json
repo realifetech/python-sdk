@@ -1,0 +1,8 @@
+{
+  "@context": "/v4/contexts/UserEmail",
+  "@id": "/v4/user_emails/2",
+  "@type": "UserEmail",
+  "id": 2,
+  "email": "test@test.com",
+  "valid": true
+}

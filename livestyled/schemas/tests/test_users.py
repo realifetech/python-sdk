@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, timezone
 import os
 
-from livestyled.schemas.user import UserSchema
+from livestyled.schemas.user import UserEmailSchema, UserSchema
 
 
 FIXTURES_DIR = os.path.join(os.path.dirname(__file__), 'fixtures')
@@ -73,4 +73,15 @@ def test_deserialize_user():
                     'wifi_connected': True
                 }
             ],
+        }
+
+
+def test_deserialize_user_email():
+    with open(os.path.join(FIXTURES_DIR, 'example_user_email.json'), 'r') as fixture_file:
+        user_email = fixture_file.read()
+        deserialized_user_email = UserEmailSchema().loads(user_email)
+        assert deserialized_user_email == {
+            'id': 2,
+            'email': 'test@test.com',
+            'valid': True
         }
