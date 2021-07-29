@@ -49,6 +49,8 @@ class UserConsentSchema(Schema):
 class UserEmailSchema(Schema):
     class Meta:
         unknown = EXCLUDE
+        api_type = 'user_emails'
+        url = 'user_emails'
         model = UserEmail
 
     valid = fields.Boolean()
