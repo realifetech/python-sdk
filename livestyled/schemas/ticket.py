@@ -2,6 +2,7 @@ from marshmallow import EXCLUDE, fields, Schema
 from marshmallow_polyfield import PolyField
 
 from livestyled.models.ticket import Ticket
+from livestyled.schemas.app import CurrencySchema
 from livestyled.schemas.event import EventDateSchema, EventSchema
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
 from livestyled.schemas.ticket_integration import TicketIntegrationSchema
@@ -82,3 +83,4 @@ class TicketSchema(Schema):
     ticket_auth = RelatedResourceField(schema=TicketTicketAuthSchema, data_key='ticketAuth', missing=None, allow_none=True)
     event = RelatedResourceLinkField(schema=EventSchema, required=False, missing=None)
     venue = RelatedResourceLinkField(schema=VenueSchema, required=False, missing=None)
+    currency = RelatedResourceLinkField(schema=CurrencySchema, required=False, missing=None)

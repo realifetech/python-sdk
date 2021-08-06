@@ -1,4 +1,4 @@
-from livestyled.schemas.app import AppSchema
+from livestyled.schemas.app import AppSchema, CurrencySchema
 from livestyled.schemas.audience import AudienceSchema
 from livestyled.schemas.audience_device import AudienceDeviceSchema
 from livestyled.schemas.booking import BookingSchema
@@ -48,6 +48,7 @@ __all__ = [
     BookingSchema,
     CohortSchema,
     CompetitionSchema,
+    CurrencySchema,
     DeviceSchema,
     DeviceConsentSchema,
     DeviceFormDataSchema,
