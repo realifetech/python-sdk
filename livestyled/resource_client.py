@@ -11,6 +11,7 @@ from livestyled.models import (
     Booking,
     Cohort,
     Competition,
+    Currency,
     Device,
     DeviceFormData,
     DevicePreference,
@@ -53,6 +54,7 @@ from livestyled.schemas import (
     BookingSchema,
     CohortSchema,
     CompetitionSchema,
+    CurrencySchema,
     DeviceFormDataSchema,
     DevicePreferenceSchema,
     DeviceRealitySchema,
@@ -1313,3 +1315,10 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         if filters:
             return self._get_resource_list(DeviceFormDataSchema, filters=filters)
         return self._get_resource_list(DeviceFormDataSchema)
+
+    # ---- CURRENCIES
+
+    def get_currencies(
+            self,
+    ) -> Generator[Currency, None, None]:
+        return self._get_resource_list(CurrencySchema)
