@@ -39,3 +39,15 @@ class Currency:
         self.title = title
         self.iso_code = iso_code
         self.sign = sign
+
+    @classmethod
+    def placeholder(
+            cls,
+            id
+    ):
+        return cls(
+            id=id,
+            title=None,
+            iso_code=None,
+            sign=None
+        )
