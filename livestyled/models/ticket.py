@@ -151,6 +151,8 @@ class Ticket:
         if currency:
             if isinstance(currency, Currency):
                 self.currency = currency
+            elif isinstance(currency, (int, str)):
+                self.currency = Currency.placeholder(id=currency)
             elif isinstance(currency, dict):
                 self.currency = Currency(**currency)
         else:
