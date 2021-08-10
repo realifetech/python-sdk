@@ -13,7 +13,7 @@ def test_deserialize_product_variant():
         deserialized_product_variant = ProductVariantSchema().loads(product_variant)
         assert deserialized_product_variant == {
             'stocks': [
-                123
+                '/sell/product_variant_stocks/fulfilmentPoint=1;productVariant=52'
             ],
             'price': 0,
             'id': 0,
