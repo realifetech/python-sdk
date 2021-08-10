@@ -150,6 +150,9 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     ):
         return schema.Meta.model(**self._get_resource(id, schema))
 
+    def _get_resource_by_composite_id(self, schema: Type[Schema], composite_id: str):
+        return schema.Meta.model(**self._get_resource(composite_id, schema))
+
     def _create_resource(
             self,
             schema: Type[Schema],
@@ -183,6 +186,20 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         update_payload = schema(only=attributes_to_update).dump(attributes)
         updated_resource = self._api_patch(
             'v4/{}/{}'.format(schema.Meta.url, resource_id),
+            update_payload
+        )
+        return schema.Meta.model(**schema().load(updated_resource))
+
+    def _update_resource_by_composite_id(
+            self,
+            schema: Type[Schema],
+            resource_composite_id: str,
+            attributes: Dict,
+    ):
+        attributes_to_update = list(attributes.keys())
+        update_payload = schema(only=attributes_to_update).dump(attributes)
+        updated_resource = self._api_patch(
+            'v4/{}/{}'.format(schema.Meta.url, resource_composite_id),
             update_payload
         )
         return schema.Meta.model(**schema().load(updated_resource))
@@ -962,6 +979,20 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             product_variant_stock: ProductVariantStock
     ) -> ProductVariantStock:
         return self._create_resource(ProductVariantStockSchema, product_variant_stock)
+
+    def get_product_variant_stocks(
+            self,
+            composite_id: str
+    ) -> ProductVariantStock:
+        return self._get_resource_by_composite_id(ProductVariantStockSchema, composite_id)
+
+    def update_product_variant_stock(
+            self,
+            product_variant_stock: ProductVariantStock,
+            attributes: Dict
+    ) -> ProductVariantStock:
+        composite_id = 'fulfilmentPoint=' + str(product_variant_stock.fulfilment_point.id) + ';productVariant=' + str(product_variant_stock.product_variant.id)
+        return self._update_resource_by_composite_id(ProductVariantStockSchema, composite_id, attributes)
 
     # ---- TICKET INTEGRATIONS
 
