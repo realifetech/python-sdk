@@ -150,9 +150,6 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     ):
         return schema.Meta.model(**self._get_resource(id, schema))
 
-    def _get_resource_by_composite_id(self, schema: Type[Schema], composite_id: str):
-        return schema.Meta.model(**self._get_resource(composite_id, schema))
-
     def _create_resource(
             self,
             schema: Type[Schema],
@@ -982,17 +979,19 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_product_variant_stocks(
             self,
-            composite_id: str
+            fulfilment_point: int,
+            product_variant_id: int
     ) -> ProductVariantStock:
-        return self._get_resource_by_composite_id(ProductVariantStockSchema, composite_id)
+        compose_id = f"fulfilmentPoint={fulfilment_point};productVariant={product_variant_id}"
+        return ProductVariantStockSchema.Meta.model(**self._get_resource(compose_id, ProductVariantStockSchema))
 
     def update_product_variant_stock(
             self,
             product_variant_stock: ProductVariantStock,
             attributes: Dict
     ) -> ProductVariantStock:
-        composite_id = 'fulfilmentPoint=' + str(product_variant_stock.fulfilment_point.id) + ';productVariant=' + str(product_variant_stock.product_variant.id)
-        return self._update_resource_by_composite_id(ProductVariantStockSchema, composite_id, attributes)
+        compose_id = f"fulfilmentPoint={product_variant_stock.fulfilment_point.id};productVariant={product_variant_stock.product_variant.id}"
+        return self._update_resource_by_composite_id(ProductVariantStockSchema, compose_id, attributes)
 
     # ---- TICKET INTEGRATIONS
 

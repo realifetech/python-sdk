@@ -86,18 +86,12 @@ class ProductVariant:
 
     def diff(self, other):
         differences = {}
-        fields = ('external_id', 'price', 'translations', 'tax', 'tax_rate', 'tax_band')
+        fields = (
+            'external_id', 'price', 'translations', 'product', 'tax', 'tax_rate', 'tax_band'
+        )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
                 differences[field] = getattr(self, field)
-
-        related_resource_fields = ['product']
-        for field in related_resource_fields:
-            self_id = getattr(self, field).id
-            other_id = getattr(other, field).id
-            if self_id != other_id:
-                differences[field] = getattr(self, field)
-
         return differences
 
 
@@ -150,18 +144,12 @@ class ProductVariantStock:
 
     def diff(self, other):
         differences = {}
-        fields = ('initial', 'on_hand')
+        fields = (
+            'initial', 'on_hand', 'fulfilment_point', 'product_variant'
+        )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
                 differences[field] = getattr(self, field)
-
-        related_resource_fields = ('fulfilment_point', 'product_variant')
-        for field in related_resource_fields:
-            self_id = getattr(self, field).id
-            other_id = getattr(other, field).id
-            if self_id != other_id:
-                differences[field] = getattr(self, field)
-
         return differences
 
 
