@@ -365,8 +365,8 @@ class ProductCategory:
             translations=None
         )
         product_category.__is_placeholder = True
-        
         return product_category
+
 
 class Product:
     def __init__(
