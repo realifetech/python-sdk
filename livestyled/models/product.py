@@ -351,6 +351,22 @@ class ProductCategory:
                 differences[field] = getattr(self, field)
         return differences
 
+    @classmethod
+    def placeholder(
+            cls,
+            id
+    ):
+        product_category = cls(
+            id=id,
+            reference=None,
+            position=None,
+            external_id=None,
+            status=None,
+            translations=None
+        )
+        product_category.__is_placeholder = True
+        
+        return product_category
 
 class Product:
     def __init__(
