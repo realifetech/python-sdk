@@ -442,9 +442,14 @@ class LiveStyledAPIClient:
 
     def get_merchant_accounts(
             self,
+            payment_gateway: str or None = None,
             page_size: int or None = None,
     ) -> Generator[Dict, None, None]:
         filter_params = {}
+
+        if payment_gateway:
+            filter_params['paymentGateway'] = payment_gateway
+
         if page_size:
             filter_params['pageSize'] = page_size
 
@@ -475,9 +480,14 @@ class LiveStyledAPIClient:
 
     def get_payment_gateways(
             self,
+            payment_gateway: str or None = None,
             page_size: int or None = None,
     ) -> Generator[Dict, None, None]:
         filter_params = {}
+
+        if payment_gateway:
+            filter_params['paymentGateway'] = payment_gateway
+
         if page_size:
             filter_params['pageSize'] = page_size
 
