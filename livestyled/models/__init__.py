@@ -22,8 +22,10 @@ from livestyled.models.fulfilment_point import (
 from livestyled.models.league_table import LeagueTable, LeagueTableGroup
 from livestyled.models.location import Location
 from livestyled.models.magic_field import MagicField
+from livestyled.models.merchant_account import MerchantAccount
 from livestyled.models.news import News
 from livestyled.models.order import Order, OrderItem
+from livestyled.models.payment_gateway import PaymentGateway
 from livestyled.models.product import (
     Product,
     ProductCategory,
@@ -70,9 +72,11 @@ __all__ = [
     LeagueTableGroup,
     Location,
     MagicField,
+    MerchantAccount,
     News,
     Order,
     OrderItem,
+    PaymentGateway,
     Product,
     ProductCategory,
     ProductImage,

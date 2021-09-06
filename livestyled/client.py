@@ -12,7 +12,9 @@ from livestyled.schemas import (
     EventIntegrationSchema,
     EventSchema,
     EventStageSchema,
+    MerchantAccountSchema,
     NewsSchema,
+    PaymentGatewaySchema,
     PushConsentSchema,
     TeamSchema,
     UserSchema,
@@ -428,3 +430,58 @@ class LiveStyledAPIClient:
             payload
         )
         return NewsSchema().load(new_team)
+
+    def get_merchant_account(
+            self,
+            id: int or str,
+    ) -> Generator[Dict, None, None]:
+        return self._get_resource(
+            id,
+            MerchantAccountSchema,
+        )
+
+    def get_merchant_accounts(
+            self,
+            page_size: int or None = None,
+    ) -> Generator[Dict, None, None]:
+        filter_params = {}
+        if page_size:
+            filter_params['pageSize'] = page_size
+
+        return self._get_resources(
+            MerchantAccountSchema,
+            params=filter_params
+        )
+
+    def create_merchant_account(
+            self,
+            attributes: Dict,
+    ) -> Dict:
+        payload = MerchantAccountSchema().dump(attributes)
+        merchant_account = self._api_post(
+            'v4/{}'.format(MerchantAccountSchema.Meta.url),
+            payload
+        )
+        return MerchantAccountSchema().load(merchant_account)
+
+    def get_payment_gateway(
+            self,
+            id: int or str,
+    ) -> Generator[Dict, None, None]:
+        return self._get_resource(
+            id,
+            PaymentGatewaySchema,
+        )
+
+    def get_payment_gateways(
+            self,
+            page_size: int or None = None,
+    ) -> Generator[Dict, None, None]:
+        filter_params = {}
+        if page_size:
+            filter_params['pageSize'] = page_size
+
+        return self._get_resources(
+            PaymentGatewaySchema,
+            params=filter_params
+        )
