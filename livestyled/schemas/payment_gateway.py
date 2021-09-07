@@ -3,7 +3,7 @@ from marshmallow import EXCLUDE, fields, Schema
 from livestyled.models.payment_gateway import PaymentGateway
 
 
-class PaymentGateway(Schema):
+class PaymentGatewaySchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'payment_gateways'

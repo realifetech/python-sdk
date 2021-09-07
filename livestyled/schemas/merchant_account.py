@@ -6,7 +6,7 @@ from livestyled.schemas.fulfilment_point import FulfilmentPointSchema
 from livestyled.schemas.payment_gateway import PaymentGatewaySchema
 
 
-class MerchantAccount(Schema):
+class MerchantAccountSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'merchant_accounts'
