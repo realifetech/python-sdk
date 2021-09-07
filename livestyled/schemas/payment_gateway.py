@@ -11,6 +11,6 @@ class PaymentGatewaySchema(Schema):
         model = PaymentGateway
 
     id = fields.Int(missing=None)
-    config_ui_schema = fields.Dict(fields.String(), data_key='configUiSchema', allow_none=True)
+    config_ui_schema = fields.Dict(data_key='configUiSchema', allow_none=True)
     payment_gateway = fields.String(data_key='paymentGateway')
     name = fields.String()

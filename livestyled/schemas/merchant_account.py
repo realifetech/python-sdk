@@ -16,6 +16,6 @@ class MerchantAccountSchema(Schema):
     id = fields.Int(missing=None)
     status = fields.String()
     payment_gateway_id = RelatedResourceLinkField(schema=PaymentGatewaySchema, data_key='paymentGateway', microservice_aware=True)
-    config = fields.List(allow_none=True)
+    config = fields.Dict(allow_none=True)
     label = fields.String()
     fulfilment_points = RelatedResourceField(schema=FulfilmentPointSchema, many=True, data_key='fulfilmentPoints')
