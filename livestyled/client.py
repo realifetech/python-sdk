@@ -442,10 +442,14 @@ class LiveStyledAPIClient:
 
     def get_merchant_accounts(
             self,
+            status: str or None = None,
             payment_gateway: str or None = None,
             page_size: int or None = None,
     ) -> Generator[Dict, None, None]:
         filter_params = {}
+
+        if status:
+            filter_params['status'] = status
 
         if payment_gateway:
             filter_params['paymentGateway'] = payment_gateway
