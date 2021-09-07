@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 class PaymentGateway:
     def __init__(
             self,
@@ -11,7 +12,7 @@ class PaymentGateway:
             updated_at: datetime or None = None
     ):
         self.id = id
-        self.config_ui_schema = config
+        self.config_ui_schema = config_ui_schema
         self.payment_gateway = payment_gateway
         self.name = name
         self.created_at = created_at

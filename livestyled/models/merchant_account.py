@@ -1,6 +1,8 @@
 from datetime import datetime
+
 from livestyled.models.fulfilment_point import FulfilmentPoint
 from livestyled.models.payment_gateway import PaymentGateway
+
 
 class MerchantAccount:
     def __init__(
@@ -16,7 +18,7 @@ class MerchantAccount:
     ):
         self.id = id
         self.status = status
-        self.payment_gateway = Device.placeholder(id=device_id)
+        self.payment_gateway = PaymentGateway.placeholder(id=PaymentGateway)
         self.config = config
         self.label = label
         self.fulfilment_points = fulfilment_points

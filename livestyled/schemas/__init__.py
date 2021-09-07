@@ -66,7 +66,7 @@ __all__ = [
     LeagueTableGroupSchema,
     LocationSchema,
     MagicFieldSchema,
-    MerchantAccountSchema
+    MerchantAccountSchema,
     NewsSchema,
     OrderSchema,
     PaymentGatewaySchema,

@@ -1,5 +1,8 @@
 from marshmallow import EXCLUDE, fields, Schema
 
+from livestyled.models.payment_gateway import PaymentGateway
+
+
 class PaymentGateway(Schema):
     class Meta:
         unknown = EXCLUDE
@@ -9,5 +12,5 @@ class PaymentGateway(Schema):
 
     id = fields.Int(missing=None)
     config_ui_schema = fields.List(data_key='configUiSchema', allow_none=True)
-    payment_gateway = field.String(data_key='paymentGateway')
-    name = field.String()
+    payment_gateway = fields.String(data_key='paymentGateway')
+    name = fields.String()

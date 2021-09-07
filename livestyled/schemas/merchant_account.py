@@ -2,6 +2,7 @@ from marshmallow import EXCLUDE, fields, Schema
 
 from livestyled.models.merchant_account import MerchantAccount
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
+from livestyled.schemas.fulfilment_point import FulfilmentPointSchema
 from livestyled.schemas.payment_gateway import PaymentGatewaySchema
 
 
