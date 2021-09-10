@@ -160,9 +160,7 @@ class Order:
 
     def diff(self, other):
         differences = {}
-        fields = (
-            'external_id', 'status'
-        )
+        fields = ('external_id', 'status')
         for field in fields:
             if getattr(self, field) != getattr(other, field):
                 differences[field] = getattr(self, field)
