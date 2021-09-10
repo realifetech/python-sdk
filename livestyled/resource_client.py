@@ -878,7 +878,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         if external_id:
             filter_param['externalId'] = external_id
 
-        return self._get_resource_list(OrderSchema, filters=filter_param or None)
+        return self._get_resource_list(OrderSchema, filters=filter_param)
 
     def update_order(
             self,
