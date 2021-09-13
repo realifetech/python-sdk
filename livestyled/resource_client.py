@@ -868,11 +868,17 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     def get_orders(
             self,
             external_id: str or None = None,
+            filters: Dict or None = None
     ) -> Generator[Order, None, None]:
+        filter_param = {}
+
+        if filters:
+            filter_param = filters
+
         if external_id:
-            return self._get_resource_list(OrderSchema, external_id)
-        else:
-            return self._get_resource_list(OrderSchema)
+            filter_param['externalId'] = external_id
+
+        return self._get_resource_list(OrderSchema, filters=filter_param)
 
     def update_order(
             self,
