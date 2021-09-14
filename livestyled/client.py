@@ -506,6 +506,7 @@ class LiveStyledAPIClient:
             self,
             id: int or str,
     ) -> Generator[Dict, None, None]:
+
         return self._get_resource(
             id,
             PaymentSourceSchema,
