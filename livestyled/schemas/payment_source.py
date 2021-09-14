@@ -22,4 +22,4 @@ class PaymentSourceSchema(Schema):
     default = fields.Bool()
     billing_details = fields.Dict()
     car = fields.Dict()
-    psp_tokens: fields.List()
+    psp_tokens: fields.List(fields.Dict())

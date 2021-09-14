@@ -15,4 +15,4 @@ class PaymentCustomerSchema(Schema):
     id = fields.Int(missing=None)
     user_id = RelatedResourceLinkField(schema=UserSchema, data_key='user', microservice_aware=True)
     external_ids = fields.Dict()
-    payment_sources = fields.List()
+    payment_sources = fields.List(fields.Dict())
