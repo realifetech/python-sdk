@@ -18,7 +18,7 @@ class MerchantAccount:
     ):
         self.id = id
         self.status = status
-        self.payment_gateway = PaymentGateway.placeholder(id=PaymentGateway)
+        self.payment_gateway = PaymentGateway.placeholder(id=payment_gateway)
         self.config = config
         self.label = label
         self.fulfilment_points = fulfilment_points

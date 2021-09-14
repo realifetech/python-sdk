@@ -14,7 +14,9 @@ from livestyled.schemas import (
     EventStageSchema,
     MerchantAccountSchema,
     NewsSchema,
+    PaymentCustomerSchema,
     PaymentGatewaySchema,
+    PaymentSourceSchema,
     PushConsentSchema,
     TeamSchema,
     UserSchema,
@@ -498,4 +500,32 @@ class LiveStyledAPIClient:
         return self._get_resources(
             PaymentGatewaySchema,
             params=filter_params
+        )
+
+    def get_payment_source(
+            self,
+            id: int or str,
+    ) -> Generator[Dict, None, None]:
+        return self._get_resource(
+            id,
+            PaymentSourceSchema,
+        )
+
+    def get_payment_sources(self) -> Generator[Dict, None, None]:
+        return self._get_resources(
+            PaymentSourceSchema
+        )
+
+    def get_payment_customer(
+            self,
+            id: int or str,
+    ) -> Generator[Dict, None, None]:
+        return self._get_resource(
+            id,
+            PaymentCustomerSchema,
+        )
+
+    def get_payment_customers(self) -> Generator[Dict, None, None]:
+        return self._get_resources(
+            PaymentCustomerSchema
         )
