@@ -19,12 +19,9 @@ from livestyled.schemas.fulfilment_point import FulfilmentPointSchema
 from livestyled.schemas.league_table import LeagueTableGroupSchema, LeagueTableSchema
 from livestyled.schemas.location import LocationSchema
 from livestyled.schemas.magic_field import MagicFieldSchema
-from livestyled.schemas.merchant_account import MerchantAccountSchema
 from livestyled.schemas.news import NewsSchema
 from livestyled.schemas.order import OrderSchema
-from livestyled.schemas.payment_customer import PaymentCustomerSchema
-from livestyled.schemas.payment_gateway import PaymentGatewaySchema
-from livestyled.schemas.payment_source import PaymentSourceSchema
+from livestyled.schemas.payment import MerchantAccountSchema, PaymentCustomerSchema, PaymentGatewaySchema, PaymentSourceSchema
 from livestyled.schemas.product import (
     ProductCategorySchema,
     ProductModifierItemSchema,
