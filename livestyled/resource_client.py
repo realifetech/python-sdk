@@ -900,7 +900,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             external_id: str or None = None
     ) -> Generator[Product, None, None]:
         if external_id:
-            return self._get_resource_list(ProductSchema, external_id=external_id)
+            return self._get_resource_list(ProductSchema, external_id=external_id, order_by={'externalId': 'ASC'})
         else:
             return self._get_resource_list(ProductSchema)
 
