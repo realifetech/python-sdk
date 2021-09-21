@@ -1,4 +1,4 @@
-from marshmallow import EXCLUDE, fields, Schema
+from marshmallow import EXCLUDE, fields, Schema, pre_load
 
 from livestyled.models.audience import Audience
 from livestyled.schemas.fields import RelatedResourceLinkField
@@ -8,6 +8,11 @@ from livestyled.schemas.reality import RealitySchema
 class AudienceRealityValuesValueSchema(Schema):
     operator = fields.String()
     value = fields.String()
+
+    @pre_load
+    def pre_process_value(self, data, **kwarg):
+        data['value'] = str(data['value'])
+        return data
 
 
 class AudienceRealityValuesSchema(Schema):
