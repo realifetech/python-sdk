@@ -11,7 +11,7 @@
     }
   ],
   "stocks": [
-    "/sell/product_variant_stocks/123"
+    "/sell/product_variant_stocks/fulfilmentPoint=1;productVariant=52"
   ],
   "product": "/sell/products/123",
   "price": 0,
