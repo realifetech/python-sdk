@@ -12,11 +12,7 @@ from livestyled.schemas import (
     EventIntegrationSchema,
     EventSchema,
     EventStageSchema,
-    MerchantAccountSchema,
     NewsSchema,
-    PaymentCustomerSchema,
-    PaymentGatewaySchema,
-    PaymentSourceSchema,
     PushConsentSchema,
     TeamSchema,
     UserSchema,
@@ -386,57 +382,3 @@ class LiveStyledAPIClient:
             payload
         )
         return NewsSchema().load(new_team)
-
-    def get_merchant_account(self, id: int or str) -> Generator[Dict, None, None]:
-        return self._get_resource(
-            id,
-            MerchantAccountSchema,
-        )
-
-    def get_merchant_accounts(self, params: dict or None) -> Generator[Dict, None, None]:
-        return self._get_resources(
-            MerchantAccountSchema,
-            params=params
-        )
-
-    def create_merchant_account(self, attributes: Dict) -> Dict:
-        payload = MerchantAccountSchema().dump(attributes)
-        merchant_account = self._api_post(
-            'v4/{}'.format(MerchantAccountSchema.Meta.url),
-            payload
-        )
-        return MerchantAccountSchema().load(merchant_account)
-
-    def get_payment_gateway(self, id: int or str) -> Generator[Dict, None, None]:
-        return self._get_resource(
-            id,
-            PaymentGatewaySchema,
-        )
-
-    def get_payment_gateways(self, params: dict or None) -> Generator[Dict, None, None]:
-        return self._get_resources(
-            PaymentGatewaySchema,
-            params=params
-        )
-
-    def get_payment_source(self, id: int or str) -> Generator[Dict, None, None]:
-        return self._get_resource(
-            id,
-            PaymentSourceSchema,
-        )
-
-    def get_payment_sources(self) -> Generator[Dict, None, None]:
-        return self._get_resources(
-            PaymentSourceSchema
-        )
-
-    def get_payment_customer(self, id: int or str) -> Generator[Dict, None, None]:
-        return self._get_resource(
-            id,
-            PaymentCustomerSchema,
-        )
-
-    def get_payment_customers(self) -> Generator[Dict, None, None]:
-        return self._get_resources(
-            PaymentCustomerSchema
-        )

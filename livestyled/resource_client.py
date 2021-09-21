@@ -25,6 +25,7 @@ from livestyled.models import (
     MagicField,
     News,
     Order,
+    PaymentIntent,
     Product,
     ProductCategory,
     ProductModifierItem,
@@ -65,8 +66,13 @@ from livestyled.schemas import (
     LeagueTableSchema,
     LocationSchema,
     MagicFieldSchema,
+    MerchantAccountSchema,
     NewsSchema,
     OrderSchema,
+    PaymentCustomerSchema,
+    PaymentGatewaySchema,
+    PaymentIntentSchema,
+    PaymentSourceSchema,
     ProductCategorySchema,
     ProductModifierItemSchema,
     ProductModifierListSchema,
@@ -1313,3 +1319,50 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         if filters:
             return self._get_resource_list(DeviceFormDataSchema, filters=filters)
         return self._get_resource_list(DeviceFormDataSchema)
+
+    def get_merchant_account(self, id: int or str) -> Generator[Dict, None, None]:
+        return self._get_resource(id, MerchantAccountSchema)
+
+    def get_merchant_accounts(self, filters: dict or None) -> Generator[Dict, None, None]:
+        return self._get_resource_list(MerchantAccountSchema, filters=filters)
+
+    def create_merchant_account(self, attributes: Dict) -> Dict:
+        payload = MerchantAccountSchema().dump(attributes)
+        merchant_account = self._api_post(
+            'v4/{}'.format(MerchantAccountSchema.Meta.url),
+            payload
+        )
+        return MerchantAccountSchema().load(merchant_account)
+
+    def get_payment_gateway(self, id: int or str) -> Generator[Dict, None, None]:
+        return self._get_resource(
+            id,
+            PaymentGatewaySchema,
+        )
+
+    def get_payment_gateways(self, filters: dict or None) -> Generator[Dict, None, None]:
+        return self._get_resource_list(PaymentGatewaySchema, filters=filters)
+
+    def get_payment_source(self, id: int or str) -> Generator[Dict, None, None]:
+        return self._get_resource(id, PaymentSourceSchema)
+
+    def get_payment_sources(self, filters: dict or None) -> Generator[Dict, None, None]:
+        return self._get_resource_list(PaymentSourceSchema, filters=filters)
+
+    def get_payment_intent(self, id: int or str) -> Generator[Dict, None, None]:
+        return self._get_resource(id, PaymentIntentSchema)
+
+    def get_payment_intents(self, filters: dict or None) -> Generator[Dict, None, None]:
+        return self._get_resource_list(PaymentIntentSchema, filters=filters)
+
+    def update_payment_intent(self, payment_intent: PaymentIntent, attributes: Dict) -> PaymentIntent:
+        return self._update_resource(PaymentIntentSchema, payment_intent.id, attributes)
+
+    def get_payment_customer(self, id: int or str) -> Generator[Dict, None, None]:
+        return self._get_resource(
+            id,
+            PaymentCustomerSchema,
+        )
+
+    def get_payment_customers(self, filters: dict or None) -> Generator[Dict, None, None]:
+        return self._get_resource_list(PaymentCustomerSchema, filters=filters)
