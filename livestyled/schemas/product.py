@@ -12,15 +12,6 @@ from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkF
 from livestyled.schemas.fulfilment_point import FulfilmentPointSchema
 
 
-class ProductVariantStocksSchema(Schema):
-    class Meta:
-        unknown = EXCLUDE
-        api_type = 'product_variant_stocks'
-        url = 'sell/product_variant_stocks'
-
-    id = fields.Integer()
-
-
 class ProductVariantSchema(Schema):
     class Meta:
         unknown = EXCLUDE
@@ -36,8 +27,7 @@ class ProductVariantSchema(Schema):
 
     id = fields.Int()
     price = fields.Integer()
-    stocks = RelatedResourceField(schema='livestyled.schemas.product.ProductVariantStockSchema', many=True,
-                                  microservice_aware=True, missing=None)
+    stocks = fields.List(fields.String(), missing=[])
     product = RelatedResourceLinkField(schema='livestyled.schemas.product.ProductSchema', microservice_aware=True)
     external_id = fields.String(missing=None, data_key='externalId')
     translations = fields.Nested(ProductVariantTranslationSchema, many=True, missing=None)
@@ -121,7 +111,6 @@ class ProductModifierItemSchema(Schema):
 
     id = fields.Int()
     external_id = fields.String(data_key='externalId')
-    status = fields.String(data_key='status')
     additional_price = fields.Integer(data_key='additionalPrice')
     translations = fields.Nested(ProductModifierItemTranslationsSchema, many=True, missing=[])
     modifier_list = RelatedResourceLinkField('livestyled.schemas.product.ProductModifierListSchema', data_key='modifierList', microservice_aware=True)

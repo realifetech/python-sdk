@@ -11,6 +11,7 @@ from livestyled.models import (
     Booking,
     Cohort,
     Competition,
+    Currency,
     Device,
     DeviceFormData,
     DevicePreference,
@@ -54,6 +55,7 @@ from livestyled.schemas import (
     BookingSchema,
     CohortSchema,
     CompetitionSchema,
+    CurrencySchema,
     DeviceFormDataSchema,
     DevicePreferenceSchema,
     DeviceRealitySchema,
@@ -187,6 +189,20 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         update_payload = schema(only=attributes_to_update).dump(attributes)
         updated_resource = self._api_patch(
             'v4/{}/{}'.format(schema.Meta.url, resource_id),
+            update_payload
+        )
+        return schema.Meta.model(**schema().load(updated_resource))
+
+    def _update_resource_by_composite_id(
+            self,
+            schema: Type[Schema],
+            resource_composite_id: str,
+            attributes: Dict,
+    ):
+        attributes_to_update = list(attributes.keys())
+        update_payload = schema(only=attributes_to_update).dump(attributes)
+        updated_resource = self._api_patch(
+            'v4/{}/{}'.format(schema.Meta.url, resource_composite_id),
             update_payload
         )
         return schema.Meta.model(**schema().load(updated_resource))
@@ -858,11 +874,17 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     def get_orders(
             self,
             external_id: str or None = None,
+            filters: Dict or None = None
     ) -> Generator[Order, None, None]:
+        filter_param = {}
+
+        if filters:
+            filter_param = filters
+
         if external_id:
-            return self._get_resource_list(OrderSchema, external_id)
-        else:
-            return self._get_resource_list(OrderSchema)
+            filter_param['externalId'] = external_id
+
+        return self._get_resource_list(OrderSchema, filters=filter_param)
 
     def update_order(
             self,
@@ -884,7 +906,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             external_id: str or None = None
     ) -> Generator[Product, None, None]:
         if external_id:
-            return self._get_resource_list(ProductSchema, external_id=external_id)
+            return self._get_resource_list(ProductSchema, external_id=external_id, order_by={'externalId': 'ASC'})
         else:
             return self._get_resource_list(ProductSchema)
 
@@ -966,6 +988,23 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             product_variant_stock: ProductVariantStock
     ) -> ProductVariantStock:
         return self._create_resource(ProductVariantStockSchema, product_variant_stock)
+
+    def get_product_variant_stocks(
+            self,
+            fulfilment_point_id: int,
+            product_variant_id: int
+    ) -> ProductVariantStock:
+        compose_id = f'fulfilmentPoint={fulfilment_point_id};productVariant={product_variant_id}'
+        return ProductVariantStockSchema.Meta.model(**self._get_resource(compose_id, ProductVariantStockSchema))
+
+    def update_product_variant_stock(
+            self,
+            fulfilment_point_id: int,
+            product_variant_id: int,
+            attributes: Dict
+    ) -> ProductVariantStock:
+        compose_id = f'fulfilmentPoint={fulfilment_point_id};productVariant={product_variant_id}'
+        return self._update_resource_by_composite_id(ProductVariantStockSchema, compose_id, attributes)
 
     # ---- TICKET INTEGRATIONS
 
@@ -1366,3 +1405,10 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_payment_customers(self, filters: dict or None) -> Generator[Dict, None, None]:
         return self._get_resource_list(PaymentCustomerSchema, filters=filters)
+
+    # ---- CURRENCIES
+
+    def get_currencies(
+            self,
+    ) -> Generator[Currency, None, None]:
+        return self._get_resource_list(CurrencySchema)
