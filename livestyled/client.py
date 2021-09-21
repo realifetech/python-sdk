@@ -284,94 +284,61 @@ class LiveStyledAPIClient:
             params=filter_params,
         )
 
-    def get_event(
-            self,
-            event_id: int or str,
-    ) -> Dict:
+    def get_event(self, event_id: int or str) -> Dict:
         return self._get_resource(
             event_id,
             EventSchema,
         )
 
-    def get_events(
-            self,
-    ) -> Generator[Dict, None, None]:
+    def get_events(self) -> Generator[Dict, None, None]:
         return self._get_resources(EventSchema)
 
-    def get_event_category(
-            self,
-            category_id: int or str,
-    ) -> Dict:
+    def get_event_category(self, category_id: int or str) -> Dict:
         return self._get_resource(
             category_id,
             EventCategorySchema,
         )
 
-    def get_event_categories(
-            self,
-    ) -> Generator[Dict, None, None]:
+    def get_event_categories(self) -> Generator[Dict, None, None]:
         return self._get_resources(EventCategorySchema)
 
-    def get_event_integration(
-            self,
-            integration_id: int or str,
-    ) -> Dict:
+    def get_event_integration(self, integration_id: int or str) -> Dict:
         return self._get_resource(
             integration_id,
             EventIntegrationSchema,
         )
 
-    def get_event_integrations(
-            self,
-    ) -> Generator[Dict, None, None]:
+    def get_event_integrations(self) -> Generator[Dict, None, None]:
         return self._get_resources(EventIntegrationSchema)
 
-    def get_event_stage(
-            self,
-            stage_id: int or str,
-    ) -> Dict:
+    def get_event_stage(self, stage_id: int or str) -> Dict:
         return self._get_resource(
             stage_id,
             EventStageSchema,
         )
 
-    def get_event_stages(
-            self,
-    ) -> Generator[Dict, None, None]:
+    def get_event_stages(self) -> Generator[Dict, None, None]:
         return self._get_resources(EventStageSchema)
 
-    def get_push_consent(
-            self,
-            consent_id: int or str,
-    ) -> Dict:
+    def get_push_consent(self, consent_id: int or str) -> Dict:
         return self._get_resource(
             consent_id,
             PushConsentSchema,
         )
 
-    def get_push_consents(
-            self,
-    ) -> Generator[Dict, None, None]:
+    def get_push_consents(self) -> Generator[Dict, None, None]:
         return self._get_resources(PushConsentSchema)
 
-    def get_user(
-            self,
-            user_id: int or str,
-    ) -> Dict:
+    def get_user(self, user_id: int or str) -> Dict:
         return self._get_resource(
             user_id,
             UserSchema,
         )
 
-    def get_users(
-            self,
-    ) -> Generator[Dict, None, None]:
+    def get_users(self) -> Generator[Dict, None, None]:
         return self._get_resources(UserSchema)
 
-    def get_teams(
-            self,
-            external_id: str or None = None,
-    ) -> Generator[Dict, None, None]:
+    def get_teams(self, external_id: str or None = None) -> Generator[Dict, None, None]:
         filter_params = {}
         if external_id:
             filter_params['externalId'] = external_id
@@ -381,11 +348,7 @@ class LiveStyledAPIClient:
             params=filter_params
         )
 
-    def update_team(
-            self,
-            team_id: str,
-            attributes: Dict,
-    ) -> Dict:
+    def update_team(self, team_id: str, attributes: Dict) -> Dict:
         attributes_to_update = list(attributes.keys())
         update_payload = TeamSchema(only=attributes_to_update).dump(attributes)
         updated_team = self._api_patch(
@@ -394,10 +357,7 @@ class LiveStyledAPIClient:
         )
         return TeamSchema().load(updated_team)
 
-    def create_team(
-            self,
-            attributes: Dict,
-    ) -> Dict:
+    def create_team(self, attributes: Dict) -> Dict:
         payload = TeamSchema().dump(attributes)
         new_team = self._api_post(
             'v4/{}'.format(TeamSchema.Meta.url),
@@ -405,10 +365,7 @@ class LiveStyledAPIClient:
         )
         return TeamSchema().load(new_team)
 
-    def get_news(
-            self,
-            external_id: str or None = None,
-    ) -> Generator[Dict, None, None]:
+    def get_news(self, external_id: str or None = None) -> Generator[Dict, None, None]:
         filter_params = {}
         if external_id:
             filter_params['externalId'] = external_id
@@ -418,10 +375,7 @@ class LiveStyledAPIClient:
             params=filter_params
         )
 
-    def create_news(
-            self,
-            attributes: Dict,
-    ) -> Dict:
+    def create_news(self, attributes: Dict) -> Dict:
         payload = NewsSchema().dump(attributes)
         new_team = self._api_post(
             'v4/{}'.format(NewsSchema.Meta.url),
