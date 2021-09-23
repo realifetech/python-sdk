@@ -42,7 +42,7 @@ class PaymentSourceSchema(Schema):
 
     id = fields.Int(missing=None)
     status = fields.String()
-    payment_customer_id = RelatedResourceLinkField(schema=PaymentCustomerSchema, data_key='paymentCustomer', microservice_aware=True)
+    payment_customer = RelatedResourceLinkField(schema=PaymentCustomerSchema, data_key='paymentCustomer', microservice_aware=True, missing=None)
     token_provider = fields.String(data_key='tokenProvider')
     external_id = fields.String(data_key='externalId')
     psp = fields.String()
@@ -62,14 +62,15 @@ class PaymentIntentSchema(Schema):
 
     id = fields.Int(missing=None)
     external_id = fields.String(data_key='externalId', missing=None)
-    payment_customer_id = RelatedResourceLinkField(schema=PaymentCustomerSchema, data_key='paymentCustomer', microservice_aware=True)
+    payment_source = RelatedResourceLinkField(schema=PaymentSourceSchema, data_key='paymentSource', microservice_aware=True, missing=None)
+    payment_customer = RelatedResourceLinkField(schema=PaymentCustomerSchema, data_key='paymentCustomer', microservice_aware=True, missing=None)
     status = fields.String()
     amount = fields.Int()
     currency = fields.String()
-    last_payment_error = fields.String(data_key='lastPaymentError')
+    last_payment_error = fields.String(data_key='lastPaymentError', missing=None)
     live_mode = fields.Bool(data_key='liveMode')
     save_payment_source = fields.Bool(data_key='savePaymentSource')
-    next_action = fields.Dict(data_key='nextAction')
+    next_action = fields.Dict(data_key='nextAction', missing=None, allow_none=True)
     order_type = fields.String(data_key='orderType')
     order = RelatedResourceLinkField(schema=OrderSchema, data_key='orderId', microservice_aware=True)
 

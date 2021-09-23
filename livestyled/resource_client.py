@@ -193,6 +193,14 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         )
         return schema.Meta.model(**schema().load(updated_resource))
 
+    def _replace_resource(self, schema: Type[Schema], resource_id: int, model_instance):
+        payload = schema().dump(model_instance)
+        updated_resource = self._api_put(
+            'v4/{}/{}'.format(schema.Meta.url, resource_id),
+            payload
+        )
+        return schema.Meta.model(**schema().load(updated_resource))
+
     def _update_resource_by_composite_id(
             self,
             schema: Type[Schema],
@@ -1394,8 +1402,8 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     def get_payment_intents(self, filters: dict or None) -> Generator[Dict, None, None]:
         return self._get_resource_list(PaymentIntentSchema, filters=filters)
 
-    def update_payment_intent(self, payment_intent: PaymentIntent, attributes: Dict) -> PaymentIntent:
-        return self._update_resource(PaymentIntentSchema, payment_intent.id, attributes)
+    def update_payment_intent(self, payment_intent: PaymentIntent) -> PaymentIntent:
+        return self._replace_resource(PaymentIntentSchema, payment_intent.id, payment_intent)
 
     def get_payment_customer(self, id: int or str) -> Generator[Dict, None, None]:
         return self._get_resource(

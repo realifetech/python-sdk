@@ -9,14 +9,17 @@ class PaymentCustomer:
     def __init__(
         self,
         id: int,
-        user: str or None,
-        external_ids: dict,
-        payment_sources: [],
+        payment_sources: [] or None = [],
+        external_ids: dict or None = None,
+        user: str or None = None,
         created_at: datetime or None = None,
         updated_at: datetime or None = None
     ):
+        if isinstance(user, (str, int)):
+            user = User.placeholder(id=user)
+
         self.id = id
-        self.user = User.placeholder(id=user)
+        self.user = user
         self.external_ids = external_ids
         self.payment_sources = payment_sources
         self.created_at = created_at
@@ -45,10 +48,7 @@ class PaymentCustomer:
         id
     ):
         return cls(
-            id=id,
-            user=None,
-            external_ids=None,
-            payment_sources=[]
+            id=id
         )
 
     def diff(self, other):
@@ -64,10 +64,6 @@ class PaymentCustomer:
     @property
     def user_id(self):
         return self.user.id
-
-    @property
-    def user(self):
-        return self.user
 
 
 class PaymentGateway:
@@ -141,9 +137,12 @@ class PaymentSource:
         created_at: datetime or None = None,
         updated_at: datetime or None = None
     ):
+        if isinstance(payment_customer, (str, int)):
+            payment_customer = PaymentCustomer.placeholder(id=payment_customer)
+
         self.id = id
         self.status = status
-        self.payment_customer = PaymentCustomer.placeholder(id=payment_customer)
+        self.payment_customer = payment_customer
         self.token_provider = token_provider
         self.external_id = external_id
         self.type = type
@@ -198,6 +197,7 @@ class PaymentSource:
             default=None,
             billing_details=None,
             card=None,
+            psp=None,
             psp_tokens=[]
         )
 
@@ -215,16 +215,13 @@ class PaymentSource:
     def payment_customer_id(self):
         return self.payment_customer.id
 
-    @property
-    def payment_customer(self):
-        return self.payment_customer
-
 
 class PaymentIntent:
     def __init__(
         self,
         id: int,
         external_id: str or None,
+        payment_source: str or None,
         payment_customer: str or None,
         status: str,
         amount: int,
@@ -232,15 +229,22 @@ class PaymentIntent:
         last_payment_error: str or None,
         live_mode: bool,
         save_payment_source: bool,
-        next_action: dict,
         order_type: str,
         order: str or None,
+        next_action: dict or None = None,
         created_at: datetime or None = None,
         updated_at: datetime or None = None
     ):
+        if isinstance(payment_source, (str, int)):
+            payment_source = PaymentSource.placeholder(id=payment_source)
+
+        if isinstance(payment_customer, (str, int)):
+            payment_customer = PaymentCustomer.placeholder(id=payment_customer)
+
         self.id = id
         self.external_id = external_id
-        self.payment_customer = PaymentCustomer.placeholder(id=payment_customer)
+        self.payment_source = payment_source
+        self.payment_customer = payment_customer
         self.status = status
         self.amount = amount
         self.currency = currency
@@ -257,6 +261,7 @@ class PaymentIntent:
     def create_new(
         cls,
         external_id: str or None,
+        payment_source: str,
         payment_customer: str,
         status: str,
         amount: int,
@@ -264,10 +269,13 @@ class PaymentIntent:
         last_payment_error: str or None,
         live_mode: bool,
         save_payment_source: bool,
-        next_action: dict,
+        next_action: dict or None,
         order_type: str,
         order: str
     ):
+        if isinstance(payment_source, (str, int)):
+            payment_source = PaymentSource.placeholder(id=payment_source)
+
         if isinstance(payment_customer, (str, int)):
             payment_customer = PaymentCustomer.placeholder(id=payment_customer)
 
@@ -277,6 +285,7 @@ class PaymentIntent:
         return PaymentIntent(
             id=None,
             external_id=external_id,
+            payment_source=payment_source,
             payment_customer=payment_customer,
             status=status,
             amount=amount,
@@ -297,6 +306,7 @@ class PaymentIntent:
         return cls(
             id=id,
             external_id=None,
+            payment_source=None,
             payment_customer=None,
             status=None,
             amount=None,
@@ -304,7 +314,7 @@ class PaymentIntent:
             last_payment_error=None,
             live_mode=None,
             save_payment_source=None,
-            next_action={},
+            next_action=None,
             order_type=None,
             order=None
         )
@@ -312,7 +322,7 @@ class PaymentIntent:
     def diff(self, other):
         differences = {}
         fields = (
-            'external_id', 'payment_customer', 'status', 'amount', 'currency', 'last_payment_error', 'live_mode', 'save_payment_source', 'next_action', 'order_type', 'order'
+            'external_id', 'payment_source', 'payment_customer', 'status', 'amount', 'currency', 'last_payment_error', 'live_mode', 'save_payment_source', 'next_action', 'order_type', 'order'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
@@ -324,16 +334,12 @@ class PaymentIntent:
         return self.payment_customer.id
 
     @property
-    def payment_customer(self):
-        return self.payment_customer
+    def payment_source_id(self):
+        return self.payment_source.id
 
     @property
     def order_id(self):
         return self.order.id
-
-    @property
-    def order(self):
-        return self.order
 
 
 class MerchantAccount:
@@ -405,7 +411,3 @@ class MerchantAccount:
     @property
     def payment_gateway_id(self):
         return self.payment_gateway.id
-
-    @property
-    def payment_gateway(self):
-        return self.payment_gateway
