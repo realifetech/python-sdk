@@ -97,6 +97,27 @@ class LiveStyledAPIClient:
         response.raise_for_status()
         return response.json()
 
+    def _api_put(
+            self,
+            endpoint: str,
+            data: dict
+    ) -> Dict:
+        response = requests.put(
+            'https://{}/{}'.format(
+                self._api_domain,
+                endpoint,
+            ),
+            headers={
+                'Content-Type': CONTENT_TYPE,
+                'x-api-key': self._api_key
+            },
+            data=json.dumps(data)
+        )
+        if response.status_code >= 400:
+            print(response.content)
+        response.raise_for_status()
+        return response.json()
+
     def _api_post(
             self,
             endpoint: str,
