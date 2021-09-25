@@ -24,6 +24,7 @@ from livestyled.models import (
     LeagueTableGroup,
     Location,
     MagicField,
+    MerchantAccountFulfilmentPointPspToken,
     News,
     Order,
     PaymentIntent,
