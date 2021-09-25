@@ -1434,13 +1434,11 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     def get_merchant_account_fulfilment_point_psp_tokens(self, filters: dict or None) -> Generator[Dict, None, None]:
         return self._get_resource_list(MerchantAccountFulfilmentPointPspTokenSchema, filters=filters)
 
-    def create_merchant_account_fulfilment_point_psp_token(self, attributes: Dict) -> Dict:
-        payload = MerchantAccountFulfilmentPointPspTokenSchema().dump(attributes)
-        merchant_account_fp_psp_token = self._api_post(
-            'v4/{}'.format(MerchantAccountFulfilmentPointPspTokenSchema.Meta.url),
-            payload
-        )
-        return MerchantAccountFulfilmentPointPspTokenSchema().load(merchant_account_fp_psp_token)
+    def create_merchant_account_fulfilment_point_psp_token(
+        self,
+        merchant_account_fulfilment_point_psp_token: MerchantAccountFulfilmentPointPspToken
+    ) -> ProductModifierList:
+        return self._create_resource(MerchantAccountFulfilmentPointPspTokenSchema, merchant_account_fulfilment_point_psp_token)
 
     # ---- CURRENCIES
 
