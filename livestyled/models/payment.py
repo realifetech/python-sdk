@@ -504,7 +504,7 @@ class MerchantAccountFulfilmentPointPspToken:
         if isinstance(payment_source, (str, int)):
             payment_source = PaymentSource.placeholder(id=payment_source)
 
-        return PaymentCustomer(
+        return MerchantAccountFulfilmentPointPspToken(
             id=None,
             merchant_account_fulfilment_point=merchant_account_fulfilment_point,
             payment_source=payment_source,

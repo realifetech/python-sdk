@@ -1438,7 +1438,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     def create_merchant_account_fulfilment_point_psp_token(
         self,
         merchant_account_fulfilment_point_psp_token: MerchantAccountFulfilmentPointPspToken
-    ) -> ProductModifierList:
+    ) -> MerchantAccountFulfilmentPointPspToken:
         return self._create_resource(MerchantAccountFulfilmentPointPspTokenSchema, merchant_account_fulfilment_point_psp_token)
 
     # ---- CURRENCIES
