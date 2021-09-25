@@ -24,7 +24,15 @@ from livestyled.models.location import Location
 from livestyled.models.magic_field import MagicField
 from livestyled.models.news import News
 from livestyled.models.order import Order, OrderItem
-from livestyled.models.payment import MerchantAccount, PaymentCustomer, PaymentGateway, PaymentIntent, PaymentSource
+from livestyled.models.payment import (
+    MerchantAccount,
+    MerchantAccountFulfilmentPoint,
+    MerchantAccountFulfilmentPointPspToken,
+    PaymentCustomer,
+    PaymentGateway,
+    PaymentIntent,
+    PaymentSource
+)
 from livestyled.models.product import (
     Product,
     ProductCategory,
@@ -72,6 +80,8 @@ __all__ = [
     Location,
     MagicField,
     MerchantAccount,
+    MerchantAccountFulfilmentPoint,
+    MerchantAccountFulfilmentPointPspToken,
     News,
     Order,
     OrderItem,

@@ -68,6 +68,8 @@ from livestyled.schemas import (
     LeagueTableSchema,
     LocationSchema,
     MagicFieldSchema,
+    MerchantAccountFulfilmentPointPspTokenSchema,
+    MerchantAccountFulfilmentPointSchema,
     MerchantAccountSchema,
     NewsSchema,
     OrderSchema,
@@ -1413,6 +1415,32 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_payment_customers(self, filters: dict or None) -> Generator[Dict, None, None]:
         return self._get_resource_list(PaymentCustomerSchema, filters=filters)
+
+    def get_merchant_account_fulfilment_point(self, id: int or str) -> Generator[Dict, None, None]:
+        return self._get_resource(
+            id,
+            MerchantAccountFulfilmentPointSchema,
+        )
+
+    def get_merchant_account_fulfilment_points(self, filters: dict or None) -> Generator[Dict, None, None]:
+        return self._get_resource_list(MerchantAccountFulfilmentPointSchema, filters=filters)
+
+    def get_merchant_account_fulfilment_point_psp_token(self, id: int or str) -> Generator[Dict, None, None]:
+        return self._get_resource(
+            id,
+            MerchantAccountFulfilmentPointPspTokenSchema,
+        )
+
+    def get_merchant_account_fulfilment_point_psp_tokens(self, filters: dict or None) -> Generator[Dict, None, None]:
+        return self._get_resource_list(MerchantAccountFulfilmentPointPspTokenSchema, filters=filters)
+
+    def create_merchant_account_fulfilment_point_psp_token(self, attributes: Dict) -> Dict:
+        payload = MerchantAccountFulfilmentPointPspTokenSchema().dump(attributes)
+        merchant_account_fp_psp_token = self._api_post(
+            'v4/{}'.format(MerchantAccountFulfilmentPointPspTokenSchema.Meta.url),
+            payload
+        )
+        return MerchantAccountFulfilmentPointPspTokenSchema().load(merchant_account_fp_psp_token)
 
     # ---- CURRENCIES
 
