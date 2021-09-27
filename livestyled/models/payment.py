@@ -127,13 +127,13 @@ class PaymentSource:
         status: str,
         payment_customer: str or None,
         token_provider: str,
-        external_id: str,
         psp: str,
         type: str,
         default: bool,
         billing_details: dict,
         card: dict,
-        psp_tokens: [],
+        psp_tokens: list or None = None,
+        external_id: str or None = None,
         created_at: datetime or None = None,
         updated_at: datetime or None = None
     ):
@@ -164,7 +164,7 @@ class PaymentSource:
         default: str,
         billing_details: dict,
         card: dict,
-        psp_tokens: []
+        psp_tokens: list
     ):
         if isinstance(payment_customer, (str, int)):
             payment_customer = PaymentCustomer.placeholder(id=payment_customer)
@@ -198,7 +198,7 @@ class PaymentSource:
             billing_details=None,
             card=None,
             psp=None,
-            psp_tokens=[]
+            psp_tokens=None
         )
 
     def diff(self, other):
