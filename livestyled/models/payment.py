@@ -26,12 +26,7 @@ class PaymentCustomer:
         self.updated_at = updated_at
 
     @classmethod
-    def create_new(
-        cls,
-        user: str,
-        external_ids: dict,
-        payment_sources: []
-    ):
+    def create_new(cls, user: str, external_ids: dict, payment_sources: []):
         if isinstance(user, (str, int)):
             user = User.placeholder(id=user)
 
@@ -43,13 +38,8 @@ class PaymentCustomer:
         )
 
     @classmethod
-    def placeholder(
-        cls,
-        id
-    ):
-        return cls(
-            id=id
-        )
+    def placeholder(cls, id):
+        return cls(id=id)
 
     def diff(self, other):
         differences = {}
@@ -84,12 +74,7 @@ class PaymentGateway:
         self.updated_at = updated_at
 
     @classmethod
-    def create_new(
-        cls,
-        config_ui_schema: dict,
-        payment_gateway: str,
-        name: str
-    ):
+    def create_new(cls, config_ui_schema: dict, payment_gateway: str, name: str):
         return PaymentGateway(
             id=None,
             config_ui_schema=config_ui_schema,
@@ -98,10 +83,7 @@ class PaymentGateway:
         )
 
     @classmethod
-    def placeholder(
-        cls,
-        id
-    ):
+    def placeholder(cls, id):
         return cls(
             id=id,
             config_ui_schema={},
@@ -183,10 +165,7 @@ class PaymentSource:
         )
 
     @classmethod
-    def placeholder(
-        cls,
-        id
-    ):
+    def placeholder(cls, id):
         return cls(
             id=id,
             status=None,
@@ -299,10 +278,7 @@ class PaymentIntent:
         )
 
     @classmethod
-    def placeholder(
-        cls,
-        id
-    ):
+    def placeholder(cls, id):
         return cls(
             id=id,
             external_id=None,
@@ -364,14 +340,8 @@ class MerchantAccount:
         self.updated_at = updated_at
 
     @classmethod
-    def create_new(
-        cls,
-        status: str,
-        payment_gateway: str,
-        config: dict,
-        label: str,
-        fulfilment_points: [FulfilmentPoint] = []
-    ):
+    def create_new(cls, status: str, payment_gateway: str, config: dict, label: str,
+                   fulfilment_points: [FulfilmentPoint] = []):
         if isinstance(payment_gateway, (str, int)):
             payment_gateway = PaymentGateway.placeholder(id=payment_gateway)
 
@@ -385,10 +355,7 @@ class MerchantAccount:
         )
 
     @classmethod
-    def placeholder(
-        cls,
-        id
-    ):
+    def placeholder(cls, id):
         return cls(
             id=id,
             status=None,
@@ -435,11 +402,7 @@ class MerchantAccountFulfilmentPoint:
         self.updated_at = updated_at
 
     @classmethod
-    def create_new(
-        cls,
-        merchant_account: str,
-        fulfilment_point: str
-    ):
+    def create_new(cls, merchant_account: str, fulfilment_point: str):
         if isinstance(merchant_account, (str, int)):
             merchant_account = MerchantAccount.placeholder(id=merchant_account)
 
@@ -449,13 +412,8 @@ class MerchantAccountFulfilmentPoint:
         return MerchantAccountFulfilmentPoint(id=None)
 
     @classmethod
-    def placeholder(
-        cls,
-        id
-    ):
-        return cls(
-            id=id
-        )
+    def placeholder(cls, id):
+        return cls(id=id)
 
     def diff(self, other):
         differences = {}
@@ -492,12 +450,7 @@ class MerchantAccountFulfilmentPointPspToken:
         self.updated_at = updated_at
 
     @classmethod
-    def create_new(
-        cls,
-        merchant_account_fulfilment_point: str,
-        payment_source: str,
-        psp_token: str
-    ):
+    def create_new(cls, merchant_account_fulfilment_point: str, payment_source: str, psp_token: str):
         if isinstance(merchant_account_fulfilment_point, (str, int)):
             merchant_account_fulfilment_point = MerchantAccountFulfilmentPoint.placeholder(id=merchant_account_fulfilment_point)
 
@@ -512,13 +465,8 @@ class MerchantAccountFulfilmentPointPspToken:
         )
 
     @classmethod
-    def placeholder(
-        cls,
-        id
-    ):
-        return cls(
-            id=id
-        )
+    def placeholder(cls, id):
+        return cls(id=id)
 
     def diff(self, other):
         differences = {}
