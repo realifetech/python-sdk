@@ -1409,28 +1409,19 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         return self._replace_resource(PaymentIntentSchema, payment_intent.id, payment_intent)
 
     def get_payment_customer(self, id: int or str) -> Generator[Dict, None, None]:
-        return self._get_resource(
-            id,
-            PaymentCustomerSchema,
-        )
+        return self._get_resource(id, PaymentCustomerSchema)
 
     def get_payment_customers(self, filters: dict or None) -> Generator[Dict, None, None]:
         return self._get_resource_list(PaymentCustomerSchema, filters=filters)
 
     def get_merchant_account_fulfilment_point(self, id: int or str) -> Generator[Dict, None, None]:
-        return self._get_resource(
-            id,
-            MerchantAccountFulfilmentPointSchema,
-        )
+        return self._get_resource(id, MerchantAccountFulfilmentPointSchema)
 
     def get_merchant_account_fulfilment_points(self, filters: dict or None) -> Generator[Dict, None, None]:
         return self._get_resource_list(MerchantAccountFulfilmentPointSchema, filters=filters)
 
     def get_merchant_account_fulfilment_point_psp_token(self, id: int or str) -> Generator[Dict, None, None]:
-        return self._get_resource(
-            id,
-            MerchantAccountFulfilmentPointPspTokenSchema,
-        )
+        return self._get_resource(id, MerchantAccountFulfilmentPointPspTokenSchema)
 
     def get_merchant_account_fulfilment_point_psp_tokens(self, filters: dict or None) -> Generator[Dict, None, None]:
         return self._get_resource_list(MerchantAccountFulfilmentPointPspTokenSchema, filters=filters)
