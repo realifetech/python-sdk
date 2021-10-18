@@ -12,7 +12,7 @@ class EventDateSchema(Schema):
 
     id = fields.Int()
     start_at = fields.AwareDateTime(data_key='startAt')
-    end_at = fields.AwareDateTime(data_key='endAt')
+    end_at = fields.AwareDateTime(data_key='endAt', required=False)
     general_ticket_url = fields.String(data_key='generalTicketUrl', required=False)
 
 
