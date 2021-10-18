@@ -48,7 +48,7 @@ class PaymentSourceSchema(Schema):
     payment_customer = RelatedResourceLinkField(schema=PaymentCustomerSchema, data_key='paymentCustomer', microservice_aware=True, missing=None)
     token_provider = fields.String(data_key='tokenProvider')
     external_id = fields.String(data_key='externalId', missing=None)
-    psp = fields.String()
+    psp = fields.String(missing=None)
     type = fields.String()
     default = fields.Bool(missing=None)
     billing_details = fields.Dict(data_key='billingDetails')
