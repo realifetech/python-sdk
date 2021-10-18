@@ -3,7 +3,7 @@ class EventDate:
             self,
             id,
             start_at,
-            end_at,
+            end_at=None,
             general_ticket_url=None,
     ):
         self._id = id
