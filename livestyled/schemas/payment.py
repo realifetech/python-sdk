@@ -1,6 +1,9 @@
 from marshmallow import EXCLUDE, fields, Schema
 
-from livestyled.models.payment import MerchantAccount, PaymentCustomer, PaymentGateway, PaymentIntent, PaymentSource
+from livestyled.models.payment import (
+    MerchantAccount, MerchantAccountFulfilmentPoint, MerchantAccountFulfilmentPointPspToken,
+    PaymentCustomer, PaymentGateway, PaymentIntent, PaymentSource
+)
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
 from livestyled.schemas.fulfilment_point import FulfilmentPointSchema
 from livestyled.schemas.order import OrderSchema
@@ -44,13 +47,13 @@ class PaymentSourceSchema(Schema):
     status = fields.String()
     payment_customer = RelatedResourceLinkField(schema=PaymentCustomerSchema, data_key='paymentCustomer', microservice_aware=True, missing=None)
     token_provider = fields.String(data_key='tokenProvider')
-    external_id = fields.String(data_key='externalId')
-    psp = fields.String()
+    external_id = fields.String(data_key='externalId', missing=None)
+    psp = fields.String(missing=None)
     type = fields.String()
-    default = fields.Bool()
+    default = fields.Bool(missing=None)
     billing_details = fields.Dict(data_key='billingDetails')
     card = fields.Dict()
-    psp_tokens: fields.List(fields.Dict())
+    psp_tokens = fields.List(fields.Dict(), data_key='pspTokens')
 
 
 class PaymentIntentSchema(Schema):
@@ -61,7 +64,7 @@ class PaymentIntentSchema(Schema):
         model = PaymentIntent
 
     id = fields.Int(missing=None)
-    external_id = fields.String(data_key='externalId', missing=None)
+    external_id = fields.String(data_key='externalId', missing=None, allow_none=True)
     payment_source = RelatedResourceLinkField(schema=PaymentSourceSchema, data_key='paymentSource', microservice_aware=True, missing=None)
     payment_customer = RelatedResourceLinkField(schema=PaymentCustomerSchema, data_key='paymentCustomer', microservice_aware=True, missing=None)
     status = fields.String()
@@ -88,3 +91,28 @@ class MerchantAccountSchema(Schema):
     config = fields.Dict(allow_none=True)
     label = fields.String()
     fulfilment_points = RelatedResourceField(schema=FulfilmentPointSchema, many=True, data_key='fulfilmentPoints')
+
+
+class MerchantAccountFulfilmentPointSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+        api_type = 'merchant_account_fulfilment_points'
+        url = 'payment/merchant_account_fulfilment_points'
+        model = MerchantAccountFulfilmentPoint
+
+    id = fields.Int(missing=None)
+    merchant_account = RelatedResourceLinkField(schema=MerchantAccountSchema, data_key='merchantAccount', microservice_aware=True)
+    fulfilment_point = RelatedResourceLinkField(schema=FulfilmentPointSchema, data_key='fulfilmentPoint', microservice_aware=True)
+
+
+class MerchantAccountFulfilmentPointPspTokenSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+        api_type = 'merchant_account_fulfilment_point_psp_tokens'
+        url = 'payment/merchant_account_fulfilment_point_psp_tokens'
+        model = MerchantAccountFulfilmentPointPspToken
+
+    id = fields.Int(missing=None)
+    merchant_account_fulfilment_point = RelatedResourceLinkField(schema=MerchantAccountFulfilmentPointSchema, data_key='merchantAccountFulfilmentPoint', microservice_aware=True)
+    payment_source = RelatedResourceLinkField(schema=PaymentSourceSchema, data_key='paymentSource', microservice_aware=True)
+    psp_token = fields.String(data_key='pspToken')
