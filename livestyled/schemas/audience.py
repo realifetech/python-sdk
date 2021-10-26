@@ -1,4 +1,4 @@
-from marshmallow import EXCLUDE, fields, Schema, pre_load
+from marshmallow import EXCLUDE, fields, pre_load, Schema
 
 from livestyled.models.audience import Audience
 from livestyled.schemas.fields import RelatedResourceLinkField

@@ -1,0 +1,5 @@
+{
+    "code": 500,
+    "type": "ValidationException",
+    "message": "audience: Audience and Device combination already exists"
+}

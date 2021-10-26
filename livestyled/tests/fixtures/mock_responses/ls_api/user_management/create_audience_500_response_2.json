@@ -1,0 +1,5 @@
+{
+    "code": 500,
+    "type": "UniqueConstraintViolationException",
+    "message": "An exception occurred while executing \\u0027INSERT INTO user_management_audience_device (created_at, audience, device, tenant) VALUES (?, ?, ?, ?)\\u0027 with params [\\u00222021-10-26 12:08:50\\u0022, 298, 1773527, 27]:\\n\\nSQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry \\u0027298-1773527\\u0027 for key \\u0027PRIMARY\\u0027"
+}
