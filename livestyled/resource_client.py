@@ -1327,11 +1327,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             return self._create_resource(AudienceDeviceSchema, audience_device)
         except HTTPError as http_error:
             if http_error.response.status_code == 500:
-                if http_error.response.json() == {
+                res_json = http_error.response.json()
+                if res_json == {
                     'code': 500,
                     'type': 'ValidationException',
                     'message': 'audience: Audience and Device combination already exists'
-                }:
+                } or ('type' in res_json and res_json['type'] == 'UniqueConstraintViolationException'):
                     return audience_device
             raise
 
