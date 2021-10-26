@@ -21,7 +21,15 @@ from livestyled.schemas.location import LocationSchema
 from livestyled.schemas.magic_field import MagicFieldSchema
 from livestyled.schemas.news import NewsSchema
 from livestyled.schemas.order import OrderSchema
-from livestyled.schemas.payment import MerchantAccountSchema, PaymentCustomerSchema, PaymentGatewaySchema, PaymentIntentSchema, PaymentSourceSchema
+from livestyled.schemas.payment import (
+    MerchantAccountFulfilmentPointPspTokenSchema,
+    MerchantAccountFulfilmentPointSchema,
+    MerchantAccountSchema,
+    PaymentCustomerSchema,
+    PaymentGatewaySchema,
+    PaymentIntentSchema,
+    PaymentSourceSchema
+)
 from livestyled.schemas.product import (
     ProductCategorySchema,
     ProductModifierItemSchema,
@@ -67,6 +75,8 @@ __all__ = [
     LocationSchema,
     MagicFieldSchema,
     MerchantAccountSchema,
+    MerchantAccountFulfilmentPointSchema,
+    MerchantAccountFulfilmentPointPspTokenSchema,
     NewsSchema,
     OrderSchema,
     PaymentCustomerSchema,

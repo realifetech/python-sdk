@@ -24,6 +24,7 @@ from livestyled.models import (
     LeagueTableGroup,
     Location,
     MagicField,
+    MerchantAccountFulfilmentPointPspToken,
     News,
     Order,
     PaymentIntent,
@@ -68,6 +69,8 @@ from livestyled.schemas import (
     LeagueTableSchema,
     LocationSchema,
     MagicFieldSchema,
+    MerchantAccountFulfilmentPointPspTokenSchema,
+    MerchantAccountFulfilmentPointSchema,
     MerchantAccountSchema,
     NewsSchema,
     OrderSchema,
@@ -1407,13 +1410,28 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         return self._replace_resource(PaymentIntentSchema, payment_intent.id, payment_intent)
 
     def get_payment_customer(self, id: int or str) -> Generator[Dict, None, None]:
-        return self._get_resource(
-            id,
-            PaymentCustomerSchema,
-        )
+        return self._get_resource(id, PaymentCustomerSchema)
 
     def get_payment_customers(self, filters: dict or None) -> Generator[Dict, None, None]:
         return self._get_resource_list(PaymentCustomerSchema, filters=filters)
+
+    def get_merchant_account_fulfilment_point(self, id: int or str) -> Generator[Dict, None, None]:
+        return self._get_resource(id, MerchantAccountFulfilmentPointSchema)
+
+    def get_merchant_account_fulfilment_points(self, filters: dict or None) -> Generator[Dict, None, None]:
+        return self._get_resource_list(MerchantAccountFulfilmentPointSchema, filters=filters)
+
+    def get_merchant_account_fulfilment_point_psp_token(self, id: int or str) -> Generator[Dict, None, None]:
+        return self._get_resource(id, MerchantAccountFulfilmentPointPspTokenSchema)
+
+    def get_merchant_account_fulfilment_point_psp_tokens(self, filters: dict or None) -> Generator[Dict, None, None]:
+        return self._get_resource_list(MerchantAccountFulfilmentPointPspTokenSchema, filters=filters)
+
+    def create_merchant_account_fulfilment_point_psp_token(
+        self,
+        merchant_account_fulfilment_point_psp_token: MerchantAccountFulfilmentPointPspToken
+    ) -> MerchantAccountFulfilmentPointPspToken:
+        return self._create_resource(MerchantAccountFulfilmentPointPspTokenSchema, merchant_account_fulfilment_point_psp_token)
 
     # ---- CURRENCIES
 

@@ -26,12 +26,7 @@ class PaymentCustomer:
         self.updated_at = updated_at
 
     @classmethod
-    def create_new(
-        cls,
-        user: str,
-        external_ids: dict,
-        payment_sources: []
-    ):
+    def create_new(cls, user: str, external_ids: dict, payment_sources: []):
         if isinstance(user, (str, int)):
             user = User.placeholder(id=user)
 
@@ -43,13 +38,8 @@ class PaymentCustomer:
         )
 
     @classmethod
-    def placeholder(
-        cls,
-        id
-    ):
-        return cls(
-            id=id
-        )
+    def placeholder(cls, id):
+        return cls(id=id)
 
     def diff(self, other):
         differences = {}
@@ -84,12 +74,7 @@ class PaymentGateway:
         self.updated_at = updated_at
 
     @classmethod
-    def create_new(
-        cls,
-        config_ui_schema: dict,
-        payment_gateway: str,
-        name: str
-    ):
+    def create_new(cls, config_ui_schema: dict, payment_gateway: str, name: str):
         return PaymentGateway(
             id=None,
             config_ui_schema=config_ui_schema,
@@ -98,10 +83,7 @@ class PaymentGateway:
         )
 
     @classmethod
-    def placeholder(
-        cls,
-        id
-    ):
+    def placeholder(cls, id):
         return cls(
             id=id,
             config_ui_schema={},
@@ -127,13 +109,13 @@ class PaymentSource:
         status: str,
         payment_customer: str or None,
         token_provider: str,
-        external_id: str,
-        psp: str,
         type: str,
         default: bool,
         billing_details: dict,
         card: dict,
-        psp_tokens: [],
+        psp: str or None = None,
+        psp_tokens: list or None = None,
+        external_id: str or None = None,
         created_at: datetime or None = None,
         updated_at: datetime or None = None
     ):
@@ -164,7 +146,7 @@ class PaymentSource:
         default: str,
         billing_details: dict,
         card: dict,
-        psp_tokens: []
+        psp_tokens: list
     ):
         if isinstance(payment_customer, (str, int)):
             payment_customer = PaymentCustomer.placeholder(id=payment_customer)
@@ -183,10 +165,7 @@ class PaymentSource:
         )
 
     @classmethod
-    def placeholder(
-        cls,
-        id
-    ):
+    def placeholder(cls, id):
         return cls(
             id=id,
             status=None,
@@ -198,7 +177,7 @@ class PaymentSource:
             billing_details=None,
             card=None,
             psp=None,
-            psp_tokens=[]
+            psp_tokens=None
         )
 
     def diff(self, other):
@@ -299,10 +278,7 @@ class PaymentIntent:
         )
 
     @classmethod
-    def placeholder(
-        cls,
-        id
-    ):
+    def placeholder(cls, id):
         return cls(
             id=id,
             external_id=None,
@@ -364,14 +340,8 @@ class MerchantAccount:
         self.updated_at = updated_at
 
     @classmethod
-    def create_new(
-        cls,
-        status: str,
-        payment_gateway: str,
-        config: dict,
-        label: str,
-        fulfilment_points: [FulfilmentPoint] = []
-    ):
+    def create_new(cls, status: str, payment_gateway: str, config: dict, label: str,
+                   fulfilment_points: [FulfilmentPoint] = []):
         if isinstance(payment_gateway, (str, int)):
             payment_gateway = PaymentGateway.placeholder(id=payment_gateway)
 
@@ -385,10 +355,7 @@ class MerchantAccount:
         )
 
     @classmethod
-    def placeholder(
-        cls,
-        id
-    ):
+    def placeholder(cls, id):
         return cls(
             id=id,
             status=None,
@@ -411,3 +378,102 @@ class MerchantAccount:
     @property
     def payment_gateway_id(self):
         return self.payment_gateway.id
+
+
+class MerchantAccountFulfilmentPoint:
+    def __init__(
+        self,
+        id: int,
+        merchant_account: str or None = None,
+        fulfilment_point: str or None = None,
+        created_at: datetime or None = None,
+        updated_at: datetime or None = None
+    ):
+        if isinstance(merchant_account, (str, int)):
+            merchant_account = MerchantAccount.placeholder(id=merchant_account)
+
+        if isinstance(fulfilment_point, (str, int)):
+            fulfilment_point = FulfilmentPoint.placeholder(id=fulfilment_point)
+
+        self.id = id
+        self.merchant_account = merchant_account
+        self.fulfilment_point = fulfilment_point
+        self.created_at = created_at
+        self.updated_at = updated_at
+
+    @classmethod
+    def create_new(cls, merchant_account: str, fulfilment_point: str):
+        if isinstance(merchant_account, (str, int)):
+            merchant_account = MerchantAccount.placeholder(id=merchant_account)
+
+        if isinstance(fulfilment_point, (str, int)):
+            fulfilment_point = FulfilmentPoint.placeholder(id=fulfilment_point)
+
+        return MerchantAccountFulfilmentPoint(id=None)
+
+    @classmethod
+    def placeholder(cls, id):
+        return cls(id=id)
+
+    def diff(self, other):
+        differences = {}
+        fields = (
+            'merchant_account', 'fulfilment_point'
+        )
+        for field in fields:
+            if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
+        return differences
+
+
+class MerchantAccountFulfilmentPointPspToken:
+    def __init__(
+        self,
+        id: int,
+        merchant_account_fulfilment_point: str or None = None,
+        payment_source: str or None = None,
+        psp_token: str or None = None,
+        created_at: datetime or None = None,
+        updated_at: datetime or None = None
+    ):
+        if isinstance(merchant_account_fulfilment_point, (str, int)):
+            merchant_account_fulfilment_point = MerchantAccountFulfilmentPoint.placeholder(id=merchant_account_fulfilment_point)
+
+        if isinstance(payment_source, (str, int)):
+            payment_source = PaymentSource.placeholder(id=payment_source)
+
+        self.id = id
+        self.merchant_account_fulfilment_point = merchant_account_fulfilment_point
+        self.payment_source = payment_source
+        self.psp_token = psp_token
+        self.created_at = created_at
+        self.updated_at = updated_at
+
+    @classmethod
+    def create_new(cls, merchant_account_fulfilment_point: str, payment_source: str, psp_token: str):
+        if isinstance(merchant_account_fulfilment_point, (str, int)):
+            merchant_account_fulfilment_point = MerchantAccountFulfilmentPoint.placeholder(id=merchant_account_fulfilment_point)
+
+        if isinstance(payment_source, (str, int)):
+            payment_source = PaymentSource.placeholder(id=payment_source)
+
+        return MerchantAccountFulfilmentPointPspToken(
+            id=None,
+            merchant_account_fulfilment_point=merchant_account_fulfilment_point,
+            payment_source=payment_source,
+            psp_token=psp_token
+        )
+
+    @classmethod
+    def placeholder(cls, id):
+        return cls(id=id)
+
+    def diff(self, other):
+        differences = {}
+        fields = (
+            'merchant_account_fulfilment_point', 'payment_source', 'psp_token'
+        )
+        for field in fields:
+            if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
+        return differences
