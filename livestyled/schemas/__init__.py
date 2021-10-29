@@ -43,6 +43,7 @@ from livestyled.schemas.push_consent import PushConsentSchema
 from livestyled.schemas.reality import RealitySchema, RealityTypeSchema
 from livestyled.schemas.season import SeasonSchema
 from livestyled.schemas.sport_venue import SportVenueSchema
+from livestyled.schemas.storage import ExportSchema
 from livestyled.schemas.team import TeamSchema
 from livestyled.schemas.ticket import TicketSchema
 from livestyled.schemas.ticket_auth import TicketAuthSchema
@@ -68,6 +69,7 @@ __all__ = [
     EventCategorySchema,
     EventIntegrationSchema,
     EventStageSchema,
+    ExportSchema,
     FixtureSchema,
     FulfilmentPointSchema,
     LeagueTableSchema,
