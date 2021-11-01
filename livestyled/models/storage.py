@@ -32,6 +32,9 @@ class Export:
 
     @classmethod
     def placeholder(cls, id):
+        print('cls')
+        print(cls)
+        print(id)
         return cls(id=id, status=None, type=None)
 
     def diff(self, other):
