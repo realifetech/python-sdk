@@ -11,8 +11,8 @@ class ExportSchema(Schema):
         model = Export
 
     id = fields.Int(missing=None)
-    status = fields.String()
-    type = fields.String()
+    status = fields.String(allow_none=True)
+    type = fields.String(allow_none=True)
     filters = fields.Dict(allow_none=True)
     url = fields.String(missing=None)
     owner = fields.Int(missing=None)
