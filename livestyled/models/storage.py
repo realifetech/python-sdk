@@ -5,8 +5,8 @@ class Export:
     def __init__(
         self,
         id: int,
-        status: str,
-        type: str,
+        status: str or None = None,
+        type: str or None = None,
         filters: dict or None = None,
         url: str or None = None,
         owner: str or None = None,
