@@ -32,10 +32,7 @@ class Export:
 
     @classmethod
     def placeholder(cls, id):
-        print('cls')
-        print(cls)
-        print(id)
-        return cls(id=id, status=None, type=None)
+        return cls(id=id)
 
     def diff(self, other):
         differences = {}
