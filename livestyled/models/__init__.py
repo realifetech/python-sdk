@@ -47,6 +47,7 @@ from livestyled.models.push_consent import PushConsent
 from livestyled.models.reality import Reality, RealityType
 from livestyled.models.season import Season
 from livestyled.models.sport_venue import SportVenue
+from livestyled.models.storage import Export
 from livestyled.models.team import Team
 from livestyled.models.ticket import Ticket
 from livestyled.models.ticket_auth import TicketAuth
@@ -70,6 +71,7 @@ __all__ = [
     DeviceReality,
     DeviceToken,
     Event,
+    Export,
     Fixture,
     FulfilmentPoint,
     FulfilmentPointCategory,

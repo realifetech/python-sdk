@@ -18,6 +18,7 @@ from livestyled.models import (
     DeviceReality,
     DeviceToken,
     Event,
+    Export,
     Fixture,
     FulfilmentPoint,
     LeagueTable,
@@ -63,6 +64,7 @@ from livestyled.schemas import (
     DeviceSchema,
     DeviceTokenSchema,
     EventSchema,
+    ExportSchema,
     FixtureSchema,
     FulfilmentPointSchema,
     LeagueTableGroupSchema,
@@ -1439,3 +1441,14 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
     ) -> Generator[Currency, None, None]:
         return self._get_resource_list(CurrencySchema)
+
+    # ---- Exports
+
+    def get_export(self, id: int or str) -> Generator[Dict, None, None]:
+        return self._get_resource(id, ExportSchema)
+
+    def get_exports(self, filters: dict or None) -> Generator[Dict, None, None]:
+        return self._get_resource_list(ExportSchema, filters=filters)
+
+    def update_export(self, export: Export, attributes: Dict) -> Export:
+        return self._update_resource(ExportSchema, export.id, attributes)
