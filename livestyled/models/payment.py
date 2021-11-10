@@ -111,7 +111,7 @@ class PaymentSource:
         token_provider: str,
         type: str,
         default: bool,
-        billing_details: dict,
+        billing_details: dict or None,
         card: dict,
         psp: str or None = None,
         psp_tokens: list or None = None,

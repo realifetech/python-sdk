@@ -51,7 +51,7 @@ class PaymentSourceSchema(Schema):
     psp = fields.String(missing=None)
     type = fields.String()
     default = fields.Bool(missing=None)
-    billing_details = fields.Dict(data_key='billingDetails')
+    billing_details = fields.Dict(data_key='billingDetails', required=False, missing=None)
     card = fields.Dict()
     psp_tokens = fields.List(fields.Dict(), data_key='pspTokens')
 
