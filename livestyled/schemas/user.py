@@ -73,7 +73,7 @@ class UserSchema(Schema):
     email = fields.Email()
     password = fields.String()
     device_id = RelatedResourceLinkField(schema=DeviceSchema, data_key='device')
-    user_info = fields.Nested(UserInfoSchema, data_key='userInfo')
+    user_info = fields.Nested(UserInfoSchema, data_key='userInfo', required=False, missing=None)
     cohorts = RelatedResourceLinkField(schema=CohortSchema, many=True)
     magic_fields = RelatedResourceField(schema=MagicFieldSchema, many=True, data_key='magicFields')
     devices = RelatedResourceField(schema=DeviceSchema, many=True, data_key='devices')
