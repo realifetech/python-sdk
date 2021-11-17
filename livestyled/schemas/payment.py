@@ -71,7 +71,7 @@ class PaymentIntentSchema(Schema):
     amount = fields.Int()
     currency = fields.String()
     last_payment_error = fields.String(data_key='lastPaymentError', missing=None)
-    live_mode = fields.Bool(data_key='liveMode')
+    live_mode = fields.Bool(data_key='livemode')
     save_payment_source = fields.Bool(data_key='savePaymentSource')
     next_action = fields.Dict(data_key='nextAction', missing=None, allow_none=True)
     order_type = fields.String(data_key='orderType')
