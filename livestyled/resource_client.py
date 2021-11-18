@@ -505,16 +505,19 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     def authorise_user(
             self,
             user: User,
-            password: str
+            password: str,
+            device_id: int = None
     ) -> Dict:
         if user.id is None:
             raise ValueError('Need a user ID to authorise a user')
         if not password:
             raise ValueError('Need a password to authorise a user')
+        device = {'deviceId': device_id} if device_id is not None else {}
         user_auth_response = self._api_post(
             'v4/{}'.format(UserSchema.Meta.authorise_url.format(user.id)),
             {
-                'password': password
+                'password': password,
+                **device
             }
         )
         return user_auth_response
