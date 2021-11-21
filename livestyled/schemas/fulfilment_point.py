@@ -18,8 +18,8 @@ class FulfilmentPointTranslationSchema(Schema):
 
     language = fields.String()
     title = fields.String(missing=None)
-    description = fields.String(missing=None)
-    collection_note = fields.String(missing=None, data_key='collectionNote')
+    description = fields.String(missing=None, allow_none=True)
+    collection_note = fields.String(missing=None, allow_none=True, data_key='collectionNote')
 
 
 class FulfilmentPointCategoryTranslationSchema(Schema):
