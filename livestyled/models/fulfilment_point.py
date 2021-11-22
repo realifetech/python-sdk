@@ -19,10 +19,10 @@ class FulfilmentPointCategoryTranslation:
 class FulfilmentPointTranslation:
     def __init__(
             self,
-            language,
-            title,
-            description,
-            collection_note
+            language: str,
+            title: str,
+            description: str or None = None,
+            collection_note: str or None = None
     ):
         self.language = language
         self.title = title
