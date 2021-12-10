@@ -7,7 +7,7 @@ class CompetitionSchema(Schema):
     class Meta:
         unknown = EXCLUDE
         api_type = 'competitions'
-        url = 'competitions'
+        url = 'event_management/competitions'
         model = Competition
 
     id = fields.Int()
