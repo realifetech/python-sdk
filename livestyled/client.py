@@ -47,7 +47,8 @@ class LiveStyledAPIClient:
             headers={
                 'Content-Type': CONTENT_TYPE,
                 'x-api-key': self._api_key
-            }
+            },
+            timeout=10
         )
         response.raise_for_status()
         return response.json()
