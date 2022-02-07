@@ -105,6 +105,9 @@ __all__ = [
     Reality,
     RealityType,
     Season,
+    Screen,
+    ScreenTranslation,
+    ScreenVariation,
     SportVenue,
     Team,
     Ticket,
@@ -115,4 +118,6 @@ __all__ = [
     User,
     UserSSO,
     Venue,
+    Widget,
+    WidgetVariation
 ]

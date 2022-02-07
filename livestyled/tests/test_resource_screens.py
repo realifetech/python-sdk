@@ -1,9 +1,9 @@
 import os
 import time
 
+from livestyled.models import Screen, Widget, WidgetVariation
 from livestyled.resource_client import LiveStyledResourceClient
 from livestyled.tests.utils import configure_mock_responses
-from livestyled.models import Screen, Widget, WidgetVariation
 
 
 FIXTURES_DIR = os.path.join(os.path.dirname(__file__), 'fixtures')

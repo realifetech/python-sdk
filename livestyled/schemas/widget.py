@@ -1,4 +1,4 @@
-from marshmallow import fields, EXCLUDE, Schema
+from marshmallow import EXCLUDE, fields, Schema
 
 from livestyled.models.widget import Widget, WidgetVariation
 

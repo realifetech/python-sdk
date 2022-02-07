@@ -1,6 +1,6 @@
 from marshmallow import EXCLUDE, fields, INCLUDE, Schema
 
-from livestyled.models.screen import Screen, ScreenVariation, ScreenTranslation
+from livestyled.models.screen import Screen, ScreenTranslation, ScreenVariation
 from livestyled.schemas.fields import RelatedResourceLinkField
 
 
