@@ -1,4 +1,3 @@
-import time
 import logging
 from typing import Dict, Generator, List, Type
 
@@ -1516,5 +1515,11 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     def get_widget(self, id: int or str) -> Widget:
         return self._get_resource_by_id(WidgetSchema, id=id)
 
+    def get_widgets(self, filters: dict = {}):
+        return self._get_resource_list(WidgetSchema, filters=filters)
+
     def get_widget_variation(self, id: int or str) -> WidgetVariation:
-        return self._get_resource_by_id(WidgetVariation, id=id)
+        return self._get_resource_by_id(WidgetVariationSchema, id=id)
+
+    def get_widget_variations(self, filters: dict = {}):
+        return self._get_resource_list(WidgetVariationSchema, filters=filters)

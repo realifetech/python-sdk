@@ -31,7 +31,7 @@ class WidgetSchema(Schema):
 
     id = fields.Int()
     reference = fields.String()
-    position = fields.Int(required=False)
+    position = fields.String()
     content_type = fields.String(data_key='contentType')
     variation = fields.Nested(WidgetVariationSchema)
     style = fields.Dict()

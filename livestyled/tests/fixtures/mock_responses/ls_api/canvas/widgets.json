@@ -1,0 +1,86 @@
+{
+    "@context": "/v4/contexts/Widget",
+    "@id": "/canvas/widgets",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/canvas/widgets/1",
+            "@type": "Widget",
+            "id": 1,
+            "reference": "List of buttons with padding",
+            "screenVariation": "/canvas/screen_variations/1",
+            "position": "0|hzzzzz:",
+            "contentType": "Button",
+            "style": {
+                "type": "LIST",
+                "size": "SMALL",
+                "padded": true
+            },
+            "createdAt": "2021-05-06T11:45:09+00:00",
+            "updatedAt": "2021-05-06T11:45:09+00:00"
+        }
+    ],
+    "hydra:totalItems": 1,
+    "hydra:view": {
+        "@id": "/v4/canvas/widgets?page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/canvas/widgets?page=1",
+        "hydra:last": "/v4/canvas/widgets?page=1",
+        "hydra:next": "/v4/canvas/widgets?page=1"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/v4/canvas/widgets{?order[id],order[createdAt],order[updatedAt],reference,screenVariation,screenVariation[],contentType,contentType[]}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[id]",
+                "property": "id",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[createdAt]",
+                "property": "createdAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[updatedAt]",
+                "property": "updatedAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "reference",
+                "property": "reference",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "screenVariation",
+                "property": "screenVariation",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "screenVariation[]",
+                "property": "screenVariation",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "contentType",
+                "property": "contentType",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "contentType[]",
+                "property": "contentType",
+                "required": false
+            }
+        ]
+    }
+}

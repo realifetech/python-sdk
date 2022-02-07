@@ -1,0 +1,16 @@
+{
+    "@context": "/v4/contexts/Screen",
+    "@id": "/canvas/screens/1",
+    "@type": "Screen",
+    "id": 1,
+    "reference": "GS Variation test",
+    "screenType": "generic",
+    "translations": [
+        {
+            "language": "en",
+            "title": "GS Variation test"
+        }
+    ],
+    "createdAt": "2021-09-09T16:35:06+00:00",
+    "updatedAt": "2021-09-09T16:38:00+00:00"
+}

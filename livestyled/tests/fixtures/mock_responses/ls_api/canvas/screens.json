@@ -1,0 +1,99 @@
+{
+    "@context": "/v4/contexts/Screen",
+    "@id": "/canvas/screens",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/canvas/screens/1",
+            "@type": "Screen",
+            "id": 1,
+            "reference": "Events",
+            "screenType": "events",
+            "translations": [
+                {
+                    "language": "en",
+                    "title": "Events"
+                },
+                {
+                    "language": "de",
+                    "title": "Veranstaltungen"
+                },
+                {
+                    "language": "nb",
+                    "title": "Arrangementer"
+                },
+                {
+                    "language": "lt",
+                    "title": "įvykius"
+                },
+                {
+                    "language": "pt",
+                    "title": "Eventos"
+                },
+                {
+                    "language": "sv",
+                    "title": "Diania"
+                }
+            ],
+            "createdAt": "2020-12-01T13:03:26+00:00",
+            "updatedAt": "2021-11-15T17:16:09+00:00"
+        }
+    ],
+    "hydra:totalItems": 1,
+    "hydra:view": {
+        "@id": "/v4/canvas/screens?page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/canvas/screens?page=1",
+        "hydra:last": "/v4/canvas/screens?page=1",
+        "hydra:next": "/v4/canvas/screens?page=1"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/v4/canvas/screens{?order[id],order[createdAt],order[updatedAt],reference,screenType,screenType[],translations}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[id]",
+                "property": "id",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[createdAt]",
+                "property": "createdAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[updatedAt]",
+                "property": "updatedAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "reference",
+                "property": "reference",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "screenType",
+                "property": "screenType",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "screenType[]",
+                "property": "screenType",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "translations",
+                "property": "translations",
+                "required": false
+            }
+        ]
+    }
+}

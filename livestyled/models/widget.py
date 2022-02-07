@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Dict, List
 
 from .screen import ScreenVariation
@@ -24,13 +25,19 @@ class Widget:
         self.view_all_url = view_all_url
         self.widget_variation = widget_variation
 
+        if variation:
+            if isinstance(variation, dict):
+                self.variation = WidgetVariation(**variation)
+            if isinstance(variation, str):
+                self.variation = WidgetVariation.placeholder(id=variation)
+
     @classmethod
     def create_new(
             cls,
             reference: str,
             content_type: str,
             variation: str or ScreenVariation,
-            position: int = 0,
+            position: str or None = None,
             view_all_url: str or None = None,
             widget_variation: Dict or None = None
     ):
@@ -57,5 +64,62 @@ class Widget:
 
 
 class WidgetVariation:
-    def __init__(self):
-        pass
+    def __init__(
+            self,
+            id: int or str,
+            fetch_type: str or None,
+            widget: str or Widget = None,
+            content_ids: List[str] or None = None,
+            reference: str or None = None,
+            priority: int or None = None,
+            created_at: datetime or None = None,
+            updated_at: datetime or None = None
+    ):
+        self.id = id
+        self.fetch_type = fetch_type
+        self.content_ids = content_ids
+        self.reference = reference
+        self.priority = priority
+        self.created_at = created_at
+        self.update_at = updated_at
+
+        if widget:
+            if isinstance(widget, (str, int)):
+                self.widget = Widget.placeholder(id=widget)
+            elif isinstance(widget, Widget):
+                self.widget = widget
+
+    @classmethod
+    def create_new(
+            cls,
+            fetch_type: str,
+            widget: str or Widget,
+            content_ids: List[str] or None,
+            reference: str or None,
+            priority: int or None = None,
+            created_at: datetime or None = None,
+            updated_at: datetime or None = None
+    ):
+        return WidgetVariation(
+            id=None,
+            fetch_type=fetch_type,
+            widget=widget,
+            content_ids=content_ids,
+            reference=reference,
+            priority=priority,
+            created_at=created_at,
+            updated_at=updated_at
+        )
+
+    @classmethod
+    def placeholder(cls, id: int or str):
+        return WidgetVariation(
+            id=id,
+            fetch_type=None,
+            widget=None,
+            content_ids=None,
+            reference=None,
+            priority=None,
+            created_at=None,
+            updated_at=None
+        )
