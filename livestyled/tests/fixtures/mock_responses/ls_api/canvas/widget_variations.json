@@ -1,0 +1,108 @@
+{
+    "@context": "/v4/contexts/WidgetVariation",
+    "@id": "/canvas/widget_variations",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/canvas/widget_variations/1",
+            "@type": "WidgetVariation",
+            "id": 1,
+            "reference": "List of buttons with padding",
+            "widget": "/canvas/widgets/1",
+            "priority": 0,
+            "fetchType": "featured",
+            "contentIds": [
+                "1310"
+            ],
+            "createdAt": "2021-05-06T11:45:10+00:00",
+            "updatedAt": "2021-05-06T11:45:10+00:00"
+        }
+    ],
+    "hydra:totalItems": 1,
+    "hydra:view": {
+        "@id": "/v4/canvas/widget_variations?page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/canvas/widget_variations?page=1",
+        "hydra:last": "/v4/canvas/widget_variations?page=1",
+        "hydra:next": "/v4/canvas/widget_variations?page=1"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/v4/canvas/widget_variations{?order[id],order[startAt],order[endAt],order[priority],order[createdAt],order[updatedAt],reference,widget,widget[],audience,audience[],translations}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[id]",
+                "property": "id",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[startAt]",
+                "property": "startAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[endAt]",
+                "property": "endAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[priority]",
+                "property": "priority",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[createdAt]",
+                "property": "createdAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[updatedAt]",
+                "property": "updatedAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "reference",
+                "property": "reference",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "widget",
+                "property": "widget",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "widget[]",
+                "property": "widget",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "audience",
+                "property": "audience",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "audience[]",
+                "property": "audience",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "translations",
+                "property": "translations",
+                "required": false
+            }
+        ]
+    }
+}

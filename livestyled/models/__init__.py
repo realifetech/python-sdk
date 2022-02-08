@@ -45,6 +45,7 @@ from livestyled.models.product import (
 from livestyled.models.push_broadcast import PushBroadcast
 from livestyled.models.push_consent import PushConsent
 from livestyled.models.reality import Reality, RealityType
+from livestyled.models.screen import Screen, ScreenTranslation, ScreenVariation
 from livestyled.models.season import Season
 from livestyled.models.sport_venue import SportVenue
 from livestyled.models.storage import Export
@@ -54,6 +55,7 @@ from livestyled.models.ticket_auth import TicketAuth
 from livestyled.models.ticket_integration import TicketIntegration
 from livestyled.models.user import User, UserEmail, UserInfo, UserSSO
 from livestyled.models.venue import Venue
+from livestyled.models.widget import Widget, WidgetVariation
 
 __all__ = [
     App,
@@ -103,6 +105,9 @@ __all__ = [
     Reality,
     RealityType,
     Season,
+    Screen,
+    ScreenTranslation,
+    ScreenVariation,
     SportVenue,
     Team,
     Ticket,
@@ -113,4 +118,6 @@ __all__ = [
     User,
     UserSSO,
     Venue,
+    Widget,
+    WidgetVariation
 ]

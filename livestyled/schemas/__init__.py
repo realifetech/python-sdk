@@ -41,6 +41,7 @@ from livestyled.schemas.product import (
 from livestyled.schemas.push_broadcast import PushBroadcastSchema
 from livestyled.schemas.push_consent import PushConsentSchema
 from livestyled.schemas.reality import RealitySchema, RealityTypeSchema
+from livestyled.schemas.screen import ScreenSchema, ScreenTranslationSchema, ScreenVariationSchema
 from livestyled.schemas.season import SeasonSchema
 from livestyled.schemas.sport_venue import SportVenueSchema
 from livestyled.schemas.storage import ExportSchema
@@ -50,6 +51,7 @@ from livestyled.schemas.ticket_auth import TicketAuthSchema
 from livestyled.schemas.ticket_integration import TicketIntegrationSchema
 from livestyled.schemas.user import UserCreateSchema, UserEmailSchema, UserInfoSchema, UserSchema, UserSSOSchema
 from livestyled.schemas.venue import VenueSchema
+from livestyled.schemas.widget import WidgetSchema, WidgetVariationSchema
 
 __all__ = [
     AppSchema,
@@ -95,6 +97,9 @@ __all__ = [
     PushConsentSchema,
     RealitySchema,
     RealityTypeSchema,
+    ScreenSchema,
+    ScreenTranslationSchema,
+    ScreenVariationSchema,
     SeasonSchema,
     SportVenueSchema,
     TeamSchema,
@@ -107,4 +112,6 @@ __all__ = [
     UserSchema,
     UserSSOSchema,
     VenueSchema,
+    WidgetSchema,
+    WidgetVariationSchema
 ]

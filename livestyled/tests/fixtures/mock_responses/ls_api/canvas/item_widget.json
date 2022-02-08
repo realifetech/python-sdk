@@ -1,0 +1,17 @@
+{
+    "@context": "/v4/contexts/Widget",
+    "@id": "/canvas/widgets/1",
+    "@type": "Widget",
+    "id": 1,
+    "reference": "List of buttons with padding",
+    "screenVariation": "/canvas/screen_variations/1",
+    "position": "0|hzzzzz:",
+    "contentType": "Button",
+    "style": {
+        "type": "LIST",
+        "size": "SMALL",
+        "padded": true
+    },
+    "createdAt": "2021-05-06T11:45:09+00:00",
+    "updatedAt": "2021-05-06T11:45:09+00:00"
+}

@@ -39,6 +39,8 @@ from livestyled.models import (
     PushConsent,
     Reality,
     RealityType,
+    Screen,
+    ScreenVariation,
     Season,
     SportVenue,
     Team,
@@ -49,7 +51,9 @@ from livestyled.models import (
     UserEmail,
     UserInfo,
     UserSSO,
-    Venue
+    Venue,
+    Widget,
+    WidgetVariation
 )
 from livestyled.schemas import (
     AudienceDeviceSchema,
@@ -90,6 +94,8 @@ from livestyled.schemas import (
     PushConsentSchema,
     RealitySchema,
     RealityTypeSchema,
+    ScreenSchema,
+    ScreenVariationSchema,
     SeasonSchema,
     SportVenueSchema,
     TeamSchema,
@@ -101,6 +107,8 @@ from livestyled.schemas import (
     UserSchema,
     UserSSOSchema,
     VenueSchema,
+    WidgetSchema,
+    WidgetVariationSchema
 )
 
 logger = logging.getLogger(__name__)
@@ -1455,3 +1463,61 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def update_export(self, export: Export, attributes: Dict) -> Export:
         return self._update_resource(ExportSchema, export.id, attributes)
+
+    # --- Screens
+
+    def get_screens(self, filters: dict or None = None) -> Generator[Dict, None, None]:
+        return self._get_resource_list(ScreenSchema, filters=filters)
+
+    def get_screen(self, id: int or str) -> Screen:
+        return self._get_resource_by_id(ScreenSchema, id=id)
+
+    def get_screen_variations(self, filters: dict = {}) -> Generator[ScreenVariation, None, None]:
+        return self._get_resource_list(ScreenVariationSchema, filters=filters)
+
+    def get_widgets_by_audience(self, screen_id: int, audience_id: int or str, timestamp: float, **kwargs) \
+            -> Generator[Widget, None, None]:
+        payload = {
+            'audience': audience_id,
+            'timestamp': timestamp
+        }
+
+        # add variable filter arguments that may be passed.
+        payload.update(kwargs)
+
+        try:
+            response = self._api_get(
+                'v4/{}'.format(WidgetSchema.Meta.widgets_by_audience.format(screen_id)),
+                params=payload
+            )
+
+            for item in response['hydra:member']:
+                widget = WidgetSchema().load(item)
+                yield WidgetSchema.Meta.model(**widget)
+        except HTTPError as http_error:
+            if http_error.response.status_code == 404:
+                yield
+            else:
+                raise
+
+    def get_widgets_by_screen(self, screen_id: int, **kwargs) -> Generator[Widget, None, None]:
+        response = self._api_get(
+            'v4/{}'.format(WidgetSchema.Meta.widgets_by_screen.format(screen_id)),
+            params=kwargs
+        )
+
+        for item in response['hydra:member']:
+            widget = WidgetSchema().load(item)
+            yield WidgetSchema.Meta.model(**widget)
+
+    def get_widget(self, id: int or str) -> Widget:
+        return self._get_resource_by_id(WidgetSchema, id=id)
+
+    def get_widgets(self, filters: dict = {}):
+        return self._get_resource_list(WidgetSchema, filters=filters)
+
+    def get_widget_variation(self, id: int or str) -> WidgetVariation:
+        return self._get_resource_by_id(WidgetVariationSchema, id=id)
+
+    def get_widget_variations(self, filters: dict = {}):
+        return self._get_resource_list(WidgetVariationSchema, filters=filters)

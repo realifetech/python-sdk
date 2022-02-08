@@ -1,0 +1,32 @@
+{
+    "@context": "/v4/contexts/Widget",
+    "@id": "/canvas/widgets",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@type": "Widget",
+            "@id": "/canvas/widgets/1",
+            "id": 1,
+            "contentType": "Banner",
+            "style": {
+                "type": "PAGER",
+                "size": "MEDIUM",
+                "padded": true
+            },
+            "variation": {
+                "@id": "/canvas/widget_variations/2119",
+                "@type": "WidgetVariation",
+                "id": 1,
+                "fetchType": "featured",
+                "contentIds": [
+                    "10001407"
+                ]
+            }
+        }
+    ],
+    "hydra:totalItems": 1,
+    "hydra:view": {
+        "@id": "/v4/canvas/screens/413/widgets_by_audience?audience=37&timestamp=1643907912.0897183",
+        "@type": "hydra:PartialCollectionView"
+    }
+}
