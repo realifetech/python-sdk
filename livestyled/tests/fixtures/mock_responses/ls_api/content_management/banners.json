@@ -1,0 +1,130 @@
+{
+    "@context": "/v4/contexts/Banner",
+    "@id": "/content_management/banners",
+    "@type": "hydra:Collection",
+    "hydra:member": [
+        {
+            "@id": "/content_management/banners/1",
+            "@type": "Banner",
+            "id": 1,
+            "status": "ACTIVE",
+            "position": "home-top",
+            "name": "EABN",
+            "sortId": 1,
+            "createdAt": "2017-10-10T15:37:55+00:00",
+            "updatedAt": "2021-03-19T14:24:00+00:00",
+            "translations": [
+                {
+                    "@type": "BannerLang",
+                    "@id": "_:3720",
+                    "id": 1,
+                    "language": "en",
+                    "title": "EABN 1",
+                    "subtitle": "test",
+                    "description": "Echo and The Bunnymen",
+                    "url": "test",
+                    "imageUrl": "https://s3-eu-west-1.amazonaws.com/bstage/banner/banner2.jpg"
+                }
+            ]
+        }
+    ],
+    "hydra:totalItems": 1,
+    "hydra:view": {
+        "@id": "/v4/content_management/banners?page=1",
+        "@type": "hydra:PartialCollectionView",
+        "hydra:first": "/v4/content_management/banners?page=1",
+        "hydra:last": "/v4/content_management/banners?page=1",
+        "hydra:next": "/v4/content_management/banners?page=1"
+    },
+    "hydra:search": {
+        "@type": "hydra:IriTemplate",
+        "hydra:template": "/v4/content_management/banners{?order[id],order[name],order[sortId],order[createdAt],order[updatedAt],status,status[],name,createdAt,translations.title,createdAt[before],createdAt[strictly_before],createdAt[after],createdAt[strictly_after]}",
+        "hydra:variableRepresentation": "BasicRepresentation",
+        "hydra:mapping": [
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[id]",
+                "property": "id",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[name]",
+                "property": "name",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[sortId]",
+                "property": "sortId",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[createdAt]",
+                "property": "createdAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "order[updatedAt]",
+                "property": "updatedAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "status",
+                "property": "status",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "status[]",
+                "property": "status",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "name",
+                "property": "name",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "createdAt",
+                "property": "createdAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "translations.title",
+                "property": "translations.title",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "createdAt[before]",
+                "property": "createdAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "createdAt[strictly_before]",
+                "property": "createdAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "createdAt[after]",
+                "property": "createdAt",
+                "required": false
+            },
+            {
+                "@type": "IriTemplateMapping",
+                "variable": "createdAt[strictly_after]",
+                "property": "createdAt",
+                "required": false
+            }
+        ]
+    }
+}

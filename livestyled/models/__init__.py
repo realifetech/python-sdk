@@ -1,6 +1,7 @@
 from livestyled.models.app import App, Currency
 from livestyled.models.audience import Audience
 from livestyled.models.audience_device import AudienceDevice
+from livestyled.models.banner import Banner, BannerTranslation
 from livestyled.models.booking import Booking
 from livestyled.models.cohort import Cohort
 from livestyled.models.competition import Competition
@@ -61,6 +62,8 @@ __all__ = [
     App,
     Audience,
     AudienceDevice,
+    Banner,
+    BannerTranslation,
     Currency,
     Booking,
     Cohort,
