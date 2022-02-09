@@ -1,6 +1,7 @@
 from livestyled.schemas.app import AppSchema, CurrencySchema
 from livestyled.schemas.audience import AudienceSchema
 from livestyled.schemas.audience_device import AudienceDeviceSchema
+from livestyled.schemas.banner import BannerSchema, BannerTranslationSchema
 from livestyled.schemas.booking import BookingSchema
 from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.competition import CompetitionSchema
@@ -57,6 +58,8 @@ __all__ = [
     AppSchema,
     AudienceSchema,
     AudienceDeviceSchema,
+    BannerSchema,
+    BannerTranslationSchema,
     BookingSchema,
     CohortSchema,
     CompetitionSchema,

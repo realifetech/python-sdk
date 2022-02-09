@@ -14,7 +14,7 @@
                 "padded": true
             },
             "variation": {
-                "@id": "/canvas/widget_variations/2119",
+                "@id": "/canvas/widget_variations/1",
                 "@type": "WidgetVariation",
                 "id": 1,
                 "fetchType": "featured",

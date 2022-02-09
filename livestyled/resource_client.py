@@ -8,6 +8,7 @@ from livestyled.client import LiveStyledAPIClient
 from livestyled.models import (
     Audience,
     AudienceDevice,
+    Banner,
     Booking,
     Cohort,
     Competition,
@@ -58,6 +59,7 @@ from livestyled.models import (
 from livestyled.schemas import (
     AudienceDeviceSchema,
     AudienceSchema,
+    BannerSchema,
     BookingSchema,
     CohortSchema,
     CompetitionSchema,
@@ -1521,3 +1523,11 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_widget_variations(self, filters: dict = {}):
         return self._get_resource_list(WidgetVariationSchema, filters=filters)
+
+    # Content Management
+
+    def get_banners(self, filters: dict = {}) -> Generator[Banner, None, None]:
+        return self._get_resource_list(BannerSchema, filters=filters)
+
+    def get_banner(self, id: int):
+        return self._get_resource_by_id(BannerSchema, id=id)

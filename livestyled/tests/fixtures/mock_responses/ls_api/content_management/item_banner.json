@@ -1,0 +1,25 @@
+{
+    "@context": "/v4/contexts/Banner",
+    "@id": "/content_management/banners/100002",
+    "@type": "Banner",
+    "id": 1,
+    "status": "ACTIVE",
+    "position": "home-top",
+    "name": "EABN",
+    "sortId": 1,
+    "createdAt": "2017-10-10T15:37:55+00:00",
+    "updatedAt": "2021-03-19T14:24:00+00:00",
+    "translations": [
+        {
+            "@type": "BannerLang",
+            "@id": "_:3121",
+            "id": 1,
+            "language": "en",
+            "title": "EABN 1",
+            "subtitle": "test",
+            "description": "Echo and The Bunnymen",
+            "url": "test",
+            "imageUrl": "https://s3-eu-west-1.amazonaws.com/demo.gif"
+        }
+    ]
+}
