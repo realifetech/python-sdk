@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 
 class BannerTranslation:
@@ -34,7 +34,7 @@ class Banner:
             sort_id: int,
             created_at: datetime,
             updated_at: datetime,
-            translations: List[BannerTranslation] or None = None,
+            translations: List[BannerTranslation] or List[Dict] or None = None,
     ):
         self.id = id
         self.name = name
@@ -45,9 +45,13 @@ class Banner:
         self.updated_at = updated_at
 
         if translations:
-            self.translations = [
-                BannerTranslation(**item) for item in translations if isinstance(item, dict)
-            ]
+            self.translations = []
+
+            for item in translations:
+                if isinstance(item, Dict):
+                    self.translations.append(BannerTranslation(**item))
+                elif isinstance(item, BannerTranslation):
+                    self.translations.append(item)
 
     @classmethod
     def create_new(
