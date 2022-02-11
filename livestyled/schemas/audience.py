@@ -6,6 +6,9 @@ from livestyled.schemas.reality import RealitySchema
 
 
 class AudienceRealityValuesValueSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+
     operator = fields.String()
     value = fields.String()
 
@@ -16,6 +19,9 @@ class AudienceRealityValuesValueSchema(Schema):
 
 
 class AudienceRealityValuesSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+
     reality = RelatedResourceLinkField(schema=RealitySchema, microservice_aware=True)
     values = fields.Nested(AudienceRealityValuesValueSchema, many=True)
 
