@@ -8,8 +8,8 @@ class BannerTranslation:
             id: int or str,
             language: str,
             title: str,
-            description: str or None,
             url: str or None,
+            description: str or None = None,
             subtitle: Optional[str] = None,
             button_label: Optional[str] = None,
             image_url: Optional[str] = None
