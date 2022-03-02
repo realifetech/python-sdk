@@ -601,7 +601,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             if value is None:
                 payload.pop(key)
         new_push_broadcast = self._api_post(
-            'v4/{}'.format(PushBroadcastSchema.Meta.publish_url),
+            f'v4/{PushBroadcastSchema.Meta.publish_url}',
             payload
         )
         return PushBroadcast(**PushBroadcastSchema().load(new_push_broadcast))
