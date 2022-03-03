@@ -765,11 +765,11 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         if status:
             filters['status'] = status
         if start_at_after:
-            filters['event_dates.start_at[gt]'] = start_at_after
+            filters['eventDates.startAt[after]'] = start_at_after
         if start_at_before:
-            filters['event_dates.start_at[lt]'] = start_at_before
+            filters['eventDates.startAt[before]'] = start_at_before
         if end_at_after:
-            filters['event_dates.end_at[gt]'] = end_at_after
+            filters['eventDates.endAt[after]'] = end_at_after
         if external_id:
             filters['externalId'] = external_id
         if filters:
