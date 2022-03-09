@@ -848,9 +848,10 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         return self._get_resource_by_id(DeviceSchema, id)
 
     def get_devices(
-            self
+            self,
+            filters: Dict or None = None
     ) -> Generator[Device, None, None]:
-        return self._get_resource_list(DeviceSchema)
+        return self._get_resource_list(DeviceSchema, filters=filters)
 
     # ---- DEVICE TOKENS
 
