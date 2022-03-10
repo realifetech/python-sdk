@@ -1326,14 +1326,15 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
 
     def get_audience_devices(
             self,
-            audience: Audience or None = None
+            audience: Audience or None = None,
+            filters: Dict or None = None
     ) -> Generator[AudienceDevice, None, None]:
+        audience_filter = filters or {}
+
         if audience:
-            filters = {
-                'audience': audience.id
-            }
-            return self._get_resource_list(AudienceDeviceSchema, filters=filters)
-        return self._get_resource_list(AudienceDeviceSchema)
+            audience_filter['audience'] = audience.id
+
+        return self._get_resource_list(AudienceDeviceSchema, filters=audience_filter)
 
     def create_audience_device(
             self,
