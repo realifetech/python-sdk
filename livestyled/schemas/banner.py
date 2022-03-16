@@ -13,8 +13,8 @@ class BannerTranslationSchema(Schema):
     title = fields.String()
     description = fields.String()
     url = fields.String()
-    button_label = fields.String()
-    image_url = fields.URL()
+    button_label = fields.String(data_key='buttonLabel')
+    image_url = fields.URL(data_key='imageUrl')
 
 
 class BannerSchema(Schema):
