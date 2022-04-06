@@ -1,6 +1,6 @@
 from marshmallow import EXCLUDE, fields, Schema
 
-from livestyled.models.user import User, UserConsent, UserEmail, UserInfo, UserSSO
+from livestyled.models.user import User, UserAlias, UserConsent, UserEmail, UserInfo, UserSSO
 from livestyled.schemas.cohort import CohortSchema
 from livestyled.schemas.device import DeviceSchema
 from livestyled.schemas.fields import RelatedResourceField, RelatedResourceLinkField
@@ -58,6 +58,25 @@ class UserEmailSchema(Schema):
     id = fields.Int()
 
 
+class UserAliasTypeSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+        model = UserAlias
+
+    user_alias_type = fields.String(data_key='userAliasType', missing=None, allow_none=True)
+
+
+class UserAliasSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+        api_type = 'user_alias'
+        url = 'user_management/user_aliases'
+        model = UserAlias
+
+    value = fields.String(data_key='value', missing=None, allow_none=True)
+    user_alias_type = RelatedResourceLinkField(schema=UserAliasTypeSchema, data_key='userAliasType')
+
+
 class UserSchema(Schema):
     class Meta:
         unknown = EXCLUDE
@@ -80,6 +99,7 @@ class UserSchema(Schema):
     user_emails = RelatedResourceField(schema=UserEmailSchema, data_key='userEmails', many=True)
     user_consent = RelatedResourceField(schema=UserConsentSchema, data_key='userConsent')
     token = fields.String(missing=None)
+    user_aliases = RelatedResourceLinkField(schema=UserAliasSchema, many=True)
 
 
 class UserSSOSchema(Schema):
