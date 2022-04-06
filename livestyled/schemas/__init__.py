@@ -51,7 +51,7 @@ from livestyled.schemas.ticket import TicketSchema
 from livestyled.schemas.ticket_auth import TicketAuthSchema
 from livestyled.schemas.ticket_integration import TicketIntegrationSchema
 from livestyled.schemas.user import (
-    UserCreateSchema, UserEmailSchema, UserInfoSchema, UserSchema, UserSSOSchema, UserAliasSchema, UserAliasTypeSchema
+    UserAliasSchema, UserAliasTypeSchema, UserCreateSchema, UserEmailSchema, UserInfoSchema, UserSchema, UserSSOSchema
 )
 from livestyled.schemas.venue import VenueSchema
 from livestyled.schemas.widget import WidgetSchema, WidgetVariationSchema
