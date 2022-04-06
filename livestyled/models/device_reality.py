@@ -10,9 +10,9 @@ class DeviceReality:
             id,
             device: Device or str,
             reality: Reality or str,
-            value: str,
             created_at: datetime,
             updated_at: datetime,
+            value: str or None = None
     ):
         self.id = id
         self.value = value
@@ -55,7 +55,7 @@ class DeviceReality:
             cls,
             device: Device,
             reality: Reality,
-            value: str
+            value: str or None = None
     ):
         device_reality = DeviceReality(
             id=None,
