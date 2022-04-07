@@ -263,3 +263,64 @@ class UserSSO:
     @property
     def user(self):
         return self._user
+
+
+class UserAliasType:
+    def __init__(
+            self,
+            id: int,
+            user_alias_type: str
+    ):
+        self.id = id
+        self.user_alias_type = user_alias_type
+
+    @classmethod
+    def placeholder(
+            cls,
+            id
+    ):
+        return cls(
+            id=id
+        )
+
+
+class UserAlias:
+    def __init__(
+            self,
+            user_alias_type,
+            user,
+            value,
+            updated_at: datetime,
+            created_at: datetime
+    ):
+        self.user_alias_type = User.placeholder(int(user_alias_type))
+        self.user = User.placeholder(int(user))
+        self.value = value
+        self.created_at = created_at
+        self.updated_at = updated_at
+
+    @classmethod
+    def create_new(
+            cls,
+            user,
+            user_alias_type,
+            value
+    ):
+        user_alias = UserAlias(
+            user=user,
+            user_alias_type=user_alias_type,
+            value=value,
+            updated_at=None,
+            created_at=None
+        )
+        return user_alias
+
+    def diff(self, other):
+        differences = {}
+        fields = (
+            'value'
+        )
+        for field in fields:
+            if getattr(self, field) != getattr(other, field):
+                differences[field] = getattr(self, field)
+        return differences

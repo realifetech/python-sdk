@@ -54,7 +54,7 @@ from livestyled.models.team import Team
 from livestyled.models.ticket import Ticket
 from livestyled.models.ticket_auth import TicketAuth
 from livestyled.models.ticket_integration import TicketIntegration
-from livestyled.models.user import User, UserEmail, UserInfo, UserSSO
+from livestyled.models.user import User, UserAlias, UserAliasType, UserEmail, UserInfo, UserSSO
 from livestyled.models.venue import Venue
 from livestyled.models.widget import Widget, WidgetVariation
 
@@ -116,6 +116,8 @@ __all__ = [
     Ticket,
     TicketAuth,
     TicketIntegration,
+    UserAlias,
+    UserAliasType,
     UserEmail,
     UserInfo,
     User,
