@@ -104,7 +104,7 @@ class UserSchema(Schema):
     user_emails = RelatedResourceField(schema=UserEmailSchema, data_key='userEmails', many=True)
     user_consent = RelatedResourceField(schema=UserConsentSchema, data_key='userConsent')
     token = fields.String(missing=None)
-    user_aliases = RelatedResourceLinkField(schema=UserAliasSchema, data_key='userAliases', many=True)
+    user_aliases = RelatedResourceField(schema=UserAliasSchema, data_key='userAliases', many=True)
 
 
 class UserSSOSchema(Schema):
