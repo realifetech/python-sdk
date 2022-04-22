@@ -75,7 +75,8 @@ def test_deserialize_ticket():
             'ticket_auth': None,
             'event_date': 249881,
             'external_movement_id': None,
-            'currency': 2
+            'currency': 2,
+            'external_card_ref': None
         }
 
 
@@ -128,7 +129,8 @@ def test_deserialize_ticket_shared():
             'ticket_auth': None,
             'event_date': None,
             'external_movement_id': None,
-            'currency': 2
+            'currency': 2,
+            'external_card_ref': None
         }
 
 
@@ -181,7 +183,8 @@ def test_deserialize_ticket_shared_redeemed():
             'ticket_auth': None,
             'event_date': None,
             'external_movement_id': None,
-            'currency': 2
+            'currency': 2,
+            'external_card_ref': None
         }
 
 
@@ -248,7 +251,8 @@ def test_deserialize_ticket_with_event_and_venue():
             },
             'event_date': None,
             'external_movement_id': None,
-            'currency': 1
+            'currency': 1,
+            'external_card_ref': None
         }
 
 
@@ -308,5 +312,6 @@ def test_serialize_ticket():
         'venueName': None,
         'eventDate': None,
         'externalMovementId': None,
-        'currency': None
+        'currency': None,
+        'externalCardRef': None
     }

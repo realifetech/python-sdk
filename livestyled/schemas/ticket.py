@@ -84,3 +84,4 @@ class TicketSchema(Schema):
     event = RelatedResourceLinkField(schema=EventSchema, required=False, missing=None)
     venue = RelatedResourceLinkField(schema=VenueSchema, required=False, missing=None)
     currency = RelatedResourceLinkField(schema=CurrencySchema, required=False, missing=None)
+    external_card_ref = fields.String(data_key='externalCardRef', required=False, missing=None)
