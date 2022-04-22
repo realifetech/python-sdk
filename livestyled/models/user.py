@@ -104,6 +104,7 @@ class User:
             user_consent: Dict or None = None,
             devices: List[Dict] or List[str] or None = None,
             token=None,
+            user_aliases: List[Dict] or None = None
     ):
         self.id = id
         self.email = email
@@ -148,6 +149,10 @@ class User:
                     self.devices.append(Device(**device))
         else:
             self.devices = []
+        if user_aliases:
+            self.user_aliases = [UserAlias(**ua) for ua in user_aliases]
+        else:
+            self.user_aliases = []
 
     @classmethod
     def create_new(

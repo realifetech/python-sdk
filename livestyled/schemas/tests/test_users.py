@@ -73,6 +73,7 @@ def test_deserialize_user():
                     'wifi_connected': True
                 }
             ],
+            'user_aliases': []
         }
 
 
