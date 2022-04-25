@@ -295,13 +295,11 @@ class UserAlias:
             id: int,
             user_alias_type,
             value,
-            user: str or None = None,
             updated_at: datetime or None = None,
             created_at: datetime or None = None
     ):
         self.id = id
         self.user_alias_type = User.placeholder(int(user_alias_type))
-        self.user = User.placeholder(int(user)) if user else None
         self.value = value
         self.created_at = created_at
         self.updated_at = updated_at
@@ -309,12 +307,10 @@ class UserAlias:
     @classmethod
     def create_new(
             cls,
-            user,
             user_alias_type,
             value
     ):
         user_alias = UserAlias(
-            user=user,
             user_alias_type=user_alias_type,
             value=value,
             updated_at=None,
