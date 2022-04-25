@@ -73,7 +73,15 @@ def test_deserialize_user():
                     'wifi_connected': True
                 }
             ],
-            'user_aliases': []
+            'user_aliases': [
+                {
+                    'id': 510,
+                    'user_alias_type': 4,
+                    'value': 'test1234',
+                    'created_at': None,
+                    'updated_at': None
+                }
+            ]
         }
 
 
