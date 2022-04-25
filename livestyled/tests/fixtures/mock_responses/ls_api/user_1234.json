@@ -50,5 +50,14 @@
         "/v4/cohorts/1",
         "/v4/cohorts/2",
         "/v4/cohorts/8"
+    ],
+    "userAliases": [
+        {
+            "@id": "/user_management/user_aliases/510",
+            "@type": "UserAlias",
+            "id": 510,
+            "userAliasType": "/user_management/user_alias_types/4",
+            "value": "test1234"
+        }
     ]
 }

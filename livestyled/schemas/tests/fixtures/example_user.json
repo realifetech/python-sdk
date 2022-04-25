@@ -68,5 +68,14 @@
             "updatedAt": "2020-02-19T18:28:27+00:00"
         }
     ],
-    "cohorts": []
+    "cohorts": [],
+    "userAliases": [
+        {
+            "@id": "/user_management/user_aliases/510",
+            "@type": "UserAlias",
+            "id": 510,
+            "userAliasType": "/user_management/user_alias_types/4",
+            "value": "test1234"
+        }
+    ]
 }
