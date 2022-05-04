@@ -16,6 +16,6 @@ class DeviceRealitySchema(Schema):
     id = fields.Int()
     reality = RelatedResourceLinkField(schema=RealitySchema, allow_none=False, microservice_aware=True)
     device = RelatedResourceLinkField(schema=DeviceSchema, allow_none=False, microservice_aware=True)
-    value = fields.String(missing=None)
+    value = fields.String(allow_none=True, missing=None)
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True, missing=None)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True, missing=None)
