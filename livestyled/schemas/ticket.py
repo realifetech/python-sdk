@@ -40,6 +40,7 @@ class TicketSchema(Schema):
     qr_code_url = fields.String(data_key='qrCodeUrl', required=False, missing=None)
     session_date = fields.AwareDateTime(data_key='sessionDate', allow_none=False)
     title = fields.String(required=None, missing=False)
+    legacy_external_event_id = fields.String(data_key='externalEventId', required=False, missing=None)
     external_event_id = fields.String(data_key='eventUid', required=False, missing=None)
     barcode = fields.String(data_key='barCode', required=False, missing=None)
     sector_name = fields.String(data_key='sectorName', required=False, missing=None)
