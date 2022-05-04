@@ -21,10 +21,12 @@ class AudienceRealityValue:
     def __init__(
             self,
             reality: Dict,
-            values: List[Dict]
+            values: List[Dict],
+            condition: str or None
     ):
         self.reality = Reality.placeholder(reality)
         self.values = []
+        self.condition = condition
         for value in values:
             self.values.append(AudienceRealityValueValue(**value))
 
