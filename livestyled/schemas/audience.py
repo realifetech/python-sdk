@@ -1,3 +1,5 @@
+from typing import List
+
 from marshmallow import EXCLUDE, fields, pre_load, Schema
 
 from livestyled.models.audience import Audience
@@ -6,24 +8,22 @@ from livestyled.schemas.reality import RealitySchema
 
 
 class AudienceRealityValuesValueSchema(Schema):
-    class Meta:
-        unknown = EXCLUDE
-
     operator = fields.String()
-    value = fields.String()
+    value = fields.Raw()
 
     @pre_load
     def pre_process_value(self, data, **kwarg):
-        data['value'] = str(data['value'])
+        if isinstance(data['value'], List):
+            data['value'] = [(lambda x: str(x))(x) for x in data['value']]
+        else:
+            data['value'] = str(data['value'])
         return data
 
 
 class AudienceRealityValuesSchema(Schema):
-    class Meta:
-        unknown = EXCLUDE
-
     reality = RelatedResourceLinkField(schema=RealitySchema, microservice_aware=True)
     values = fields.Nested(AudienceRealityValuesValueSchema, many=True)
+    condition = fields.String(missing=None)
 
 
 class AudienceSchema(Schema):
