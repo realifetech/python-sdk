@@ -14,6 +14,7 @@ class Ticket:
             seat,
             qr_code_url,
             title,
+            legacy_external_event_id,
             external_event_id,
             barcode,
             sector_name,
@@ -62,6 +63,7 @@ class Ticket:
         self.qr_code_url = qr_code_url
         self.session_date = session_date
         self.title = title
+        self.legacy_external_event_id = legacy_external_event_id
         self.external_event_id = external_event_id
         self.barcode = barcode
         self.sector_name = sector_name
@@ -172,6 +174,7 @@ class Ticket:
             seat=None,
             qr_code_url=None,
             title=None,
+            legacy_external_event_id=None,
             external_event_id=None,
             barcode=None,
             sector_name=None,
@@ -222,6 +225,7 @@ class Ticket:
             qr_code_url=None,
             session_date=None,
             title=None,
+            legacy_external_event_id=None,
             external_event_id=None,
             barcode=None,
             sector_name=None,
@@ -265,6 +269,7 @@ class Ticket:
             qr_code_url=qr_code_url,
             session_date=session_date,
             title=title,
+            legacy_external_event_id=legacy_external_event_id,
             external_event_id=external_event_id,
             barcode=barcode,
             sector_name=sector_name,
@@ -364,9 +369,9 @@ class Ticket:
     def diff(self, other):
         differences = {}
         fields = (
-            'external_ticket_id', 'seat', 'qr_code_url', 'session_date', 'title', 'external_event_id',
-            'barcode', 'sector_name', 'venue_name', 'venue_room', 'client_name', 'premium', 'client_email',
-            'price', 'status', 'can_share', 'sharer_email', 'redeemed_at', 'redeemer_id', 'share_code',
+            'external_ticket_id', 'seat', 'qr_code_url', 'session_date', 'title', 'legacy_external_event_id',
+            'external_event_id', 'barcode', 'sector_name', 'venue_name', 'venue_room', 'client_name', 'premium',
+            'client_email', 'price', 'status', 'can_share', 'sharer_email', 'redeemed_at', 'redeemer_id', 'share_code',
             'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text', 'map_url',
             'map_image_url', 'ticket_integration', 'entrance', 'row', 'section', 'price_code', 'external_customer_ref',
             'venue', 'event', 'event_date', 'currency', 'external_card_ref'
