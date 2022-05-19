@@ -44,12 +44,12 @@ class Location:
             self,
             id,
             name,
-            coordinates,
             polygon,
             status,
             sort_id,
             listed,
-            external_id
+            external_id,
+            coordinates=None
     ):
         self.id = id
         self.name = name
