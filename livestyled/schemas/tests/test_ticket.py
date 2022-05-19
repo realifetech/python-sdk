@@ -76,7 +76,8 @@ def test_deserialize_ticket():
             'event_date': 249881,
             'external_movement_id': None,
             'currency': 2,
-            'external_card_ref': None
+            'external_card_ref': None,
+            'legacy_external_event_id': None
         }
 
 
@@ -130,7 +131,8 @@ def test_deserialize_ticket_shared():
             'event_date': None,
             'external_movement_id': None,
             'currency': 2,
-            'external_card_ref': None
+            'external_card_ref': None,
+            'legacy_external_event_id': None
         }
 
 
@@ -184,7 +186,8 @@ def test_deserialize_ticket_shared_redeemed():
             'event_date': None,
             'external_movement_id': None,
             'currency': 2,
-            'external_card_ref': None
+            'external_card_ref': None,
+            'legacy_external_event_id': None
         }
 
 
@@ -252,7 +255,8 @@ def test_deserialize_ticket_with_event_and_venue():
             'event_date': None,
             'external_movement_id': None,
             'currency': 1,
-            'external_card_ref': None
+            'external_card_ref': None,
+            'legacy_external_event_id': None
         }
 
 
@@ -313,5 +317,6 @@ def test_serialize_ticket():
         'eventDate': None,
         'externalMovementId': None,
         'currency': None,
-        'externalCardRef': None
+        'externalCardRef': None,
+        'externalEventId': None
     }
