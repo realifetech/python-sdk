@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta, timezone
+import json
 import os
+from typing import Dict
 
 from livestyled.schemas.ticket import TicketSchema
 
@@ -77,7 +79,15 @@ def test_deserialize_ticket():
             'external_movement_id': None,
             'currency': 2,
             'external_card_ref': None,
-            'legacy_external_event_id': None
+            'legacy_external_event_id': None,
+            'additional_fields': [
+                {
+                    'name': 'name',
+                    'value': 'value',
+                    'data_type': 'string',
+                    'sort': 0
+                }
+            ],
         }
 
 
@@ -132,7 +142,8 @@ def test_deserialize_ticket_shared():
             'external_movement_id': None,
             'currency': 2,
             'external_card_ref': None,
-            'legacy_external_event_id': None
+            'legacy_external_event_id': None,
+            'additional_fields': None,
         }
 
 
@@ -187,7 +198,8 @@ def test_deserialize_ticket_shared_redeemed():
             'external_movement_id': None,
             'currency': 2,
             'external_card_ref': None,
-            'legacy_external_event_id': None
+            'legacy_external_event_id': None,
+            'additional_fields': None
         }
 
 
@@ -256,7 +268,8 @@ def test_deserialize_ticket_with_event_and_venue():
             'external_movement_id': None,
             'currency': 1,
             'external_card_ref': None,
-            'legacy_external_event_id': None
+            'legacy_external_event_id': None,
+            'additional_fields': None,
         }
 
 
@@ -318,5 +331,82 @@ def test_serialize_ticket():
         'externalMovementId': None,
         'currency': None,
         'externalCardRef': None,
-        'externalEventId': None
+        'externalEventId': None,
+        'additionalFields': None,
     }
+
+
+def test_ticket_diff():
+    ticket = get_ticket()
+    ticket2 = get_ticket({
+        'additionalFields': [
+            {
+                'name': 'name',
+                'value': 'value2',
+                'dataType': 'string',
+                'sort': 0
+            }
+        ]
+    })
+    diff = ticket.diff(ticket2)
+    assert 'additional_fields' in diff
+
+
+def get_ticket(data: Dict or None = None):
+    default_ticket = {
+        'id': 0,
+        'externalTicketId': '4343',
+        'seat': '',
+        'qrCodeUrl': '',
+        'sessionDate': '2022-05-20T09:30:20+00:00',
+        'title': '',
+        'legacyExternalEventId': '',
+        'externalEventId': '',
+        'barcode': '',
+        'sectorName': '',
+        'venueName': '',
+        'venueRoom': '',
+        'clientName': '',
+        'premium': False,
+        'clientEmail': '',
+        'price': 0,
+        'status': '',
+        'canShare': False,
+        'sharerEmail': '',
+        'redeemedAt': '2022-05-20T09:30:20+00:00',
+        'createdAt': '2022-05-20T09:30:20+00:00',
+        'updatedAt': '2022-05-20T09:30:20+00:00',
+        'shareCode': '',
+        'redeemerEmail': '',
+        'parentTicket': None,
+        'sharedAt': '2022-05-20T09:30:20+00:00',
+        'legalLongText': '',
+        'legalShortText': '',
+        'mapUrl': '',
+        'mapImageUrl': '',
+        'ticketIntegration': None,
+        'entrance': '',
+        'row': '',
+        'section': '',
+        'priceCode': '',
+        'externalCustomerRef': '',
+        'venue': None,
+        'event': None,
+        'currency': None,
+        'externalCardRef': '',
+        'user': None,
+        'additionalFields': [
+            {
+                'name': 'name',
+                'value': 'value',
+                'dataType': 'string',
+                'sort': 0
+            }
+        ],
+    }
+
+    if data:
+        default_ticket = {**default_ticket, **data}
+
+    ticket = TicketSchema().loads(json.dumps(default_ticket))
+    return TicketSchema().Meta.model(**ticket)

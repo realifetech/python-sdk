@@ -38,5 +38,13 @@
         "canShare": false,
         "app": "/v4/apps/27"
     },
-    "eventDate": "/v4/event_dates/249881"
+    "eventDate": "/v4/event_dates/249881",
+    "additionalFields": [
+        {
+            "name": "name",
+            "value": "value",
+            "dataType": "string",
+            "sort": 0
+        }
+    ]
 }
