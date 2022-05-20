@@ -54,7 +54,8 @@ class Ticket:
             ticket_auth=None,
             event_date=None,
             currency=None,
-            external_card_ref=None
+            external_card_ref=None,
+            additional_fields=None
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
@@ -161,6 +162,7 @@ class Ticket:
                 self.currency = Currency(**currency)
         else:
             self.currency = None
+        self.additional_fields = additional_fields
 
     @classmethod
     def placeholder(
@@ -212,7 +214,8 @@ class Ticket:
             venue=None,
             event=None,
             currency=None,
-            external_card_ref=None
+            external_card_ref=None,
+            additional_fields=None,
         )
 
     @classmethod
@@ -259,7 +262,8 @@ class Ticket:
             venue: Venue or str or int or None = None,
             event: Event or str or int or None = None,
             currency: Currency or None = None,
-            external_card_ref=None
+            external_card_ref=None,
+            additional_fields=None,
     ):
         ticket = Ticket(
             id=None,
@@ -306,7 +310,8 @@ class Ticket:
             venue=venue,
             event=event,
             currency=currency,
-            external_card_ref=external_card_ref
+            external_card_ref=external_card_ref,
+            additional_fields=additional_fields
         )
         if isinstance(user, (str, int)):
             user = User.placeholder(id=user)
@@ -374,7 +379,7 @@ class Ticket:
             'client_email', 'price', 'status', 'can_share', 'sharer_email', 'redeemed_at', 'redeemer_id', 'share_code',
             'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text', 'map_url',
             'map_image_url', 'ticket_integration', 'entrance', 'row', 'section', 'price_code', 'external_customer_ref',
-            'venue', 'event', 'event_date', 'currency', 'external_card_ref'
+            'venue', 'event', 'event_date', 'currency', 'external_card_ref', 'additional_fields'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

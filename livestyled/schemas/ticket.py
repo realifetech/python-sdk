@@ -26,6 +26,16 @@ class TicketTicketAuthSchema(Schema):
     id = fields.Int()
 
 
+class AdditionalFields(Schema):
+    class Meta:
+        unknown = EXCLUDE
+
+    name = fields.String(required=True)
+    value = fields.String(required=True)
+    data_type = fields.String(data_key='dataType', required=True)
+    sort = fields.Int(required=True)
+
+
 class TicketSchema(Schema):
     class Meta:
         unknown = EXCLUDE
@@ -86,3 +96,5 @@ class TicketSchema(Schema):
     venue = RelatedResourceLinkField(schema=VenueSchema, required=False, missing=None)
     currency = RelatedResourceLinkField(schema=CurrencySchema, required=False, missing=None)
     external_card_ref = fields.String(data_key='externalCardRef', required=False, missing=None)
+    additional_fields = fields.Nested(AdditionalFields, data_key='additionalFields', allow_none=True, missing=None,
+                                      many=True)
