@@ -81,7 +81,7 @@ def test_ticket_difference():
             'dataType': 'string'
         }])
 
-    difference = current.diff(new)
+    difference = new.diff(current)
 
     assert difference == {
         'additional_fields': [
