@@ -385,8 +385,8 @@ class Ticket:
             if getattr(self, field) != getattr(other, field):
                 if field == 'additional_fields':
                     additional_fields = []
-                    for current in getattr(self, field):
-                        for new in getattr(other, field):
+                    for current in getattr(other, field):
+                        for new in getattr(self, field):
                             if current['sort'] == new['sort']:
                                 for key in current.keys():
                                     current[key] = new[key]
