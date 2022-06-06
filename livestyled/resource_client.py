@@ -49,6 +49,7 @@ from livestyled.models import (
     TicketAuth,
     TicketIntegration,
     User,
+    UserCohort,
     UserEmail,
     UserInfo,
     UserSSO,
@@ -107,6 +108,7 @@ from livestyled.schemas import (
     UserCreateSchema,
     UserInfoSchema,
     UserSchema,
+    UserCohortSchema,
     UserSSOSchema,
     VenueSchema,
     WidgetSchema,
@@ -726,6 +728,12 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             content_type_override='application/json'
         )
         return True
+
+    def get_user_cohort(
+            self,
+            id: int
+    ) -> UserCohort:
+        return self._get_resource_by_id(UserCohortSchema, id)
 
     # ---- MAGIC FIELDS
 
