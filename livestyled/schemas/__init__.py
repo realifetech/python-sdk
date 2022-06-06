@@ -114,6 +114,7 @@ __all__ = [
     TicketSchema,
     UserAliasSchema,
     UserAliasTypeSchema,
+    UserCohortSchema,
     UserCreateSchema,
     UserEmailSchema,
     UserInfoSchema,
