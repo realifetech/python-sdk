@@ -53,6 +53,7 @@ from livestyled.schemas.ticket_integration import TicketIntegrationSchema
 from livestyled.schemas.user import (
     UserAliasSchema, UserAliasTypeSchema, UserCreateSchema, UserEmailSchema, UserInfoSchema, UserSchema, UserSSOSchema
 )
+from livestyled.schemas.user_cohort import UserCohortSchema
 from livestyled.schemas.venue import VenueSchema
 from livestyled.schemas.widget import WidgetSchema, WidgetVariationSchema
 
@@ -113,6 +114,7 @@ __all__ = [
     TicketSchema,
     UserAliasSchema,
     UserAliasTypeSchema,
+    UserCohortSchema,
     UserCreateSchema,
     UserEmailSchema,
     UserInfoSchema,
