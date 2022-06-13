@@ -383,15 +383,16 @@ class Ticket:
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
-                if field == 'additional_fields':
-                    additional_fields = []
-                    for current in getattr(other, field):
-                        for new in getattr(self, field):
-                            if current['sort'] == new['sort']:
-                                for key in current.keys():
-                                    current[key] = new[key]
-                        additional_fields.append(current)
-                    differences[field] = additional_fields
+                if field == 'additional_fields' and getattr(other, field):
+                    if getattr(self, field):
+                        additional_fields = []
+                        for current in getattr(other, field):
+                            for new in getattr(self, field):
+                                if current['sort'] == new['sort']:
+                                    for key in current.keys():
+                                        current[key] = new[key]
+                            additional_fields.append(current)
+                        differences[field] = additional_fields
                 else:
                     differences[field] = getattr(self, field)
         return differences
