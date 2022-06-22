@@ -873,7 +873,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             filters['provider'] = provider
         try:
             device_token_data = self._api_get(
-                'devices/{}/device_tokens'.format(device.id),
+                'v4/devices/{}/device_tokens'.format(device.id),
                 params=filters
             )
         except HTTPError as http_error:
