@@ -539,11 +539,15 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
     def get_user_ssos(
             self,
             sub: str or None = None,
+            user_id: int or None = None,
     ) -> Generator[UserSSO, None, None]:
+        filters = {}
         if sub:
-            return self._get_resource_list(UserSSOSchema, filters={'sub': sub})
+            filters['sub'] = sub
+        if user_id:
+            filters['user'] = user_id
         else:
-            return self._get_resource_list(UserSSOSchema)
+            return self._get_resource_list(UserSSOSchema, filters=filters)
 
     def get_user_sso(
             self,
