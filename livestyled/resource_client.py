@@ -546,8 +546,7 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             filters['sub'] = sub
         if user_id:
             filters['user'] = user_id
-        else:
-            return self._get_resource_list(UserSSOSchema, filters=filters)
+        return self._get_resource_list(UserSSOSchema, filters=filters)
 
     def get_user_sso(
             self,
