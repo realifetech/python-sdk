@@ -384,7 +384,7 @@ class Ticket:
             'venue', 'event', 'event_date', 'currency', 'external_card_ref', 'additional_fields'
         )
         for field in fields:
-            if getattr(self, field) != getattr(other, field):
+            if (hasattr(self, field) and hasattr(other, field)) and getattr(self, field) != getattr(other, field):
                 if field == 'additional_fields' and getattr(other, field):
                     if getattr(self, field):
                         additional_fields = []
