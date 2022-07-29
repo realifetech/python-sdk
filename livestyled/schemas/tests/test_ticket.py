@@ -332,7 +332,7 @@ def test_serialize_ticket():
         'currency': None,
         'externalCardRef': None,
         'externalEventId': None,
-        'additionalFields': None,
+        'additionalFields': [],
     }
 
 

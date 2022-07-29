@@ -216,7 +216,7 @@ class Ticket:
             event=None,
             currency=None,
             external_card_ref=None,
-            additional_fields=None,
+            additional_fields=[],
         )
 
     @classmethod
@@ -266,6 +266,8 @@ class Ticket:
             external_card_ref=None,
             additional_fields=None,
     ):
+        if additional_fields is None:
+            additional_fields = []
         ticket = Ticket(
             id=None,
             external_ticket_id=external_ticket_id,
