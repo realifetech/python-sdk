@@ -162,7 +162,9 @@ class Ticket:
                 self.currency = Currency(**currency)
         else:
             self.currency = None
-        self.additional_fields = additional_fields
+
+        if additional_fields:
+            self.additional_fields = additional_fields
 
     @classmethod
     def placeholder(
