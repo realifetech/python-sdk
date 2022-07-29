@@ -55,7 +55,7 @@ class Ticket:
             event_date=None,
             currency=None,
             external_card_ref=None,
-            additional_fields=None
+            additional_fields=[]
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
@@ -163,8 +163,7 @@ class Ticket:
         else:
             self.currency = None
 
-        if additional_fields:
-            self.additional_fields = additional_fields
+        self.additional_fields = additional_fields
 
     @classmethod
     def placeholder(
@@ -384,7 +383,7 @@ class Ticket:
             'venue', 'event', 'event_date', 'currency', 'external_card_ref', 'additional_fields'
         )
         for field in fields:
-            if (hasattr(self, field) and hasattr(other, field)) and getattr(self, field) != getattr(other, field):
+            if getattr(self, field) != getattr(other, field):
                 if field == 'additional_fields' and getattr(other, field):
                     if getattr(self, field):
                         additional_fields = []
