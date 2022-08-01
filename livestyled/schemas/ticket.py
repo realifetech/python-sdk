@@ -98,3 +98,4 @@ class TicketSchema(Schema):
     external_card_ref = fields.String(data_key='externalCardRef', required=False, missing=None)
     additional_fields = fields.Nested(AdditionalFields, data_key='additionalFields', allow_none=True, missing=None,
                                       many=True)
+    printed = fields.Boolean(allow_none=True, required=False, missing=True)

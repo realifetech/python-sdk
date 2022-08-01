@@ -188,5 +188,6 @@ def test_create_ticket(requests_mock):
         'price': 0,
         'user': '/v4/users/1234',
         'ticketIntegration': '/v4/ticket_integrations/99',
-        'additionalFields': []
+        'additionalFields': [],
+        'printed': True
     }

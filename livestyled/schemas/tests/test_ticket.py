@@ -88,6 +88,7 @@ def test_deserialize_ticket():
                     'sort': 0
                 }
             ],
+            'printed': True
         }
 
 
@@ -144,6 +145,7 @@ def test_deserialize_ticket_shared():
             'external_card_ref': None,
             'legacy_external_event_id': None,
             'additional_fields': None,
+            'printed': True
         }
 
 
@@ -199,7 +201,8 @@ def test_deserialize_ticket_shared_redeemed():
             'currency': 2,
             'external_card_ref': None,
             'legacy_external_event_id': None,
-            'additional_fields': None
+            'additional_fields': None,
+            'printed': True
         }
 
 
@@ -270,6 +273,7 @@ def test_deserialize_ticket_with_event_and_venue():
             'external_card_ref': None,
             'legacy_external_event_id': None,
             'additional_fields': None,
+            'printed': True
         }
 
 
@@ -333,6 +337,7 @@ def test_serialize_ticket():
         'externalCardRef': None,
         'externalEventId': None,
         'additionalFields': [],
+        'printed': True
     }
 
 
