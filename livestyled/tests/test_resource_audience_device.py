@@ -13,7 +13,7 @@ CONTENT_TYPE = 'application/ld+json'
 def test_audience_creation_duplicate(requests_mock):
     mock_responses = (
         ('POST', 'https://' + TEST_API_DOMAIN + '/v4/user_management/audience_devices',
-         'mock_responses/ls_api/user_management/create_audience_500_response.json', 500),
+         'mock_responses/ls_api/user_management/create_audience_400_response.json', 500),
     )
     configure_mock_responses(requests_mock, mock_responses, FIXTURES_DIR, CONTENT_TYPE)
 
