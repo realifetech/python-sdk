@@ -1201,7 +1201,18 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
             self,
             device_reality: DeviceReality
     ) -> DeviceReality:
-        return self._create_resource(DeviceRealitySchema, device_reality)
+        try:
+            return self._create_resource(DeviceRealitySchema, device_reality)
+        except HTTPError as http_error:
+            if http_error.response.status_code in [400, 500]:
+                res_json = http_error.response.json()
+                if res_json == {
+                    'code': 400,
+                    'type': 'ValidationException',
+                    'message': 'reality: Reality and Device combination already exists'
+                } or ('type' in res_json and res_json['type'] == 'UniqueConstraintViolationException'):
+                    return device_reality
+            raise
 
     def update_device_reality(
             self,
@@ -1354,10 +1365,10 @@ class LiveStyledResourceClient(LiveStyledAPIClient):
         try:
             return self._create_resource(AudienceDeviceSchema, audience_device)
         except HTTPError as http_error:
-            if http_error.response.status_code == 500:
+            if http_error.response.status_code in [400, 500]:
                 res_json = http_error.response.json()
                 if res_json == {
-                    'code': 500,
+                    'code': 400,
                     'type': 'ValidationException',
                     'message': 'audience: Audience and Device combination already exists'
                 } or ('type' in res_json and res_json['type'] == 'UniqueConstraintViolationException'):
