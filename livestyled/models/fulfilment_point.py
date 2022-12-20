@@ -88,6 +88,7 @@ class FulfilmentPoint:
             categories,
             venue,
             external_id,
+            external_source,
             audiences=[]
     ):
         self.__is_placeholder = False
@@ -101,6 +102,7 @@ class FulfilmentPoint:
         self.position = position
         self.reference = reference
         self.external_id = external_id
+        self.external_source = external_source
 
         if audiences:
             self.audiences = []
@@ -162,6 +164,7 @@ class FulfilmentPoint:
             categories=None,
             venue=None,
             external_id=None,
+            external_source=None,
             audiences=None
         )
         fp.__is_placeholder = True
@@ -175,6 +178,7 @@ class FulfilmentPoint:
             type: str,
             position: int,
             reference: str,
+            external_source: str or None = None,
             image_url: str or None = None,
             map_image_url: str or None = None,
             lat: int or None = None,
@@ -187,6 +191,7 @@ class FulfilmentPoint:
         fulfilment_point = FulfilmentPoint(
             id=None,
             external_id=external_id,
+            external_source=external_source,
             status=status,
             position=position,
             image_url=image_url,
@@ -205,8 +210,8 @@ class FulfilmentPoint:
     def diff(self, other):
         differences = {}
         fields = (
-            'external_id', 'type', 'status', 'position', 'reference', 'image_url', 'map_image_url', 'lat', 'long',
-            'translations', 'categories', 'venue', 'audiences'
+            'external_id', 'external_source', 'type', 'status', 'position', 'reference', 'image_url', 'map_image_url',
+            'lat', 'long', 'translations', 'categories', 'venue', 'audiences'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
@@ -219,6 +224,7 @@ class FulfilmentPoint:
         return all(
             [
                 self.external_id == other.external_id,
+                self.external_source == other.external_source,
                 self.lat == other.lat,
                 self.long == other.long,
                 self.type == other.type,

@@ -23,6 +23,7 @@ def test_deserialize_fulfilment_point():
             'image_url': 'https://apiv3.s3.eu-west-1.amazonaws.com/fulfilmentpoint/color-wheel.png',
             'reference': "Pallavi's Bar",
             'external_id': None,
+            'external_source': None,
             'status': 'ACTIVE',
             'id': 368,
             'lat': None,
