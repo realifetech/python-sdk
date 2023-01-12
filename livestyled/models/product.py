@@ -405,6 +405,8 @@ class Product:
                     self.categories.append(category)
                 elif isinstance(category, dict):
                     self.categories.append(ProductCategory(**category))
+                elif isinstance(category, int):
+                    self.categories.append(ProductCategory.placeholder(id=category))
         else:
             self.categories = []
 
