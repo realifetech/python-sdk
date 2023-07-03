@@ -40,6 +40,7 @@ def test_get_ticket(requests_mock):
     assert ticket.premium is False
     assert ticket.price == 199
     assert ticket.price_code is None
+    assert ticket.price_type is None
     assert ticket.redeemer_email is None
     assert ticket.redeemer_id is None
     assert ticket.redeemer is None
@@ -85,6 +86,7 @@ def test_get_ticket_shared(requests_mock):
     assert ticket.premium is False
     assert ticket.price == 199
     assert ticket.price_code is None
+    assert ticket.price_type is None
     assert ticket.redeemer_email is None
     assert ticket.redeemer_id is None
     assert ticket.redeemer is None
@@ -130,6 +132,7 @@ def test_get_ticket_shared_redeemed(requests_mock):
     assert ticket.premium is False
     assert ticket.price == 199
     assert ticket.price_code is None
+    assert ticket.price_type is None
     assert ticket.redeemer_email == 'someoneelse@livestyled.com'
     assert ticket.redeemer_id == 1234
     assert isinstance(ticket.redeemer, User)
