@@ -99,4 +99,4 @@ class TicketSchema(Schema):
     additional_fields = fields.Nested(AdditionalFields, data_key='additionalFields', allow_none=True, missing=None,
                                       many=True)
     printed = fields.Boolean(allow_none=True, required=False, missing=True)
-    timezone = fields.Boolean(allow_none=True, required=False, missing=None)
+    timezone = fields.String(allow_none=True, required=False, missing=None)
