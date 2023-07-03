@@ -88,7 +88,8 @@ def test_deserialize_ticket():
                     'sort': 0
                 }
             ],
-            'printed': True
+            'printed': True,
+            'timezone': None,
         }
 
 
@@ -145,7 +146,8 @@ def test_deserialize_ticket_shared():
             'external_card_ref': None,
             'legacy_external_event_id': None,
             'additional_fields': None,
-            'printed': True
+            'printed': True,
+            'timezone': None,
         }
 
 
@@ -202,7 +204,8 @@ def test_deserialize_ticket_shared_redeemed():
             'external_card_ref': None,
             'legacy_external_event_id': None,
             'additional_fields': None,
-            'printed': True
+            'printed': True,
+            'timezone': None,
         }
 
 
@@ -273,7 +276,8 @@ def test_deserialize_ticket_with_event_and_venue():
             'external_card_ref': None,
             'legacy_external_event_id': None,
             'additional_fields': None,
-            'printed': True
+            'printed': True,
+            'timezone': None,
         }
 
 
@@ -337,7 +341,8 @@ def test_serialize_ticket():
         'externalCardRef': None,
         'externalEventId': None,
         'additionalFields': [],
-        'printed': True
+        'printed': True,
+        'timezone': None,
     }
 
 
@@ -408,6 +413,7 @@ def get_ticket(data: Dict or None = None):
                 'sort': 0
             }
         ],
+        'timezone': None
     }
 
     if data:
