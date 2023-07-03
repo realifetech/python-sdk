@@ -76,6 +76,11 @@ class TicketIntegration:
     def __repr__(self):
         return '<TicketIntegration(id={self.id!r})>'.format(self=self)
 
+    def __eq__(self, other):
+        if isinstance(other, TicketIntegration):
+            return self.id == other.id
+        return False
+
     def diff(self, other):
         differences = {}
         fields = (
