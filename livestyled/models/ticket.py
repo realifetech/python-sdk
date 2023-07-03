@@ -56,7 +56,8 @@ class Ticket:
             currency=None,
             external_card_ref=None,
             additional_fields=[],
-            printed=True
+            printed=True,
+            timezone=None
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
@@ -166,6 +167,7 @@ class Ticket:
 
         self.additional_fields = additional_fields
         self.printed = printed
+        self.timezone = timezone
 
     @classmethod
     def placeholder(
@@ -219,7 +221,8 @@ class Ticket:
             currency=None,
             external_card_ref=None,
             additional_fields=[],
-            printed=True
+            printed=True,
+            timezone=None
         )
 
     @classmethod
@@ -268,7 +271,8 @@ class Ticket:
             currency: Currency or None = None,
             external_card_ref=None,
             additional_fields=None,
-            printed=True
+            printed=True,
+            timezone=None
     ):
         if additional_fields is None:
             additional_fields = []
@@ -319,7 +323,8 @@ class Ticket:
             currency=currency,
             external_card_ref=external_card_ref,
             additional_fields=additional_fields,
-            printed=printed
+            printed=printed,
+            timezone=timezone
         )
         if isinstance(user, (str, int)):
             user = User.placeholder(id=user)
@@ -387,7 +392,7 @@ class Ticket:
             'client_email', 'price', 'status', 'can_share', 'sharer_email', 'redeemed_at', 'redeemer_id', 'share_code',
             'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text', 'map_url',
             'map_image_url', 'ticket_integration', 'entrance', 'row', 'section', 'price_code', 'external_customer_ref',
-            'venue', 'event', 'event_date', 'currency', 'external_card_ref', 'additional_fields', 'printed'
+            'venue', 'event', 'event_date', 'currency', 'external_card_ref', 'additional_fields', 'printed', 'timezone'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):
