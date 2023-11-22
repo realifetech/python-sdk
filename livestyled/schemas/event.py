@@ -48,3 +48,4 @@ class EventSchema(Schema):
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=True)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=True)
     core_event_category = fields.Nested(CoreEventCategory, data_key='coreEventCategory', missing=None)
+    external_id = fields.String(data_key='externalId')

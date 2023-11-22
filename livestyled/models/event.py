@@ -21,7 +21,8 @@ class Event:
             translations=None,
             image_url=None,
             venues=None,
-            core_event_category=None
+            core_event_category=None,
+            external_id=None
     ):
         self._id = id
         self.status = status
@@ -52,6 +53,7 @@ class Event:
                 self.core_event_category = core_event_category
         else:
             self.core_event_category = CoreEventCategory(name='Other')
+        self.external_id = external_id
 
     @classmethod
     def placeholder(
@@ -69,6 +71,7 @@ class Event:
             updated_at=None,
             event_dates=None,
             translations=None,
+            external_id=None
         )
 
     @property
