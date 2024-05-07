@@ -334,13 +334,13 @@ class Ticket:
         if isinstance(user, (str, int)):
             user = User.placeholder(id=user)
         ticket._user = user
-        if isinstance(sharer, (str or int)):
+        if isinstance(sharer, (str, int)):
             sharer = User.placeholder(id=sharer)
         ticket._sharer = sharer
-        if isinstance(redeemer, (str or int)):
+        if isinstance(redeemer, (str, int)):
             redeemer = User.placeholder(id=redeemer)
         ticket._redeemer = redeemer
-        if isinstance(parent_ticket, (str or int)):
+        if isinstance(parent_ticket, (str, int)):
             parent_ticket = Ticket.placeholder(id=parent_ticket)
         ticket._parent_ticket = parent_ticket
         return ticket
