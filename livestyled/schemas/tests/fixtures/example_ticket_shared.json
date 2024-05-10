@@ -20,5 +20,6 @@
     "status": "shared",
     "shareCode": "ABCDEF12345",
     "sharedAt": "2019-05-24T12:41:22+00:00",
-    "sharerEmail": "test@livestyled.com"
+    "sharerEmail": "test@livestyled.com",
+    "ticketType": "ticket"
 }
