@@ -57,7 +57,7 @@ def test_get_ticket(requests_mock):
     assert ticket.venue_name is None
     assert ticket.venue_room is None
     assert ticket.redeemed_at is None
-    assert ticket.ticket_type is None
+    assert ticket.ticket_type is 'ticket'
 
 
 def test_get_ticket_shared(requests_mock):
@@ -104,7 +104,7 @@ def test_get_ticket_shared(requests_mock):
     assert ticket.venue_name is None
     assert ticket.venue_room is None
     assert ticket.redeemed_at is None
-    assert ticket.ticket_type is None
+    assert ticket.ticket_type is 'ticket'
 
 
 def test_get_ticket_shared_redeemed(requests_mock):
@@ -152,7 +152,7 @@ def test_get_ticket_shared_redeemed(requests_mock):
     assert ticket.venue_name is None
     assert ticket.venue_room is None
     assert ticket.redeemed_at == datetime(2019, 5, 24, 13, 41, 22, tzinfo=timezone(timedelta(0), '+0000'))
-    assert ticket.ticket_type is None
+    assert ticket.ticket_type is 'ticket'
 
 
 def test_create_ticket(requests_mock):
