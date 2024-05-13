@@ -91,6 +91,7 @@ def test_deserialize_ticket():
             ],
             'printed': True,
             'timezone': None,
+            'ticket_type': 'ticket',
         }
 
 
@@ -150,6 +151,7 @@ def test_deserialize_ticket_shared():
             'additional_fields': None,
             'printed': True,
             'timezone': None,
+            'ticket_type': 'ticket',
         }
 
 
@@ -209,6 +211,7 @@ def test_deserialize_ticket_shared_redeemed():
             'additional_fields': None,
             'printed': True,
             'timezone': None,
+            'ticket_type': 'ticket',
         }
 
 
@@ -282,6 +285,7 @@ def test_deserialize_ticket_with_event_and_venue():
             'additional_fields': None,
             'printed': True,
             'timezone': None,
+            'ticket_type': 'ticket',
         }
 
 
@@ -294,7 +298,8 @@ def test_serialize_ticket():
         client_name='Test Testerson',
         entrance='Entrance A',
         event=9999,
-        user=8888
+        user=8888,
+        ticket_type='ticket',
     )
     serialized_ticket = TicketSchema().dump(ticket)
     assert serialized_ticket == {
@@ -348,6 +353,7 @@ def test_serialize_ticket():
         'additionalFields': [],
         'printed': True,
         'timezone': None,
+        'ticketType': 'ticket',
     }
 
 
@@ -419,7 +425,8 @@ def get_ticket(data: Dict or None = None):
                 'sort': 0
             }
         ],
-        'timezone': None
+        'timezone': None,
+        'ticket_type': 'ticket',
     }
 
     if data:

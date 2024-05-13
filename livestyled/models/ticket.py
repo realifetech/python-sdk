@@ -58,7 +58,8 @@ class Ticket:
             external_card_ref=None,
             additional_fields=[],
             printed=True,
-            timezone=None
+            timezone=None,
+            ticket_type='ticket'
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
@@ -170,6 +171,7 @@ class Ticket:
         self.additional_fields = additional_fields
         self.printed = printed
         self.timezone = timezone
+        self.ticket_type = ticket_type
 
     @classmethod
     def placeholder(
@@ -225,7 +227,8 @@ class Ticket:
             external_card_ref=None,
             additional_fields=[],
             printed=True,
-            timezone=None
+            timezone=None,
+            ticket_type='ticket'
         )
 
     @classmethod
@@ -276,7 +279,8 @@ class Ticket:
             external_card_ref=None,
             additional_fields=None,
             printed=True,
-            timezone=None
+            timezone=None,
+            ticket_type='ticket'
     ):
         if additional_fields is None:
             additional_fields = []
@@ -329,7 +333,8 @@ class Ticket:
             external_card_ref=external_card_ref,
             additional_fields=additional_fields,
             printed=printed,
-            timezone=timezone
+            timezone=timezone,
+            ticket_type=ticket_type
         )
         if isinstance(user, (str, int)):
             user = User.placeholder(id=user)
@@ -398,7 +403,7 @@ class Ticket:
             'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text', 'map_url',
             'map_image_url', 'ticket_integration', 'entrance', 'row', 'section', 'price_code', 'price_type',
             'external_customer_ref', 'venue', 'event', 'event_date', 'currency', 'external_card_ref',
-            'additional_fields', 'printed', 'timezone'
+            'additional_fields', 'printed', 'timezone', 'ticket_type'
         )
         for field in fields:
             if getattr(self, field) != getattr(other, field):

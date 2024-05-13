@@ -23,5 +23,6 @@
     "sharerEmail": "test@livestyled.com",
     "redeemerEmail": "someoneelse@livestyled.com",
     "redeemedAt": "2019-05-24T13:41:22+00:00",
-    "redeemer": "/v4/users/1234"
+    "redeemer": "/v4/users/1234",
+    "ticketType": "ticket"
 }

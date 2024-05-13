@@ -46,5 +46,6 @@
             "dataType": "string",
             "sort": 0
         }
-    ]
+    ],
+    "ticketType": "ticket"
 }

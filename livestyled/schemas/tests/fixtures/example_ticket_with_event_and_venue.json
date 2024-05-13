@@ -52,5 +52,6 @@
         "userEmail": "/v4/user_emails/328811",
         "clientEmail": "hakan.goransson@stockholmlive.com",
         "clientId": "hakan.goransson@stockholmlive.com"
-    }
+    },
+    "ticketType": "ticket"
 }
