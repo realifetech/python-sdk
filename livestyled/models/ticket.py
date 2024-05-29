@@ -394,7 +394,7 @@ class Ticket:
     def __repr__(self):
         return '<Ticket(id={self.id!r})>'.format(self=self)
 
-    def diff(self, other):
+    def diff(self, existing):
         differences = {}
         fields = (
             'external_ticket_id', 'seat', 'qr_code_url', 'session_date', 'title', 'legacy_external_event_id',
@@ -406,27 +406,23 @@ class Ticket:
             'additional_fields', 'printed', 'timezone', 'ticket_type'
         )
         for field in fields:
-            if getattr(self, field) != getattr(other, field):
-                if field == 'additional_fields' and getattr(other, field):
-                    if getattr(self, field):
-                        differences[field] = merge_additional_fields(getattr(other, field), getattr(self, field))
+            current = getattr(existing, field)
+            new = getattr(self, field)
+            if new != current:
+                if field == 'additional_fields' and new:
+                    if additional_fields_changed(current, new):
+                        differences[field] = new
                 else:
-                    differences[field] = getattr(self, field)
+                    differences[field] = new
         return differences
 
 
-def merge_additional_fields(current_additional_fields, new_additional_fields):
-    current_afs = {item['sort']: item for item in current_additional_fields}
-    new_afs = {item['sort']: item for item in new_additional_fields}
-    merged = {}
+def additional_fields_changed(current, new):
+    # sort both current and new lists by 'sort' to ensure proper comparison
+    sorted_current = sorted(current, key=lambda x: x['sort'])
+    sorted_new = sorted(new, key=lambda x: x['sort'])
 
-    # get sort values of items in both current/new sets
-    all_sort_values = set(current_afs.keys()).union(new_afs.keys())
-    for sort_val in all_sort_values:
-        if sort_val in new_afs:
-            # if there's a new field with this sort value - overwrite existing
-            merged[sort_val] = new_afs[sort_val]
-        else:
-            # otherwise, just keep the existing field
-            merged[sort_val] = current_afs[sort_val]
-    return list(merged.values())
+    # check if there are actual changes
+    if sorted_current != sorted_new:
+        return sorted_new
+    return None

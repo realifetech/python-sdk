@@ -92,11 +92,6 @@ def test_ticket_difference():
                 'value': 'FULL 1',
                 'sort': 1,
                 'dataType': 'string'
-            }, {
-                'name': 'Ticket Type 2',
-                'value': 'test',
-                'sort': 2,
-                'dataType': 'string'
             }
         ]
     }
@@ -134,7 +129,7 @@ def test_ticket_difference_with_empty_ticket_additional_fields():
         user_id=12,
         created_at=None,
         updated_at=None,
-        additional_fields=None
+        additional_fields=[]
     )
 
     new = Ticket(
