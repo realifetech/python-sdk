@@ -53,5 +53,6 @@
         "clientEmail": "hakan.goransson@stockholmlive.com",
         "clientId": "hakan.goransson@stockholmlive.com"
     },
-    "ticketType": "ticket"
+    "ticketType": "ticket",
+    "aisle": "aisle"
 }
