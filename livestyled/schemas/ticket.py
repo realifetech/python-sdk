@@ -102,3 +102,4 @@ class TicketSchema(Schema):
     printed = fields.Boolean(allow_none=True, required=False, missing=True)
     timezone = fields.String(allow_none=True, required=False, missing=None)
     ticket_type = fields.String(data_key='ticketType', required=False, allow_none=False)
+    aisle = fields.String(data_key='aisle', required=False, allow_none=False)
