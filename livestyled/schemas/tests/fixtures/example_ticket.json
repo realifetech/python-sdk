@@ -47,5 +47,6 @@
             "sort": 0
         }
     ],
-    "ticketType": "ticket"
+    "ticketType": "ticket",
+    "aisle": "aisle"
 }

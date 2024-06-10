@@ -59,7 +59,8 @@ class Ticket:
             additional_fields=[],
             printed=True,
             timezone=None,
-            ticket_type='ticket'
+            ticket_type='ticket',
+            aisle=None,
     ):
         self.id = id
         self.external_ticket_id = external_ticket_id
@@ -172,6 +173,7 @@ class Ticket:
         self.printed = printed
         self.timezone = timezone
         self.ticket_type = ticket_type
+        self.aisle = aisle
 
     @classmethod
     def placeholder(
@@ -228,7 +230,8 @@ class Ticket:
             additional_fields=[],
             printed=True,
             timezone=None,
-            ticket_type='ticket'
+            ticket_type='ticket',
+            aisle=None,
         )
 
     @classmethod
@@ -280,7 +283,8 @@ class Ticket:
             additional_fields=None,
             printed=True,
             timezone=None,
-            ticket_type='ticket'
+            ticket_type='ticket',
+            aisle=None,
     ):
         if additional_fields is None:
             additional_fields = []
@@ -334,7 +338,8 @@ class Ticket:
             additional_fields=additional_fields,
             printed=printed,
             timezone=timezone,
-            ticket_type=ticket_type
+            ticket_type=ticket_type,
+            aisle=aisle,
         )
         if isinstance(user, (str, int)):
             user = User.placeholder(id=user)
@@ -403,7 +408,7 @@ class Ticket:
             'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text', 'map_url',
             'map_image_url', 'ticket_integration', 'entrance', 'row', 'section', 'price_code', 'price_type',
             'external_customer_ref', 'venue', 'event', 'event_date', 'currency', 'external_card_ref',
-            'additional_fields', 'printed', 'timezone', 'ticket_type'
+            'additional_fields', 'printed', 'timezone', 'ticket_type', 'aisle'
         )
         for field in fields:
             current = getattr(existing, field)
