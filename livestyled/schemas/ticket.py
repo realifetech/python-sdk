@@ -68,6 +68,7 @@ class TicketSchema(Schema):
     status = fields.String(required=False, missing=None)
     price_code = fields.String(data_key='priceCode', required=False, missing=None)
     price_type = fields.String(data_key='priceType', required=False, missing=None)
+    price_zone = fields.String(data_key='priceZone', required=False, missing=None)
     created_at = fields.AwareDateTime(data_key='createdAt', allow_none=False)
     updated_at = fields.AwareDateTime(data_key='updatedAt', allow_none=False)
     user_id = RelatedResourceLinkField(schema=UserSchema, required=False, missing=None, data_key='user', microservice_aware=False)

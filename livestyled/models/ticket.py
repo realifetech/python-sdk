@@ -31,6 +31,7 @@ class Ticket:
             row,
             price_code,
             price_type,
+            price_zone,
             created_at,
             updated_at,
             user_id,
@@ -88,6 +89,7 @@ class Ticket:
         self.row = row
         self.price_code = price_code
         self.price_type = price_type
+        self.price_zone = price_zone
         if user_id:
             self._user = User.placeholder(id=user_id)
         else:
@@ -204,6 +206,7 @@ class Ticket:
             row=None,
             price_code=None,
             price_type=None,
+            price_zone=None,
             created_at=None,
             updated_at=None,
             user_id=None,
@@ -260,6 +263,7 @@ class Ticket:
             external_customer_ref=None,
             price_code=None,
             price_type=None,
+            price_zone=None,
             entrance=None,
             status=None,
             can_share=False,
@@ -315,6 +319,7 @@ class Ticket:
             row=row,
             price_code=price_code,
             price_type=price_type,
+            price_zone=price_zone,
             user_id=None,
             status=status,
             can_share=can_share,
@@ -407,7 +412,7 @@ class Ticket:
             'client_email', 'price', 'status', 'can_share', 'sharer_email', 'redeemed_at', 'redeemer_id', 'share_code',
             'redeemer_email', 'parent_ticket', 'shared_at', 'legal_long_text', 'legal_short_text', 'map_url',
             'map_image_url', 'ticket_integration', 'entrance', 'row', 'section', 'price_code', 'price_type',
-            'external_customer_ref', 'venue', 'event', 'event_date', 'currency', 'external_card_ref',
+            'price_zone', 'external_customer_ref', 'venue', 'event', 'event_date', 'currency', 'external_card_ref',
             'additional_fields', 'printed', 'timezone', 'ticket_type', 'aisle'
         )
         for field in fields:
