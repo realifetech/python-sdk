@@ -1,14 +1,20 @@
 -r requirements.txt
 
-coveralls==1.11.1
-flake8==3.7.9
-flake8-import-order==0.18.1
+# setuptools>=82 dropped pkg_resources, which flake8-import-order 0.18.x imports at load time.
+# Pin below 82 for the (dev-only) lint/test env; does not affect the shipped package.
+setuptools<82
+coveralls==3.3.1
+flake8==7.1.1
+flake8-import-order==0.18.2
 flake8-mutable==1.2.0
-flake8-pep3101==1.2.1
-flake8-quotes==2.1.1
+# flake8-pep3101 2.x uses ast.Num (removed in Python 3.12); 3.0.0 fixes that but requires >=3.10.
+# No single version spans the whole CI matrix, so select per Python version.
+flake8-pep3101==2.1.0; python_version < "3.12"
+flake8-pep3101==3.0.0; python_version >= "3.12"
+flake8-quotes==3.4.0
 flake8-tuple==0.4.1
-pytest==4.6.7
-pytest-blockage==0.2.2
-pytest-cov==2.8.1
-requests-mock==1.7.0
-tox==3.28.0
+pytest==8.3.4
+pytest-blockage==0.2.4
+pytest-cov==5.0.0
+requests-mock==1.12.1
+tox==4.23.2
