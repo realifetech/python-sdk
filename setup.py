@@ -1,12 +1,23 @@
 import os
 import re
 
-from pkg_resources import parse_requirements
 from setuptools import find_packages, setup
 
 del os.link
 
 PACKAGE_NAME = 'livestyled'
+
+
+def parse_requirements(requirements_file):
+    """Read requirements.txt into a list of requirement strings, skipping blanks,
+    comments and pip options (e.g. --extra-index-url). Replaces the old
+    pkg_resources.parse_requirements, which broke on setuptools>=82 (pkg_resources removed)."""
+    with open(requirements_file, 'r') as f:
+        return [
+            line.strip()
+            for line in f
+            if line.strip() and not line.startswith(('#', '-'))
+        ]
 
 
 def parse_version(package_name):
@@ -40,7 +51,8 @@ setup(
     author='LiveStyled',
     author_email='dev@livestyled.com',
     url='https://github.com/livestyled/python-sdk',
-    install_requires=[str(req) for req in parse_requirements(open(requirements_fn).read())],
+    python_requires='>=3.9',
+    install_requires=parse_requirements(requirements_fn),
     entry_points="""
     [console_scripts]
     """
